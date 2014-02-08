@@ -1,0 +1,27 @@
+<h1>Listing database_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @database_types.each do |database_type| %>
+      <tr>
+        <td><%= database_type.name %></td>
+        <td><%= link_to 'Show', database_type %></td>
+        <td><%= link_to 'Edit', edit_database_type_path(database_type) %></td>
+        <td><%= link_to 'Destroy', database_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Database type', new_database_type_path %>

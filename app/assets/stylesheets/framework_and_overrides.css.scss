@@ -36,7 +36,7 @@ main {
   @extend .container;
   background-color: #eee;
   padding-bottom: 80px;
-  width: 960px; /* 100%;   */
+  width: 90%; // 960px; /* 100%;   */
   margin-top: 51px; // accommodate the navbar
   border: 1px black solid
   }
@@ -49,7 +49,7 @@ section {
   width: 100%
 }
 .navbar {
-  width: 960px;
+  width: 90%; //960px;
   margin-left: auto;
   margin-right: auto;
 }

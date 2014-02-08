@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @database_instance.organization_id %>
+</p>
+
+<p>
+  <strong>Database type:</strong>
+  <%= @database_instance.database_type_id %>
+</p>
+
+<%= link_to 'Edit', edit_database_instance_path(@database_instance) %> |
+<%= link_to 'Back', database_instances_path %>

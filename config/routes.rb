@@ -1,5 +1,11 @@
 TrackMyCampaign::Application.routes.draw do
 
+  resources :database_instances
+
+  resources :database_types
+
+  resources :organizations
+
   get '/about', to: 'static_pages#about' # creates named path 'about'
   get '/welcome', to: 'static_pages#welcome' # creates named path 'welcome'
   get '/add_user', to: 'users#new' # creates named path 'add_user'

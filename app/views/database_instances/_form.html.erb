@@ -1,0 +1,25 @@
+<%= form_for(@database_instance) do |f| %>
+  <% if @database_instance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@database_instance.errors.count, "error") %> prohibited this database_instance from being saved:</h2>
+
+      <ul>
+      <% @database_instance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :organization_id %><br>
+    <%= f.number_field :organization_id %>
+  </div>
+  <div class="field">
+    <%= f.label :database_type_id %><br>
+    <%= f.number_field :database_type_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
