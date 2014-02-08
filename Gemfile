@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg', '0.17.1' #PostgreSQL
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -14,6 +13,9 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+
+#use will_paginate to show big tables page by page
+gem 'will_paginate', '~> 3.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -32,11 +34,39 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'rails_12factor' #for deployment to Heroku
+
+gem 'bootstrap-sass' #include bootstrap css and js files
+
+group :development do
+  gem 'rails_layout'  #gem to set up for bootstrap css and js http://railsapps.github.io/twitter-bootstrap-rails.html
+  gem 'annotate'  #adds annotations to models, call bundle exec annotate to make it work
+end
+
+group :test do
+  gem 'capybara'
+  gem 'rb-fsevent'
+  #gem 'growl'  #not needed if we don't want notifications from guard.
+  gem 'guard-spork'
+  gem 'spork-rails'
+  gem 'factory_girl_rails'
+
+  gem 'cucumber-rails', '1.4.0', :require => false
+  gem 'database_cleaner', github: 'bmabey/database_cleaner'
+end
+
+group :development, :text do
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+end
 
 # Use unicorn as the app server
-# gem 'unicorn'
+group :production do
+  gem 'unicorn'
+end
+
+# Use ActiveModel has_secure_password
+gem 'bcrypt-ruby'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
