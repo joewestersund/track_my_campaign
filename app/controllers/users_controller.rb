@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       create_user_defaults(@user)
-      flash[:notice] = "Welcome to the Spending Tracker! We've set up some default account names and transaction categories for you."
+      flash[:notice] = "The new user has been created."
       redirect_to welcome_path
     else
       render 'new'
@@ -52,11 +52,16 @@ class UsersController < ApplicationController
   def show
   end
 
+  def index
+    render 'new' unless current_user.present? && current_user.admin?
+    @users = User.all
+  end
+
   def destroy
     sign_out
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to signup_path }
+      format.html { redirect_to signin_path }
       format.json { head :no_content }
     end
   end
@@ -87,7 +92,7 @@ class UsersController < ApplicationController
       a.user = user
       if !a.save
         respond_to do |format|
-          format.html { redirect_to signup_path }
+          format.html { redirect_to signin_path }
           format.json { head :no_content }
         end
       end
@@ -101,7 +106,7 @@ class UsersController < ApplicationController
       tc.user = user
       if !tc.save
         respond_to do |format|
-          format.html { redirect_to signup_path }
+          format.html { redirect_to signin_path }
           format.json { head :no_content }
         end
       end

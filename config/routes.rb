@@ -2,7 +2,7 @@ TrackMyCampaign::Application.routes.draw do
 
   get '/about', to: 'static_pages#about' # creates named path 'about'
   get '/welcome', to: 'static_pages#welcome' # creates named path 'welcome'
-  get '/signup', to: 'users#new' # creates named path 'signup'
+  get '/add_user', to: 'users#new' # creates named path 'add_user'
 
   resources :users
   get '/profile/edit_password', to: 'users#edit_password'

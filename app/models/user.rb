@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   validates :password, :presence =>true, :confirmation => true, :length => { :within => 6..40 }, :on => :create
   validates :password, :confirmation => true, :length => { :within => 6..40 }, :on => :update_password
 
+  def admin?
+    self.admin
+  end
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
