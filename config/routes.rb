@@ -9,6 +9,11 @@ TrackMyCampaign::Application.routes.draw do
   get '/profile/edit', to: 'users#edit'
   patch '/profile/update_password', to: 'users#update_password'
 
+  resources :sessions, only: [:new, :create, :destroy]
+  get '/signin', to: "sessions#new"
+  delete '/signout', to: "sessions#destroy"
+
+  root 'static_pages#about'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
