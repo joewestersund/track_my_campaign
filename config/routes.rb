@@ -1,4 +1,15 @@
 TrackMyCampaign::Application.routes.draw do
+
+  get '/about', to: 'static_pages#about' # creates named path 'about'
+  get '/welcome', to: 'static_pages#welcome' # creates named path 'welcome'
+  get '/signup', to: 'users#new' # creates named path 'signup'
+
+  resources :users
+  get '/profile/edit_password', to: 'users#edit_password'
+  get '/profile/edit', to: 'users#edit'
+  patch '/profile/update_password', to: 'users#update_password'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
