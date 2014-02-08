@@ -1,8 +1,15 @@
 form {
-  div.field label {
-    display: block;
+  div.field {
+    label {
+      display: block;
 
+    }
+
+    input.email {
+      width: 300px;
+    }
   }
+
   p {
     margin: 5px auto;
   }

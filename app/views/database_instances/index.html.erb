@@ -1,11 +1,10 @@
-<h1>Listing database_instances</h1>
+<h1>Database Instances</h1>
 
 <table>
   <thead>
     <tr>
       <th>Organization</th>
-      <th>Database type</th>
-      <th></th>
+      <th>Database Type</th>
       <th></th>
       <th></th>
     </tr>
@@ -14,9 +13,8 @@
   <tbody>
     <% @database_instances.each do |database_instance| %>
       <tr>
-        <td><%= database_instance.organization_id %></td>
-        <td><%= database_instance.database_type_id %></td>
-        <td><%= link_to 'Show', database_instance %></td>
+        <td><%= database_instance.organization.name %></td>
+        <td><%= database_instance.database_type.name %></td>
         <td><%= link_to 'Edit', edit_database_instance_path(database_instance) %></td>
         <td><%= link_to 'Destroy', database_instance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -26,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Database instance', new_database_instance_path %>
+<%= link_to 'New Database Instance', new_database_instance_path %>

@@ -3,13 +3,15 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  name            :string(255)
 #  email           :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
 #  remember_token  :string(255)
 #  password_digest :string(255)
 #  admin           :boolean
+#  first_name      :string(255)
+#  last_name       :string(255)
+#  organization_id :integer
 #
 
 require 'spec_helper'

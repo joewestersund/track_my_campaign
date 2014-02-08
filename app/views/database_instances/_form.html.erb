@@ -10,16 +10,17 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label :organization_id %><br>
-    <%= f.number_field :organization_id %>
+    <%= f.label :organization %>
+    <%= f.collection_select :organization_id, @organizations, :id, :name %>
+    <%= link_to "Add / Edit", new_organization_path %>
   </div>
   <div class="field">
-    <%= f.label :database_type_id %><br>
-    <%= f.number_field :database_type_id %>
+    <%= f.label "Database Type" %>
+    <%= f.collection_select :database_type_id, @database_types, :id, :name %>
+    <%= link_to "Add / Edit", new_database_type_path %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit locals[:new] ? "Create" : "Update", class: "btn btn-large btn-primary"%>
   </div>
 <% end %>

@@ -1,4 +1,5 @@
 class DatabaseTypesController < ApplicationController
+  before_action :admin_user
   before_action :set_database_type, only: [:show, :edit, :update, :destroy]
 
   # GET /database_types

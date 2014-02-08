@@ -1,5 +1,7 @@
 class DatabaseInstancesController < ApplicationController
+  before_action :admin_user
   before_action :set_database_instance, only: [:show, :edit, :update, :destroy]
+  before_action :set_select_options, only: [:new, :edit]
 
   # GET /database_instances
   # GET /database_instances.json
@@ -14,6 +16,8 @@ class DatabaseInstancesController < ApplicationController
 
   # GET /database_instances/new
   def new
+    @organizations = Organization.all
+    @database_types = DatabaseType.all
     @database_instance = DatabaseInstance.new
   end
 
@@ -70,5 +74,10 @@ class DatabaseInstancesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def database_instance_params
       params.require(:database_instance).permit(:organization_id, :database_type_id)
+    end
+
+    def set_select_options
+      @organizations = Organization.all
+      @database_types = DatabaseType.all
     end
 end

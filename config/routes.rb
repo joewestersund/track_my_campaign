@@ -11,9 +11,7 @@ TrackMyCampaign::Application.routes.draw do
   get '/add_user', to: 'users#new' # creates named path 'add_user'
 
   resources :users
-  get '/profile/edit_password', to: 'users#edit_password'
   get '/profile/edit', to: 'users#edit'
-  patch '/profile/update_password', to: 'users#update_password'
 
   resources :sessions, only: [:new, :create, :destroy]
   get '/signin', to: "sessions#new"

@@ -10,4 +10,10 @@
 #
 
 class DatabaseInstance < ActiveRecord::Base
+  belongs_to :organization
+  belongs_to :database_type
+
+  validates :organization_id, presence: true
+  validates :database_type_id, presence: true
+
 end
