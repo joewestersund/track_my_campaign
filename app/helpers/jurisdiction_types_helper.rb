@@ -1,0 +1,2 @@
+module JurisdictionTypesHelper
+end

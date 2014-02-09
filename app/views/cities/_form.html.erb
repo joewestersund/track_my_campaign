@@ -1,0 +1,65 @@
+<%= form_for(@city) do |f| %>
+  <% if @city.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@city.errors.count, "error") %> prohibited this city from being saved:</h2>
+
+      <ul>
+      <% @city.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :database_instance_id %><br>
+    <%= f.number_field :database_instance_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :county %><br>
+    <%= f.text_field :county %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :jurisdiction_type_id %><br>
+    <%= f.number_field :jurisdiction_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :league_division_id %><br>
+    <%= f.number_field :league_division_id %>
+  </div>
+  <div class="field">
+    <%= f.label :population %><br>
+    <%= f.number_field :population %>
+  </div>
+  <div class="field">
+    <%= f.label :kp_service_area %><br>
+    <%= f.check_box :kp_service_area %>
+  </div>
+  <div class="field">
+    <%= f.label :under_resourced_or_disease_burden %><br>
+    <%= f.check_box :under_resourced_or_disease_burden %>
+  </div>
+  <div class="field">
+    <%= f.label :state_median_income %><br>
+    <%= f.text_field :state_median_income %>
+  </div>
+  <div class="field">
+    <%= f.label :city_median_income %><br>
+    <%= f.text_field :city_median_income %>
+  </div>
+  <div class="field">
+    <%= f.label :HEAL_city_designation_id %><br>
+    <%= f.number_field :HEAL_city_designation_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

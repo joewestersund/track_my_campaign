@@ -1,5 +1,25 @@
 TrackMyCampaign::Application.routes.draw do
 
+  resources :honorifics
+
+  resources :communications
+
+  resources :communication_types
+
+  resources :topics
+
+  resources :contacts
+
+  resources :cities
+
+  resources :heal_city_designations
+
+  resources :contact_interest_levels
+
+  resources :position_types
+
+  resources :jurisdiction_types
+
   resources :database_instances
 
   resources :database_types
