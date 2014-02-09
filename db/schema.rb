@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140209015550) do
+ActiveRecord::Schema.define(version: 20140209021544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140209015550) do
     t.integer  "duration_minutes"
     t.integer  "communication_type_id"
     t.string   "event_name"
-    t.integer  "contact_interest_level_id"
+    t.integer  "interest_level_id"
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -83,6 +83,10 @@ ActiveRecord::Schema.define(version: 20140209015550) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "honorific_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "database_instances", force: true do |t|
@@ -107,6 +111,14 @@ ActiveRecord::Schema.define(version: 20140209015550) do
   end
 
   create_table "honorifics", force: true do |t|
+    t.integer  "database_instance_id"
+    t.string   "name"
+    t.integer  "order_in_list"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "interest_levels", force: true do |t|
     t.integer  "database_instance_id"
     t.string   "name"
     t.integer  "order_in_list"

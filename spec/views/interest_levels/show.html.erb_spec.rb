@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "contact_interest_levels/show" do
+describe "interest_levels/show" do
   before(:each) do
-    @contact_interest_level = assign(:contact_interest_level, stub_model(ContactInterestLevel,
+    @interest_level = assign(:interest_level, stub_model(InterestLevel,
       :database_instance_id => 1,
       :name => "Name",
       :order_in_list => 2

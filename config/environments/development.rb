@@ -5,6 +5,18 @@ TrackMyCampaign::Application.configure do
   # from https://github.com/thoughtbot/paperclip
   Paperclip.options[:command_path] = "/opt/local/bin/"
 
+  # config/environments/production.rb
+  # from https://devcenter.heroku.com/articles/paperclip-s3
+  # more on S3 http://docs.aws.amazon.com/IAM/latest/UserGuide/ExampleIAMPolicies.html#iampolicy-example-s3
+  config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+          :bucket => 'track-my-campaign-contact-photos', #ENV['S3_BUCKET_NAME'],  # track-my-campaign-contact-photos
+          :access_key_id => 'AKIAI5KWQMAE5PEZPQCA',      #ENV['AWS_ACCESS_KEY_ID'],    # AKIAI5KWQMAE5PEZPQCA
+          :secret_access_key => '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'   # ENV['AWS_SECRET_ACCESS_KEY']   # bcONhxQQvJZ9E6sYPrld1OwfFIMyZh++OMhG0Pm1
+      }
+  }
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

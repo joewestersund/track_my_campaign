@@ -20,4 +20,13 @@
 #
 
 class City < ActiveRecord::Base
+  belongs_to :database_instance
+  has_one :jurisdiction_type
+  #has_one :league_division
+  has_one :heal_city_designation
+
+  validates :name, presence: true
+  validates :state, presence: true
+  validates :jurisdiction_type_id, presence: true
+
 end

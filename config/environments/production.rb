@@ -11,6 +11,12 @@ TrackMyCampaign::Application.configure do
       }
   }
 
+  # For paperclip access to S3 above, need to run these commands in command line interface:
+  # per https://devcenter.heroku.com/articles/paperclip-s3#international-users-additional-configuration
+  # $ heroku config:set S3_BUCKET_NAME=your_bucket_name
+  # $ heroku config:set AWS_ACCESS_KEY_ID=your_access_key_id
+  # $ heroku config:set AWS_SECRET_ACCESS_KEY=your_secret_access_key
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

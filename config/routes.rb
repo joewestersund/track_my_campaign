@@ -1,5 +1,7 @@
 TrackMyCampaign::Application.routes.draw do
 
+  resources :interest_levels
+
   resources :honorifics
 
   resources :communications
@@ -13,8 +15,6 @@ TrackMyCampaign::Application.routes.draw do
   resources :cities
 
   resources :heal_city_designations
-
-  resources :contact_interest_levels
 
   resources :position_types
 

@@ -1,5 +1,23 @@
 <%# add navigation links to this file %>
 <% if signed_in? %>
+
+  <li><%= link_to "Communications", communications_path %></li>
+  <li><%= link_to "Contacts", contacts_path %></li>
+  <li><%= link_to "Cities", cities_path %></li>
+
+  <li id="fat-menu" class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      Setup <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li><%= link_to "HEAL City Designations", heal_city_designations_path %></li>
+      <li><%= link_to "Honorifics", honorifics_path %></li>
+      <li><%= link_to "Communication Types", communication_types_path  %></li>
+      <li><%= link_to "Interest Levels", interest_levels_path %></li>
+      <li><%= link_to "Jurisdiction Types", jurisdiction_types_path %></li>
+      <li><%= link_to "Position Types", position_types_path %></li>
+    </ul>
+  </li>
   <% if current_user.admin? %>
     <li id="fat-menu" class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">

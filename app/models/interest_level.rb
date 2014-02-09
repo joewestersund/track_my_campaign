@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: contact_interest_levels
+# Table name: interest_levels
 #
 #  id                   :integer          not null, primary key
 #  database_instance_id :integer
@@ -10,8 +10,5 @@
 #  updated_at           :datetime
 #
 
-require 'spec_helper'
-
-describe ContactInterestLevel do
-  pending "add some examples to (or delete) #{__FILE__}"
+class InterestLevel < ActiveRecord::Base
 end

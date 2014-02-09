@@ -24,9 +24,22 @@
 #  created_at           :datetime
 #  updated_at           :datetime
 #  honorific_id         :integer
+#  photo_file_name      :string(255)
+#  photo_content_type   :string(255)
+#  photo_file_size      :integer
+#  photo_updated_at     :datetime
 #
 
 class Contact < ActiveRecord::Base
+  belongs_to :database_instance
+  belongs_to :city
+  has_one :honorific
+  has_one :interest_level
+  has_one :position_type
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :interest_level_id, presence: true
 
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :photo, styles: {

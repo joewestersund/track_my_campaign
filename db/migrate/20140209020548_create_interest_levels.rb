@@ -1,6 +1,6 @@
-class CreateContactInterestLevels < ActiveRecord::Migration
+class CreateInterestLevels < ActiveRecord::Migration
   def change
-    create_table :contact_interest_levels do |t|
+    create_table :interest_levels do |t|
       t.integer :database_instance_id
       t.string :name
       t.integer :order_in_list

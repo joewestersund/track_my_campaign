@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-describe "contact_interest_levels/index" do
+describe "interest_levels/index" do
   before(:each) do
-    assign(:contact_interest_levels, [
-      stub_model(ContactInterestLevel,
+    assign(:interest_levels, [
+      stub_model(InterestLevel,
         :database_instance_id => 1,
         :name => "Name",
         :order_in_list => 2
       ),
-      stub_model(ContactInterestLevel,
+      stub_model(InterestLevel,
         :database_instance_id => 1,
         :name => "Name",
         :order_in_list => 2
@@ -16,7 +16,7 @@ describe "contact_interest_levels/index" do
     ])
   end
 
-  it "renders a list of contact_interest_levels" do
+  it "renders a list of interest_levels" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => 1.to_s, :count => 2

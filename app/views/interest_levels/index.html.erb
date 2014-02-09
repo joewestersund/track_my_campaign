@@ -1,0 +1,31 @@
+<h1>Listing interest_levels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Database instance</th>
+      <th>Name</th>
+      <th>Order in list</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interest_levels.each do |interest_level| %>
+      <tr>
+        <td><%= interest_level.database_instance_id %></td>
+        <td><%= interest_level.name %></td>
+        <td><%= interest_level.order_in_list %></td>
+        <td><%= link_to 'Show', interest_level %></td>
+        <td><%= link_to 'Edit', edit_interest_level_path(interest_level) %></td>
+        <td><%= link_to 'Destroy', interest_level, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interest level', new_interest_level_path %>
