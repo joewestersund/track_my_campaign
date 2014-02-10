@@ -1,5 +1,5 @@
 class DatabaseTypesController < ApplicationController
-  before_action :admin_user
+  before_action :check_admin_user
   before_action :set_database_type, only: [:show, :edit, :update, :destroy]
 
   # GET /database_types
@@ -70,6 +70,6 @@ class DatabaseTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def database_type_params
-      params.require(:database_type).permit(:name)
+      params.require(:database_type).permit(:name, :internal_name)
     end
 end

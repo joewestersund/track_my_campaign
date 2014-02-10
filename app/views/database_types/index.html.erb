@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Internal Name (as used by the code, to recognize this type)</th>
       <th></th>
       <th></th>
     </tr>
@@ -13,6 +14,7 @@
     <% @database_types.each do |database_type| %>
       <tr>
         <td><%= database_type.name %></td>
+        <td><%= database_type.internal_name %></td>
         <td><%= link_to 'Edit', edit_database_type_path(database_type) %></td>
         <td><%= link_to 'Destroy', database_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

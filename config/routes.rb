@@ -1,29 +1,21 @@
 TrackMyCampaign::Application.routes.draw do
 
-  resources :interest_levels
-
-  resources :honorifics
-
+  resources :cities
   resources :communications
-
   resources :communication_types
-
+  resources :contacts
+  resources :heal_city_designations
+  resources :honorifics
+  resources :interest_levels
+  resources :jurisdiction_types
+  resources :position_types
   resources :topics
 
-  resources :contacts
-
-  resources :cities
-
-  resources :heal_city_designations
-
-  resources :position_types
-
-  resources :jurisdiction_types
-
   resources :database_instances
+  get '/select_database', to: 'database_instances#select_database'
+  get '/database_home/:id', to: 'database_instances#home', as: 'database_home'
 
   resources :database_types
-
   resources :organizations
 
   get '/about', to: 'static_pages#about' # creates named path 'about'

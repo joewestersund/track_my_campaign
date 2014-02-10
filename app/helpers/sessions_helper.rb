@@ -1,9 +1,12 @@
+
+
 module SessionsHelper
   def sign_in(user)
     remember_token = User.new_remember_token
     cookies.permanent[:remember_token] = remember_token
     user.update_attribute(:remember_token, User.encrypt(remember_token))
     self.current_user = user
+    set_default_current_db
   end
 
   def signed_in?
@@ -19,12 +22,16 @@ module SessionsHelper
     cookies.delete(:remember_token)
   end
 
-  def signed_in_user
+  def check_signed_in_user
     redirect_to signin_path, notice: "Please sign in." unless signed_in?
   end
 
-  def admin_user
+  def check_admin_user
     redirect_to signin_path, notice: "This action requires admin permissions." unless admin_user?
+  end
+
+  def check_current_db_exists
+    redirect_to signin_path, notice: "Please choose a database instance." unless current_db.present?
   end
 
   def current_user=(user)
@@ -34,6 +41,51 @@ module SessionsHelper
   def current_user
     remember_token = User.encrypt(cookies[:remember_token])
     @current_user ||= User.find_by(remember_token: remember_token)
+  end
+
+  def current_db
+    instance_id = session[:current_database_instance_id]
+    if instance_id.present? and db_instance_ids_this_user.include?(instance_id)
+      return DatabaseInstance.find(instance_id)
+    else
+      return nil
+    end
+  end
+
+  def set_current_db(instance)
+    if current_user.present? and db_instances_this_user.include?(instance)
+      session[:current_database_instance_id] = instance.id
+      return true
+    else
+      return false
+    end
+  end
+
+  def set_default_current_db
+    instances = db_instances_this_user
+    if instances.count == 1
+      session[:current_database_instance_id] = instances.first
+    else
+      session[:current_database_instance_id] = nil #clear the variable
+    end
+  end
+
+  def db_instances_this_user
+    if current_user.present?
+      if current_user.admin?
+        #admins have access to all database instances
+        return DatabaseInstance.all
+      else
+        #if user isn't an admin, then they will have an organization_id.
+        return DatabaseInstance.where(organization_id == user.organization_id)
+      end
+    else
+      return []
+    end
+  end
+
+  def db_instance_ids_this_user
+    db_instances_this_user.map{|dbi| dbi.id }
   end
 
 end

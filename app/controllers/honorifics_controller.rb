@@ -1,4 +1,5 @@
 class HonorificsController < ApplicationController
+  before_action :check_current_db_exists
   before_action :set_honorific, only: [:show, :edit, :update, :destroy]
 
   # GET /honorifics

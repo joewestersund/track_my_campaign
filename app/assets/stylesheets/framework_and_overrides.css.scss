@@ -37,7 +37,7 @@ main {
   background-color: #eee;
   padding-bottom: 80px;
   width: 90%; // 960px; /* 100%;   */
-  margin-top: 51px; // accommodate the navbar
+  margin-top: 71px; //51px; // accommodate the navbar
   border: 1px black solid
   }
 section {
@@ -52,4 +52,34 @@ section {
   width: 90%; //960px;
   margin-left: auto;
   margin-right: auto;
+  li a {
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+}
+.main-title {
+  margin-left: 10px;
+  margin_top: 5px;
+  font-size: 3em;
+  color: white;
+  line-height: 40px;
+}
+.sub-title {
+  font-size: 1em;
+  color: white;
+  float: right;
+  clear: both;
+}
+ul#switch_db {
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 10px;
+  float: none;
+  a {
+    font-size: 1em;
+    padding: 0px;
+  }
+}
+h1 {
+  font-size: 2em;
 }

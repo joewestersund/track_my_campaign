@@ -1,4 +1,5 @@
 class CitiesController < ApplicationController
+  before_action :check_current_db_exists
   before_action :set_city, only: [:show, :edit, :update, :destroy]
 
   # GET /cities
@@ -25,6 +26,7 @@ class CitiesController < ApplicationController
   # POST /cities.json
   def create
     @city = City.new(city_params)
+    @city.database_instance_id = current_db
 
     respond_to do |format|
       if @city.save
@@ -65,10 +67,12 @@ class CitiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_city
       @city = City.find(params[:id])
+      return @city if @city.database_instance == current_db
+      nil
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_params
-      params.require(:city).permit(:database_instance_id, :name, :county, :state, :jurisdiction_type_id, :league_division_id, :population, :kp_service_area, :under_resourced_or_disease_burden, :state_median_income, :city_median_income, :HEAL_city_designation_id)
+      params.require(:city).permit(:name, :county, :state, :jurisdiction_type_id, :league_division_id, :population, :kp_service_area, :under_resourced_or_disease_burden, :state_median_income, :city_median_income, :HEAL_city_designation_id)
     end
 end

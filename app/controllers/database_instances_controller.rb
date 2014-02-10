@@ -1,5 +1,5 @@
 class DatabaseInstancesController < ApplicationController
-  before_action :admin_user
+  before_action :check_admin_user, except: [:select_database, :home]
   before_action :set_database_instance, only: [:show, :edit, :update, :destroy]
   before_action :set_select_options, only: [:new, :edit]
 
@@ -7,6 +7,19 @@ class DatabaseInstancesController < ApplicationController
   # GET /database_instances.json
   def index
     @database_instances = DatabaseInstance.all
+  end
+
+  def select_database
+    @database_instances = db_instances_this_user
+  end
+
+  def home
+    #set this as the current db, and pass it to the view
+    if set_current_db(DatabaseInstance.find(params[:id]))
+      @database_instance = current_db
+    else
+      redirect_to 'select_database'
+    end
   end
 
   # GET /database_instances/1

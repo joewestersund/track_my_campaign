@@ -1,4 +1,5 @@
 class InterestLevelsController < ApplicationController
+  before_action :check_current_db_exists
   before_action :set_interest_level, only: [:show, :edit, :update, :destroy]
 
   # GET /interest_levels

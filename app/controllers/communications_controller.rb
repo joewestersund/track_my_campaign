@@ -1,4 +1,5 @@
 class CommunicationsController < ApplicationController
+  before_action :check_current_db_exists
   before_action :set_communication, only: [:show, :edit, :update, :destroy]
 
   # GET /communications

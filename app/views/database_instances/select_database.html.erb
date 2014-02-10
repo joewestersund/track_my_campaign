@@ -1,0 +1,19 @@
+<h1>Select a Database</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Database Type</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @database_instances.each do |database_instance| %>
+    <tr>
+      <td><%= link_to database_instance.name, database_home_path(database_instance) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>

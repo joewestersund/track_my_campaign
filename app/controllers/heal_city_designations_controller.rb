@@ -1,4 +1,5 @@
 class HealCityDesignationsController < ApplicationController
+  before_action :check_current_db_exists
   before_action :set_heal_city_designation, only: [:show, :edit, :update, :destroy]
 
   # GET /heal_city_designations

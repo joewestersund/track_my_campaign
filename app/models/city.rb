@@ -24,6 +24,7 @@ class City < ActiveRecord::Base
   has_one :jurisdiction_type
   #has_one :league_division
   has_one :heal_city_designation
+  has_and_belongs_to_many :communications
 
   validates :name, presence: true
   validates :state, presence: true

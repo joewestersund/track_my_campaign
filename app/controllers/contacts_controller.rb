@@ -1,10 +1,12 @@
 class ContactsController < ApplicationController
+  before_action :check_current_db_exists
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_select_options, only: [:new, :edit]
 
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    @contacts = current_db.contacts
   end
 
   # GET /contacts/1
@@ -25,6 +27,7 @@ class ContactsController < ApplicationController
   # POST /contacts.json
   def create
     @contact = Contact.new(contact_params)
+    @contact.database_instance = current_db
 
     respond_to do |format|
       if @contact.save
@@ -64,11 +67,16 @@ class ContactsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
-      @contact = Contact.find(params[:id])
+      @contact = current_db.contacts.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:database_instance_id, :first_name, :last_name, :title, :city_id, :organization_name, :phone_number, :email, :address_line_1, :address_line_2, :address_city, :address_state, :address_zip, :interest_level_id, :HEAL_champion, :HEAL_champion_notes, :position_type_id, :notes)
+      params.require(:contact).permit(:first_name, :last_name, :title, :city_id, :organization_name, :phone_number, :email, :address_line_1, :address_line_2, :address_city, :address_state, :address_zip, :interest_level_id, :HEAL_champion, :HEAL_champion_notes, :position_type_id, :notes, :photo)
+    end
+
+    def set_select_options
+      @users = current_db.users
+      @position_types = current_db.position_types
     end
 end

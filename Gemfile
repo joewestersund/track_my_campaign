@@ -42,6 +42,12 @@ gem 'bootstrap-sass' #include bootstrap css and js files
 gem 'paperclip'
 gem 'aws-sdk'
 
+# for multi-select listboxes
+# https://github.com/benjamincanac/bootstrap-multiselect-rails
+# http://rubygems.org/gems/bootstrap-multiselect-rails4
+# demos and options: http://davidstutz.github.io/bootstrap-multiselect/
+gem "bootstrap-multiselect-rails4", "~> 0.0.1"
+
 group :development do
   gem 'rails_layout'  #gem to set up for bootstrap css and js http://railsapps.github.io/twitter-bootstrap-rails.html
   gem 'annotate'  #adds annotations to models, call bundle exec annotate to make it work

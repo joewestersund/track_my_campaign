@@ -36,6 +36,7 @@ class Contact < ActiveRecord::Base
   has_one :honorific
   has_one :interest_level
   has_one :position_type
+  has_and_belongs_to_many :communications
 
   validates :first_name, presence: true
   validates :last_name, presence: true
