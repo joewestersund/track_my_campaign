@@ -1,5 +1,21 @@
 TrackMyCampaign::Application.routes.draw do
 
+  resources :survey_email_sents
+
+  resources :status_types
+
+  resources :milestone_reacheds
+
+  resources :milestones
+
+  resources :policy_adoptions
+
+  resources :resolutions
+
+  resources :heal_policies
+
+  resources :league_divisions
+
   resources :cities
   resources :communications
   resources :communication_types

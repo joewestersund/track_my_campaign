@@ -3,7 +3,6 @@
 <table>
   <thead>
     <tr>
-      <th>Database instance</th>
       <th>Name</th>
       <th>County</th>
       <th>State</th>
@@ -24,7 +23,6 @@
   <tbody>
     <% @cities.each do |city| %>
       <tr>
-        <td><%= city.database_instance_id %></td>
         <td><%= city.name %></td>
         <td><%= city.county %></td>
         <td><%= city.state %></td>

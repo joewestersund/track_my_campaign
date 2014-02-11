@@ -1,9 +1,8 @@
-<h1>Listing contacts</h1>
+<h1>Contacts</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Database instance</th>
       <th>First name</th>
       <th>Last name</th>
       <th>Title</th>
@@ -30,7 +29,6 @@
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= contact.database_instance_id %></td>
         <td><%= contact.first_name %></td>
         <td><%= contact.last_name %></td>
         <td><%= contact.title %></td>

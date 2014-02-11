@@ -1,0 +1,43 @@
+<h1>Listing survey_email_sents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Database instance</th>
+      <th>Contact</th>
+      <th>Email address</th>
+      <th>Sent date</th>
+      <th>Subject</th>
+      <th>Message</th>
+      <th>Survey monkey respondent</th>
+      <th>Response received</th>
+      <th>Reminder sent date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @survey_email_sents.each do |survey_email_sent| %>
+      <tr>
+        <td><%= survey_email_sent.database_instance_id %></td>
+        <td><%= survey_email_sent.contact_id %></td>
+        <td><%= survey_email_sent.email_address %></td>
+        <td><%= survey_email_sent.sent_date %></td>
+        <td><%= survey_email_sent.subject %></td>
+        <td><%= survey_email_sent.message %></td>
+        <td><%= survey_email_sent.survey_monkey_respondent_id %></td>
+        <td><%= survey_email_sent.response_received %></td>
+        <td><%= survey_email_sent.reminder_sent_date %></td>
+        <td><%= link_to 'Show', survey_email_sent %></td>
+        <td><%= link_to 'Edit', edit_survey_email_sent_path(survey_email_sent) %></td>
+        <td><%= link_to 'Destroy', survey_email_sent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Survey email sent', new_survey_email_sent_path %>

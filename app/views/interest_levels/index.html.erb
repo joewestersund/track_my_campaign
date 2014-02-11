@@ -1,9 +1,8 @@
-<h1>Listing interest_levels</h1>
+<h1>Levels of Interest in HEAL Cities, for Contacts Dropdown List</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Database instance</th>
       <th>Name</th>
       <th>Order in list</th>
       <th></th>
@@ -15,7 +14,6 @@
   <tbody>
     <% @interest_levels.each do |interest_level| %>
       <tr>
-        <td><%= interest_level.database_instance_id %></td>
         <td><%= interest_level.name %></td>
         <td><%= interest_level.order_in_list %></td>
         <td><%= link_to 'Show', interest_level %></td>

@@ -1,9 +1,8 @@
-<h1>Listing communications</h1>
+<h1>Communications</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Database instance</th>
       <th>Date</th>
       <th>Duration minutes</th>
       <th>Communication type</th>
@@ -19,7 +18,6 @@
   <tbody>
     <% @communications.each do |communication| %>
       <tr>
-        <td><%= communication.database_instance_id %></td>
         <td><%= communication.date %></td>
         <td><%= communication.duration_minutes %></td>
         <td><%= communication.communication_type_id %></td>

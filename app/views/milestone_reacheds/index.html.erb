@@ -1,0 +1,39 @@
+<h1>Listing milestone_reacheds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Database instance</th>
+      <th>Milestone</th>
+      <th>City</th>
+      <th>Status type</th>
+      <th>Completion date</th>
+      <th>Notes</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @milestone_reacheds.each do |milestone_reached| %>
+      <tr>
+        <td><%= milestone_reached.database_instance_id %></td>
+        <td><%= milestone_reached.milestone_id %></td>
+        <td><%= milestone_reached.city_id %></td>
+        <td><%= milestone_reached.status_type_id %></td>
+        <td><%= milestone_reached.completion_date %></td>
+        <td><%= milestone_reached.notes %></td>
+        <td><%= milestone_reached.user_id %></td>
+        <td><%= link_to 'Show', milestone_reached %></td>
+        <td><%= link_to 'Edit', edit_milestone_reached_path(milestone_reached) %></td>
+        <td><%= link_to 'Destroy', milestone_reached, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Milestone reached', new_milestone_reached_path %>

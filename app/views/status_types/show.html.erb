@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Database instance:</strong>
+  <%= @status_type.database_instance_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @status_type.name %>
+</p>
+
+<p>
+  <strong>Order in list:</strong>
+  <%= @status_type.order_in_list %>
+</p>
+
+<%= link_to 'Edit', edit_status_type_path(@status_type) %> |
+<%= link_to 'Back', status_types_path %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Database instance:</strong>
+  <%= @milestone_reached.database_instance_id %>
+</p>
+
+<p>
+  <strong>Milestone:</strong>
+  <%= @milestone_reached.milestone_id %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @milestone_reached.city_id %>
+</p>
+
+<p>
+  <strong>Status type:</strong>
+  <%= @milestone_reached.status_type_id %>
+</p>
+
+<p>
+  <strong>Completion date:</strong>
+  <%= @milestone_reached.completion_date %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @milestone_reached.notes %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @milestone_reached.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_milestone_reached_path(@milestone_reached) %> |
+<%= link_to 'Back', milestone_reacheds_path %>

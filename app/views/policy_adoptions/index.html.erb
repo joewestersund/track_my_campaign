@@ -1,0 +1,35 @@
+<h1>Listing policy_adoptions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Database instance</th>
+      <th>Date</th>
+      <th>City</th>
+      <th>Prior to joining campaign</th>
+      <th>Notes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @policy_adoptions.each do |policy_adoption| %>
+      <tr>
+        <td><%= policy_adoption.database_instance_id %></td>
+        <td><%= policy_adoption.date %></td>
+        <td><%= policy_adoption.city_id %></td>
+        <td><%= policy_adoption.prior_to_joining_campaign %></td>
+        <td><%= policy_adoption.notes %></td>
+        <td><%= link_to 'Show', policy_adoption %></td>
+        <td><%= link_to 'Edit', edit_policy_adoption_path(policy_adoption) %></td>
+        <td><%= link_to 'Destroy', policy_adoption, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Policy adoption', new_policy_adoption_path %>

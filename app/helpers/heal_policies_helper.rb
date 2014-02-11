@@ -1,0 +1,2 @@
+module HealPoliciesHelper
+end
