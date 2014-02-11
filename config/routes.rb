@@ -1,31 +1,25 @@
 TrackMyCampaign::Application.routes.draw do
 
-  resources :survey_email_sents
-
-  resources :status_types
-
-  resources :milestone_reacheds
-
-  resources :milestones
-
-  resources :policy_adoptions
-
-  resources :resolutions
-
-  resources :heal_policies
-
-  resources :league_divisions
-
-  resources :cities
-  resources :communications
-  resources :communication_types
-  resources :contacts
-  resources :heal_city_designations
-  resources :honorifics
-  resources :interest_levels
-  resources :jurisdiction_types
-  resources :position_types
-  resources :topics
+  namespace :heal do
+    resources :milestone_achievements
+    resources :policies
+    resources :city_designations
+    resources :survey_emails
+    resources :status_types
+    resources :milestones
+    resources :policy_adoptions
+    resources :resolutions
+    resources :league_divisions
+    resources :cities
+    resources :communications
+    resources :communication_types
+    resources :contacts
+    resources :honorifics
+    resources :interest_levels
+    resources :jurisdiction_types
+    resources :position_types
+    resources :topics
+  end
 
   resources :database_instances
   get '/select_database', to: 'database_instances#select_database'

@@ -1,0 +1,39 @@
+<h1>Listing milestone_achievements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Database instance</th>
+      <th>Milestone</th>
+      <th>City</th>
+      <th>Status type</th>
+      <th>Completion date</th>
+      <th>Notes</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @milestone_achievements.each do |milestone_achievement| %>
+      <tr>
+        <td><%= milestone_achievement.database_instance_id %></td>
+        <td><%= milestone_achievement.milestone_id %></td>
+        <td><%= milestone_achievement.city_id %></td>
+        <td><%= milestone_achievement.status_type_id %></td>
+        <td><%= milestone_achievement.completion_date %></td>
+        <td><%= milestone_achievement.notes %></td>
+        <td><%= milestone_achievement.user_id %></td>
+        <td><%= link_to 'Show', milestone_achievement %></td>
+        <td><%= link_to 'Edit', edit_heal_milestone_achievement_path(milestone_achievement) %></td>
+        <td><%= link_to 'Destroy', milestone_achievement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Milestone achievement', new_heal_milestone_achievement_path %>

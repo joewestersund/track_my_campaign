@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Database instance:</strong>
+  <%= @policy.database_instance_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @policy.name %>
+</p>
+
+<p>
+  <strong>Order in list:</strong>
+  <%= @policy.order_in_list %>
+</p>
+
+<%= link_to 'Edit', edit_heal_policy_path(@policy) %> |
+<%= link_to 'Back', heal_policies_path %>

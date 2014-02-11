@@ -1,0 +1,59 @@
+<h1>Contacts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Title</th>
+      <th>City</th>
+      <th>Organization name</th>
+      <th>Phone number</th>
+      <th>Email</th>
+      <th>Address line 1</th>
+      <th>Address line 2</th>
+      <th>Address city</th>
+      <th>Address state</th>
+      <th>Address zip</th>
+      <th>Interest level</th>
+      <th>Heal champion</th>
+      <th>Heal champion notes</th>
+      <th>Position type</th>
+      <th>Notes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.first_name %></td>
+        <td><%= contact.last_name %></td>
+        <td><%= contact.title %></td>
+        <td><%= contact.city_id %></td>
+        <td><%= contact.organization_name %></td>
+        <td><%= contact.phone_number %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.address_line_1 %></td>
+        <td><%= contact.address_line_2 %></td>
+        <td><%= contact.address_city %></td>
+        <td><%= contact.address_state %></td>
+        <td><%= contact.address_zip %></td>
+        <td><%= contact.interest_level_id %></td>
+        <td><%= contact.HEAL_champion %></td>
+        <td><%= contact.HEAL_champion_notes %></td>
+        <td><%= contact.position_type_id %></td>
+        <td><%= contact.notes %></td>
+        <td><%= link_to 'Show', contact %></td>
+        <td><%= link_to 'Edit', edit_heal_contact_path(contact) %></td>
+        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contact', new_heal_contact_path %>

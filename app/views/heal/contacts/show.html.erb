@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @contact.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @contact.last_name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @contact.title %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @contact.city_id %>
+</p>
+
+<p>
+  <strong>Organization name:</strong>
+  <%= @contact.organization_name %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @contact.phone_number %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @contact.email %>
+</p>
+
+<p>
+  <strong>Address line 1:</strong>
+  <%= @contact.address_line_1 %>
+</p>
+
+<p>
+  <strong>Address line 2:</strong>
+  <%= @contact.address_line_2 %>
+</p>
+
+<p>
+  <strong>Address city:</strong>
+  <%= @contact.address_city %>
+</p>
+
+<p>
+  <strong>Address state:</strong>
+  <%= @contact.address_state %>
+</p>
+
+<p>
+  <strong>Address zip:</strong>
+  <%= @contact.address_zip %>
+</p>
+
+<p>
+  <strong>Interest level:</strong>
+  <%= @contact.interest_level_id %>
+</p>
+
+<p>
+  <strong>Heal champion:</strong>
+  <%= @contact.HEAL_champion %>
+</p>
+
+<p>
+  <strong>Heal champion notes:</strong>
+  <%= @contact.HEAL_champion_notes %>
+</p>
+
+<p>
+  <strong>Position type:</strong>
+  <%= @contact.position_type_id %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @contact.notes %>
+</p>
+
+<%= link_to 'Edit', edit_heal_contact_path(@contact) %> |
+<%= link_to 'Back', heal_contacts_path %>

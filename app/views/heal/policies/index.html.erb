@@ -1,0 +1,31 @@
+<h1>Listing policies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Database instance</th>
+      <th>Name</th>
+      <th>Order in list</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @policies.each do |policy| %>
+      <tr>
+        <td><%= policy.database_instance_id %></td>
+        <td><%= policy.name %></td>
+        <td><%= policy.order_in_list %></td>
+        <td><%= link_to 'Show', policy %></td>
+        <td><%= link_to 'Edit', edit_heal_policy_path(policy) %></td>
+        <td><%= link_to 'Destroy', policy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Policy', new_heal_policy_path %>

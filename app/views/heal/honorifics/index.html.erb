@@ -1,0 +1,29 @@
+<h1>Honorifics for Contacts Dropdown List</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Order in list</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @honorifics.each do |honorific| %>
+      <tr>
+        <td><%= honorific.name %></td>
+        <td><%= honorific.order_in_list %></td>
+        <td><%= link_to 'Show', honorific %></td>
+        <td><%= link_to 'Edit', edit_heal_honorific_path(honorific) %></td>
+        <td><%= link_to 'Destroy', honorific, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Honorific', new_heal_honorific_path %>

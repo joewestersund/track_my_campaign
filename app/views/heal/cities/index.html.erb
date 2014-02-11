@@ -1,0 +1,47 @@
+<h1>Listing cities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>County</th>
+      <th>State</th>
+      <th>Jurisdiction type</th>
+      <th>League division</th>
+      <th>Population</th>
+      <th>Kp service area</th>
+      <th>Under resourced or disease burden</th>
+      <th>State median income</th>
+      <th>City median income</th>
+      <th>Heal city designation</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cities.each do |city| %>
+      <tr>
+        <td><%= city.name %></td>
+        <td><%= city.county %></td>
+        <td><%= city.state %></td>
+        <td><%= city.jurisdiction_type_id %></td>
+        <td><%= city.league_division_id %></td>
+        <td><%= city.population %></td>
+        <td><%= city.kp_service_area %></td>
+        <td><%= city.under_resourced_or_disease_burden %></td>
+        <td><%= city.state_median_income %></td>
+        <td><%= city.city_median_income %></td>
+        <td><%= city.HEAL_city_designation_id %></td>
+        <td><%= link_to 'Show', city %></td>
+        <td><%= link_to 'Edit', edit_heal_city_path(city) %></td>
+        <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New City', new_heal_city_path %>

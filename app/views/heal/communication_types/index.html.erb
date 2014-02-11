@@ -1,0 +1,30 @@
+<h1>Communication Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Order in list</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @communication_types.each do |communication_type| %>
+      <tr>
+        <td><%= communication_type.database_instance_id %></td>
+        <td><%= communication_type.name %></td>
+        <td><%= communication_type.order_in_list %></td>
+        <td><%= link_to 'Show', communication_type %></td>
+        <td><%= link_to 'Edit', edit_heal_communication_type_path(communication_type) %></td>
+        <td><%= link_to 'Destroy', communication_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Communication type', new_heal_communication_type_path %>

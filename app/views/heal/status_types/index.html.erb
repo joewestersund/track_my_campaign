@@ -1,0 +1,31 @@
+<h1>Listing status_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Database instance</th>
+      <th>Name</th>
+      <th>Order in list</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @status_types.each do |status_type| %>
+      <tr>
+        <td><%= status_type.database_instance_id %></td>
+        <td><%= status_type.name %></td>
+        <td><%= status_type.order_in_list %></td>
+        <td><%= link_to 'Show', status_type %></td>
+        <td><%= link_to 'Edit', edit_heal_status_type_path(status_type) %></td>
+        <td><%= link_to 'Destroy', status_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Status type', new_heal_status_type_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210015151) do
+ActiveRecord::Schema.define(version: 20140211070410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20140210015151) do
     t.decimal  "state_median_income"
     t.decimal  "city_median_income"
     t.integer  "HEAL_city_designation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "city_designations", force: true do |t|
+    t.integer  "database_instance_id"
+    t.string   "name"
+    t.integer  "order_in_list"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -111,6 +119,14 @@ ActiveRecord::Schema.define(version: 20140210015151) do
     t.datetime "updated_at"
   end
 
+  create_table "heal_policies", force: true do |t|
+    t.integer  "database_instance_id"
+    t.string   "name"
+    t.integer  "order_in_list"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "honorifics", force: true do |t|
     t.integer  "database_instance_id"
     t.string   "name"
@@ -135,8 +151,66 @@ ActiveRecord::Schema.define(version: 20140210015151) do
     t.datetime "updated_at"
   end
 
+  create_table "league_divisions", force: true do |t|
+    t.integer  "database_instance_id"
+    t.string   "name"
+    t.integer  "order_in_list"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "milestone_achievements", force: true do |t|
+    t.integer  "database_instance_id"
+    t.integer  "milestone_id"
+    t.integer  "city_id"
+    t.integer  "status_type_id"
+    t.date     "completion_date"
+    t.text     "notes"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "milestone_reacheds", force: true do |t|
+    t.integer  "database_instance_id"
+    t.integer  "milestone_id"
+    t.integer  "city_id"
+    t.integer  "status_type_id"
+    t.date     "completion_date"
+    t.text     "notes"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "milestones", force: true do |t|
+    t.integer  "database_instance_id"
+    t.string   "name"
+    t.integer  "order_in_list"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "organizations", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "policies", force: true do |t|
+    t.integer  "database_instance_id"
+    t.string   "name"
+    t.integer  "order_in_list"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "policy_adoptions", force: true do |t|
+    t.integer  "database_instance_id"
+    t.date     "date"
+    t.integer  "city_id"
+    t.boolean  "prior_to_joining_campaign"
+    t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -145,6 +219,38 @@ ActiveRecord::Schema.define(version: 20140210015151) do
     t.integer  "database_instance_id"
     t.string   "name"
     t.integer  "order_in_list"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resolutions", force: true do |t|
+    t.integer  "database_instance_id"
+    t.date     "date"
+    t.integer  "city_id"
+    t.boolean  "prior_to_joining_campaign"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "status_types", force: true do |t|
+    t.integer  "database_instance_id"
+    t.string   "name"
+    t.integer  "order_in_list"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "survey_emails", force: true do |t|
+    t.integer  "database_instance_id"
+    t.integer  "contact_id"
+    t.string   "email_address"
+    t.date     "sent_date"
+    t.string   "subject"
+    t.text     "message"
+    t.integer  "survey_monkey_respondent_id"
+    t.boolean  "response_received"
+    t.date     "reminder_sent_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

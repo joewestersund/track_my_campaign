@@ -1,0 +1,43 @@
+<h1>Listing survey_emails</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Database instance</th>
+      <th>Contact</th>
+      <th>Email address</th>
+      <th>Sent date</th>
+      <th>Subject</th>
+      <th>Message</th>
+      <th>Survey monkey respondent</th>
+      <th>Response received</th>
+      <th>Reminder sent date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @survey_emails.each do |survey_email| %>
+      <tr>
+        <td><%= survey_email.database_instance_id %></td>
+        <td><%= survey_email.contact_id %></td>
+        <td><%= survey_email.email_address %></td>
+        <td><%= survey_email.sent_date %></td>
+        <td><%= survey_email.subject %></td>
+        <td><%= survey_email.message %></td>
+        <td><%= survey_email.survey_monkey_respondent_id %></td>
+        <td><%= survey_email.response_received %></td>
+        <td><%= survey_email.reminder_sent_date %></td>
+        <td><%= link_to 'Show', survey_email %></td>
+        <td><%= link_to 'Edit', edit_heal_survey_email_path(survey_email) %></td>
+        <td><%= link_to 'Destroy', survey_email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Survey email', new_heal_survey_email_path %>

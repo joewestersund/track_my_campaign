@@ -1,9 +1,9 @@
 <%# add navigation links to this file %>
 <% if signed_in?
   if current_db.present? and current_db.database_type.internal_name == "HEAL Cities" %>
-    <li><%= link_to "Communications", communications_path %></li>
-    <li><%= link_to "Contacts", contacts_path %></li>
-    <li><%= link_to "Cities", cities_path %></li>
+    <li><%= link_to "Communications", heal_communications_path %></li>
+    <li><%= link_to "Contacts", heal_contacts_path %></li>
+    <li><%= link_to "Cities", heal_cities_path %></li>
 
     <li id="fat-menu" class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -11,11 +11,11 @@
       </a>
       <ul class="dropdown-menu">
         <li><%= link_to "HEAL City Designations", heal_city_designations_path %></li>
-        <li><%= link_to "Honorifics", honorifics_path %></li>
-        <li><%= link_to "Communication Types", communication_types_path  %></li>
-        <li><%= link_to "Interest Levels", interest_levels_path %></li>
-        <li><%= link_to "Jurisdiction Types", jurisdiction_types_path %></li>
-        <li><%= link_to "Position Types", position_types_path %></li>
+        <li><%= link_to "Honorifics", heal_honorifics_path %></li>
+        <li><%= link_to "Communication Types", heal_communication_types_path  %></li>
+        <li><%= link_to "Interest Levels", heal_interest_levels_path %></li>
+        <li><%= link_to "Jurisdiction Types", heal_jurisdiction_types_path %></li>
+        <li><%= link_to "Position Types", heal_position_types_path %></li>
       </ul>
     </li>
   <% end %>
