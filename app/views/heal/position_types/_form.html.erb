@@ -1,4 +1,4 @@
-<%= form_for(@position_type) do |f| %>
+<%= form_for([:heal, @position_type]) do |f| %>
   <% if @position_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@position_type.errors.count, "error") %> prohibited this position_type from being saved:</h2>

@@ -1,4 +1,4 @@
-<%= form_for(@league_division) do |f| %>
+<%= form_for([:heal, @league_division]) do |f| %>
   <% if @league_division.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@league_division.errors.count, "error") %> prohibited this league_division from being saved:</h2>

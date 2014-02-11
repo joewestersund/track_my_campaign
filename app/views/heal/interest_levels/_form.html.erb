@@ -1,4 +1,4 @@
-<%= form_for(@interest_level) do |f| %>
+<%= form_for([:heal, @interest_level]) do |f| %>
   <% if @interest_level.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@interest_level.errors.count, "error") %> prohibited this interest_level from being saved:</h2>

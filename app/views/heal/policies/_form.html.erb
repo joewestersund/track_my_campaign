@@ -1,4 +1,4 @@
-<%= form_for(@policy) do |f| %>
+<%= form_for([:heal, @policy]) do |f| %>
   <% if @policy.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@policy.errors.count, "error") %> prohibited this policy from being saved:</h2>

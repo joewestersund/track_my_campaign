@@ -1,4 +1,4 @@
-<%= form_for(@honorific) do |f| %>
+<%= form_for([:heal, @honorific]) do |f| %>
   <% if @honorific.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@honorific.errors.count, "error") %> prohibited this honorific from being saved:</h2>

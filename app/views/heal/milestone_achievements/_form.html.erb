@@ -1,4 +1,4 @@
-<%= form_for(@milestone_achievement) do |f| %>
+<%= form_for([:heal, @milestone_achievement]) do |f| %>
   <% if @milestone_achievement.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@milestone_achievement.errors.count, "error") %> prohibited this milestone_achievement from being saved:</h2>

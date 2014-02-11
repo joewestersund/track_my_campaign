@@ -20,7 +20,7 @@
 #
 
 class City < ActiveRecord::Base
-  belongs_to :database_instance
+  belongs_to :database_instance, class_name: "TrackMyCampaign::DatabaseInstance"
   has_one :jurisdiction_type
   #has_one :league_division
   has_one :heal_city_designation
