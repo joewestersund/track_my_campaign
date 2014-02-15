@@ -4,7 +4,7 @@ class Heal::PoliciesController < ApplicationController
   # GET /policies
   # GET /policies.json
   def index
-    @policies = Policy.all
+    @policies = current_db.policies.all
   end
 
   # GET /policies/1
@@ -14,7 +14,7 @@ class Heal::PoliciesController < ApplicationController
 
   # GET /policies/new
   def new
-    @policy = Policy.new
+    @policy = Heal::Policy.new
   end
 
   # GET /policies/1/edit
@@ -24,7 +24,8 @@ class Heal::PoliciesController < ApplicationController
   # POST /policies
   # POST /policies.json
   def create
-    @policy = Policy.new(policy_params)
+    @policy = Heal::Policy.new(policy_params)
+    @policies.database_instance = current_db
 
     respond_to do |format|
       if @policy.save
@@ -64,11 +65,11 @@ class Heal::PoliciesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_policy
-      @policy = Policy.find(params[:id])
+      @policy = current_db.policies.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def policy_params
-      params.require(:policy).permit(:database_instance_id, :name, :order_in_list)
+      params.require(:policy).permit(:name, :order_in_list)
     end
 end

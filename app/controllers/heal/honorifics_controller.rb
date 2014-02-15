@@ -5,7 +5,7 @@ class Heal::HonorificsController < ApplicationController
   # GET /honorifics
   # GET /honorifics.json
   def index
-    @honorifics = Honorific.all
+    @honorifics = current_db.honorifics.all
   end
 
   # GET /honorifics/1
@@ -15,7 +15,7 @@ class Heal::HonorificsController < ApplicationController
 
   # GET /honorifics/new
   def new
-    @honorific = Honorific.new
+    @honorific = Heal::Honorific.new
   end
 
   # GET /honorifics/1/edit
@@ -25,7 +25,8 @@ class Heal::HonorificsController < ApplicationController
   # POST /honorifics
   # POST /honorifics.json
   def create
-    @honorific = Honorific.new(honorific_params)
+    @honorific = Heal::Honorific.new(honorific_params)
+    @honorific.database_instance = current_db
 
     respond_to do |format|
       if @honorific.save
@@ -65,11 +66,11 @@ class Heal::HonorificsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_honorific
-      @honorific = Honorific.find(params[:id])
+      @honorific = current_db.honorifics.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def honorific_params
-      params.require(:honorific).permit(:database_instance_id, :name, :order_in_list)
+      params.require(:honorific).permit(:name, :order_in_list)
     end
 end

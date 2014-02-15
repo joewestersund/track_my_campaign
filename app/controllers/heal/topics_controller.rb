@@ -5,7 +5,7 @@ class Heal::TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    @topics = current_db.topics.all
   end
 
   # GET /topics/1
@@ -15,7 +15,7 @@ class Heal::TopicsController < ApplicationController
 
   # GET /topics/new
   def new
-    @topic = Topic.new
+    @topic = Heal::Topic.new
   end
 
   # GET /topics/1/edit
@@ -25,7 +25,8 @@ class Heal::TopicsController < ApplicationController
   # POST /topics
   # POST /topics.json
   def create
-    @topic = Topic.new(topic_params)
+    @topic = Heal::Topic.new(topic_params)
+    @topic.database_instance = current_db
 
     respond_to do |format|
       if @topic.save
@@ -65,11 +66,11 @@ class Heal::TopicsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_topic
-      @topic = Topic.find(params[:id])
+      @topic = current_db.topics.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:database_instance_id, :name, :order_in_list)
+      params.require(:topic).permit(:name, :order_in_list)
     end
 end

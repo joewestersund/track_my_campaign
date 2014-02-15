@@ -4,7 +4,7 @@ class Heal::ResolutionsController < ApplicationController
   # GET /resolutions
   # GET /resolutions.json
   def index
-    @resolutions = Resolution.all
+    @resolutions = current_db.resolutions.all
   end
 
   # GET /resolutions/1
@@ -14,7 +14,7 @@ class Heal::ResolutionsController < ApplicationController
 
   # GET /resolutions/new
   def new
-    @resolution = Resolution.new
+    @resolution = Heal::Resolution.new
   end
 
   # GET /resolutions/1/edit
@@ -24,7 +24,8 @@ class Heal::ResolutionsController < ApplicationController
   # POST /resolutions
   # POST /resolutions.json
   def create
-    @resolution = Resolution.new(resolution_params)
+    @resolution = Heal::Resolution.new(resolution_params)
+    @resolution.database_instance = current_db
 
     respond_to do |format|
       if @resolution.save
@@ -64,11 +65,11 @@ class Heal::ResolutionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_resolution
-      @resolution = Resolution.find(params[:id])
+      @resolution = current_db.resolutions.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resolution_params
-      params.require(:resolution).permit(:database_instance_id, :date, :city_id, :prior_to_joining_campaign, :notes)
+      params.require(:resolution).permit(:date, :city_id, :prior_to_joining_campaign, :notes)
     end
 end

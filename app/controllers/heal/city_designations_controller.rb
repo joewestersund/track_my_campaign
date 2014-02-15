@@ -25,6 +25,7 @@ class Heal::CityDesignationsController < ApplicationController
   # POST /city_designations.json
   def create
     @city_designation = Heal::CityDesignation.new(city_designation_params)
+    @city_designation.database_instance = current_db
 
     respond_to do |format|
       if @city_designation.save

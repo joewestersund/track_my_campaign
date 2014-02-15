@@ -26,6 +26,7 @@ class Heal::CommunicationTypesController < ApplicationController
   # POST /communication_types.json
   def create
     @communication_type = Heal::CommunicationType.new(communication_type_params)
+    @communication_type.database_instance = current_db
 
     respond_to do |format|
       if @communication_type.save

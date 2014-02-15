@@ -4,7 +4,7 @@ class Heal::PolicyAdoptionsController < ApplicationController
   # GET /policy_adoptions
   # GET /policy_adoptions.json
   def index
-    @policy_adoptions = PolicyAdoption.all
+    @policy_adoptions = current_db.policy_adoptions.all
   end
 
   # GET /policy_adoptions/1
@@ -14,7 +14,7 @@ class Heal::PolicyAdoptionsController < ApplicationController
 
   # GET /policy_adoptions/new
   def new
-    @policy_adoption = PolicyAdoption.new
+    @policy_adoption = Heal::PolicyAdoption.new
   end
 
   # GET /policy_adoptions/1/edit
@@ -24,7 +24,8 @@ class Heal::PolicyAdoptionsController < ApplicationController
   # POST /policy_adoptions
   # POST /policy_adoptions.json
   def create
-    @policy_adoption = PolicyAdoption.new(policy_adoption_params)
+    @policy_adoption = Heal::PolicyAdoption.new(policy_adoption_params)
+    @policy_adoption.database_instance = current_db
 
     respond_to do |format|
       if @policy_adoption.save
@@ -64,11 +65,11 @@ class Heal::PolicyAdoptionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_policy_adoption
-      @policy_adoption = PolicyAdoption.find(params[:id])
+      @policy_adoption = current_db.policy_adoptions.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def policy_adoption_params
-      params.require(:policy_adoption).permit(:database_instance_id, :date, :city_id, :prior_to_joining_campaign, :notes)
+      params.require(:policy_adoption).permit(:date, :city_id, :prior_to_joining_campaign, :notes)
     end
 end

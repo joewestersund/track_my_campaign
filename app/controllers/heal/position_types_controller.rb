@@ -5,7 +5,7 @@ class Heal::PositionTypesController < ApplicationController
   # GET /position_types
   # GET /position_types.json
   def index
-    @position_types = PositionType.all
+    @position_types = current_db.position_types.all
   end
 
   # GET /position_types/1
@@ -15,7 +15,7 @@ class Heal::PositionTypesController < ApplicationController
 
   # GET /position_types/new
   def new
-    @position_type = PositionType.new
+    @position_type = Heal::PositionType.new
   end
 
   # GET /position_types/1/edit
@@ -25,7 +25,8 @@ class Heal::PositionTypesController < ApplicationController
   # POST /position_types
   # POST /position_types.json
   def create
-    @position_type = PositionType.new(position_type_params)
+    @position_type = Heal::PositionType.new(position_type_params)
+    @position_type.database_instance = current_db
 
     respond_to do |format|
       if @position_type.save
@@ -65,11 +66,11 @@ class Heal::PositionTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_position_type
-      @position_type = PositionType.find(params[:id])
+      @position_type = current_db.position_types.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def position_type_params
-      params.require(:position_type).permit(:database_instance_id, :name, :order_in_list)
+      params.require(:position_type).permit(:name, :order_in_list)
     end
 end

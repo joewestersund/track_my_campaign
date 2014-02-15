@@ -4,7 +4,7 @@ class Heal::MilestonesController < ApplicationController
   # GET /milestones
   # GET /milestones.json
   def index
-    @milestones = Milestone.all
+    @milestones = current_db.milestones.all
   end
 
   # GET /milestones/1
@@ -14,7 +14,7 @@ class Heal::MilestonesController < ApplicationController
 
   # GET /milestones/new
   def new
-    @milestone = Milestone.new
+    @milestone = Heal::Milestone.new
   end
 
   # GET /milestones/1/edit
@@ -24,7 +24,8 @@ class Heal::MilestonesController < ApplicationController
   # POST /milestones
   # POST /milestones.json
   def create
-    @milestone = Milestone.new(milestone_params)
+    @milestone = Heal::Milestone.new(milestone_params)
+    @milestone.database_instance = current_db
 
     respond_to do |format|
       if @milestone.save
@@ -64,11 +65,11 @@ class Heal::MilestonesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_milestone
-      @milestone = Milestone.find(params[:id])
+      @milestone = current_db.milestones.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def milestone_params
-      params.require(:milestone).permit(:database_instance_id, :name, :order_in_list)
+      params.require(:milestone).permit(:name, :order_in_list)
     end
 end

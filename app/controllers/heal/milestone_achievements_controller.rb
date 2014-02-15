@@ -4,7 +4,7 @@ class Heal::MilestoneAchievementsController < ApplicationController
   # GET /milestone_achievements
   # GET /milestone_achievements.json
   def index
-    @milestone_achievements = MilestoneAchievement.all
+    @milestone_achievements = current_db.milestone_achievements.all
   end
 
   # GET /milestone_achievements/1
@@ -14,7 +14,7 @@ class Heal::MilestoneAchievementsController < ApplicationController
 
   # GET /milestone_achievements/new
   def new
-    @milestone_achievement = MilestoneAchievement.new
+    @milestone_achievement = Heal::MilestoneAchievement.new
   end
 
   # GET /milestone_achievements/1/edit
@@ -24,7 +24,8 @@ class Heal::MilestoneAchievementsController < ApplicationController
   # POST /milestone_achievements
   # POST /milestone_achievements.json
   def create
-    @milestone_achievement = MilestoneAchievement.new(milestone_achievement_params)
+    @milestone_achievement = Heal::MilestoneAchievement.new(milestone_achievement_params)
+    @milestone_achievement.database_instance = current_db
 
     respond_to do |format|
       if @milestone_achievement.save
@@ -64,11 +65,11 @@ class Heal::MilestoneAchievementsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_milestone_achievement
-      @milestone_achievement = MilestoneAchievement.find(params[:id])
+      @milestone_achievement = current_db.milestone_achievements.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def milestone_achievement_params
-      params.require(:milestone_achievement).permit(:database_instance_id, :milestone_id, :city_id, :status_type_id, :completion_date, :notes, :user_id)
+      params.require(:milestone_achievement).permit(:milestone_id, :city_id, :status_type_id, :completion_date, :notes, :user_id)
     end
 end

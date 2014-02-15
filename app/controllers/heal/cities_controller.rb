@@ -26,7 +26,7 @@ class Heal::CitiesController < ApplicationController
   # POST /cities.json
   def create
     @city = Heal::City.new(city_params)
-    @city.database_instance_id = current_db
+    @city.database_instance = current_db
 
     respond_to do |format|
       if @city.save

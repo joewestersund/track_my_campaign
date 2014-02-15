@@ -5,7 +5,7 @@ class Heal::InterestLevelsController < ApplicationController
   # GET /interest_levels
   # GET /interest_levels.json
   def index
-    @interest_levels = InterestLevel.all
+    @interest_levels = current_db.interest_levels.all
   end
 
   # GET /interest_levels/1
@@ -15,7 +15,7 @@ class Heal::InterestLevelsController < ApplicationController
 
   # GET /interest_levels/new
   def new
-    @interest_level = InterestLevel.new
+    @interest_level = Heal::InterestLevel.new
   end
 
   # GET /interest_levels/1/edit
@@ -26,6 +26,7 @@ class Heal::InterestLevelsController < ApplicationController
   # POST /interest_levels.json
   def create
     @interest_level = InterestLevel.new(interest_level_params)
+    @interest_level.database_instance = current_db
 
     respond_to do |format|
       if @interest_level.save
@@ -65,11 +66,11 @@ class Heal::InterestLevelsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_interest_level
-      @interest_level = InterestLevel.find(params[:id])
+      @interest_level = current_db.interest_levels.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interest_level_params
-      params.require(:interest_level).permit(:database_instance_id, :name, :order_in_list)
+      params.require(:interest_level).permit(:name, :order_in_list)
     end
 end

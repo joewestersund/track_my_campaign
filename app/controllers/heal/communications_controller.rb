@@ -26,6 +26,7 @@ class Heal::CommunicationsController < ApplicationController
   # POST /communications.json
   def create
     @communication = Heal::Communication.new(communication_params)
+    @communication.database_instance = current_db
 
     respond_to do |format|
       if @communication.save
@@ -65,11 +66,11 @@ class Heal::CommunicationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_communication
-      @communication = Heal::Communication.find(params[:id])
+      @communication = current_db.communications.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def communication_params
-      params.require(:communication).permit(:database_instance_id, :date, :duration_minutes, :communication_type_id, :event_name, :contact_interest_level_id, :notes)
+      params.require(:communication).permit(:date, :duration_minutes, :communication_type_id, :event_name, :contact_interest_level_id, :notes)
     end
 end

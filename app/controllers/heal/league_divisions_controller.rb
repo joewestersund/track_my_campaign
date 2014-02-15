@@ -4,7 +4,7 @@ class Heal::LeagueDivisionsController < ApplicationController
   # GET /league_divisions
   # GET /league_divisions.json
   def index
-    @league_divisions = LeagueDivision.all
+    @league_divisions = current_db.league_divisions.all
   end
 
   # GET /league_divisions/1
@@ -14,7 +14,7 @@ class Heal::LeagueDivisionsController < ApplicationController
 
   # GET /league_divisions/new
   def new
-    @league_division = LeagueDivision.new
+    @league_division = Heal::LeagueDivision.new
   end
 
   # GET /league_divisions/1/edit
@@ -24,7 +24,8 @@ class Heal::LeagueDivisionsController < ApplicationController
   # POST /league_divisions
   # POST /league_divisions.json
   def create
-    @league_division = LeagueDivision.new(league_division_params)
+    @league_division = Heal::LeagueDivision.new(league_division_params)
+    @league_division.database_instance = current_db
 
     respond_to do |format|
       if @league_division.save
@@ -64,11 +65,11 @@ class Heal::LeagueDivisionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_league_division
-      @league_division = LeagueDivision.find(params[:id])
+      @league_division = current_db.league_divisions.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def league_division_params
-      params.require(:league_division).permit(:database_instance_id, :name, :order_in_list)
+      params.require(:league_division).permit(:name, :order_in_list)
     end
 end

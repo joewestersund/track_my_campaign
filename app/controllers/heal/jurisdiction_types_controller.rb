@@ -5,7 +5,7 @@ class Heal::JurisdictionTypesController < ApplicationController
   # GET /jurisdiction_types
   # GET /jurisdiction_types.json
   def index
-    @jurisdiction_types = JurisdictionType.all
+    @jurisdiction_types = current_db.jurisdiction_types.all
   end
 
   # GET /jurisdiction_types/1
@@ -15,7 +15,7 @@ class Heal::JurisdictionTypesController < ApplicationController
 
   # GET /jurisdiction_types/new
   def new
-    @jurisdiction_type = JurisdictionType.new
+    @jurisdiction_type = Heal::JurisdictionType.new
   end
 
   # GET /jurisdiction_types/1/edit
@@ -25,7 +25,8 @@ class Heal::JurisdictionTypesController < ApplicationController
   # POST /jurisdiction_types
   # POST /jurisdiction_types.json
   def create
-    @jurisdiction_type = JurisdictionType.new(jurisdiction_type_params)
+    @jurisdiction_type = Heal::JurisdictionType.new(jurisdiction_type_params)
+    @jurisdiction_type.database_instance = current_db
 
     respond_to do |format|
       if @jurisdiction_type.save
@@ -65,11 +66,11 @@ class Heal::JurisdictionTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_jurisdiction_type
-      @jurisdiction_type = JurisdictionType.find(params[:id])
+      @jurisdiction_type = current_db.jurisdiction_types.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jurisdiction_type_params
-      params.require(:jurisdiction_type).permit(:database_instance_id, :name, :order_in_list)
+      params.require(:jurisdiction_type).permit(:name, :order_in_list)
     end
 end
