@@ -34,9 +34,9 @@
         <td><%= city.state_median_income %></td>
         <td><%= city.city_median_income %></td>
         <td><%= city.HEAL_city_designation_id %></td>
-        <td><%= link_to 'Show', [:heal, city] %></td>
+        <td><%= link_to 'Show', city %></td>
         <td><%= link_to 'Edit', edit_heal_city_path(city) %></td>
-        <td><%= link_to 'Destroy', [:heal, city], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

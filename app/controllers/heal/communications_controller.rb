@@ -5,7 +5,7 @@ class Heal::CommunicationsController < ApplicationController
   # GET /communications
   # GET /communications.json
   def index
-    @communications = Communication.all
+    @communications = Heal::Communication.all
   end
 
   # GET /communications/1
@@ -15,7 +15,7 @@ class Heal::CommunicationsController < ApplicationController
 
   # GET /communications/new
   def new
-    @communication = Communication.new
+    @communication = Heal::Communication.new
   end
 
   # GET /communications/1/edit
@@ -25,7 +25,7 @@ class Heal::CommunicationsController < ApplicationController
   # POST /communications
   # POST /communications.json
   def create
-    @communication = Communication.new(communication_params)
+    @communication = Heal::Communication.new(communication_params)
 
     respond_to do |format|
       if @communication.save
@@ -65,7 +65,7 @@ class Heal::CommunicationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_communication
-      @communication = Communication.find(params[:id])
+      @communication = Heal::Communication.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

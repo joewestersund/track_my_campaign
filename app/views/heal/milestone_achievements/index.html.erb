@@ -3,7 +3,6 @@
 <table>
   <thead>
     <tr>
-      <th>Database instance</th>
       <th>Milestone</th>
       <th>City</th>
       <th>Status type</th>
@@ -19,7 +18,6 @@
   <tbody>
     <% @milestone_achievements.each do |milestone_achievement| %>
       <tr>
-        <td><%= milestone_achievement.database_instance_id %></td>
         <td><%= milestone_achievement.milestone_id %></td>
         <td><%= milestone_achievement.city_id %></td>
         <td><%= milestone_achievement.status_type_id %></td>

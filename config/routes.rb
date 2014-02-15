@@ -24,8 +24,6 @@ TrackMyCampaign::Application.routes.draw do
   resources :database_instances
   get '/select_database', to: 'database_instances#select_database'
   get '/database_home/:id', to: 'database_instances#home', as: 'database_home'
-
-  resources :database_types
   resources :organizations
 
   get '/about', to: 'static_pages#about' # creates named path 'about'

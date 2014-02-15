@@ -5,7 +5,7 @@ class Heal::CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    @cities = City.all
+    @cities = current_db.cities
   end
 
   # GET /cities/1
@@ -15,7 +15,7 @@ class Heal::CitiesController < ApplicationController
 
   # GET /cities/new
   def new
-    @city = City.new
+    @city = Heal::City.new
   end
 
   # GET /cities/1/edit
@@ -25,7 +25,7 @@ class Heal::CitiesController < ApplicationController
   # POST /cities
   # POST /cities.json
   def create
-    @city = City.new(city_params)
+    @city = Heal::City.new(city_params)
     @city.database_instance_id = current_db
 
     respond_to do |format|
@@ -66,9 +66,7 @@ class Heal::CitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_city
-      @city = City.find(params[:id])
-      return @city if @city.database_instance == current_db
-      nil
+      @city = current_db.cities.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

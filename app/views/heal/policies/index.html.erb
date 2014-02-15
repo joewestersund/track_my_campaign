@@ -3,7 +3,6 @@
 <table>
   <thead>
     <tr>
-      <th>Database instance</th>
       <th>Name</th>
       <th>Order in list</th>
       <th></th>
@@ -15,7 +14,6 @@
   <tbody>
     <% @policies.each do |policy| %>
       <tr>
-        <td><%= policy.database_instance_id %></td>
         <td><%= policy.name %></td>
         <td><%= policy.order_in_list %></td>
         <td><%= link_to 'Show', policy %></td>

@@ -1,4 +1,4 @@
-<%= form_for([:heal, @jurisdiction_type]) do |f| %>
+<%= form_for(@jurisdiction_type) do |f| %>
   <% if @jurisdiction_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@jurisdiction_type.errors.count, "error") %> prohibited this jurisdiction_type from being saved:</h2>

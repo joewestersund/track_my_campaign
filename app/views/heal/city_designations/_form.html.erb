@@ -1,4 +1,4 @@
-<%= form_for([:heal, @city_designation]) do |f| %>
+<%= form_for(@city_designation) do |f| %>
   <% if @city_designation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@city_designation.errors.count, "error") %> prohibited this city_designation from being saved:</h2>
@@ -11,10 +11,6 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :database_instance_id %><br>
-    <%= f.number_field :database_instance_id %>
-  </div>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>

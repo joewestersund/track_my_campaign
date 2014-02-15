@@ -5,7 +5,7 @@ class Heal::CommunicationTypesController < ApplicationController
   # GET /communication_types
   # GET /communication_types.json
   def index
-    @communication_types = CommunicationType.all
+    @communication_types = current_db.communication_types.all
   end
 
   # GET /communication_types/1
@@ -15,7 +15,7 @@ class Heal::CommunicationTypesController < ApplicationController
 
   # GET /communication_types/new
   def new
-    @communication_type = CommunicationType.new
+    @communication_type = Heal::CommunicationType.new
   end
 
   # GET /communication_types/1/edit
@@ -25,7 +25,7 @@ class Heal::CommunicationTypesController < ApplicationController
   # POST /communication_types
   # POST /communication_types.json
   def create
-    @communication_type = CommunicationType.new(communication_type_params)
+    @communication_type = Heal::CommunicationType.new(communication_type_params)
 
     respond_to do |format|
       if @communication_type.save
@@ -65,7 +65,7 @@ class Heal::CommunicationTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_communication_type
-      @communication_type = CommunicationType.find(params[:id])
+      @communication_type = current_db.communication_types.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

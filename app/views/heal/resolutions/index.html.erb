@@ -3,7 +3,6 @@
 <table>
   <thead>
     <tr>
-      <th>Database instance</th>
       <th>Date</th>
       <th>City</th>
       <th>Prior to joining campaign</th>
@@ -17,7 +16,6 @@
   <tbody>
     <% @resolutions.each do |resolution| %>
       <tr>
-        <td><%= resolution.database_instance_id %></td>
         <td><%= resolution.date %></td>
         <td><%= resolution.city_id %></td>
         <td><%= resolution.prior_to_joining_campaign %></td>

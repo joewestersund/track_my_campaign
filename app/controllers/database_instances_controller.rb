@@ -30,7 +30,7 @@ class DatabaseInstancesController < ApplicationController
   # GET /database_instances/new
   def new
     @organizations = Organization.all
-    @database_types = DatabaseType.all
+    @database_types = database_types
     @database_instance = DatabaseInstance.new
   end
 
@@ -41,7 +41,11 @@ class DatabaseInstancesController < ApplicationController
   # POST /database_instances
   # POST /database_instances.json
   def create
-    @database_instance = DatabaseInstance.new(database_instance_params)
+    if database_instance_params[:type] == Heal::DatabaseInstance
+      @database_instance = Heal::DatabaseInstance.new(database_instance_params)
+    else
+      redirect_to "edit" # this is an error
+    end
 
     respond_to do |format|
       if @database_instance.save
@@ -86,11 +90,11 @@ class DatabaseInstancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def database_instance_params
-      params.require(:database_instance).permit(:organization_id, :database_type_id)
+      params.require(:database_instance).permit(:organization_id, :type)
     end
 
     def set_select_options
       @organizations = Organization.all
-      @database_types = DatabaseType.all
+      @database_types = database_types
     end
 end

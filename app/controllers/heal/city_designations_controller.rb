@@ -4,7 +4,7 @@ class Heal::CityDesignationsController < ApplicationController
   # GET /city_designations
   # GET /city_designations.json
   def index
-    @city_designations = CityDesignation.all
+    @city_designations = current_db.city_designations.all
   end
 
   # GET /city_designations/1
@@ -14,7 +14,7 @@ class Heal::CityDesignationsController < ApplicationController
 
   # GET /city_designations/new
   def new
-    @city_designation = CityDesignation.new
+    @city_designation = Heal::CityDesignation.new
   end
 
   # GET /city_designations/1/edit
@@ -24,7 +24,7 @@ class Heal::CityDesignationsController < ApplicationController
   # POST /city_designations
   # POST /city_designations.json
   def create
-    @city_designation = CityDesignation.new(city_designation_params)
+    @city_designation = Heal::CityDesignation.new(city_designation_params)
 
     respond_to do |format|
       if @city_designation.save
@@ -64,7 +64,7 @@ class Heal::CityDesignationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_city_designation
-      @city_designation = CityDesignation.find(params[:id])
+      @city_designation = current_db.city_designations.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

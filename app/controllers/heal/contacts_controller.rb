@@ -16,7 +16,7 @@ class Heal::ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
-    @contact = Contact.new
+    @contact = Heal::Contact.new
   end
 
   # GET /contacts/1/edit
@@ -26,7 +26,7 @@ class Heal::ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
-    @contact = Contact.new(contact_params)
+    @contact = Heal::Contact.new(contact_params)
     @contact.database_instance = current_db
 
     respond_to do |format|

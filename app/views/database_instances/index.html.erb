@@ -14,9 +14,9 @@
     <% @database_instances.each do |database_instance| %>
       <tr>
         <td><%= database_instance.organization.name %></td>
-        <td><%= database_instance.database_type.name %></td>
+        <td><%= database_instance.type %></td>
         <td><%= link_to 'Edit', edit_database_instance_path(database_instance) %></td>
-        <td><%= link_to 'Destroy', database_instance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', database_instance_path(database_instance), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
