@@ -4,7 +4,7 @@ class Heal::MilestoneAchievementsController < ApplicationController
   # GET /milestone_achievements
   # GET /milestone_achievements.json
   def index
-    @milestone_achievements = current_db.milestone_achievements.all
+    @milestone_achievements = current_db.milestone_achievements.order(date: desc)
   end
 
   # GET /milestone_achievements/1
@@ -70,6 +70,6 @@ class Heal::MilestoneAchievementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def milestone_achievement_params
-      params.require(:milestone_achievement).permit(:milestone_id, :city_id, :status_type_id, :completion_date, :notes, :user_id)
+      params.require(:heal_milestone_achievement).permit(:milestone_id, :city_id, :status_type_id, :completion_date, :notes, :user_id)
     end
 end

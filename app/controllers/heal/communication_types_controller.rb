@@ -5,7 +5,7 @@ class Heal::CommunicationTypesController < ApplicationController
   # GET /communication_types
   # GET /communication_types.json
   def index
-    @communication_types = current_db.communication_types.all
+    @communication_types = current_db.communication_types.order(:order_in_list)
   end
 
   # GET /communication_types/1
@@ -71,6 +71,6 @@ class Heal::CommunicationTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def communication_type_params
-      params.require(:communication_type).permit(:database_instance_id, :name, :order_in_list)
+      params.require(:heal_communication_type).permit(:database_instance_id, :name, :order_in_list)
     end
 end

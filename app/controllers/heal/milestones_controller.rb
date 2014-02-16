@@ -4,7 +4,7 @@ class Heal::MilestonesController < ApplicationController
   # GET /milestones
   # GET /milestones.json
   def index
-    @milestones = current_db.milestones.all
+    @milestones = current_db.milestones.order(:order_in_list)
   end
 
   # GET /milestones/1
@@ -70,6 +70,6 @@ class Heal::MilestonesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def milestone_params
-      params.require(:milestone).permit(:name, :order_in_list)
+      params.require(:heal_milestone).permit(:name, :order_in_list)
     end
 end

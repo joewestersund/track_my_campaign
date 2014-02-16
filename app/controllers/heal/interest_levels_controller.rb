@@ -5,7 +5,7 @@ class Heal::InterestLevelsController < ApplicationController
   # GET /interest_levels
   # GET /interest_levels.json
   def index
-    @interest_levels = current_db.interest_levels.all
+    @interest_levels = current_db.interest_levels.order(:order_in_list)
   end
 
   # GET /interest_levels/1
@@ -71,6 +71,6 @@ class Heal::InterestLevelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interest_level_params
-      params.require(:interest_level).permit(:name, :order_in_list)
+      params.require(:heal_interest_level).permit(:name, :order_in_list)
     end
 end

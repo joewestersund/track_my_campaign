@@ -4,7 +4,7 @@ class Heal::LeagueDivisionsController < ApplicationController
   # GET /league_divisions
   # GET /league_divisions.json
   def index
-    @league_divisions = current_db.league_divisions.all
+    @league_divisions = current_db.league_divisions.order(:order_in_list)
   end
 
   # GET /league_divisions/1
@@ -70,6 +70,6 @@ class Heal::LeagueDivisionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def league_division_params
-      params.require(:league_division).permit(:name, :order_in_list)
+      params.require(:heal_league_division).permit(:name, :order_in_list)
     end
 end

@@ -29,4 +29,5 @@ module ApplicationHelper
     return variable if variable.present?
     0
   end
+
 end

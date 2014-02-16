@@ -5,7 +5,7 @@ class Heal::HonorificsController < ApplicationController
   # GET /honorifics
   # GET /honorifics.json
   def index
-    @honorifics = current_db.honorifics.all
+    @honorifics = current_db.honorifics.order(:order_in_list)
   end
 
   # GET /honorifics/1
@@ -71,6 +71,6 @@ class Heal::HonorificsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def honorific_params
-      params.require(:honorific).permit(:name, :order_in_list)
+      params.require(:heal_honorific).permit(:name, :order_in_list)
     end
 end

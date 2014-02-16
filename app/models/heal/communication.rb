@@ -16,13 +16,14 @@
 
 class Heal::Communication < ActiveRecord::Base
   belongs_to :database_instance
-  has_one :communication_type
-  has_one :interest_level
+  belongs_to :communication_type
+  belongs_to :interest_level
   has_and_belongs_to_many :topics
   has_and_belongs_to_many :contacts
   has_and_belongs_to_many :cities
   has_and_belongs_to_many :users
 
+  validates :database_instance, presence: true
   validates :date, presence: true
   validates :duration_minutes, presence: true
   validates :state, presence: true

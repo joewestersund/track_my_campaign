@@ -5,7 +5,7 @@ class Heal::JurisdictionTypesController < ApplicationController
   # GET /jurisdiction_types
   # GET /jurisdiction_types.json
   def index
-    @jurisdiction_types = current_db.jurisdiction_types.all
+    @jurisdiction_types = current_db.jurisdiction_types.order(:order_in_list)
   end
 
   # GET /jurisdiction_types/1
@@ -71,6 +71,6 @@ class Heal::JurisdictionTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jurisdiction_type_params
-      params.require(:jurisdiction_type).permit(:name, :order_in_list)
+      params.require(:heal_jurisdiction_type).permit(:name, :order_in_list)
     end
 end

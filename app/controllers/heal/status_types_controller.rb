@@ -4,7 +4,7 @@ class Heal::StatusTypesController < ApplicationController
   # GET /status_types
   # GET /status_types.json
   def index
-    @status_types = current_db.status_types.all
+    @status_types = current_db.status_types.order(:order_in_list)
   end
 
   # GET /status_types/1
@@ -70,6 +70,6 @@ class Heal::StatusTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def status_type_params
-      params.require(:status_type).permit(:name, :order_in_list)
+      params.require(:heal_status_type).permit(:name, :order_in_list)
     end
 end

@@ -5,7 +5,7 @@ class Heal::CommunicationsController < ApplicationController
   # GET /communications
   # GET /communications.json
   def index
-    @communications = Heal::Communication.all
+    @communications = current_db.communications.order(date: desc)
   end
 
   # GET /communications/1
@@ -71,6 +71,6 @@ class Heal::CommunicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def communication_params
-      params.require(:communication).permit(:date, :duration_minutes, :communication_type_id, :event_name, :contact_interest_level_id, :notes)
+      params.require(:heal_communication).permit(:date, :duration_minutes, :communication_type_id, :event_name, :contact_interest_level_id, :notes)
     end
 end

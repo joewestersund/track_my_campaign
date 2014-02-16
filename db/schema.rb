@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140215064812) do
+ActiveRecord::Schema.define(version: 20140216064852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20140215064812) do
     t.integer  "HEAL_city_designation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "cities_communications", id: false, force: true do |t|
+    t.integer "city_id"
+    t.integer "communication_id"
+  end
+
+  create_table "cities_contacts", id: false, force: true do |t|
+    t.integer "city_id"
+    t.integer "contact_id"
   end
 
   create_table "city_designations", force: true do |t|
@@ -99,13 +109,6 @@ ActiveRecord::Schema.define(version: 20140215064812) do
 
   create_table "database_instances", force: true do |t|
     t.integer  "organization_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "type"
-  end
-
-  create_table "database_types", force: true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"

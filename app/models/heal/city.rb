@@ -20,12 +20,14 @@
 #
 
 class Heal::City < ActiveRecord::Base
-  belongs_to :database_instance, class_name: "TrackMyCampaign::DatabaseInstance"
-  has_one :jurisdiction_type
-  #has_one :league_division
-  has_one :heal_city_designation
+  belongs_to :database_instance
+  belongs_to :jurisdiction_type
+  belongs_to :league_division
+  belongs_to :city_designation
+  has_and_belongs_to_many :contacts
   has_and_belongs_to_many :communications
 
+  validates :database_instance, presence: true
   validates :name, presence: true
   validates :state, presence: true
   validates :jurisdiction_type_id, presence: true

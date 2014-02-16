@@ -5,7 +5,7 @@ class Heal::PositionTypesController < ApplicationController
   # GET /position_types
   # GET /position_types.json
   def index
-    @position_types = current_db.position_types.all
+    @position_types = current_db.position_types.order(:order_in_list)
   end
 
   # GET /position_types/1
@@ -71,6 +71,6 @@ class Heal::PositionTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def position_type_params
-      params.require(:position_type).permit(:name, :order_in_list)
+      params.require(:heal_position_type).permit(:name, :order_in_list)
     end
 end

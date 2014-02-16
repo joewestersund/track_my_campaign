@@ -4,7 +4,7 @@ class Heal::ResolutionsController < ApplicationController
   # GET /resolutions
   # GET /resolutions.json
   def index
-    @resolutions = current_db.resolutions.all
+    @resolutions = current_db.resolutions.order(date: desc)
   end
 
   # GET /resolutions/1
@@ -70,6 +70,6 @@ class Heal::ResolutionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resolution_params
-      params.require(:resolution).permit(:date, :city_id, :prior_to_joining_campaign, :notes)
+      params.require(:heal_resolution).permit(:date, :city_id, :prior_to_joining_campaign, :notes)
     end
 end

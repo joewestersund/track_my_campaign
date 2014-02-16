@@ -13,4 +13,12 @@
 #
 
 class Heal::PolicyAdoption < ActiveRecord::Base
+  belongs_to :database_instance
+  belongs_to :city
+  has_and_belongs_to_many :policies
+
+  validates :database_instance, presence: true
+  validates :city, presence: true
+  validates :date, presence: true
+
 end

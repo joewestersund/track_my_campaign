@@ -15,4 +15,15 @@
 #
 
 class Heal::MilestoneAchievement < ActiveRecord::Base
+  belongs_to :database_instance
+  belongs_to :milestone
+  belongs_to :city
+  belongs_to :status_type
+  belongs_to :user
+
+  validates :database_instance, presence: true
+  validates :milestone, presence: true
+  validates :city, presence: true
+  validates :status_type, presence: true
+
 end

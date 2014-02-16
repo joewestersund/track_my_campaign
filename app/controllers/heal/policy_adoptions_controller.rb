@@ -4,7 +4,7 @@ class Heal::PolicyAdoptionsController < ApplicationController
   # GET /policy_adoptions
   # GET /policy_adoptions.json
   def index
-    @policy_adoptions = current_db.policy_adoptions.all
+    @policy_adoptions = current_db.policy_adoptions.order(date: desc)
   end
 
   # GET /policy_adoptions/1
@@ -70,6 +70,6 @@ class Heal::PolicyAdoptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def policy_adoption_params
-      params.require(:policy_adoption).permit(:date, :city_id, :prior_to_joining_campaign, :notes)
+      params.require(:heal_policy_adoption).permit(:date, :city_id, :prior_to_joining_campaign, :notes)
     end
 end

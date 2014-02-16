@@ -5,7 +5,7 @@ class Heal::CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    @cities = current_db.cities
+    @cities = current_db.cities.order(:name)
   end
 
   # GET /cities/1
@@ -71,6 +71,6 @@ class Heal::CitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_params
-      params.require(:city).permit(:name, :county, :state, :jurisdiction_type_id, :league_division_id, :population, :kp_service_area, :under_resourced_or_disease_burden, :state_median_income, :city_median_income, :HEAL_city_designation_id)
+      params.require(:heal_city).permit(:name, :county, :state, :jurisdiction_type_id, :league_division_id, :population, :kp_service_area, :under_resourced_or_disease_burden, :state_median_income, :city_median_income, :HEAL_city_designation_id)
     end
 end

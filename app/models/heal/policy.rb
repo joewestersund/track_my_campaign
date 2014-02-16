@@ -11,4 +11,11 @@
 #
 
 class Heal::Policy < ActiveRecord::Base
+  belongs_to :database_instance
+  has_and_belongs_to_many :policy_adoptions
+
+  validates :database_instance, presence: true
+  validates :name, presence: true, :uniqueness => {:scope => :database_instance}
+  validates :order_in_list, presence: true, :uniqueness => {:scope => :database_instance}
+
 end

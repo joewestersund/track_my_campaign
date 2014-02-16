@@ -11,4 +11,10 @@
 #
 
 class Heal::InterestLevel < ActiveRecord::Base
+  belongs_to :database_instance
+
+  validates :database_instance, presence: true
+  validates :name, presence: true, :uniqueness => {:scope => :database_instance}
+  validates :order_in_list, presence: true, :uniqueness => {:scope => :database_instance}
+
 end

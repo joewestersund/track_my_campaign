@@ -32,12 +32,13 @@
 
 class Heal::Contact < ActiveRecord::Base
   belongs_to :database_instance
-  belongs_to :city
-  has_one :honorific
-  has_one :interest_level
-  has_one :position_type
+  belongs_to :honorific
+  belongs_to :interest_level
+  belongs_to :position_type
   has_and_belongs_to_many :communications
+  has_and_belongs_to_many :cities
 
+  validates :database_instance, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :interest_level_id, presence: true

@@ -4,7 +4,7 @@ class Heal::PoliciesController < ApplicationController
   # GET /policies
   # GET /policies.json
   def index
-    @policies = current_db.policies.all
+    @policies = current_db.policies.order(:order_in_list)
   end
 
   # GET /policies/1
@@ -70,6 +70,6 @@ class Heal::PoliciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def policy_params
-      params.require(:policy).permit(:name, :order_in_list)
+      params.require(:heal_policy).permit(:name, :order_in_list)
     end
 end

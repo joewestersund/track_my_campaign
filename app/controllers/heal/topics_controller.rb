@@ -5,7 +5,7 @@ class Heal::TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = current_db.topics.all
+    @topics = current_db.topics.order(:order_in_list)
   end
 
   # GET /topics/1
@@ -71,6 +71,6 @@ class Heal::TopicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:name, :order_in_list)
+      params.require(:heal_topic).permit(:name, :order_in_list)
     end
 end
