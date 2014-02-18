@@ -29,7 +29,7 @@
         <td><%= contact.position_type.name %></td>
         <td><%= contact.organization_name %></td>
         <td><%= contact.organization_type.name if contact.organization_type.present? %></td>
-        <td><%= contact.cities.map {|c| c.name } if contact.cities.present? %></td>
+        <td><%= show_cities_list(contact.cities) %></td>
         <td><%= contact.office_phone_number %></td>
         <td><%= contact.email %></td>
         <td><%= contact.interest_level.name if contact.interest_level.present? %></td>

@@ -21,8 +21,8 @@
 </p>
 
 <p>
-  <strong>City:</strong>
-  <%= @contact.cities.map {|c| c.name } %>
+  <strong>Cities:</strong>
+  <%= show_cities_list(@contact.cities, true) %>
 </p>
 
 <p>
