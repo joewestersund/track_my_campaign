@@ -1,4 +1,5 @@
 class Heal::ResolutionsController < ApplicationController
+  before_action :check_current_db_exists
   before_action :set_resolution, only: [:show, :edit, :update, :destroy]
 
   # GET /resolutions
@@ -57,7 +58,7 @@ class Heal::ResolutionsController < ApplicationController
   def destroy
     @resolution.destroy
     respond_to do |format|
-      format.html { redirect_to resolutions_url }
+      format.html { redirect_to heal_resolutions_url }
       format.json { head :no_content }
     end
   end

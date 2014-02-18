@@ -7,9 +7,8 @@
 #  first_name           :string(255)
 #  last_name            :string(255)
 #  title                :string(255)
-#  city_id              :integer
 #  organization_name    :string(255)
-#  phone_number         :string(255)
+#  office_phone_number  :string(255)
 #  email                :string(255)
 #  address_line_1       :string(255)
 #  address_line_2       :string(255)
@@ -28,6 +27,9 @@
 #  photo_content_type   :string(255)
 #  photo_file_size      :integer
 #  photo_updated_at     :datetime
+#  cell_phone_number    :string(255)
+#  fax                  :string(255)
+#  organization_type_id :integer
 #
 
 class Heal::Contact < ActiveRecord::Base
@@ -35,12 +37,15 @@ class Heal::Contact < ActiveRecord::Base
   belongs_to :honorific
   belongs_to :interest_level
   belongs_to :position_type
+  belongs_to :organization_type
   has_and_belongs_to_many :communications
   has_and_belongs_to_many :cities
+  has_and_belongs_to_many :followup_tasks
 
   validates :database_instance, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :position_type_id, presence: true
   validates :interest_level_id, presence: true
 
   # This method associates the attribute ":avatar" with a file attachment

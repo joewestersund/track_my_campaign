@@ -30,7 +30,7 @@ class Heal::CommunicationTypesController < ApplicationController
 
     respond_to do |format|
       if @communication_type.save
-        format.html { redirect_to @communication_type, notice: 'Communication type was successfully created.' }
+        format.html { redirect_to heal_communication_types_url, notice: 'Communication type was successfully created.' }
         format.json { render action: 'show', status: :created, location: @communication_type }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class Heal::CommunicationTypesController < ApplicationController
   def update
     respond_to do |format|
       if @communication_type.update(communication_type_params)
-        format.html { redirect_to @communication_type, notice: 'Communication type was successfully updated.' }
+        format.html { redirect_to heal_communication_types_url, notice: 'Communication type was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -58,7 +58,7 @@ class Heal::CommunicationTypesController < ApplicationController
   def destroy
     @communication_type.destroy
     respond_to do |format|
-      format.html { redirect_to communication_types_url }
+      format.html { redirect_to heal_communication_types_url }
       format.json { head :no_content }
     end
   end

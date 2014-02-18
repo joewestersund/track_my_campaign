@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140216064852) do
+ActiveRecord::Schema.define(version: 20140218050531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140216064852) do
     t.boolean  "under_resourced_or_disease_burden"
     t.decimal  "state_median_income"
     t.decimal  "city_median_income"
-    t.integer  "HEAL_city_designation_id"
+    t.integer  "city_designation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,6 +41,11 @@ ActiveRecord::Schema.define(version: 20140216064852) do
   create_table "cities_contacts", id: false, force: true do |t|
     t.integer "city_id"
     t.integer "contact_id"
+  end
+
+  create_table "cities_followup_tasks", id: false, force: true do |t|
+    t.integer "city_id"
+    t.integer "followup_task_id"
   end
 
   create_table "city_designations", force: true do |t|
@@ -84,9 +89,8 @@ ActiveRecord::Schema.define(version: 20140216064852) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "title"
-    t.integer  "city_id"
     t.string   "organization_name"
-    t.string   "phone_number"
+    t.string   "office_phone_number"
     t.string   "email"
     t.string   "address_line_1"
     t.string   "address_line_2"
@@ -105,6 +109,9 @@ ActiveRecord::Schema.define(version: 20140216064852) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "cell_phone_number"
+    t.string   "fax"
+    t.integer  "organization_type_id"
   end
 
   create_table "database_instances", force: true do |t|
@@ -112,6 +119,21 @@ ActiveRecord::Schema.define(version: 20140216064852) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+  end
+
+  create_table "followup_tasks", force: true do |t|
+    t.integer  "database_instance_id"
+    t.date     "due_date"
+    t.text     "description"
+    t.integer  "assigned_to_id"
+    t.integer  "assigned_by_id"
+    t.integer  "prior_communication_id"
+    t.boolean  "completed"
+    t.date     "completed_date"
+    t.integer  "completed_by_id"
+    t.text     "completion_notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "heal_city_designations", force: true do |t|
@@ -162,31 +184,27 @@ ActiveRecord::Schema.define(version: 20140216064852) do
     t.datetime "updated_at"
   end
 
-  create_table "milestone_achievements", force: true do |t|
+  create_table "milestone_types", force: true do |t|
     t.integer  "database_instance_id"
-    t.integer  "milestone_id"
-    t.integer  "city_id"
-    t.integer  "status_type_id"
-    t.date     "completion_date"
-    t.text     "notes"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "milestone_reacheds", force: true do |t|
-    t.integer  "database_instance_id"
-    t.integer  "milestone_id"
-    t.integer  "city_id"
-    t.integer  "status_type_id"
-    t.date     "completion_date"
-    t.text     "notes"
-    t.integer  "user_id"
+    t.string   "name"
+    t.integer  "order_in_list"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "milestones", force: true do |t|
+    t.integer  "database_instance_id"
+    t.integer  "milestone_type_id"
+    t.integer  "city_id"
+    t.integer  "status_type_id"
+    t.date     "completion_date"
+    t.text     "notes"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "organization_types", force: true do |t|
     t.integer  "database_instance_id"
     t.string   "name"
     t.integer  "order_in_list"

@@ -1,4 +1,5 @@
 class Heal::CityDesignationsController < ApplicationController
+  before_action :check_current_db_exists
   before_action :set_city_designation, only: [:show, :edit, :update, :destroy]
 
   # GET /city_designations
@@ -29,7 +30,7 @@ class Heal::CityDesignationsController < ApplicationController
 
     respond_to do |format|
       if @city_designation.save
-        format.html { redirect_to @city_designation, notice: 'City designation was successfully created.' }
+        format.html { redirect_to heal_city_designations_url, notice: 'City designation was successfully created.' }
         format.json { render action: 'show', status: :created, location: @city_designation }
       else
         format.html { render action: 'new' }
@@ -43,7 +44,7 @@ class Heal::CityDesignationsController < ApplicationController
   def update
     respond_to do |format|
       if @city_designation.update(city_designation_params)
-        format.html { redirect_to @city_designation, notice: 'City designation was successfully updated.' }
+        format.html { redirect_to heal_city_designations_url, notice: 'City designation was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +58,7 @@ class Heal::CityDesignationsController < ApplicationController
   def destroy
     @city_designation.destroy
     respond_to do |format|
-      format.html { redirect_to city_designations_url }
+      format.html { redirect_to heal_city_designations_url }
       format.json { head :no_content }
     end
   end

@@ -34,7 +34,7 @@ describe MilestoneAchievementsController do
     it "assigns all milestone_achievements as @milestone_achievements" do
       milestone_achievement = MilestoneAchievement.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:milestone_achievements).should eq([milestone_achievement])
+      assigns(:milestones).should eq([milestone_achievement])
     end
   end
 

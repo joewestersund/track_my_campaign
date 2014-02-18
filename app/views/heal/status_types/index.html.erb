@@ -1,11 +1,10 @@
-<h1>Status Types (used in the Milestones Achieved table)</h1>
+<h1>Status Types (used in the Milestones table)</h1>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Order in list</th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -16,7 +15,6 @@
       <tr>
         <td><%= status_type.name %></td>
         <td><%= status_type.order_in_list %></td>
-        <td><%= link_to 'Show', status_type %></td>
         <td><%= link_to 'Edit', edit_heal_status_type_path(status_type) %></td>
         <td><%= link_to 'Destroy', status_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -1,0 +1,2 @@
+module MilestoneTypesHelper
+end

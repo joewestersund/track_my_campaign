@@ -30,7 +30,7 @@ class Heal::PositionTypesController < ApplicationController
 
     respond_to do |format|
       if @position_type.save
-        format.html { redirect_to @position_type, notice: 'Position type was successfully created.' }
+        format.html { redirect_to heal_position_types_url, notice: 'Position type was successfully created.' }
         format.json { render action: 'show', status: :created, location: @position_type }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class Heal::PositionTypesController < ApplicationController
   def update
     respond_to do |format|
       if @position_type.update(position_type_params)
-        format.html { redirect_to @position_type, notice: 'Position type was successfully updated.' }
+        format.html { redirect_to heal_position_types_url, notice: 'Position type was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -58,7 +58,7 @@ class Heal::PositionTypesController < ApplicationController
   def destroy
     @position_type.destroy
     respond_to do |format|
-      format.html { redirect_to position_types_url }
+      format.html { redirect_to heal_position_types_url }
       format.json { head :no_content }
     end
   end

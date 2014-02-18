@@ -1,4 +1,5 @@
 class Heal::PoliciesController < ApplicationController
+  before_action :check_current_db_exists
   before_action :set_policy, only: [:show, :edit, :update, :destroy]
 
   # GET /policies
@@ -25,11 +26,11 @@ class Heal::PoliciesController < ApplicationController
   # POST /policies.json
   def create
     @policy = Heal::Policy.new(policy_params)
-    @policies.database_instance = current_db
+    @policy.database_instance = current_db
 
     respond_to do |format|
       if @policy.save
-        format.html { redirect_to @policy, notice: 'Policy was successfully created.' }
+        format.html { redirect_to heal_policies_url, notice: 'Policy was successfully created.' }
         format.json { render action: 'show', status: :created, location: @policy }
       else
         format.html { render action: 'new' }
@@ -43,7 +44,7 @@ class Heal::PoliciesController < ApplicationController
   def update
     respond_to do |format|
       if @policy.update(policy_params)
-        format.html { redirect_to @policy, notice: 'Policy was successfully updated.' }
+        format.html { redirect_to heal_policies_url, notice: 'Policy was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +58,7 @@ class Heal::PoliciesController < ApplicationController
   def destroy
     @policy.destroy
     respond_to do |format|
-      format.html { redirect_to policies_url }
+      format.html { redirect_to heal_policies_url }
       format.json { head :no_content }
     end
   end

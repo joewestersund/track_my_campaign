@@ -1,6 +1,7 @@
 class Heal::CitiesController < ApplicationController
   before_action :check_current_db_exists
   before_action :set_city, only: [:show, :edit, :update, :destroy]
+  before_action :set_select_options, only: [:new, :edit]
 
   # GET /cities
   # GET /cities.json
@@ -30,7 +31,7 @@ class Heal::CitiesController < ApplicationController
 
     respond_to do |format|
       if @city.save
-        format.html { redirect_to [:heal, @city], notice: 'City was successfully created.' }
+        format.html { redirect_to @city, notice: 'City was successfully created.' }
         format.json { render action: 'show', status: :created, location: @city }
       else
         format.html { render action: 'new' }
@@ -44,7 +45,7 @@ class Heal::CitiesController < ApplicationController
   def update
     respond_to do |format|
       if @city.update(city_params)
-        format.html { redirect_to [:heal, @city], notice: 'City was successfully updated.' }
+        format.html { redirect_to @city, notice: 'City was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -71,6 +72,12 @@ class Heal::CitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_params
-      params.require(:heal_city).permit(:name, :county, :state, :jurisdiction_type_id, :league_division_id, :population, :kp_service_area, :under_resourced_or_disease_burden, :state_median_income, :city_median_income, :HEAL_city_designation_id)
+      params.require(:heal_city).permit(:name, :county, :state, :jurisdiction_type_id, :league_division_id, :population, :kp_service_area, :under_resourced_or_disease_burden, :state_median_income, :city_median_income, :city_designation_id)
+    end
+
+    def set_select_options
+      @jurisdiction_types = current_db.jurisdiction_types
+      @league_divisions = current_db.league_divisions
+      @city_designations = current_db.city_designations
     end
 end

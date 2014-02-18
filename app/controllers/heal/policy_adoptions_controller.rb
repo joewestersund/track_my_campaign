@@ -1,4 +1,5 @@
 class Heal::PolicyAdoptionsController < ApplicationController
+  before_action :check_current_db_exists
   before_action :set_policy_adoption, only: [:show, :edit, :update, :destroy]
 
   # GET /policy_adoptions
@@ -57,7 +58,7 @@ class Heal::PolicyAdoptionsController < ApplicationController
   def destroy
     @policy_adoption.destroy
     respond_to do |format|
-      format.html { redirect_to policy_adoptions_url }
+      format.html { redirect_to heal_policy_adoptions_url }
       format.json { head :no_content }
     end
   end

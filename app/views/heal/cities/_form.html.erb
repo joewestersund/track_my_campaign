@@ -24,12 +24,14 @@
     <%= f.text_field :state %>
   </div>
   <div class="field">
-    <%= f.label :jurisdiction_type_id %><br>
-    <%= f.number_field :jurisdiction_type_id %>
+    <%= f.label :jurisdiction_type %><br>
+    <%= f.collection_select :jurisdiction_type_id, @jurisdiction_types, :id, :name %>
+    <%= link_to "Add / Edit", new_heal_jurisdiction_type_path %>
   </div>
   <div class="field">
-    <%= f.label :league_division_id %><br>
-    <%= f.number_field :league_division_id %>
+    <%= f.label :league_division %><br>
+    <%= f.collection_select :league_division_id, @league_divisions, :id, :name %>
+    <%= link_to "Add / Edit", new_heal_league_division_path %>
   </div>
   <div class="field">
     <%= f.label :population %><br>
@@ -52,8 +54,9 @@
     <%= f.text_field :city_median_income %>
   </div>
   <div class="field">
-    <%= f.label :HEAL_city_designation_id %><br>
-    <%= f.number_field :HEAL_city_designation_id %>
+    <%= f.label "HEAL City Designation" %><br>
+    <%= f.collection_select :city_designation_id, @city_designations, :id, :name, include_blank: true %>
+    <%= link_to "Add / Edit", new_heal_city_designation_path %>
   </div>
   <div class="actions">
     <%= f.submit %>

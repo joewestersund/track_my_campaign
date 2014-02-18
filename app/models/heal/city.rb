@@ -14,7 +14,7 @@
 #  under_resourced_or_disease_burden :boolean
 #  state_median_income               :decimal(, )
 #  city_median_income                :decimal(, )
-#  HEAL_city_designation_id          :integer
+#  city_designation_id               :integer
 #  created_at                        :datetime
 #  updated_at                        :datetime
 #
@@ -26,10 +26,13 @@ class Heal::City < ActiveRecord::Base
   belongs_to :city_designation
   has_and_belongs_to_many :contacts
   has_and_belongs_to_many :communications
+  has_and_belongs_to_many :followup_tasks
 
   validates :database_instance, presence: true
   validates :name, presence: true
   validates :state, presence: true
-  validates :jurisdiction_type_id, presence: true
+  validates :jurisdiction_type, presence: true
+  validates :league_division, presence: true
+  # city_designation not required.
 
 end

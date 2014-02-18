@@ -7,7 +7,6 @@
       <th>Order in list</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -16,7 +15,6 @@
       <tr>
         <td><%= league_division.name %></td>
         <td><%= league_division.order_in_list %></td>
-        <td><%= link_to 'Show', league_division %></td>
         <td><%= link_to 'Edit', edit_heal_league_division_path(league_division) %></td>
         <td><%= link_to 'Destroy', league_division, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

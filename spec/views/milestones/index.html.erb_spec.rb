@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "milestones/index" do
   before(:each) do
-    assign(:milestones, [
+    assign(:milestone_types, [
       stub_model(Milestone,
         :database_instance_id => 1,
         :name => "Name",

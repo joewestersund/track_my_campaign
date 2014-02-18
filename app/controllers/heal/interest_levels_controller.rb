@@ -25,12 +25,12 @@ class Heal::InterestLevelsController < ApplicationController
   # POST /interest_levels
   # POST /interest_levels.json
   def create
-    @interest_level = InterestLevel.new(interest_level_params)
+    @interest_level = Heal::InterestLevel.new(interest_level_params)
     @interest_level.database_instance = current_db
 
     respond_to do |format|
       if @interest_level.save
-        format.html { redirect_to @interest_level, notice: 'Interest level was successfully created.' }
+        format.html { redirect_to heal_interest_levels_url, notice: 'Interest level was successfully created.' }
         format.json { render action: 'show', status: :created, location: @interest_level }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class Heal::InterestLevelsController < ApplicationController
   def update
     respond_to do |format|
       if @interest_level.update(interest_level_params)
-        format.html { redirect_to @interest_level, notice: 'Interest level was successfully updated.' }
+        format.html { redirect_to heal_interest_levels_url, notice: 'Interest level was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -58,7 +58,7 @@ class Heal::InterestLevelsController < ApplicationController
   def destroy
     @interest_level.destroy
     respond_to do |format|
-      format.html { redirect_to interest_levels_url }
+      format.html { redirect_to heal_interest_levels_url }
       format.json { head :no_content }
     end
   end

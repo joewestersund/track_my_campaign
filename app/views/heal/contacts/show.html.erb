@@ -16,8 +16,13 @@
 </p>
 
 <p>
+  <strong>Position type:</strong>
+  <%= @contact.position_type.name %>
+</p>
+
+<p>
   <strong>City:</strong>
-  <%= @contact.city_id %>
+  <%= @contact.cities.map {|c| c.name } %>
 </p>
 
 <p>
@@ -26,8 +31,23 @@
 </p>
 
 <p>
-  <strong>Phone number:</strong>
-  <%= @contact.phone_number %>
+  <strong>Organization type:</strong>
+  <%= @contact.organization_type.name %>
+</p>
+
+<p>
+  <strong>Office Phone Number:</strong>
+  <%= @contact.office_phone_number %>
+</p>
+
+<p>
+  <strong>Cell Phone Number:</strong>
+  <%= @contact.cell_phone_number %>
+</p>
+
+<p>
+  <strong>Fax:</strong>
+  <%= @contact.fax %>
 </p>
 
 <p>
@@ -62,12 +82,12 @@
 
 <p>
   <strong>Interest level:</strong>
-  <%= @contact.interest_level_id %>
+  <%= @contact.interest_level.name if @contact.interest_level.present? %>
 </p>
 
 <p>
   <strong>Heal champion:</strong>
-  <%= @contact.HEAL_champion %>
+  <%= show_boolean(@contact.HEAL_champion) %>
 </p>
 
 <p>
@@ -76,14 +96,9 @@
 </p>
 
 <p>
-  <strong>Position type:</strong>
-  <%= @contact.position_type_id %>
-</p>
-
-<p>
   <strong>Notes:</strong>
   <%= @contact.notes %>
 </p>
 
 <%= link_to 'Edit', edit_heal_contact_path(@contact) %> |
-<%= link_to 'Back', heal_contacts_path %>
+<%= link_to 'Index', heal_contacts_path %>

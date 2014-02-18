@@ -7,7 +7,6 @@
       <th>Order in list</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -16,7 +15,6 @@
       <tr>
         <td><%= interest_level.name %></td>
         <td><%= interest_level.order_in_list %></td>
-        <td><%= link_to 'Show', interest_level %></td>
         <td><%= link_to 'Edit', edit_heal_interest_level_path(interest_level) %></td>
         <td><%= link_to 'Destroy', interest_level, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -1,4 +1,5 @@
 class Heal::StatusTypesController < ApplicationController
+  before_action :check_current_db_exists
   before_action :set_status_type, only: [:show, :edit, :update, :destroy]
 
   # GET /status_types
@@ -29,7 +30,7 @@ class Heal::StatusTypesController < ApplicationController
 
     respond_to do |format|
       if @status_type.save
-        format.html { redirect_to @status_type, notice: 'Status type was successfully created.' }
+        format.html { redirect_to heal_status_types_url, notice: 'Status type was successfully created.' }
         format.json { render action: 'show', status: :created, location: @status_type }
       else
         format.html { render action: 'new' }
@@ -43,7 +44,7 @@ class Heal::StatusTypesController < ApplicationController
   def update
     respond_to do |format|
       if @status_type.update(status_type_params)
-        format.html { redirect_to @status_type, notice: 'Status type was successfully updated.' }
+        format.html { redirect_to heal_status_types_url, notice: 'Status type was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +58,7 @@ class Heal::StatusTypesController < ApplicationController
   def destroy
     @status_type.destroy
     respond_to do |format|
-      format.html { redirect_to status_types_url }
+      format.html { redirect_to heal_status_types_url }
       format.json { head :no_content }
     end
   end

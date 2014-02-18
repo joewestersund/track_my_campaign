@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "milestone_achievements/index" do
   before(:each) do
-    assign(:milestone_achievements, [
+    assign(:milestones, [
       stub_model(MilestoneAchievement,
         :database_instance_id => 1,
         :milestone_id => 2,

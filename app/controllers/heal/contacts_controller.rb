@@ -6,7 +6,7 @@ class Heal::ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = current_db.contacts
+    @contacts = current_db.contacts.order(:first_name, :last_name)
   end
 
   # GET /contacts/1
@@ -59,7 +59,7 @@ class Heal::ContactsController < ApplicationController
   def destroy
     @contact.destroy
     respond_to do |format|
-      format.html { redirect_to contacts_url }
+      format.html { redirect_to heal_contacts_url }
       format.json { head :no_content }
     end
   end
@@ -72,11 +72,14 @@ class Heal::ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:heal_contact).permit(:first_name, :last_name, :title, :city_id, :organization_name, :phone_number, :email, :address_line_1, :address_line_2, :address_city, :address_state, :address_zip, :interest_level_id, :HEAL_champion, :HEAL_champion_notes, :position_type_id, :notes, :photo)
+      params.require(:heal_contact).permit(:first_name, :last_name, :title, :organization_name, :organization_type, :cities, :office_phone_number, :cell_phone_number, :fax, :email, :address_line_1, :address_line_2, :address_city, :address_state, :address_zip, :interest_level_id, :HEAL_champion, :HEAL_champion_notes, :position_type_id, :notes, :photo)
     end
 
     def set_select_options
-      @users = current_db.users
-      @position_types = current_db.position_types
+      @honorifics = current_db.honorifics.order(:order_in_list)
+      @position_types = current_db.position_types.order(:order_in_list)
+      @cities = current_db.cities.order(:name)
+      @organization_types = current_db.organization_types.order(:order_in_list)
+      @interest_levels = current_db.interest_levels.order(:order_in_list)
     end
 end

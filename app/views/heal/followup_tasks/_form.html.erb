@@ -1,0 +1,53 @@
+<%= form_for(@followup_task) do |f| %>
+  <% if @followup_task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@followup_task.errors.count, "error") %> prohibited this followup_task from being saved:</h2>
+
+      <ul>
+      <% @followup_task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :due_date %><br>
+    <%= f.date_select :due_date %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :assigned_to_id %><br>
+    <%= f.number_field :assigned_to_id %>
+  </div>
+  <div class="field">
+    <%= f.label :assigned_by_id %><br>
+    <%= f.number_field :assigned_by_id %>
+  </div>
+  <div class="field">
+    <%= f.label :prior_communication_id %><br>
+    <%= f.number_field :prior_communication_id %>
+  </div>
+  <div class="field">
+    <%= f.label :completed %><br>
+    <%= f.check_box :completed %>
+  </div>
+  <div class="field">
+    <%= f.label :completed_date %><br>
+    <%= f.date_select :completed_date %>
+  </div>
+  <div class="field">
+    <%= f.label :completed_by_id %><br>
+    <%= f.number_field :completed_by_id %>
+  </div>
+  <div class="field">
+    <%= f.label :completion_notes %><br>
+    <%= f.text_area :completion_notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

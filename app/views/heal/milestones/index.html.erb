@@ -1,10 +1,14 @@
-<h1>Milestones</h1>
+<h1>Milestones Reached</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Order in list</th>
+      <th>Milestone Type</th>
+      <th>City</th>
+      <th>Status type</th>
+      <th>Completion date</th>
+      <th>Notes</th>
+      <th>User</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,8 +18,12 @@
   <tbody>
     <% @milestones.each do |milestone| %>
       <tr>
-        <td><%= milestone.name %></td>
-        <td><%= milestone.order_in_list %></td>
+        <td><%= milestone.milestone_type.name %></td>
+        <td><%= milestone.city_id %></td>
+        <td><%= milestone.status_type.name %></td>
+        <td><%= milestone.completion_date %></td>
+        <td><%= milestone.notes %></td>
+        <td><%= milestone.user_id %></td>
         <td><%= link_to 'Show', milestone %></td>
         <td><%= link_to 'Edit', edit_heal_milestone_path(milestone) %></td>
         <td><%= link_to 'Destroy', milestone, method: :delete, data: { confirm: 'Are you sure?' } %></td>

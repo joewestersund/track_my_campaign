@@ -1,4 +1,5 @@
 class Heal::LeagueDivisionsController < ApplicationController
+  before_action :check_current_db_exists
   before_action :set_league_division, only: [:show, :edit, :update, :destroy]
 
   # GET /league_divisions
@@ -29,7 +30,7 @@ class Heal::LeagueDivisionsController < ApplicationController
 
     respond_to do |format|
       if @league_division.save
-        format.html { redirect_to @league_division, notice: 'League division was successfully created.' }
+        format.html { redirect_to heal_league_divisions_url, notice: 'League division was successfully created.' }
         format.json { render action: 'show', status: :created, location: @league_division }
       else
         format.html { render action: 'new' }
@@ -43,7 +44,7 @@ class Heal::LeagueDivisionsController < ApplicationController
   def update
     respond_to do |format|
       if @league_division.update(league_division_params)
-        format.html { redirect_to @league_division, notice: 'League division was successfully updated.' }
+        format.html { redirect_to heal_league_divisions_url, notice: 'League division was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +58,7 @@ class Heal::LeagueDivisionsController < ApplicationController
   def destroy
     @league_division.destroy
     respond_to do |format|
-      format.html { redirect_to league_divisions_url }
+      format.html { redirect_to heal_league_divisions_url }
       format.json { head :no_content }
     end
   end

@@ -30,7 +30,7 @@ class Heal::HonorificsController < ApplicationController
 
     respond_to do |format|
       if @honorific.save
-        format.html { redirect_to @honorific, notice: 'Honorific was successfully created.' }
+        format.html { redirect_to heal_honorifics_url, notice: 'Honorific was successfully created.' }
         format.json { render action: 'show', status: :created, location: @honorific }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class Heal::HonorificsController < ApplicationController
   def update
     respond_to do |format|
       if @honorific.update(honorific_params)
-        format.html { redirect_to @honorific, notice: 'Honorific was successfully updated.' }
+        format.html { redirect_to heal_honorifics_url, notice: 'Honorific was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -58,7 +58,7 @@ class Heal::HonorificsController < ApplicationController
   def destroy
     @honorific.destroy
     respond_to do |format|
-      format.html { redirect_to honorifics_url }
+      format.html { redirect_to heal_honorifics_url }
       format.json { head :no_content }
     end
   end

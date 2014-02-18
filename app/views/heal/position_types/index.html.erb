@@ -7,7 +7,6 @@
       <th>Order in list</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -16,7 +15,6 @@
       <tr>
         <td><%= position_type.name %></td>
         <td><%= position_type.order_in_list %></td>
-        <td><%= link_to 'Show', position_type %></td>
         <td><%= link_to 'Edit', edit_heal_position_type_path(position_type) %></td>
         <td><%= link_to 'Destroy', position_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

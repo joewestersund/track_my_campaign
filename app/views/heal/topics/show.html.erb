@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Database instance:</strong>
-  <%= @topic.database_instance_id %>
-</p>
-
-<p>
   <strong>Name:</strong>
   <%= @topic.name %>
 </p>
@@ -16,4 +11,4 @@
 </p>
 
 <%= link_to 'Edit', edit_heal_topic_path(@topic) %> |
-<%= link_to 'Back', heal_topics_path %>
+<%= link_to 'Index', heal_topics_path %>

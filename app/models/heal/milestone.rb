@@ -4,18 +4,26 @@
 #
 #  id                   :integer          not null, primary key
 #  database_instance_id :integer
-#  name                 :string(255)
-#  order_in_list        :integer
+#  milestone_type_id    :integer
+#  city_id              :integer
+#  status_type_id       :integer
+#  completion_date      :date
+#  notes                :text
+#  user_id              :integer
 #  created_at           :datetime
 #  updated_at           :datetime
 #
 
 class Heal::Milestone < ActiveRecord::Base
   belongs_to :database_instance
-  has_many :milestone_achievements
+  belongs_to :milestone_type
+  belongs_to :city
+  belongs_to :status_type
+  belongs_to :user
 
   validates :database_instance, presence: true
-  validates :name, presence: true, :uniqueness => {:scope => :database_instance}
-  validates :order_in_list, presence: true, :uniqueness => {:scope => :database_instance}
+  validates :milestone_type, presence: true
+  validates :city, presence: true
+  validates :status_type, presence: true
 
 end

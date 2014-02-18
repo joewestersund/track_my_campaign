@@ -5,7 +5,7 @@ class Heal::CommunicationsController < ApplicationController
   # GET /communications
   # GET /communications.json
   def index
-    @communications = current_db.communications.order(date: desc)
+    @communications = current_db.communications.order(date: :desc)
   end
 
   # GET /communications/1
@@ -58,7 +58,7 @@ class Heal::CommunicationsController < ApplicationController
   def destroy
     @communication.destroy
     respond_to do |format|
-      format.html { redirect_to communications_url }
+      format.html { redirect_to heal_communications_url }
       format.json { head :no_content }
     end
   end
@@ -66,6 +66,7 @@ class Heal::CommunicationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_communication
+      @users = current_db.users
       @communication = current_db.communications.find(params[:id])
     end
 

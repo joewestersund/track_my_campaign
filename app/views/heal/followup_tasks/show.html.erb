@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @followup_task.due_date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @followup_task.description %>
+</p>
+
+<p>
+  <strong>Assigned to:</strong>
+  <%= @followup_task.assigned_to_id %>
+</p>
+
+<p>
+  <strong>Assigned by:</strong>
+  <%= @followup_task.assigned_by_id %>
+</p>
+
+<p>
+  <strong>Prior communication:</strong>
+  <%= @followup_task.prior_communication_id %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @followup_task.completed %>
+</p>
+
+<p>
+  <strong>Completed date:</strong>
+  <%= @followup_task.completed_date %>
+</p>
+
+<p>
+  <strong>Completed by:</strong>
+  <%= @followup_task.completed_by_id %>
+</p>
+
+<p>
+  <strong>Completion notes:</strong>
+  <%= @followup_task.completion_notes %>
+</p>
+
+<%= link_to 'Edit', edit_heal_followup_task_path(@followup_task) %> |
+<%= link_to 'Index', heal_followup_tasks_path %>

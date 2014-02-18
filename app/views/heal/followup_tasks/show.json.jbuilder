@@ -1,0 +1,1 @@
+json.extract! @followup_task, :id, :database_instance_id, :due_date, :description, :assigned_to_id, :assigned_by_id, :prior_communication_id, :completed, :completed_date, :completed_by_id, :completion_notes, :created_at, :updated_at

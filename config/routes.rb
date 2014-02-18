@@ -1,23 +1,24 @@
 TrackMyCampaign::Application.routes.draw do
 
   namespace :heal do
-    resources :milestone_achievements
-    resources :policies
-    resources :city_designations
-    resources :survey_emails
-    resources :status_types
-    resources :milestones
-    resources :policy_adoptions
-    resources :resolutions
-    resources :league_divisions
     resources :cities
-    resources :communications
+    resources :city_designations
     resources :communication_types
+    resources :communications
     resources :contacts
+    resources :followup_tasks
     resources :honorifics
     resources :interest_levels
     resources :jurisdiction_types
+    resources :league_divisions
+    resources :milestone_types
+    resources :milestones
+    resources :organization_types
+    resources :policies
+    resources :policy_adoptions
     resources :position_types
+    resources :resolutions
+    resources :status_types
     resources :topics
   end
 
