@@ -20,16 +20,41 @@
     <%= f.number_field :duration_minutes %>
   </div>
   <div class="field">
-    <%= f.label :communication_type_id %><br>
-    <%= f.number_field :communication_type_id %>
+    <%= f.label :communication_type %><br>
+    <%= f.collection_select :communication_type_id, @communication_types, :id, :name, {}, {class: 'multiselect', multiple: false} %>
+    <%= link_to "Add / Edit", new_heal_communication_type_path %>
   </div>
   <div class="field">
     <%= f.label :event_name %><br>
     <%= f.text_field :event_name %>
   </div>
   <div class="field">
-    <%= f.label :contact_interest_level_id %><br>
-    <%= f.number_field :contact_interest_level_id %>
+    <%= f.label :topics %><br>
+    <%= f.collection_select :topic_ids, @topics, :id, :name, {}, {class: 'multiselect', multiple: true} %>
+    <%= link_to "Add / Edit", new_heal_topic_path %>
+  </div>
+  <div class="field">
+    <%= f.label :interest_level %><br>
+    <%= f.collection_select :interest_level_id, @interest_levels, :id, :name, {}, {class: 'multiselect', multiple: false} %>
+    <%= link_to "Add / Edit", new_heal_interest_level_path %>
+  </div>
+  <div class="field">
+    <%= f.label :contacts %><br>
+    <%= f.collection_select :contact_ids, @contacts, :id, :first_last_name, {}, {class: 'multiselect', multiple: true} %>
+    <%= link_to "Add / Edit", new_heal_contact_path %>
+  </div>
+  <div class="field">
+    <%= f.label :others_involved %><br>
+    <%= f.text_field :others_involved %>
+  </div>
+  <div class="field">
+    <%= f.label :cities %><br>
+    <%= f.collection_select :city_ids, @cities, :id, :name_type_state, {}, {class: 'multiselect', multiple: true} %>
+    <%= link_to "Add / Edit", new_heal_city_path %>
+  </div>
+  <div class="field">
+    <%= f.label :staff_involved %><br>
+    <%= f.collection_select :staff_involved_ids, @users, :id, :name, {}, {class: 'multiselect', multiple: true} %>
   </div>
   <div class="field">
     <%= f.label :notes %><br>

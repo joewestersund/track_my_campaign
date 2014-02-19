@@ -6,13 +6,13 @@
 </p>
 
 <p>
-  <strong>Duration minutes:</strong>
+  <strong>Duration (minutes):</strong>
   <%= @communication.duration_minutes %>
 </p>
 
 <p>
   <strong>Communication type:</strong>
-  <%= @communication.communication_type_id %>
+  <%= @communication.communication_type.name %>
 </p>
 
 <p>
@@ -21,8 +21,13 @@
 </p>
 
 <p>
-  <strong>Contact interest level:</strong>
-  <%= @communication.contact_interest_level_id %>
+  <strong>Interest level:</strong>
+  <%= @communication.interest_level.name %>
+</p>
+
+<p>
+  <strong>Others Involved:</strong>
+  <%= @communication.others_involved %>
 </p>
 
 <p>

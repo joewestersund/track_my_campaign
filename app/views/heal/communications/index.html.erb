@@ -7,7 +7,8 @@
       <th>Duration minutes</th>
       <th>Communication type</th>
       <th>Event name</th>
-      <th>Contact interest level</th>
+      <th>Interest level</th>
+      <th>Others involved</th>
       <th>Notes</th>
       <th></th>
       <th></th>
@@ -22,7 +23,8 @@
         <td><%= communication.duration_minutes %></td>
         <td><%= communication.communication_type_id %></td>
         <td><%= communication.event_name %></td>
-        <td><%= communication.contact_interest_level_id %></td>
+        <td><%= communication.interest_level_id %></td>
+        <td><%= communication.others_involved %></td>
         <td><%= communication.notes %></td>
         <td><%= link_to 'Show', communication %></td>
         <td><%= link_to 'Edit', edit_heal_communication_path(communication) %></td>

@@ -12,6 +12,7 @@
 #  notes                 :text
 #  created_at            :datetime
 #  updated_at            :datetime
+#  others_involved       :string(255)
 #
 
 class Heal::Communication < ActiveRecord::Base
@@ -21,7 +22,7 @@ class Heal::Communication < ActiveRecord::Base
   has_and_belongs_to_many :topics
   has_and_belongs_to_many :contacts
   has_and_belongs_to_many :cities
-  has_and_belongs_to_many :users
+  has_and_belongs_to_many :staff_involved, class_name: :users
 
   validates :database_instance, presence: true
   validates :date, presence: true

@@ -25,12 +25,12 @@
   </div>
   <div class="field">
     <%= f.label :jurisdiction_type %><br>
-    <%= f.collection_select :jurisdiction_type_id, @jurisdiction_types, :id, :name %>
+    <%= f.collection_select :jurisdiction_type_id, @jurisdiction_types, :id, :name, {}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_jurisdiction_type_path %>
   </div>
   <div class="field">
     <%= f.label :league_division %><br>
-    <%= f.collection_select :league_division_id, @league_divisions, :id, :name %>
+    <%= f.collection_select :league_division_id, @league_divisions, :id, :name, {}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_league_division_path %>
   </div>
   <div class="field">
@@ -55,7 +55,7 @@
   </div>
   <div class="field">
     <%= f.label "HEAL City Designation" %><br>
-    <%= f.collection_select :city_designation_id, @city_designations, :id, :name, include_blank: true %>
+    <%= f.collection_select :city_designation_id, @city_designations, :id, :name, {include_blank: true}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_city_designation_path %>
   </div>
   <div class="actions">
