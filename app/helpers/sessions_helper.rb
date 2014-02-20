@@ -30,6 +30,18 @@ module SessionsHelper
     redirect_to signin_path, notice: "This action requires admin permissions." unless admin_user?
   end
 
+  def check_has_write_permissions
+    redirect_to signin_path, notice: "This action requires admin permissions." unless has_write_permissions?
+  end
+
+  def has_write_permissions?
+    if current_db.present?
+      p = current_db.user_permissions.where(user: current_user)
+      return true if p.present? and p.read_only == false
+    end
+    false
+  end
+
   def check_current_db_exists
     redirect_to signin_path, notice: "Please choose a database instance." unless current_db.present?
   end
@@ -77,7 +89,7 @@ module SessionsHelper
         return DatabaseInstance.all
       else
         #if user isn't an admin, then they will have an organization_id.
-        return DatabaseInstance.where(organization_id == user.organization_id)
+        return current_user.database_instances.all.order(:type_and_name)
       end
     else
       return []

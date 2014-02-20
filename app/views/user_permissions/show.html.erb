@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Database instance:</strong>
+  <%= @user_permission.database_instance_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_permission.user_id %>
+</p>
+
+<p>
+  <strong>Read only:</strong>
+  <%= @user_permission.read_only %>
+</p>
+
+<%= link_to 'Edit', edit_user_permission_path(@user_permission) %> |
+<%= link_to 'Back', user_permissions_path %>

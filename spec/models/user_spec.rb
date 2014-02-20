@@ -11,7 +11,6 @@
 #  admin           :boolean
 #  first_name      :string(255)
 #  last_name       :string(255)
-#  organization_id :integer
 #
 
 require 'spec_helper'

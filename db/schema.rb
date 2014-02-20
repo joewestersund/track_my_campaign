@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219070013) do
+ActiveRecord::Schema.define(version: 20140220065909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,10 +126,10 @@ ActiveRecord::Schema.define(version: 20140219070013) do
   end
 
   create_table "database_instances", force: true do |t|
-    t.integer  "organization_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+    t.string   "name"
   end
 
   create_table "followup_tasks", force: true do |t|
@@ -223,12 +223,6 @@ ActiveRecord::Schema.define(version: 20140219070013) do
     t.datetime "updated_at"
   end
 
-  create_table "organizations", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "policies", force: true do |t|
     t.integer  "database_instance_id"
     t.string   "name"
@@ -295,6 +289,14 @@ ActiveRecord::Schema.define(version: 20140219070013) do
     t.datetime "updated_at"
   end
 
+  create_table "user_permissions", force: true do |t|
+    t.integer  "database_instance_id"
+    t.integer  "user_id"
+    t.boolean  "read_only"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email"
     t.datetime "created_at"
@@ -304,7 +306,6 @@ ActiveRecord::Schema.define(version: 20140219070013) do
     t.boolean  "admin"
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "organization_id"
   end
 
 end

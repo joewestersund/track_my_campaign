@@ -90,11 +90,11 @@ class DatabaseInstancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def database_instance_params
-      params.require(:database_instance).permit(:organization_id, :type)
+      params.require(:database_instance).permit(:type, {user_ids: []})
     end
 
     def set_select_options
-      @organizations = Organization.all
+      @users = User.all
       @database_types = database_types
     end
 end

@@ -70,11 +70,11 @@ class UsersController < ApplicationController
     end
 
     def user_params_admin_can_set
-      params.require(:user).permit(:first_name, :last_name, :email, :organization_id, :admin, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email, :admin, :password, :password_confirmation, {database_instance_ids: []})
     end
 
     def set_select_options
-      @organizations = Organization.all
+      @database_instances = DatabaseInstance.all
     end
 
 end

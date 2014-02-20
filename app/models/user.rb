@@ -11,12 +11,12 @@
 #  admin           :boolean
 #  first_name      :string(255)
 #  last_name       :string(255)
-#  organization_id :integer
 #
 
 class User < ActiveRecord::Base
   has_secure_password #adds authenticate method, etc.
-  belongs_to :organization
+  has_many :user_permissions
+  has_many :database_instances, through: :user_permissions
   has_and_belongs_to_many :communications
 
   before_save { |user| user.email.downcase! }
