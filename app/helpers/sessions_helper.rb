@@ -76,7 +76,7 @@ module SessionsHelper
   def set_default_current_db
     instances = db_instances_this_user
     if instances.count == 1
-      session[:current_database_instance_id] = instances.first
+      session[:current_database_instance_id] = instances.first.id
     else
       session[:current_database_instance_id] = nil #clear the variable
     end

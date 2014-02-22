@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       sign_in user
       if current_db.present?
-        redirect_to database_instance_path(current_db)
+        redirect_to "/database_home/#{current_db.id}"
       else
         redirect_to select_database_path #user has multiple DBs. have them select one.
       end

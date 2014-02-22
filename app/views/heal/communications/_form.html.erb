@@ -54,7 +54,7 @@
   </div>
   <div class="field">
     <%= f.label :staff_involved %><br>
-    <%= f.collection_select :staff_involved_ids, @users, :id, :name, {}, {class: 'multiselect', multiple: true} %>
+    <%= f.collection_select :staff_involved_ids, @users, :id, :first_and_last_name, {}, {class: 'multiselect', multiple: true} %>
   </div>
   <div class="field">
     <%= f.label :notes %><br>

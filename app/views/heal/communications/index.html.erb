@@ -4,11 +4,15 @@
   <thead>
     <tr>
       <th>Date</th>
-      <th>Duration minutes</th>
+      <th>Duration (minutes)</th>
       <th>Communication type</th>
       <th>Event name</th>
+      <th>Topics</th>
       <th>Interest level</th>
+      <th>Contacts</th>
       <th>Others involved</th>
+      <th>Cities</th>
+      <th>Staff Involved</th>
       <th>Notes</th>
       <th></th>
       <th></th>
@@ -21,10 +25,14 @@
       <tr>
         <td><%= communication.date %></td>
         <td><%= communication.duration_minutes %></td>
-        <td><%= communication.communication_type_id %></td>
+        <td><%= communication.communication_type.name %></td>
         <td><%= communication.event_name %></td>
-        <td><%= communication.interest_level_id %></td>
+        <td><%= show_comma_separated_list(communication.topics.all, "topics") %></td>
+        <td><%= communication.interest_level.name %></td>
+        <td><%= show_users_list(communication.contacts.all) %></td>
         <td><%= communication.others_involved %></td>
+        <td><%= show_cities_list(communication.cities.all) %></td>
+        <td><%= show_users_list(communication.staff_involved.all) %></td>
         <td><%= communication.notes %></td>
         <td><%= link_to 'Show', communication %></td>
         <td><%= link_to 'Edit', edit_heal_communication_path(communication) %></td>

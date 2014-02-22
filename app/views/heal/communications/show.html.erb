@@ -21,13 +21,33 @@
 </p>
 
 <p>
+  <strong>Topics:</strong>
+  <%= show_comma_separated_list(@communication.topics.all,"topics",10) %>
+</p>
+
+<p>
   <strong>Interest level:</strong>
   <%= @communication.interest_level.name %>
 </p>
 
 <p>
+  <strong>Contacts:</strong>
+  <%= show_comma_separated_list(@communication.contacts.all,"contacts",10) %>
+</p>
+
+<p>
   <strong>Others Involved:</strong>
   <%= @communication.others_involved %>
+</p>
+
+<p>
+  <strong>Cities:</strong>
+  <%= show_cities_list(@communication.cities.all,true,true) %>
+</p>
+
+<p>
+  <strong>Staff Involved:</strong>
+  <%= show_users_list(@communication.staff_involved.all,10) %>
 </p>
 
 <p>

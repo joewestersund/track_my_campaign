@@ -22,12 +22,12 @@ class Heal::Communication < ActiveRecord::Base
   has_and_belongs_to_many :topics
   has_and_belongs_to_many :contacts
   has_and_belongs_to_many :cities
-  has_and_belongs_to_many :staff_involved, class_name: :users
+  has_and_belongs_to_many :staff_involved, class_name: 'User', join_table: 'communications_staff_involved'
 
   validates :database_instance, presence: true
   validates :date, presence: true
   validates :duration_minutes, presence: true
-  validates :state, presence: true
-  validates :jurisdiction_type_id, presence: true
+  validates :communication_type, presence: true
+  validates :interest_level, presence: true
 
 end
