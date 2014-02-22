@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require bootstrap-multiselect
+ *= require bootstrap-datepicker
  *= require_tree .
  */

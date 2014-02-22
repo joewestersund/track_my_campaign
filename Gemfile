@@ -48,6 +48,10 @@ gem 'aws-sdk'
 # demos and options: http://davidstutz.github.io/bootstrap-multiselect/
 gem "bootstrap-multiselect-rails4", "~> 0.0.1"
 
+# for datepicker
+# https://github.com/Nerian/bootstrap-datepicker-rails
+gem 'bootstrap-datepicker-rails'
+
 group :development do
   gem 'rails_layout'  #gem to set up for bootstrap css and js http://railsapps.github.io/twitter-bootstrap-rails.html
   gem 'annotate'  #adds annotations to models, call bundle exec annotate to make it work

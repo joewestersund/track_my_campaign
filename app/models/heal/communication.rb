@@ -30,4 +30,10 @@ class Heal::Communication < ActiveRecord::Base
   validates :communication_type, presence: true
   validates :interest_level, presence: true
 
+  def summary
+    str_array = []
+    str_array << "#{self.event_name} " if self.event_name.present?
+    str_array << "#{show_users_list(self.contacts.all,4)}" if self.contacts.all.count > 0
+    str_array.join(", ")
+  end
 end

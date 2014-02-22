@@ -1,6 +1,7 @@
 class Heal::FollowupTasksController < ApplicationController
   before_action :check_current_db_exists
   before_action :set_followup_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_select_options, only: [:new, :edit]
 
   # GET /followup_tasks
   # GET /followup_tasks.json
@@ -16,6 +17,7 @@ class Heal::FollowupTasksController < ApplicationController
   # GET /followup_tasks/new
   def new
     @followup_task = Heal::FollowupTask.new
+    @followup_task.assigned_by = current_user
   end
 
   # GET /followup_tasks/1/edit
@@ -72,5 +74,10 @@ class Heal::FollowupTasksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def followup_task_params
       params.require(:heal_followup_task).permit( :due_date, :description, :assigned_to_id, :assigned_by_id, :prior_communication_id, :completed, :completed_date, :completed_by_id, :completion_notes)
+    end
+
+    def set_select_options
+      @users = current_db.users.order(:first_name, :last_name)
+      @communications = current_db.communications.order(:date => :desc)
     end
 end

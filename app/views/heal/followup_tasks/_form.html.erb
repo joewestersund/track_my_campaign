@@ -12,24 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :due_date %><br>
-    <%= f.date_select :due_date %>
-  </div>
-  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :assigned_to_id %><br>
-    <%= f.number_field :assigned_to_id %>
+    <%= f.label :due_date %><br>
+    <%= f.text_field :due_date, {class: 'datepicker'} %>
+  </div>
+  <div class="field">
+    <%= f.label :assigned_to %><br>
+    <%= f.collection_select :assigned_to_id, @users, :id, :first_and_last_name, {}, {class: 'multiselect', multiple: false} %>
   </div>
   <div class="field">
     <%= f.label :assigned_by_id %><br>
-    <%= f.number_field :assigned_by_id %>
+    <%= f.collection_select :assigned_by_id, @users, :id, :first_and_last_name, {}, {class: 'multiselect', multiple: false} %>
   </div>
   <div class="field">
-    <%= f.label :prior_communication_id %><br>
-    <%= f.number_field :prior_communication_id %>
+    <%= f.label :prior_communication %><br>
+    <%= f.collection_select :prior_communication_id, @communications, :id, :summary, {}, {class: 'multiselect', multiple: false} %>
   </div>
   <div class="field">
     <%= f.label :completed %><br>
@@ -37,11 +37,11 @@
   </div>
   <div class="field">
     <%= f.label :completed_date %><br>
-    <%= f.date_select :completed_date %>
+    <%= f.text_field :completed_date, {class: 'datepicker'} %>
   </div>
   <div class="field">
-    <%= f.label :completed_by_id %><br>
-    <%= f.number_field :completed_by_id %>
+    <%= f.label :completed_by %><br>
+    <%= f.collection_select :completed_by_id, @users, :id, :first_and_last_name, {include_blank: true}, {class: 'multiselect', multiple: false} %>
   </div>
   <div class="field">
     <%= f.label :completion_notes %><br>
