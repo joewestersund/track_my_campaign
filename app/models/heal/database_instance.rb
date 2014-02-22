@@ -2,11 +2,11 @@
 #
 # Table name: database_instances
 #
-#  id         :integer          not null, primary key
-#  created_at :datetime
-#  updated_at :datetime
-#  type       :string(255)
-#  name       :string(255)
+#  id            :integer          not null, primary key
+#  created_at    :datetime
+#  updated_at    :datetime
+#  type          :string(255)
+#  instance_name :string(255)
 #
 
 class Heal::DatabaseInstance < DatabaseInstance
@@ -29,9 +29,8 @@ class Heal::DatabaseInstance < DatabaseInstance
   has_many :resolutions
   has_many :status_types
   has_many :topics
-  has_many :users, class_name: "User"
 
-  def type_and_name
-    "Heal Cities - #{self.name}"
+  def name
+    "Heal Cities - #{self.instance_name}"
   end
 end

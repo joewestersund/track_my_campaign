@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :check_admin_user, only: [:new, :create]
   before_action :check_signed_in_user, only: [:edit, :edit_password, :update, :update_password, :show, :destroy, :index]
   before_action :set_user, only: [:show, :edit, :edit_password, :update, :update_password, :destroy]
-  before_action :set_select_options, only: [:new, :edit]
 
   def new
     @user = User.new
@@ -11,9 +10,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params_admin_can_set)
     if @user.save
-      sign_in @user
       flash[:notice] = "The new user has been created."
-      redirect_to welcome_path
+      if current_user.present?
+        #an admin is creating this user.
+        redirect_to users_path
+      else
+        sign_in @user
+        redirect_to welcome_path
+      end
     else
       render 'new'
     end
@@ -34,8 +38,13 @@ class UsersController < ApplicationController
       end
 
       if success
-        format.html { redirect_to profile_edit_path, notice: 'Your profile was successfully updated.' }
-        format.json { head :no_content }
+        if @user.id == current_user.id
+          format.html { redirect_to profile_edit_path, notice: 'Your profile was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to users_path, notice: 'The user profile was successfully updated.' }
+          format.json { head :no_content }
+        end
       else
         format.html { render action: 'edit' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -62,7 +71,11 @@ class UsersController < ApplicationController
 
   private
     def set_user
-      @user = current_user
+      if current_user.admin? and params[:id].present?
+        @user = User.find(params[:id])
+      else
+        @user = current_user
+      end
     end
 
     def user_params_user_can_set
@@ -71,10 +84,6 @@ class UsersController < ApplicationController
 
     def user_params_admin_can_set
       params.require(:user).permit(:first_name, :last_name, :email, :admin, :password, :password_confirmation, {database_instance_ids: []})
-    end
-
-    def set_select_options
-      @database_instances = DatabaseInstance.all
     end
 
 end

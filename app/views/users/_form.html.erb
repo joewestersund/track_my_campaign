@@ -15,18 +15,15 @@
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
   </div>
+
   <div class="field">
     <%= f.label :last_name %>
     <%= f.text_field :last_name %>
   </div>
+
   <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email, class: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :organization %>
-    <%= f.collection_select :organization_id, @organizations, :id, :name, { disabled: !current_user.admin?, include_blank: true } %>
   </div>
 
   <% if current_user.admin? %>

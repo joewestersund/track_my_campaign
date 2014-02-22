@@ -29,7 +29,6 @@ class User < ActiveRecord::Base
 
   validates :password, :presence =>true, :confirmation => true, :length => { :within => 6..40 }, :on => :create
   validates :password, :confirmation => true, :length => { :within => 6..40 }, :on => :update_password
-  validate :admin_or_has_organization
 
   def admin?
     self.admin
@@ -43,14 +42,13 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def first_and_last_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
   private
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
     end
 
-    def admin_or_has_organization
-      if self.admin? || self.organization_id.present?
-        self.errors.add(:base, "Users must have an organization specified, unless they are an admin.")
-      end
-    end
 end

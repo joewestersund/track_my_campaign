@@ -2,11 +2,11 @@
 #
 # Table name: database_instances
 #
-#  id         :integer          not null, primary key
-#  created_at :datetime
-#  updated_at :datetime
-#  type       :string(255)
-#  name       :string(255)
+#  id            :integer          not null, primary key
+#  created_at    :datetime
+#  updated_at    :datetime
+#  type          :string(255)
+#  instance_name :string(255)
 #
 
 class DatabaseInstance < ActiveRecord::Base
@@ -14,16 +14,10 @@ class DatabaseInstance < ActiveRecord::Base
   has_many :users, through: :user_permissions
 
   validates :type, presence: true
-  validates :name, presence: true
-  validates :type_and_name, uniqueness: true
+  validates :instance_name, presence: true, uniqueness: {scope: :type}
 
-
-  def type_and_name
-    if self.organization.present?
-      "#{self.type} - #{self.organization.name}"
-    else
-      "#{self.type} - #{self.users.map}"
-    end
+  def name
+    "#{self.type} - #{self.instance_name}"
   end
 
 end

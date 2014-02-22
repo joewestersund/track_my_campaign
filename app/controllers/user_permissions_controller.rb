@@ -1,5 +1,7 @@
 class UserPermissionsController < ApplicationController
+  before_action :check_admin_user, except: [:select_database, :home]
   before_action :set_user_permission, only: [:show, :edit, :update, :destroy]
+  before_action :set_select_options, only: [:new, :edit]
 
   # GET /user_permissions
   # GET /user_permissions.json
@@ -28,7 +30,7 @@ class UserPermissionsController < ApplicationController
 
     respond_to do |format|
       if @user_permission.save
-        format.html { redirect_to @user_permission, notice: 'User permission was successfully created.' }
+        format.html { redirect_to user_permissions_path, notice: 'User permission was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user_permission }
       else
         format.html { render action: 'new' }
@@ -42,7 +44,7 @@ class UserPermissionsController < ApplicationController
   def update
     respond_to do |format|
       if @user_permission.update(user_permission_params)
-        format.html { redirect_to @user_permission, notice: 'User permission was successfully updated.' }
+        format.html { redirect_to user_permissions_path, notice: 'User permission was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -70,5 +72,10 @@ class UserPermissionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_permission_params
       params.require(:user_permission).permit(:database_instance_id, :user_id, :read_only)
+    end
+
+    def set_select_options
+      @database_instances = DatabaseInstance.all
+      @users = User.all
     end
 end

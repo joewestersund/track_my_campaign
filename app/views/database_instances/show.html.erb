@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Organization:</strong>
-  <%= @database_instance.organization_id %>
+  <strong>Database Type:</strong>
+  <%= @database_instance.type %>
 </p>
 
 <p>
-  <strong>Database Type:</strong>
-  <%= @database_instance.type %>
+  <strong>Instance Name:</strong>
+  <%= @database_instance.instance_name %>
+</p>
+
+<p>
+  <strong>Users:</strong>
+  <%= show_users_list(@database_instance.users) %>
 </p>
 
 <%= link_to 'Edit', edit_database_instance_path(@database_instance) %> |

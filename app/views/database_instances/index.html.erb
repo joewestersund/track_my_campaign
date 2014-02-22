@@ -3,8 +3,10 @@
 <table>
   <thead>
     <tr>
-      <th>Organization</th>
+      <th>Name</th>
       <th>Database Type</th>
+      <th>Instance Name</th>
+      <th>Users</th>
       <th></th>
       <th></th>
     </tr>
@@ -13,8 +15,10 @@
   <tbody>
     <% @database_instances.each do |database_instance| %>
       <tr>
-        <td><%= database_instance.organization.name %></td>
+        <td><%= database_instance.name %></td>
         <td><%= database_instance.type %></td>
+        <td><%= database_instance.instance_name %></td>
+        <td><%= show_users_list(database_instance.users.all) %></td>
         <td><%= link_to 'Edit', edit_database_instance_path(database_instance) %></td>
         <td><%= link_to 'Destroy', database_instance_path(database_instance), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

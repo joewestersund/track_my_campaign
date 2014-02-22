@@ -89,7 +89,7 @@ module SessionsHelper
         return DatabaseInstance.all
       else
         #if user isn't an admin, then they will have an organization_id.
-        return current_user.database_instances.all.order(:type_and_name)
+        return current_user.database_instances.all
       end
     else
       return []

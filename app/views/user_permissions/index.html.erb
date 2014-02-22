@@ -1,4 +1,4 @@
-<h1>Listing user_permissions</h1>
+<h1>Listing User Permissions</h1>
 
 <table>
   <thead>
@@ -8,17 +8,15 @@
       <th>Read only</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @user_permissions.each do |user_permission| %>
       <tr>
-        <td><%= user_permission.database_instance_id %></td>
-        <td><%= user_permission.user_id %></td>
-        <td><%= user_permission.read_only %></td>
-        <td><%= link_to 'Show', user_permission %></td>
+        <td><%= user_permission.database_instance.name %></td>
+        <td><%= user_permission.user.first_and_last_name %></td>
+        <td><%= show_boolean(user_permission.read_only) %></td>
         <td><%= link_to 'Edit', edit_user_permission_path(user_permission) %></td>
         <td><%= link_to 'Destroy', user_permission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
