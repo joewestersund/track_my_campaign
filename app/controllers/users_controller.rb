@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :check_admin_user, only: [:new, :create]
-  before_action :check_signed_in_user, only: [:edit, :edit_password, :update, :update_password, :show, :destroy, :index]
+  before_action :check_admin_user, only: [:new, :create, :index]
+  before_action :check_signed_in_user, only: [:edit, :edit_password, :update, :update_password, :show, :destroy]
   before_action :set_user, only: [:show, :edit, :edit_password, :update, :update_password, :destroy]
 
   def new
@@ -56,7 +56,6 @@ class UsersController < ApplicationController
   end
 
   def index
-    render 'new' unless current_user.present? && current_user.admin?
     @users = User.all
   end
 
@@ -79,11 +78,11 @@ class UsersController < ApplicationController
     end
 
     def user_params_user_can_set
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :password, :password_confirmation)
     end
 
     def user_params_admin_can_set
-      params.require(:user).permit(:first_name, :last_name, :email, :admin, :password, :password_confirmation, {database_instance_ids: []})
+      params.require(:user).permit(:first_name, :last_name, :email, :admin, :password, :password_confirmation)
     end
 
 end

@@ -21,12 +21,12 @@
     <%= f.text_field :last_name %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: "email" %>
-  </div>
-
   <% if current_user.admin? %>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "email" %>
+    </div>
+
     <div class="field">
       <%= f.label :admin %>
       <%= f.check_box :admin %>
