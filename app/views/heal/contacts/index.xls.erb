@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Contacts">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Honorific</Data></Cell>
+        <Cell><Data ss:Type="String">First Name</Data></Cell>
+        <Cell><Data ss:Type="String">Last Name</Data></Cell>
+        <Cell><Data ss:Type="String">Title</Data></Cell>
+        <Cell><Data ss:Type="String">Position Type</Data></Cell>
+        <Cell><Data ss:Type="String">Organization Name</Data></Cell>
+        <Cell><Data ss:Type="String">Organization Type</Data></Cell>
+        <Cell><Data ss:Type="String">Cities</Data></Cell>
+        <Cell><Data ss:Type="String">Office Phone</Data></Cell>
+        <Cell><Data ss:Type="String">Cell Phone</Data></Cell>
+        <Cell><Data ss:Type="String">Fax</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">Address Line 1</Data></Cell>
+        <Cell><Data ss:Type="String">Address Line 2</Data></Cell>
+        <Cell><Data ss:Type="String">City</Data></Cell>
+        <Cell><Data ss:Type="String">State</Data></Cell>
+        <Cell><Data ss:Type="String">ZIP</Data></Cell>
+        <Cell><Data ss:Type="String">Interest Level</Data></Cell>
+        <Cell><Data ss:Type="String">Heal Champion</Data></Cell>
+        <Cell><Data ss:Type="String">Heal Champion Notes Type</Data></Cell>
+        <Cell><Data ss:Type="String">Notes Type</Data></Cell>
+      </Row>
+      <% @contacts.each do |contact| %>
+        <Row>
+          <Cell><Data ss:Type="Number"><%= contact.id %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.honorific.name if contact.honorific.present? %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.first_name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.last_name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.title %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.position_type.name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.organization_name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.organization_type.name if contact.organization_type.present? %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= show_cities_list(contact.cities) %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.office_phone_number %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.cell_phone_number %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.fax %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.email %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.address_line_1 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.address_line_2 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.address_city %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.address_state %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.address_zip %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.interest_level.name if contact.interest_level.present? %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= show_boolean(contact.HEAL_champion) %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.HEAL_champion_notes %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.notes %></Data></Cell>
+        </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

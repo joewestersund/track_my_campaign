@@ -5,7 +5,7 @@ class Heal::ResolutionsController < ApplicationController
   # GET /resolutions
   # GET /resolutions.json
   def index
-    @resolutions = current_db.resolutions.order(date: desc)
+    @resolutions = current_db.resolutions.order(date: :desc)
   end
 
   # GET /resolutions/1

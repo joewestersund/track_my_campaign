@@ -5,7 +5,7 @@ class Heal::PolicyAdoptionsController < ApplicationController
   # GET /policy_adoptions
   # GET /policy_adoptions.json
   def index
-    @policy_adoptions = current_db.policy_adoptions.order(date: desc)
+    @policy_adoptions = current_db.policy_adoptions.order(date: :desc)
   end
 
   # GET /policy_adoptions/1

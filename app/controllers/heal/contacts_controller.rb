@@ -7,6 +7,11 @@ class Heal::ContactsController < ApplicationController
   # GET /contacts.json
   def index
     @contacts = current_db.contacts.order(:first_name, :last_name)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @contacts.to_csv }
+      format.xls
+    end
   end
 
   # GET /contacts/1

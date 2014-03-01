@@ -65,4 +65,13 @@ class Heal::Contact < ActiveRecord::Base
   def first_last_organization_name
     "#{self.first_name} #{self.last_name} #{self.organization_name}"
   end
+
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |contact|
+        csv << contact.attributes.values_at(*column_names)
+      end
+    end
+  end
 end
