@@ -5,6 +5,7 @@
     <tr>
       <th>Date</th>
       <th>City</th>
+      <th>Policies Adopted</th>
       <th>Prior to joining campaign</th>
       <th>Notes</th>
       <th></th>
@@ -17,8 +18,9 @@
     <% @policy_adoptions.each do |policy_adoption| %>
       <tr>
         <td><%= policy_adoption.date %></td>
-        <td><%= policy_adoption.city_id %></td>
-        <td><%= policy_adoption.prior_to_joining_campaign %></td>
+        <td><%= policy_adoption.city.name %></td>
+        <td><%= show_policies_list(policy_adoption.policies)%></td>
+        <td><%= show_boolean(policy_adoption.prior_to_joining_campaign) %></td>
         <td><%= policy_adoption.notes %></td>
         <td><%= link_to 'Show', policy_adoption %></td>
         <td><%= link_to 'Edit', edit_heal_policy_adoption_path(policy_adoption) %></td>

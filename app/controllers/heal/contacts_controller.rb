@@ -39,6 +39,7 @@ class Heal::ContactsController < ApplicationController
         format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
         format.json { render action: 'show', status: :created, location: @contact }
       else
+        set_select_options
         format.html { render action: 'new' }
         format.json { render json: @contact.errors, status: :unprocessable_entity }
       end
@@ -53,6 +54,7 @@ class Heal::ContactsController < ApplicationController
         format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
         format.json { head :no_content }
       else
+        set_select_options
         format.html { render action: 'edit' }
         format.json { render json: @contact.errors, status: :unprocessable_entity }
       end

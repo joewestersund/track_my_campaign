@@ -1,6 +1,7 @@
 class Heal::PolicyAdoptionsController < ApplicationController
   before_action :check_current_db_exists
   before_action :set_policy_adoption, only: [:show, :edit, :update, :destroy]
+  before_action :set_select_options, only: [:new, :edit]
 
   # GET /policy_adoptions
   # GET /policy_adoptions.json
@@ -33,6 +34,7 @@ class Heal::PolicyAdoptionsController < ApplicationController
         format.html { redirect_to @policy_adoption, notice: 'Policy adoption was successfully created.' }
         format.json { render action: 'show', status: :created, location: @policy_adoption }
       else
+        set_select_options
         format.html { render action: 'new' }
         format.json { render json: @policy_adoption.errors, status: :unprocessable_entity }
       end
@@ -47,6 +49,7 @@ class Heal::PolicyAdoptionsController < ApplicationController
         format.html { redirect_to @policy_adoption, notice: 'Policy adoption was successfully updated.' }
         format.json { head :no_content }
       else
+        set_select_options
         format.html { render action: 'edit' }
         format.json { render json: @policy_adoption.errors, status: :unprocessable_entity }
       end
@@ -71,6 +74,11 @@ class Heal::PolicyAdoptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def policy_adoption_params
-      params.require(:heal_policy_adoption).permit(:date, :city_id, :prior_to_joining_campaign, :notes)
+      params.require(:heal_policy_adoption).permit(:date, :city_id, :prior_to_joining_campaign, :notes, {policy_ids: []})
+    end
+
+    def set_select_options
+      @cities = current_db.cities.order(:name)
+      @policies = current_db.policies.order(:order_in_list)
     end
 end

@@ -12,87 +12,87 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "First Name" %><br>
+    <%= f.label "First Name" %>
     <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label "Last Name" %><br>
+    <%= f.label "Last Name" %>
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label "Position Type" %><br>
+    <%= f.label "Position Type" %>
     <%= f.collection_select :position_type_id, @position_types, :id, :name, {}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_position_type_path %>
   </div>
   <div class="field">
-    <%= f.label "Organization Name" %><br>
+    <%= f.label "Organization Name" %>
     <%= f.text_field :organization_name %>
   </div>
   <div class="field">
-    <%= f.label "Organization Type" %><br>
+    <%= f.label "Organization Type" %>
     <%= f.collection_select :organization_type_id, @organization_types, :id, :name, {}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_organization_type_path %>
   </div>
   <div class="field">
-    <%= f.label :cities %><br>
+    <%= f.label :cities %>
     <%= f.collection_select :city_ids, @cities, :id, :name, {}, {class: 'multiselect', multiple: true} %>
     <%= link_to "Add / Edit", new_heal_city_path %>
   </div>
   <div class="field">
-    <%= f.label "Office Phone" %><br>
+    <%= f.label "Office Phone" %>
     <%= f.text_field :office_phone_number %>
   </div>
   <div class="field">
-    <%= f.label "Cell Phone" %><br>
+    <%= f.label "Cell Phone" %>
     <%= f.text_field :cell_phone_number %>
   </div>
   <div class="field">
-    <%= f.label :fax %><br>
+    <%= f.label :fax %>
     <%= f.text_field :fax %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label "Address Line 1" %><br>
+    <%= f.label "Address Line 1" %>
     <%= f.text_field :address_line_1 %>
   </div>
   <div class="field">
-    <%= f.label "Address Line 2" %><br>
+    <%= f.label "Address Line 2" %>
     <%= f.text_field :address_line_2 %>
   </div>
   <div class="field">
-    <%= f.label "Address City" %><br>
+    <%= f.label "Address City" %>
     <%= f.text_field :address_city %>
   </div>
   <div class="field">
-    <%= f.label "Address State" %><br>
+    <%= f.label "Address State" %>
     <%= f.text_field :address_state %>
   </div>
   <div class="field">
-    <%= f.label "Address ZIP" %><br>
+    <%= f.label "Address ZIP" %>
     <%= f.text_field :address_zip %>
   </div>
   <div class="field">
-    <%= f.label "Interest Level" %><br>
+    <%= f.label "Interest Level" %>
     <%= f.collection_select :interest_level_id, @interest_levels, :id, :name, {}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_interest_level_path %>
   </div>
   <div class="field">
-    <%= f.label "HEAL Champion" %><br>
+    <%= f.label "HEAL Champion" %>
     <%= f.check_box :HEAL_champion %>
   </div>
   <div class="field">
-    <%= f.label "HEAL Champion Notes" %><br>
+    <%= f.label "HEAL Champion Notes" %>
     <%= f.text_area :HEAL_champion_notes %>
   </div>
   <div class="field">
-    <%= f.label :notes %><br>
+    <%= f.label :notes %>
     <%= f.text_area :notes %>
   </div>
   <div class="actions">

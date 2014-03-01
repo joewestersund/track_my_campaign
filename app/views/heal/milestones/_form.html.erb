@@ -12,28 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :milestone_type_id %><br>
-    <%= f.number_field :milestone_type_id %>
+    <%= f.label :milestone_type %>
+    <%= f.collection_select :milestone_type_id, @milestone_types, :id, :name, {}, {class: 'multiselect', multiple: false} %>
   </div>
   <div class="field">
-    <%= f.label :city_id %><br>
-    <%= f.number_field :city_id %>
+    <%= f.label :city %>
+    <%= f.collection_select :city_id, @cities, :id, :name_type_state, {}, {class: 'multiselect', multiple: false} %>
   </div>
   <div class="field">
-    <%= f.label :status_type_id %><br>
-    <%= f.number_field :status_type_id %>
+    <%= f.label :status_type_id %>
+    <%= f.collection_select :status_type_id, @status_types, :id, :name, {}, {class: 'multiselect', multiple: false}  %>
   </div>
   <div class="field">
-    <%= f.label :completion_date %><br>
-    <%= f.date_select :completion_date %>
+    <%= f.label :completion_date %>
+    <%= f.text_field :completion_date, {class: 'datepicker'} %>
   </div>
   <div class="field">
-    <%= f.label :notes %><br>
+    <%= f.label :notes %>
     <%= f.text_area :notes %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.label :assigned_to %>
+    <%= f.collection_select :assigned_to_id, @users, :id, :first_and_last_name, {}, {class: 'multiselect', multiple: false}  %>
   </div>
   <div class="actions">
     <%= f.submit %>

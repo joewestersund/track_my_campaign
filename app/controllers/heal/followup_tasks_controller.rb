@@ -35,6 +35,7 @@ class Heal::FollowupTasksController < ApplicationController
         format.html { redirect_to @followup_task, notice: 'Followup task was successfully created.' }
         format.json { render action: 'show', status: :created, location: @followup_task }
       else
+        set_select_options
         format.html { render action: 'new' }
         format.json { render json: @followup_task.errors, status: :unprocessable_entity }
       end
@@ -49,6 +50,7 @@ class Heal::FollowupTasksController < ApplicationController
         format.html { redirect_to @followup_task, notice: 'Followup task was successfully updated.' }
         format.json { head :no_content }
       else
+        set_select_options
         format.html { render action: 'edit' }
         format.json { render json: @followup_task.errors, status: :unprocessable_entity }
       end

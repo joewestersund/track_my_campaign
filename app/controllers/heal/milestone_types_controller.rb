@@ -43,7 +43,7 @@ class Heal::MilestoneTypesController < ApplicationController
   # PATCH/PUT /milestone_types/1.json
   def update
     respond_to do |format|
-      if @milestone_type.update(milestone_params)
+      if @milestone_type.update(milestone_type_params)
         format.html { redirect_to heal_milestone_types_url, notice: 'Milestone type was successfully updated.' }
         format.json { head :no_content }
       else
@@ -66,7 +66,7 @@ class Heal::MilestoneTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_milestone_type
-      @milestone_type = current_db.milestone_type.find(params[:id])
+      @milestone_type = current_db.milestone_types.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

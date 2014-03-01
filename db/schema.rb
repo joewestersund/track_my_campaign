@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222082819) do
+ActiveRecord::Schema.define(version: 20140301225956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -220,7 +220,7 @@ ActiveRecord::Schema.define(version: 20140222082819) do
     t.integer  "status_type_id"
     t.date     "completion_date"
     t.text     "notes"
-    t.integer  "user_id"
+    t.integer  "assigned_to_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -239,6 +239,16 @@ ActiveRecord::Schema.define(version: 20140222082819) do
     t.integer  "order_in_list"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "policies_policy_adoptions", id: false, force: true do |t|
+    t.integer "policy_id"
+    t.integer "policy_adoption_id"
+  end
+
+  create_table "policies_resolutions", id: false, force: true do |t|
+    t.integer "policy_id"
+    t.integer "resolution_id"
   end
 
   create_table "policy_adoptions", force: true do |t|

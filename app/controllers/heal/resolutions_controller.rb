@@ -1,6 +1,7 @@
 class Heal::ResolutionsController < ApplicationController
   before_action :check_current_db_exists
   before_action :set_resolution, only: [:show, :edit, :update, :destroy]
+  before_action :set_select_options, only: [:new, :edit]
 
   # GET /resolutions
   # GET /resolutions.json
@@ -33,6 +34,7 @@ class Heal::ResolutionsController < ApplicationController
         format.html { redirect_to @resolution, notice: 'Resolution was successfully created.' }
         format.json { render action: 'show', status: :created, location: @resolution }
       else
+        set_select_options
         format.html { render action: 'new' }
         format.json { render json: @resolution.errors, status: :unprocessable_entity }
       end
@@ -47,6 +49,7 @@ class Heal::ResolutionsController < ApplicationController
         format.html { redirect_to @resolution, notice: 'Resolution was successfully updated.' }
         format.json { head :no_content }
       else
+        set_select_options
         format.html { render action: 'edit' }
         format.json { render json: @resolution.errors, status: :unprocessable_entity }
       end
@@ -71,6 +74,11 @@ class Heal::ResolutionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resolution_params
-      params.require(:heal_resolution).permit(:date, :city_id, :prior_to_joining_campaign, :notes)
+      params.require(:heal_resolution).permit(:date, :city_id, :prior_to_joining_campaign, :notes, {policy_ids: []})
+    end
+
+    def set_select_options
+      @cities = current_db.cities.order(:name)
+      @policies = current_db.policies.order(:order_in_list)
     end
 end

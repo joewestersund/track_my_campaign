@@ -34,6 +34,7 @@ class Heal::CommunicationsController < ApplicationController
         format.html { redirect_to @communication, notice: 'Communication was successfully created.' }
         format.json { render action: 'show', status: :created, location: @communication }
       else
+        set_select_options
         format.html { render action: 'new' }
         format.json { render json: @communication.errors, status: :unprocessable_entity }
       end
@@ -48,6 +49,7 @@ class Heal::CommunicationsController < ApplicationController
         format.html { redirect_to @communication, notice: 'Communication was successfully updated.' }
         format.json { head :no_content }
       else
+        set_select_options
         format.html { render action: 'edit' }
         format.json { render json: @communication.errors, status: :unprocessable_entity }
       end

@@ -7,12 +7,17 @@
 
 <p>
   <strong>City:</strong>
-  <%= @policy_adoption.city_id %>
+  <%= @policy_adoption.city.name %>
+</p>
+
+<p>
+  <strong>Policies Adopted:</strong>
+  <%= show_policies_list(@policy_adoption.policies) %>
 </p>
 
 <p>
   <strong>Prior to joining campaign:</strong>
-  <%= @policy_adoption.prior_to_joining_campaign %>
+  <%= show_boolean(@policy_adoption.prior_to_joining_campaign) %>
 </p>
 
 <p>

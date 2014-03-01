@@ -34,6 +34,7 @@ class Heal::CitiesController < ApplicationController
         format.html { redirect_to @city, notice: 'City was successfully created.' }
         format.json { render action: 'show', status: :created, location: @city }
       else
+        set_select_options
         format.html { render action: 'new' }
         format.json { render json: @city.errors, status: :unprocessable_entity }
       end
@@ -48,6 +49,7 @@ class Heal::CitiesController < ApplicationController
         format.html { redirect_to @city, notice: 'City was successfully updated.' }
         format.json { head :no_content }
       else
+        set_select_options
         format.html { render action: 'edit' }
         format.json { render json: @city.errors, status: :unprocessable_entity }
       end

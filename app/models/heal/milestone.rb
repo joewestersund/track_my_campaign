@@ -19,7 +19,7 @@ class Heal::Milestone < ActiveRecord::Base
   belongs_to :milestone_type
   belongs_to :city
   belongs_to :status_type
-  belongs_to :user
+  belongs_to :assigned_to, class_name: 'User'
 
   validates :database_instance, presence: true
   validates :milestone_type, presence: true

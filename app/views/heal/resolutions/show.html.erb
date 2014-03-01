@@ -7,12 +7,17 @@
 
 <p>
   <strong>City:</strong>
-  <%= @resolution.city_id %>
+  <%= @resolution.city.name %>
+</p>
+
+<p>
+  <strong>Policies Adopted:</strong>
+  <%= show_policies_list(@resolution.policies) %>
 </p>
 
 <p>
   <strong>Prior to joining campaign:</strong>
-  <%= @resolution.prior_to_joining_campaign %>
+  <%= show_boolean(@resolution.prior_to_joining_campaign) %>
 </p>
 
 <p>

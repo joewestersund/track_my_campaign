@@ -66,7 +66,7 @@ class Heal::OrganizationTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_organization_type
-      @organization_type = current_db.find(params[:id])
+      @organization_type = current_db.organization_types.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

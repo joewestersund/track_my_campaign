@@ -12,52 +12,52 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :date %><br>
+    <%= f.label :date %>
     <%= f.text_field :date, {class: 'datepicker'} %>
   </div>
   <div class="field">
-    <%= f.label :duration_minutes %><br>
+    <%= f.label :duration_minutes %>
     <%= f.number_field :duration_minutes %>
   </div>
   <div class="field">
-    <%= f.label :communication_type %><br>
+    <%= f.label :communication_type %>
     <%= f.collection_select :communication_type_id, @communication_types, :id, :name, {}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_communication_type_path %>
   </div>
   <div class="field">
-    <%= f.label :event_name %><br>
+    <%= f.label :event_name %>
     <%= f.text_field :event_name %>
   </div>
   <div class="field">
-    <%= f.label :topics %><br>
+    <%= f.label :topics %>
     <%= f.collection_select :topic_ids, @topics, :id, :name, {}, {class: 'multiselect', multiple: true} %>
     <%= link_to "Add / Edit", new_heal_topic_path %>
   </div>
   <div class="field">
-    <%= f.label :interest_level %><br>
+    <%= f.label :interest_level %>
     <%= f.collection_select :interest_level_id, @interest_levels, :id, :name, {}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_interest_level_path %>
   </div>
   <div class="field">
-    <%= f.label :contacts %><br>
+    <%= f.label :contacts %>
     <%= f.collection_select :contact_ids, @contacts, :id, :first_last_name, {}, {class: 'multiselect', multiple: true} %>
     <%= link_to "Add / Edit", new_heal_contact_path %>
   </div>
   <div class="field">
-    <%= f.label :others_involved %><br>
+    <%= f.label :others_involved %>
     <%= f.text_field :others_involved %>
   </div>
   <div class="field">
-    <%= f.label :cities %><br>
+    <%= f.label :cities %>
     <%= f.collection_select :city_ids, @cities, :id, :name_type_state, {}, {class: 'multiselect', multiple: true} %>
     <%= link_to "Add / Edit", new_heal_city_path %>
   </div>
   <div class="field">
-    <%= f.label :staff_involved %><br>
+    <%= f.label :staff_involved %>
     <%= f.collection_select :staff_involved_ids, @users, :id, :first_and_last_name, {}, {class: 'multiselect', multiple: true} %>
   </div>
   <div class="field">
-    <%= f.label :notes %><br>
+    <%= f.label :notes %>
     <%= f.text_area :notes %>
   </div>
   <div class="actions">

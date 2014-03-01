@@ -12,49 +12,49 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :county %><br>
+    <%= f.label :county %>
     <%= f.text_field :county %>
   </div>
   <div class="field">
-    <%= f.label :state %><br>
+    <%= f.label :state %>
     <%= f.text_field :state %>
   </div>
   <div class="field">
-    <%= f.label :jurisdiction_type %><br>
+    <%= f.label :jurisdiction_type %>
     <%= f.collection_select :jurisdiction_type_id, @jurisdiction_types, :id, :name, {}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_jurisdiction_type_path %>
   </div>
   <div class="field">
-    <%= f.label :league_division %><br>
+    <%= f.label :league_division %>
     <%= f.collection_select :league_division_id, @league_divisions, :id, :name, {}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_league_division_path %>
   </div>
   <div class="field">
-    <%= f.label :population %><br>
+    <%= f.label :population %>
     <%= f.number_field :population %>
   </div>
   <div class="field">
-    <%= f.label :kp_service_area %><br>
+    <%= f.label :kp_service_area %>
     <%= f.check_box :kp_service_area %>
   </div>
   <div class="field">
-    <%= f.label :under_resourced_or_disease_burden %><br>
+    <%= f.label :under_resourced_or_disease_burden %>
     <%= f.check_box :under_resourced_or_disease_burden %>
   </div>
   <div class="field">
-    <%= f.label :state_median_income %><br>
+    <%= f.label :state_median_income %>
     <%= f.text_field :state_median_income %>
   </div>
   <div class="field">
-    <%= f.label :city_median_income %><br>
+    <%= f.label :city_median_income %>
     <%= f.text_field :city_median_income %>
   </div>
   <div class="field">
-    <%= f.label "HEAL City Designation" %><br>
+    <%= f.label "HEAL City Designation" %>
     <%= f.collection_select :city_designation_id, @city_designations, :id, :name, {include_blank: true}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_city_designation_path %>
   </div>

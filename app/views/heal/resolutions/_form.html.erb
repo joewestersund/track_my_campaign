@@ -11,20 +11,25 @@
     </div>
   <% end %>
 
+
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
+    <%= f.label :date %>
+    <%= f.text_field :date, {class: 'datepicker'} %>
   </div>
   <div class="field">
-    <%= f.label :city_id %><br>
-    <%= f.number_field :city_id %>
+    <%= f.label :city %>
+    <%= f.collection_select :city_id, @cities, :id, :name_type_state, {include_blank: true}, {class: 'multiselect', multiple: false}  %>
   </div>
   <div class="field">
-    <%= f.label :prior_to_joining_campaign %><br>
+    <%= f.label :policies_adopted_by_resolution %>
+    <%= f.collection_select :policy_ids, @policies, :id, :name, {}, {class: 'multiselect', multiple: true} %>
+  </div>
+  <div class="field">
+    <%= f.label :prior_to_joining_campaign %>
     <%= f.check_box :prior_to_joining_campaign %>
   </div>
   <div class="field">
-    <%= f.label :notes %><br>
+    <%= f.label :notes %>
     <%= f.text_area :notes %>
   </div>
   <div class="actions">
