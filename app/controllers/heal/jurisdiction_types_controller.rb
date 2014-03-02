@@ -5,7 +5,7 @@ class Heal::JurisdictionTypesController < ApplicationController
   # GET /jurisdiction_types
   # GET /jurisdiction_types.json
   def index
-    @jurisdiction_types = current_db.jurisdiction_types.order(:order_in_list)
+    @jurisdiction_types = current_db.jurisdiction_types.order(:order_in_list).page(params[:page]).per_page(page_size)
   end
 
   # GET /jurisdiction_types/1

@@ -6,7 +6,7 @@ class UserPermissionsController < ApplicationController
   # GET /user_permissions
   # GET /user_permissions.json
   def index
-    @user_permissions = UserPermission.all
+    @user_permissions = UserPermission.page(params[:page]).per_page(page_size)
   end
 
   # GET /user_permissions/1

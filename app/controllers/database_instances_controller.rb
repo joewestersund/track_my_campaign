@@ -6,7 +6,7 @@ class DatabaseInstancesController < ApplicationController
   # GET /database_instances
   # GET /database_instances.json
   def index
-    @database_instances = DatabaseInstance.all
+    @database_instances = DatabaseInstance.page(params[:page]).per_page(page_size)
   end
 
   def select_database

@@ -6,7 +6,7 @@ class Heal::CommunicationsController < ApplicationController
   # GET /communications
   # GET /communications.json
   def index
-    @communications = current_db.communications.order(date: :desc)
+    @communications = current_db.communications.order(date: :desc).page(params[:page]).per_page(page_size)
   end
 
   # GET /communications/1

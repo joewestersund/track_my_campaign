@@ -5,7 +5,7 @@ class Heal::MilestoneTypesController < ApplicationController
   # GET /milestone_types
   # GET /milestone_types.json
   def index
-    @milestone_types = current_db.milestone_types.order(:order_in_list)
+    @milestone_types = current_db.milestone_types.order(:order_in_list).page(params[:page]).per_page(page_size)
   end
 
   # GET /milestone_types/1

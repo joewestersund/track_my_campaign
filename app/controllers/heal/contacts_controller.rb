@@ -6,7 +6,12 @@ class Heal::ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = current_db.contacts.order(:first_name, :last_name)
+    if request.format == :html
+      @contacts = current_db.contacts.order(:first_name, :last_name).page(params[:page]).per_page(page_size)
+    else
+      #don't do paging if user is downloading as csv or xls.
+      @contacts = current_db.contacts.order(:first_name, :last_name)
+    end
     respond_to do |format|
       format.html
       format.csv { send_data @contacts.to_csv }

@@ -5,7 +5,7 @@ class Heal::TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = current_db.topics.order(:order_in_list)
+    @topics = current_db.topics.order(:order_in_list).page(params[:page]).per_page(page_size)
   end
 
   # GET /topics/1

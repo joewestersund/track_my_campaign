@@ -5,7 +5,7 @@ class Heal::CommunicationTypesController < ApplicationController
   # GET /communication_types
   # GET /communication_types.json
   def index
-    @communication_types = current_db.communication_types.order(:order_in_list)
+    @communication_types = current_db.communication_types.order(:order_in_list).page(params[:page]).per_page(page_size)
   end
 
   # GET /communication_types/1

@@ -5,7 +5,7 @@ class Heal::OrganizationTypesController < ApplicationController
   # GET /organization_types
   # GET /organization_types.json
   def index
-    @organization_types = current_db.organization_types.order(:order_in_list)
+    @organization_types = current_db.organization_types.order(:order_in_list).page(params[:page]).per_page(page_size)
   end
 
   # GET /organization_types/1

@@ -5,7 +5,7 @@ class Heal::StatusTypesController < ApplicationController
   # GET /status_types
   # GET /status_types.json
   def index
-    @status_types = current_db.status_types.order(:order_in_list)
+    @status_types = current_db.status_types.order(:order_in_list).page(params[:page]).per_page(page_size)
   end
 
   # GET /status_types/1

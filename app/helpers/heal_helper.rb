@@ -37,4 +37,8 @@ module HealHelper
     end
   end
 
+  def page_size
+    20
+  end
+
 end

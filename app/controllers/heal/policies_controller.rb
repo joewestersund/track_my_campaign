@@ -5,7 +5,7 @@ class Heal::PoliciesController < ApplicationController
   # GET /policies
   # GET /policies.json
   def index
-    @policies = current_db.policies.order(:order_in_list)
+    @policies = current_db.policies.order(:order_in_list).page(params[:page]).per_page(page_size)
   end
 
   # GET /policies/1

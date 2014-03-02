@@ -6,7 +6,7 @@ class Heal::ResolutionsController < ApplicationController
   # GET /resolutions
   # GET /resolutions.json
   def index
-    @resolutions = current_db.resolutions.order(date: :desc)
+    @resolutions = current_db.resolutions.order(date: :desc).page(params[:page]).per_page(page_size)
   end
 
   # GET /resolutions/1

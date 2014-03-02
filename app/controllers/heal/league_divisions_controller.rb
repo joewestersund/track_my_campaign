@@ -5,7 +5,7 @@ class Heal::LeagueDivisionsController < ApplicationController
   # GET /league_divisions
   # GET /league_divisions.json
   def index
-    @league_divisions = current_db.league_divisions.order(:order_in_list)
+    @league_divisions = current_db.league_divisions.order(:order_in_list).page(params[:page]).per_page(page_size)
   end
 
   # GET /league_divisions/1

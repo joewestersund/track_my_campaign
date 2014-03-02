@@ -5,7 +5,7 @@ class Heal::CityDesignationsController < ApplicationController
   # GET /city_designations
   # GET /city_designations.json
   def index
-    @city_designations = current_db.city_designations.order(:order_in_list)
+    @city_designations = current_db.city_designations.order(:order_in_list).page(params[:page]).per_page(page_size)
   end
 
   # GET /city_designations/1

@@ -5,7 +5,7 @@ class Heal::HonorificsController < ApplicationController
   # GET /honorifics
   # GET /honorifics.json
   def index
-    @honorifics = current_db.honorifics.order(:order_in_list)
+    @honorifics = current_db.honorifics.order(:order_in_list).page(params[:page]).per_page(page_size)
   end
 
   # GET /honorifics/1

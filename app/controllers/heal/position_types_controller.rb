@@ -5,7 +5,7 @@ class Heal::PositionTypesController < ApplicationController
   # GET /position_types
   # GET /position_types.json
   def index
-    @position_types = current_db.position_types.order(:order_in_list)
+    @position_types = current_db.position_types.order(:order_in_list).page(params[:page]).per_page(page_size)
   end
 
   # GET /position_types/1

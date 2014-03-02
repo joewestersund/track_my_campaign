@@ -6,7 +6,7 @@ class Heal::MilestonesController < ApplicationController
   # GET /milestones
   # GET /milestones.json
   def index
-    @milestones = current_db.milestones.order(completion_date: :desc)
+    @milestones = current_db.milestones.order(completion_date: :desc).page(params[:page]).per_page(page_size)
   end
 
   # GET /milestones/1

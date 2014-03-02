@@ -5,7 +5,7 @@ class Heal::InterestLevelsController < ApplicationController
   # GET /interest_levels
   # GET /interest_levels.json
   def index
-    @interest_levels = current_db.interest_levels.order(:order_in_list)
+    @interest_levels = current_db.interest_levels.order(:order_in_list).page(params[:page]).per_page(page_size)
   end
 
   # GET /interest_levels/1

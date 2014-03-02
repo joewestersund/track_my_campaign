@@ -6,7 +6,7 @@ class Heal::FollowupTasksController < ApplicationController
   # GET /followup_tasks
   # GET /followup_tasks.json
   def index
-    @followup_tasks = current_db.followup_tasks.order(due_date: :desc)
+    @followup_tasks = current_db.followup_tasks.order(due_date: :desc).page(params[:page]).per_page(page_size)
   end
 
   # GET /followup_tasks/1

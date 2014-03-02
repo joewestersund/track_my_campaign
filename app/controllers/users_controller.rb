@@ -3,6 +3,10 @@ class UsersController < ApplicationController
   before_action :check_signed_in_user, only: [:edit, :edit_password, :update, :update_password, :show, :destroy]
   before_action :set_user, only: [:show, :edit, :edit_password, :update, :update_password, :destroy]
 
+  def index
+    @users = User.page(params[:page]).per_page(page_size)
+  end
+
   def new
     @user = User.new
   end
@@ -53,10 +57,6 @@ class UsersController < ApplicationController
   end
 
   def show
-  end
-
-  def index
-    @users = User.all
   end
 
   def destroy
