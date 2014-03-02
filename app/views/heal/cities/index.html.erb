@@ -1,5 +1,69 @@
 <h1>Cities</h1>
 
+<div class="filter">
+  <%= form_tag request.path, method: 'get' do %>
+    <div class="field">
+      <%= label_tag :name %>
+      <%= text_field_tag :name, params[:name] %>
+    </div>
+    <div class="field">
+      <%= label_tag :state %>
+      <%= text_field_tag :state, params[:state] %>
+    </div>
+    <div class="field">
+      <%= label_tag :county %>
+      <%= text_field_tag :county, params[:county] %>
+    </div>
+    <div class="field">
+      <%= label_tag :jurisdiction_type %>
+      <%= select_tag :jurisdiction_type_id, options_from_collection_for_select(@jurisdiction_types,:id,:name,params[:jurisdiction_type_id]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :league_division %>
+      <%= select_tag :league_division_id, options_from_collection_for_select(@league_divisions,:id,:name,params[:league_division_id]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :min_population %>
+      <%= text_field_tag :min_population, params[:min_population] %>
+    </div>
+    <div class="field">
+      <%= label_tag :max_population %>
+      <%= text_field_tag :max_population, params[:max_population] %>
+    </div>
+    <div class="field">
+      <%= label_tag :in_kp_service_area %>
+      <%= select_tag :in_kp_service_area, options_for_select(["Yes", "No"],params[:in_kp_service_area]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :under_resourced_or_disease_burdened %>
+      <%= select_tag :under_resourced_or_disease_burdened, options_for_select(["Yes", "No"],params[:under_resourced_or_disease_burdened]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :min_state_median_income %>
+      <%= text_field_tag :min_state_median_income, params[:min_state_median_income] %>
+    </div>
+    <div class="field">
+      <%= label_tag :max_state_median_income %>
+      <%= text_field_tag :max_state_median_income, params[:max_state_median_income] %>
+    </div>
+    <div class="field">
+      <%= label_tag :min_city_median_income %>
+      <%= text_field_tag :min_city_median_income, params[:min_city_median_income] %>
+    </div>
+    <div class="field">
+      <%= label_tag :max_city_median_income %>
+      <%= text_field_tag :max_city_median_income, params[:max_city_median_income] %>
+    </div>
+    <div class="field">
+      <%= label_tag :city_designation %>
+      <%= select_tag :city_designation_id, options_from_collection_for_select(@city_designations,:id,:name,params[:city_designation_id]), { :include_blank => true } %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Search" %>
+    </div>
+  <% end %>
+</div>
+
 <table>
   <thead>
     <tr>

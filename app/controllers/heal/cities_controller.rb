@@ -1,7 +1,7 @@
 class Heal::CitiesController < ApplicationController
   before_action :check_current_db_exists
   before_action :set_city, only: [:show, :edit, :update, :destroy]
-  before_action :set_select_options, only: [:new, :edit]
+  before_action :set_select_options, only: [:new, :edit, :index]
 
   # GET /cities
   # GET /cities.json
