@@ -56,9 +56,15 @@ class Heal::MilestoneTypesController < ApplicationController
   # DELETE /milestone_types/1
   # DELETE /milestone_types/1.json
   def destroy
-    @milestone_type.destroy
+    notice = 'Milestone type was successfully destroyed'
+    begin
+      @milestone_type.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @milestone_type.errors.add(:base, e)
+      notice = "Milestone type could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_milestone_types_url }
+      format.html { redirect_to heal_milestone_types_url, notice: notice }
       format.json { head :no_content }
     end
   end

@@ -59,9 +59,15 @@ class Heal::CitiesController < ApplicationController
   # DELETE /cities/1
   # DELETE /cities/1.json
   def destroy
-    @city.destroy
+    notice = 'City was successfully destroyed'
+    begin
+      @city.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @city.errors.add(:base, e)
+      notice = "City could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_cities_url }
+      format.html { redirect_to heal_cities_url, notice: notice }
       format.json { head :no_content }
     end
   end

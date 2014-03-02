@@ -56,9 +56,15 @@ class Heal::PositionTypesController < ApplicationController
   # DELETE /position_types/1
   # DELETE /position_types/1.json
   def destroy
-    @position_type.destroy
+    notice = 'Position type was successfully destroyed'
+    begin
+      @position_type.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @position_type.errors.add(:base, e)
+      notice = "Position type could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_position_types_url }
+      format.html { redirect_to heal_position_types_url, notice: notice }
       format.json { head :no_content }
     end
   end

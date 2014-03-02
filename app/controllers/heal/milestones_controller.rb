@@ -59,9 +59,15 @@ class Heal::MilestonesController < ApplicationController
   # DELETE /milestones/1
   # DELETE /milestones/1.json
   def destroy
-    @milestone.destroy
+    notice = 'Milestone was successfully destroyed'
+    begin
+      @milestone.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @milestone.errors.add(:base, e)
+      notice = "Milestone could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_milestones_url }
+      format.html { redirect_to heal_milestones_url, notice: notice }
       format.json { head :no_content }
     end
   end

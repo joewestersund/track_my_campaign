@@ -61,9 +61,15 @@ class UsersController < ApplicationController
 
   def destroy
     sign_out
-    @user.destroy
+    notice = 'User was successfully destroyed'
+    begin
+      @user.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @user.errors.add(:base, e)
+      notice = "User could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to signin_path }
+      format.html { redirect_to signin_path, notice: notice }
       format.json { head :no_content }
     end
   end

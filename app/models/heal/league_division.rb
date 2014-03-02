@@ -12,7 +12,7 @@
 
 class Heal::LeagueDivision < ActiveRecord::Base
   belongs_to :database_instance
-  has_many :cities
+  has_many :cities, dependent: :restrict
 
   belongs_to :database_instance
   validates :database_instance, presence: true

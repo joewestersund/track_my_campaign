@@ -73,9 +73,15 @@ class DatabaseInstancesController < ApplicationController
   # DELETE /database_instances/1
   # DELETE /database_instances/1.json
   def destroy
-    @database_instance.destroy
+    notice = 'Database instance was successfully destroyed'
+    begin
+      @database_instance.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @database_instance.errors.add(:base, e)
+      notice = "Database instance could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to database_instances_url }
+      format.html { redirect_to database_instances_url, notice: notice }
       format.json { head :no_content }
     end
   end

@@ -64,9 +64,15 @@ class Heal::ContactsController < ApplicationController
   # DELETE /contacts/1
   # DELETE /contacts/1.json
   def destroy
-    @contact.destroy
+    notice = 'Contact was successfully destroyed'
+    begin
+      @contact.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @contact.errors.add(:base, e)
+      notice = "Contact could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_contacts_url }
+      format.html { redirect_to heal_contacts_url, notice: notice }
       format.json { head :no_content }
     end
   end

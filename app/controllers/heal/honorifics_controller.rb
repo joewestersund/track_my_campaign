@@ -56,9 +56,15 @@ class Heal::HonorificsController < ApplicationController
   # DELETE /honorifics/1
   # DELETE /honorifics/1.json
   def destroy
-    @honorific.destroy
+    notice = 'Honorific was successfully destroyed'
+    begin
+      @honorific.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @honorific.errors.add(:base, e)
+      notice = "Honorific could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_honorifics_url }
+      format.html { redirect_to heal_honorifics_url, notice: notice }
       format.json { head :no_content }
     end
   end

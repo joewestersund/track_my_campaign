@@ -56,9 +56,15 @@ class Heal::StatusTypesController < ApplicationController
   # DELETE /status_types/1
   # DELETE /status_types/1.json
   def destroy
-    @status_type.destroy
+    notice = 'Status type was successfully destroyed'
+    begin
+      @status_type.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @status_type.errors.add(:base, e)
+      notice = "Status type could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_status_types_url }
+      format.html { redirect_to heal_status_types_url, notice: notice }
       format.json { head :no_content }
     end
   end

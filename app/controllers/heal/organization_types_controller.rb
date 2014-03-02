@@ -56,9 +56,15 @@ class Heal::OrganizationTypesController < ApplicationController
   # DELETE /organization_types/1
   # DELETE /organization_types/1.json
   def destroy
-    @organization_type.destroy
+    notice = 'Organization type was successfully destroyed'
+    begin
+      @organization_type.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @organization_type.errors.add(:base, e)
+      notice = "Organization type could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_organization_types_url }
+      format.html { redirect_to heal_organization_types_url, notice: notice }
       format.json { head :no_content }
     end
   end

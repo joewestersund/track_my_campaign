@@ -60,9 +60,15 @@ class Heal::FollowupTasksController < ApplicationController
   # DELETE /followup_tasks/1
   # DELETE /followup_tasks/1.json
   def destroy
-    @followup_task.destroy
+    notice = 'Followup task was successfully destroyed'
+    begin
+      @followup_task.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @followup_task.errors.add(:base, e)
+      notice = "Followup task could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_followup_tasks_url }
+      format.html { redirect_to heal_followup_tasks_url, notice: notice }
       format.json { head :no_content }
     end
   end

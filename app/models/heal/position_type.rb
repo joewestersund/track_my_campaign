@@ -12,7 +12,7 @@
 
 class Heal::PositionType < ActiveRecord::Base
   belongs_to :database_instance
-  has_many :contacts
+  has_many :contacts, dependent: :restrict
 
   validates :database_instance, presence: true
   validates :name, presence: true, :uniqueness => {:scope => :database_instance}

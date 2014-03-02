@@ -12,7 +12,7 @@
 
 class Heal::JurisdictionType < ActiveRecord::Base
   belongs_to :database_instance
-  has_many :cities
+  has_many :cities, dependent: :restrict
 
   validates :database_instance, presence: true
   validates :name, presence: true, :uniqueness => {:scope => :database_instance}

@@ -56,9 +56,15 @@ class Heal::CommunicationTypesController < ApplicationController
   # DELETE /communication_types/1
   # DELETE /communication_types/1.json
   def destroy
-    @communication_type.destroy
+    notice = 'Communication type was successfully destroyed'
+    begin
+      @communication_type.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @communication_type.errors.add(:base, e)
+      notice = "Communication type could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_communication_types_url }
+      format.html { redirect_to heal_communication_types_url, notice: notice }
       format.json { head :no_content }
     end
   end

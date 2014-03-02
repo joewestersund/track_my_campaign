@@ -12,6 +12,8 @@
 
 class Heal::InterestLevel < ActiveRecord::Base
   belongs_to :database_instance
+  has_many :contacts, dependent: :restrict
+  has_many :communications, dependent: :restrict
 
   validates :database_instance, presence: true
   validates :name, presence: true, :uniqueness => {:scope => :database_instance}

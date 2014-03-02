@@ -17,6 +17,7 @@ class Heal::CommunicationsController < ApplicationController
   # GET /communications/new
   def new
     @communication = Heal::Communication.new
+    @communication.date = Date.today
   end
 
   # GET /communications/1/edit
@@ -59,9 +60,15 @@ class Heal::CommunicationsController < ApplicationController
   # DELETE /communications/1
   # DELETE /communications/1.json
   def destroy
-    @communication.destroy
+    notice = 'Communication was successfully destroyed'
+    begin
+      @communication.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @communication.errors.add(:base, e)
+      notice = "Communication could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_communications_url }
+      format.html { redirect_to heal_communications_url, notice: notice }
       format.json { head :no_content }
     end
   end

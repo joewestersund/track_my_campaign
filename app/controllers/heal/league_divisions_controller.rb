@@ -56,9 +56,15 @@ class Heal::LeagueDivisionsController < ApplicationController
   # DELETE /league_divisions/1
   # DELETE /league_divisions/1.json
   def destroy
-    @league_division.destroy
+    notice = 'League division was successfully destroyed'
+    begin
+      @league_division.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @league_division.errors.add(:base, e)
+      notice = "League division could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_league_divisions_url }
+      format.html { redirect_to heal_league_divisions_url, notice: notice }
       format.json { head :no_content }
     end
   end

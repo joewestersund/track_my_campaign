@@ -24,6 +24,11 @@ class Heal::City < ActiveRecord::Base
   belongs_to :jurisdiction_type
   belongs_to :league_division
   belongs_to :city_designation
+
+  has_many :milestones, dependent: :restrict
+  has_many :policy_adoptions, dependent: :restrict
+  has_many :resolutions, dependent: :restrict
+
   has_and_belongs_to_many :contacts
   has_and_belongs_to_many :communications
   has_and_belongs_to_many :followup_tasks

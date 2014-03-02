@@ -56,9 +56,15 @@ class UserPermissionsController < ApplicationController
   # DELETE /user_permissions/1
   # DELETE /user_permissions/1.json
   def destroy
-    @user_permission.destroy
+    notice = 'User permission was successfully destroyed'
+    begin
+      @user_permission.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @user_permission.errors.add(:base, e)
+      notice = "User permission could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to user_permissions_url }
+      format.html { redirect_to user_permissions_url, notice: notice }
       format.json { head :no_content }
     end
   end

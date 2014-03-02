@@ -12,7 +12,7 @@
 
 class Heal::MilestoneType < ActiveRecord::Base
   belongs_to :database_instance
-  has_many :milestones
+  has_many :milestones, dependent: :restrict
 
   validates :database_instance, presence: true
   validates :name, presence: true, :uniqueness => {:scope => :database_instance}

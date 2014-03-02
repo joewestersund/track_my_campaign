@@ -56,9 +56,15 @@ class Heal::InterestLevelsController < ApplicationController
   # DELETE /interest_levels/1
   # DELETE /interest_levels/1.json
   def destroy
-    @interest_level.destroy
+    notice = 'Interest level was successfully destroyed'
+    begin
+      @interest_level.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @interest_level.errors.add(:base, e)
+      notice = "Interest level could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_interest_levels_url }
+      format.html { redirect_to heal_interest_levels_url, notice: notice }
       format.json { head :no_content }
     end
   end

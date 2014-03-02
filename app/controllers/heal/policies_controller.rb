@@ -56,9 +56,15 @@ class Heal::PoliciesController < ApplicationController
   # DELETE /policies/1
   # DELETE /policies/1.json
   def destroy
-    @policy.destroy
+    notice = 'Policy was successfully destroyed'
+    begin
+      @policy.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @policy.errors.add(:base, e)
+      notice = "Policy could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_policies_url }
+      format.html { redirect_to heal_policies_url, notice: notice }
       format.json { head :no_content }
     end
   end

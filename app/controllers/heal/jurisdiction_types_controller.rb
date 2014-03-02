@@ -56,9 +56,15 @@ class Heal::JurisdictionTypesController < ApplicationController
   # DELETE /jurisdiction_types/1
   # DELETE /jurisdiction_types/1.json
   def destroy
-    @jurisdiction_type.destroy
+    notice = 'Jurisdiction type was successfully destroyed'
+    begin
+      @jurisdiction_type.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @jurisdiction_type.errors.add(:base, e)
+      notice = "Jurisdiction type could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_jurisdiction_types_url }
+      format.html { redirect_to heal_jurisdiction_types_url, notice: notice }
       format.json { head :no_content }
     end
   end

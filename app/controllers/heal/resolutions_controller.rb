@@ -60,9 +60,15 @@ class Heal::ResolutionsController < ApplicationController
   # DELETE /resolutions/1
   # DELETE /resolutions/1.json
   def destroy
-    @resolution.destroy
+    notice = 'Resolution was successfully destroyed'
+    begin
+      @resolution.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @resolution.errors.add(:base, e)
+      notice = "Resolution could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_resolutions_url }
+      format.html { redirect_to heal_resolutions_url, notice: notice }
       format.json { head :no_content }
     end
   end

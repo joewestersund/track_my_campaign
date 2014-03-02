@@ -56,9 +56,15 @@ class Heal::TopicsController < ApplicationController
   # DELETE /topics/1
   # DELETE /topics/1.json
   def destroy
-    @topic.destroy
+    notice = 'Topic was successfully destroyed'
+    begin
+      @topic.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @topic.errors.add(:base, e)
+      notice = "Topic could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_topics_url }
+      format.html { redirect_to heal_topics_url, notice: notice }
       format.json { head :no_content }
     end
   end
