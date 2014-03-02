@@ -30,14 +30,4 @@ module ApplicationHelper
     0
   end
 
-  def show_comma_separated_list(array, measure_word, max_to_show = 2)
-    if array.nil? or array.empty?
-      nil
-    elsif array.count > max_to_show
-      return "#{array.count} #{measure_word}"
-    else
-      return array.map{ |u| u.name }.join(", ")
-    end
-  end
-
 end

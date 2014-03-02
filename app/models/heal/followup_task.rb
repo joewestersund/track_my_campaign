@@ -28,6 +28,7 @@ class Heal::FollowupTask < ActiveRecord::Base
   has_and_belongs_to_many :cities
 
   validates :database_instance, presence: true
+  validates :description, presence: true
   validates :due_date, presence: true
   validates :assigned_to, presence: true
   validates :assigned_by, presence: true

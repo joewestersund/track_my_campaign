@@ -45,7 +45,7 @@ class Heal::MilestonesController < ApplicationController
   # PATCH/PUT /milestones/1.json
   def update
     respond_to do |format|
-      if @milestone.update(milestone_achievement_params)
+      if @milestone.update(milestone_params)
         format.html { redirect_to @milestone, notice: 'Milestone was successfully updated.' }
         format.json { head :no_content }
       else
@@ -74,7 +74,7 @@ class Heal::MilestonesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def milestone_params
-      params.require(:heal_milestone).permit(:milestone_type_id, :city_id, :status_type_id, :completion_date, :notes, :user_id)
+      params.require(:heal_milestone).permit(:milestone_type_id, :city_id, :status_type_id, :completion_date, :notes, :assigned_to_id)
     end
 
     def set_select_options

@@ -3,7 +3,6 @@
   if current_db.present? and current_db.class == Heal::DatabaseInstance %>
     <li><%= link_to "Communications", heal_communications_path %></li>
     <li><%= link_to "Contacts", heal_contacts_path %></li>
-    <li><%= link_to "Cities", heal_cities_path %></li>
     <li><%= link_to "Followup Tasks", heal_followup_tasks_path %></li>
 
     <li id="fat-menu" class="dropdown">
@@ -22,6 +21,7 @@
         Setup <b class="caret"></b>
       </a>
       <ul class="dropdown-menu">
+        <li><%= link_to "Cities", heal_cities_path %></li>
         <li><%= link_to "City Designations", heal_city_designations_path %></li>
         <li><%= link_to "Communication Types", heal_communication_types_path  %></li>
         <li><%= link_to "Communication Topics", heal_topics_path %></li>

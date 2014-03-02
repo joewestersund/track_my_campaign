@@ -3,8 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>Description</th>
       <th>Due date</th>
+      <th>Description</th>
       <th>Assigned to</th>
       <th>Assigned by</th>
       <th>Prior communication</th>
@@ -25,7 +25,7 @@
         <td><%= followup_task.description %></td>
         <td><%= followup_task.assigned_to.first_and_last_name if followup_task.assigned_to.present? %></td>
         <td><%= followup_task.assigned_by.first_and_last_name %></td>
-        <td><%= followup_task.prior_communication.summary %></td>
+        <td><%= followup_task.prior_communication.summary if followup_task.prior_communication.present?%></td>
         <td><%= show_boolean(followup_task.completed) %></td>
         <td><%= followup_task.completed_date %></td>
         <td><%= followup_task.completed_by.first_and_last_name if followup_task.completed_by.present? %></td>

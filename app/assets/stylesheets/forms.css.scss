@@ -2,12 +2,33 @@ form {
   div.field {
     label {
       display: block;
+      margin-bottom: 1px;
+    }
 
+    textarea {
+      width: 300px;
+    }
+
+    input[type="number"] {
+      width: 80px;
+    }
+
+    input[type="text"] {
+      width: 300px;
     }
 
     input.email {
       width: 300px;
     }
+
+    input.datepicker {
+      width: 120px;
+    }
+
+  }
+
+  div.actions {
+    margin-top: 15px;
   }
 
   p {

@@ -40,7 +40,7 @@
           <Cell><Data ss:Type="String"><%= contact.position_type.name %></Data></Cell>
           <Cell><Data ss:Type="String"><%= contact.organization_name %></Data></Cell>
           <Cell><Data ss:Type="String"><%= contact.organization_type.name if contact.organization_type.present? %></Data></Cell>
-          <Cell><Data ss:Type="String"><%= show_cities_list(contact.cities) %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= show_cities_list(contact.cities,{show_all: true}) %></Data></Cell>
           <Cell><Data ss:Type="String"><%= contact.office_phone_number %></Data></Cell>
           <Cell><Data ss:Type="String"><%= contact.cell_phone_number %></Data></Cell>
           <Cell><Data ss:Type="String"><%= contact.fax %></Data></Cell>

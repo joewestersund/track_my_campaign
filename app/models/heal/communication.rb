@@ -16,6 +16,9 @@
 #
 
 class Heal::Communication < ActiveRecord::Base
+  include HealHelper
+  include UsersHelper
+
   belongs_to :database_instance
   belongs_to :communication_type
   belongs_to :interest_level
@@ -31,9 +34,20 @@ class Heal::Communication < ActiveRecord::Base
   validates :interest_level, presence: true
 
   def summary
-    str_array = []
-    str_array << "#{self.event_name} " if self.event_name.present?
-    str_array << "#{show_users_list(self.contacts.all,4)}" if self.contacts.all.count > 0
-    str_array.join(", ")
+    summary = ""
+    if self.event_name.present?
+      summary = "#{self.event_name}"
+    elsif self.communication_type.present?
+      summary = "#{self.communication_type.name}"
+    end
+
+    if self.contacts.count > 0
+      summary = summary + " with #{show_contacts_list(self.contacts)}"
+    end
+
+    summary = summary + " #{self.date}"
+
+    summary
   end
+
 end

@@ -22,7 +22,7 @@
 
 <p>
   <strong>Topics:</strong>
-  <%= show_comma_separated_list(@communication.topics.all,"topics",10) %>
+  <%= show_comma_separated_list(@communication.topics,"topics",{show_all: true}) %>
 </p>
 
 <p>
@@ -32,7 +32,7 @@
 
 <p>
   <strong>Contacts:</strong>
-  <%= show_comma_separated_list(@communication.contacts.all,"contacts",10) %>
+  <%= show_contacts_list(@communication.contacts, {show_all: true}) %>
 </p>
 
 <p>
@@ -42,12 +42,12 @@
 
 <p>
   <strong>Cities:</strong>
-  <%= show_cities_list(@communication.cities.all,true,true) %>
+  <%= show_cities_list(@communication.cities,{show_state: true, show_jurisdiction_type: true, show_all: true}) %>
 </p>
 
 <p>
   <strong>Staff Involved:</strong>
-  <%= show_users_list(@communication.staff_involved.all,10) %>
+  <%= show_users_list(@communication.staff_involved,{show_all: true}) %>
 </p>
 
 <p>

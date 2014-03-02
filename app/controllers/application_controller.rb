@@ -6,5 +6,6 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   include SessionsHelper
   include DatabaseInstancesHelper
+  include HealHelper
 
 end

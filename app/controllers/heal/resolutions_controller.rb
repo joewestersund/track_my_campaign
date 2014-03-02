@@ -17,6 +17,7 @@ class Heal::ResolutionsController < ApplicationController
   # GET /resolutions/new
   def new
     @resolution = Heal::Resolution.new
+    @resolution.date = Date.today
   end
 
   # GET /resolutions/1/edit

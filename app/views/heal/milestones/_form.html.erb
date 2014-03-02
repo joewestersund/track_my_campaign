@@ -24,16 +24,16 @@
     <%= f.collection_select :status_type_id, @status_types, :id, :name, {}, {class: 'multiselect', multiple: false}  %>
   </div>
   <div class="field">
+    <%= f.label :assigned_to %>
+    <%= f.collection_select :assigned_to_id, @users, :id, :first_and_last_name, {}, {class: 'multiselect', multiple: false}  %>
+  </div>
+  <div class="field">
     <%= f.label :completion_date %>
     <%= f.text_field :completion_date, {class: 'datepicker'} %>
   </div>
   <div class="field">
     <%= f.label :notes %>
     <%= f.text_area :notes %>
-  </div>
-  <div class="field">
-    <%= f.label :assigned_to %>
-    <%= f.collection_select :assigned_to_id, @users, :id, :first_and_last_name, {}, {class: 'multiselect', multiple: false}  %>
   </div>
   <div class="actions">
     <%= f.submit %>

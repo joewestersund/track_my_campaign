@@ -17,6 +17,7 @@ class Heal::PolicyAdoptionsController < ApplicationController
   # GET /policy_adoptions/new
   def new
     @policy_adoption = Heal::PolicyAdoption.new
+    @policy_adoption.date = Date.today
   end
 
   # GET /policy_adoptions/1/edit

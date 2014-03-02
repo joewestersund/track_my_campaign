@@ -12,22 +12,22 @@
 
 <p>
   <strong>Assigned to:</strong>
-  <%= @followup_task.assigned_to_id %>
+  <%= @followup_task.assigned_to.first_and_last_name if @followup_task.assigned_to.present? %>
 </p>
 
 <p>
   <strong>Assigned by:</strong>
-  <%= @followup_task.assigned_by_id %>
+  <%= @followup_task.assigned_by.first_and_last_name if @followup_task.assigned_by.present? %>
 </p>
 
 <p>
   <strong>Prior communication:</strong>
-  <%= @followup_task.prior_communication_id %>
+  <%= @followup_task.prior_communication.summary %>
 </p>
 
 <p>
   <strong>Completed:</strong>
-  <%= @followup_task.completed %>
+  <%= show_boolean(@followup_task.completed) %>
 </p>
 
 <p>
@@ -37,7 +37,7 @@
 
 <p>
   <strong>Completed by:</strong>
-  <%= @followup_task.completed_by_id %>
+  <%= @followup_task.completed_by.first_and_last_name if @followup_task.completed_by.present? %>
 </p>
 
 <p>
