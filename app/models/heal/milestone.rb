@@ -9,7 +9,7 @@
 #  status_type_id       :integer
 #  completion_date      :date
 #  notes                :text
-#  user_id              :integer
+#  assigned_to_id       :integer
 #  created_at           :datetime
 #  updated_at           :datetime
 #

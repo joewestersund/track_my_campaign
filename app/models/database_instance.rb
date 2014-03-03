@@ -10,7 +10,7 @@
 #
 
 class DatabaseInstance < ActiveRecord::Base
-  has_many :user_permissions
+  has_many :user_permissions, dependent: :restrict_with_exception
   has_many :users, through: :user_permissions
 
   validates :type, presence: true

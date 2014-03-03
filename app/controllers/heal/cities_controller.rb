@@ -6,7 +6,7 @@ class Heal::CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    @cities = current_db.cities.order(:name).page(params[:page]).per_page(page_size)
+    @cities = current_db.cities.where(get_conditions).order(:name).page(params[:page]).per_page(page_size)
   end
 
   # GET /cities/1
@@ -87,5 +87,26 @@ class Heal::CitiesController < ApplicationController
       @jurisdiction_types = current_db.jurisdiction_types
       @league_divisions = current_db.league_divisions
       @city_designations = current_db.city_designations
+    end
+
+    def get_conditions
+      sf = SearchFilter.new
+
+      sf.add_condition(:name,"LIKE",:name,params)
+      sf.add_condition(:state,"LIKE",:state,params)
+      sf.add_condition(:county,"LIKE",:county,params)
+      sf.add_condition(:jurisdiction_type_id,"=",:jurisdiction_type_id,params)
+      sf.add_condition(:league_division_id,"=",:league_division_id,params)
+      sf.add_condition(:population,">=",:min_population,params)
+      sf.add_condition(:population,"<=",:max_population,params)
+      sf.add_condition(:kp_service_area,"=",:kp_service_area,params)
+      sf.add_condition(:under_resourced_or_disease_burden,"=",:under_resourced_or_disease_burden,params)
+      sf.add_condition(:state_median_income,">=",:min_state_median_income,params)
+      sf.add_condition(:state_median_income,"<=",:max_state_median_income,params)
+      sf.add_condition(:city_median_income,">=",:min_city_median_income,params)
+      sf.add_condition(:city_median_income,"<=",:max_city_median_income,params)
+      sf.add_condition(:city_designation_id,"=",:city_designation_id,params)
+
+      sf.get_search_filter
     end
 end

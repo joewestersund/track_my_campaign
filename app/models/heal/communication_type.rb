@@ -12,7 +12,7 @@
 
 class Heal::CommunicationType < ActiveRecord::Base
   belongs_to :database_instance
-  has_many :communications, dependent: :restrict
+  has_many :communications, dependent: :restrict_with_exception
 
   validates :database_instance, presence: true
   validates :name, presence: true, :uniqueness => {:scope => :database_instance}

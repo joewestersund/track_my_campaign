@@ -1,13 +1,13 @@
 class Heal::ContactsController < ApplicationController
   before_action :check_current_db_exists
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
-  before_action :set_select_options, only: [:new, :edit]
+  before_action :set_select_options, only: [:new, :edit, :index]
 
   # GET /contacts
   # GET /contacts.json
   def index
     if request.format == :html
-      @contacts = current_db.contacts.order(:first_name, :last_name).page(params[:page]).per_page(page_size)
+      @contacts = current_db.contacts.where(get_conditions).order(:first_name, :last_name).page(params[:page]).per_page(page_size)
     else
       #don't do paging if user is downloading as csv or xls.
       @contacts = current_db.contacts.order(:first_name, :last_name)
@@ -90,7 +90,7 @@ class Heal::ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:heal_contact).permit(:first_name, :last_name, :title, :organization_name, :organization_type, {city_ids: []}, :office_phone_number, :cell_phone_number, :fax, :email, :address_line_1, :address_line_2, :address_city, :address_state, :address_zip, :interest_level_id, :HEAL_champion, :HEAL_champion_notes, :position_type_id, :notes, :photo)
+      params.require(:heal_contact).permit(:first_name, :last_name, :title, :organization_name, :organization_type_id, {city_ids: []}, :office_phone_number, :cell_phone_number, :fax, :email, :address_line_1, :address_line_2, :address_city, :address_state, :address_zip, :interest_level_id, :heal_champion, :heal_champion_notes, :position_type_id, :notes, :photo)
     end
 
     def set_select_options
@@ -99,5 +99,24 @@ class Heal::ContactsController < ApplicationController
       @cities = current_db.cities.order(:name)
       @organization_types = current_db.organization_types.order(:order_in_list)
       @interest_levels = current_db.interest_levels.order(:order_in_list)
+    end
+
+    def get_conditions
+      sf = SearchFilter.new
+
+      sf.add_condition(:first_name,"LIKE",:first_name,params)
+      sf.add_condition(:last_name,"LIKE",:last_name,params)
+      sf.add_condition(:title,"LIKE",:title,params)
+      sf.add_condition(:position_type_id,"=",:position_type_id,params)
+      sf.add_condition(:organization_name,"LIKE",:organization_name,params)
+      sf.add_condition(:organization_type_id,"=",:organization_type_id,params)
+      sf.add_condition(:address_city,"LIKE",:address_city,params)
+      sf.add_condition(:address_state,"LIKE",:address_state,params)
+      sf.add_condition(:address_zip,"LIKE",:address_zip,params)
+      sf.add_condition(:interest_level_id,"=",:interest_level_id,params)
+      sf.add_condition(:heal_champion,"=",:heal_champion,params)
+      sf.add_condition(:notes,"LIKE",:notes,params)
+
+      sf.get_search_filter
     end
 end

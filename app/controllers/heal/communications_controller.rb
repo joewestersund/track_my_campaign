@@ -1,12 +1,12 @@
 class Heal::CommunicationsController < ApplicationController
   before_action :check_current_db_exists
   before_action :set_communication, only: [:show, :edit, :update, :destroy]
-  before_action :set_select_options, only: [:new, :edit]
+  before_action :set_select_options, only: [:new, :edit, :index]
 
   # GET /communications
   # GET /communications.json
   def index
-    @communications = current_db.communications.order(date: :desc).page(params[:page]).per_page(page_size)
+    @communications = current_db.communications.where(get_conditions).order(date: :desc).page(params[:page]).per_page(page_size)
   end
 
   # GET /communications/1
@@ -92,5 +92,21 @@ class Heal::CommunicationsController < ApplicationController
       @contacts = current_db.contacts.order(:first_name, :last_name)
       @cities = current_db.cities.order(:name)
       @users = current_db.users.order(:first_name, :last_name)
+    end
+
+    def get_conditions
+      sf = SearchFilter.new
+
+      sf.add_condition(:date,">=",:min_date,params)
+      sf.add_condition(:date,"<=",:max_date,params)
+      sf.add_condition(:duration_minutes,">=",:min_duration,params)
+      sf.add_condition(:duration_minutes,"<=",:max_duration,params)
+      sf.add_condition(:communication_type_id,"=",:communication_type_id,params)
+      sf.add_condition(:event_name,"LIKE",:event_name,params)
+      sf.add_condition(:interest_level_id,"=",:interest_level_id,params)
+      sf.add_condition(:others_involved,"LIKE",:others_involved,params)
+      sf.add_condition(:notes,"LIKE",:notes,params)
+
+      sf.get_search_filter
     end
 end

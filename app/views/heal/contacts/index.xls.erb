@@ -51,8 +51,8 @@
           <Cell><Data ss:Type="String"><%= contact.address_state %></Data></Cell>
           <Cell><Data ss:Type="String"><%= contact.address_zip %></Data></Cell>
           <Cell><Data ss:Type="String"><%= contact.interest_level.name if contact.interest_level.present? %></Data></Cell>
-          <Cell><Data ss:Type="String"><%= show_boolean(contact.HEAL_champion) %></Data></Cell>
-          <Cell><Data ss:Type="String"><%= contact.HEAL_champion_notes %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= show_boolean(contact.heal_champion) %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.heal_champion_notes %></Data></Cell>
           <Cell><Data ss:Type="String"><%= contact.notes %></Data></Cell>
         </Row>
       <% end %>

@@ -1,51 +1,111 @@
 <h1>Contacts</h1>
 
-<p>
-  <%= link_to "Download to Excel", heal_contacts_path(format: "xls") %>
-</p>
+<div class="filter">
+  <%= form_tag request.path, method: 'get' do %>
+    <div class="field">
+      <%= label_tag :first_name %>
+      <%= text_field_tag :first_name, params[:first_name] %>
+    </div>
+    <div class="field">
+      <%= label_tag :last_name %>
+      <%= text_field_tag :last_name, params[:last_name] %>
+    </div>
+    <div class="field">
+      <%= label_tag :title %>
+      <%= text_field_tag :title, params[:title] %>
+    </div>
+    <div class="field">
+      <%= label_tag :position_type %>
+      <%= select_tag :position_type_id, options_from_collection_for_select(@position_types,:id,:name,params[:position_type_id]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :organization_name %>
+      <%= text_field_tag :organization_name, params[:organization_name] %>
+    </div>
+    <div class="field">
+      <%= label_tag :organization_type %>
+      <%= select_tag :organization_type_id, options_from_collection_for_select(@organization_types,:id,:name,params[:organization_type_id]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :address_city %>
+      <%= text_field_tag :address_city, params[:address_city] %>
+    </div>
+    <div class="field">
+      <%= label_tag :address_state %>
+      <%= text_field_tag :address_state, params[:address_state] %>
+    </div>
+    <div class="field">
+      <%= label_tag :address_ZIP %>
+      <%= text_field_tag :address_zip, params[:address_zip] %>
+    </div>
+    <div class="field">
+      <%= label_tag :interest_level %>
+      <%= select_tag :interest_level_id, options_from_collection_for_select(@interest_levels,:id,:name,params[:interest_level_id]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :heal_champion %>
+      <%= select_tag :heal_champion, options_for_select(get_yes_no_options_list,params[:heal_champion]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :notes %>
+      <%= text_field_tag :notes, params[:notes] %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Search" %>
+    </div>
+  <% end %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Title</th>
-      <th>Position Type</th>
-      <th>Organization Name</th>
-      <th>Organization Type</th>
-      <th>Cities</th>
-      <th>Office Phone Number</th>
-      <th>Email</th>
-      <th>Interest Level</th>
-      <th>Heal Champion</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<% if @contacts.nil? or @contacts.count == 0 %>
+  <div class="no_data">No data has been entered, or no data matches the filter above.</div>
+<% else %>
+  <p>
+    <%= link_to "Download to Excel", heal_contacts_path(format: "xls") %>
+  </p>
 
-  <tbody>
-    <% @contacts.each do |contact| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= contact.first_name %></td>
-        <td><%= contact.last_name %></td>
-        <td><%= contact.title %></td>
-        <td><%= contact.position_type.name %></td>
-        <td><%= contact.organization_name %></td>
-        <td><%= contact.organization_type.name if contact.organization_type.present? %></td>
-        <td><%= show_cities_list(contact.cities) %></td>
-        <td><%= contact.office_phone_number %></td>
-        <td><%= contact.email %></td>
-        <td><%= contact.interest_level.name if contact.interest_level.present? %></td>
-        <td><%= show_boolean(contact.HEAL_champion) %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_heal_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Title</th>
+        <th>Position Type</th>
+        <th>Organization Name</th>
+        <th>Organization Type</th>
+        <th>Cities</th>
+        <th>Office Phone Number</th>
+        <th>Email</th>
+        <th>Interest Level</th>
+        <th>Heal Champion</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= will_paginate @contacts %>
+    </thead>
+
+    <tbody>
+      <% @contacts.each do |contact| %>
+        <tr>
+          <td><%= contact.first_name %></td>
+          <td><%= contact.last_name %></td>
+          <td><%= contact.title %></td>
+          <td><%= contact.position_type.name %></td>
+          <td><%= contact.organization_name %></td>
+          <td><%= contact.organization_type.name if contact.organization_type.present? %></td>
+          <td><%= show_cities_list(contact.cities) %></td>
+          <td><%= contact.office_phone_number %></td>
+          <td><%= contact.email %></td>
+          <td><%= contact.interest_level.name if contact.interest_level.present? %></td>
+          <td><%= show_boolean(contact.heal_champion) %></td>
+          <td><%= link_to 'Show', contact %></td>
+          <td><%= link_to 'Edit', edit_heal_contact_path(contact) %></td>
+          <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @contacts %>
+<% end %>
 <br>
 
 <%= link_to 'New Contact', new_heal_contact_path %>

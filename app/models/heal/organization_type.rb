@@ -12,7 +12,7 @@
 
 class Heal::OrganizationType < ActiveRecord::Base
   belongs_to :database_instance
-  has_many :contacts, dependent: :restrict
+  has_many :contacts, dependent: :restrict_with_exception
 
   validates :database_instance, presence: true
   validates :name, presence: true, :uniqueness => {:scope => :database_instance}

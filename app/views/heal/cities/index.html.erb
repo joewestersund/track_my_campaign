@@ -24,35 +24,35 @@
     </div>
     <div class="field">
       <%= label_tag :min_population %>
-      <%= text_field_tag :min_population, params[:min_population] %>
+      <%= number_field_tag :min_population, params[:min_population] %>
     </div>
     <div class="field">
       <%= label_tag :max_population %>
-      <%= text_field_tag :max_population, params[:max_population] %>
+      <%= number_field_tag :max_population, params[:max_population] %>
     </div>
     <div class="field">
-      <%= label_tag :in_kp_service_area %>
-      <%= select_tag :in_kp_service_area, options_for_select(["Yes", "No"],params[:in_kp_service_area]), { :include_blank => true } %>
+      <%= label_tag :kp_service_area %>
+      <%= select_tag :kp_service_area, options_for_select(get_yes_no_options_list,params[:kp_service_area]), { :include_blank => true } %>
     </div>
     <div class="field">
-      <%= label_tag :under_resourced_or_disease_burdened %>
-      <%= select_tag :under_resourced_or_disease_burdened, options_for_select(["Yes", "No"],params[:under_resourced_or_disease_burdened]), { :include_blank => true } %>
+      <%= label_tag :under_resourced_or_disease_burden %>
+      <%= select_tag :under_resourced_or_disease_burden, options_for_select(get_yes_no_options_list,params[:under_resourced_or_disease_burden]), { :include_blank => true } %>
     </div>
     <div class="field">
       <%= label_tag :min_state_median_income %>
-      <%= text_field_tag :min_state_median_income, params[:min_state_median_income] %>
+      <%= number_field_tag :min_state_median_income, params[:min_state_median_income] %>
     </div>
     <div class="field">
       <%= label_tag :max_state_median_income %>
-      <%= text_field_tag :max_state_median_income, params[:max_state_median_income] %>
+      <%= number_field_tag :max_state_median_income, params[:max_state_median_income] %>
     </div>
     <div class="field">
       <%= label_tag :min_city_median_income %>
-      <%= text_field_tag :min_city_median_income, params[:min_city_median_income] %>
+      <%= number_field_tag :min_city_median_income, params[:min_city_median_income] %>
     </div>
     <div class="field">
       <%= label_tag :max_city_median_income %>
-      <%= text_field_tag :max_city_median_income, params[:max_city_median_income] %>
+      <%= number_field_tag :max_city_median_income, params[:max_city_median_income] %>
     </div>
     <div class="field">
       <%= label_tag :city_designation %>
@@ -64,48 +64,52 @@
   <% end %>
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>County</th>
-      <th>State</th>
-      <th>Jurisdiction Type</th>
-      <th>League Division</th>
-      <th>Population</th>
-      <th>In KP Service Area</th>
-      <th>Under-Resourced or Disease Burdened Area</th>
-      <th>State Median Income</th>
-      <th>City Median Income</th>
-      <th>HEAL City Designation</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cities.each do |city| %>
+<% if @cities.nil? or @cities.count == 0 %>
+  <div class="no_data">No data has been entered, or no data matches the filter above.</div>
+<% else %>
+  <table>
+    <thead>
       <tr>
-        <td><%= city.name %></td>
-        <td><%= city.county %></td>
-        <td><%= city.state %></td>
-        <td><%= city.jurisdiction_type.name %></td>
-        <td><%= city.league_division.name %></td>
-        <td><%= number_with_delimiter(city.population) %></td>
-        <td><%= show_boolean(city.kp_service_area) %></td>
-        <td><%= show_boolean(city.under_resourced_or_disease_burden) %></td>
-        <td><%= number_to_currency(city.state_median_income, precision: 0) %></td>
-        <td><%= number_to_currency(city.city_median_income, precision: 0) %></td>
-        <td><%= city.city_designation.name if city.city_designation.present? %></td>
-        <td><%= link_to 'Show', city %></td>
-        <td><%= link_to 'Edit', edit_heal_city_path(city) %></td>
-        <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>County</th>
+        <th>State</th>
+        <th>Jurisdiction Type</th>
+        <th>League Division</th>
+        <th>Population</th>
+        <th>In KP Service Area</th>
+        <th>Under-Resourced or Disease Burdened Area</th>
+        <th>State Median Income</th>
+        <th>City Median Income</th>
+        <th>HEAL City Designation</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= will_paginate @cities %>
+    </thead>
+
+    <tbody>
+      <% @cities.each do |city| %>
+        <tr>
+          <td><%= city.name %></td>
+          <td><%= city.county %></td>
+          <td><%= city.state %></td>
+          <td><%= city.jurisdiction_type.name %></td>
+          <td><%= city.league_division.name %></td>
+          <td><%= number_with_delimiter(city.population) %></td>
+          <td><%= show_boolean(city.kp_service_area) %></td>
+          <td><%= show_boolean(city.under_resourced_or_disease_burden) %></td>
+          <td><%= number_to_currency(city.state_median_income, precision: 0) %></td>
+          <td><%= number_to_currency(city.city_median_income, precision: 0) %></td>
+          <td><%= city.city_designation.name if city.city_designation.present? %></td>
+          <td><%= link_to 'Show', city %></td>
+          <td><%= link_to 'Edit', edit_heal_city_path(city) %></td>
+          <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @cities %>
+<% end %>
 <br>
 
 <%= link_to 'New City', new_heal_city_path %>

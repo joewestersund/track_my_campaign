@@ -38,7 +38,11 @@ module HealHelper
   end
 
   def page_size
-    20
+    15
+  end
+
+  def get_yes_no_options_list
+    return [["Yes", 1], ["No", 0]]
   end
 
 end

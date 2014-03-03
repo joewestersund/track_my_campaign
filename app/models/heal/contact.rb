@@ -16,8 +16,8 @@
 #  address_state        :string(255)
 #  address_zip          :string(255)
 #  interest_level_id    :integer
-#  HEAL_champion        :boolean
-#  HEAL_champion_notes  :text
+#  heal_champion        :boolean
+#  heal_champion_notes  :text
 #  position_type_id     :integer
 #  notes                :text
 #  created_at           :datetime
