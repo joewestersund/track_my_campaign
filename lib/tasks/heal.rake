@@ -1,7 +1,7 @@
 namespace :heal do
 
   desc "set up default HEAL databases"
-  task default_setup: :environment do
+  task setup: :environment do
     dbi_iphi = Heal::DatabaseInstance.find_by(instance_name: 'IPHI-test')
     dbi_ccphi = Heal::DatabaseInstance.find_by(instance_name: 'CCPHA-test')
 
@@ -47,9 +47,19 @@ namespace :heal do
       Heal::OrganizationType.create({database_instance: dbi, name: 'League', order_in_list: 2})
       Heal::OrganizationType.create({database_instance: dbi, name: 'Community Organization', order_in_list: 3})
 
-      Heal::Policy.create({database_instance: dbi, name: 'Policy #1', order_in_list: 1})
-      Heal::Policy.create({database_instance: dbi, name: 'Policy #2', order_in_list: 2})
-      Heal::Policy.create({database_instance: dbi, name: 'Policy #3', order_in_list: 3})
+      Heal::Policy.create({database_instance: dbi, name: 'General Plan', order_in_list: 1})
+      Heal::Policy.create({database_instance: dbi, name: 'Compact Mixed Use', order_in_list: 2})
+      Heal::Policy.create({database_instance: dbi, name: 'Transit Oriented Development', order_in_list: 3})
+      Heal::Policy.create({database_instance: dbi, name: 'Increase Walkability and Bikeability', order_in_list: 4})
+      Heal::Policy.create({database_instance: dbi, name: 'Capital Improvement Priority on PA, Walking, and Biking', order_in_list: 5})
+      Heal::Policy.create({database_instance: dbi, name: 'Open Space (increase)', order_in_list: 6})
+      Heal::Policy.create({database_instance: dbi, name: 'Joint Use', order_in_list: 7})
+      Heal::Policy.create({database_instance: dbi, name: 'Farmers Markets', order_in_list: 8})
+      Heal::Policy.create({database_instance: dbi, name: 'Community Gardens', order_in_list: 9})
+      Heal::Policy.create({database_instance: dbi, name: 'Nutrition Standards', order_in_list: 10})
+      Heal::Policy.create({database_instance: dbi, name: 'Breastfeeding Accommodations', order_in_list: 11})
+      Heal::Policy.create({database_instance: dbi, name: 'WW- Activity Breaks', order_in_list: 12})
+      Heal::Policy.create({database_instance: dbi, name: 'WW- other', order_in_list: 13})
 
       Heal::PositionType.create({database_instance: dbi, name: 'Elected', order_in_list: 1})
       Heal::PositionType.create({database_instance: dbi, name: 'City Manager', order_in_list: 2})
