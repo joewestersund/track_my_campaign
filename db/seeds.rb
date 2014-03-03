@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+UserPermission.destroy_all
+DatabaseInstance.destroy_all
+User.delete_all
+
 default_password = 'testing'
 admin_user = User.create({first_name: 'Joe', last_name: 'Westersund', email: 'joe_westersund@hotmail.com', password: default_password, password_confirmation: default_password, admin: true})
 

@@ -15,7 +15,7 @@
 
 class User < ActiveRecord::Base
   has_secure_password #adds authenticate method, etc.
-  has_many :user_permissions, dependent: :restrict_with_exception
+  has_many :user_permissions, dependent: :destroy
   has_many :database_instances, through: :user_permissions
   has_and_belongs_to_many :communications
 
