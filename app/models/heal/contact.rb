@@ -58,7 +58,7 @@ class Heal::Contact < ActiveRecord::Base
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
-  def first_last_name
+  def first_and_last_name
     "#{self.first_name} #{self.last_name}"
   end
 

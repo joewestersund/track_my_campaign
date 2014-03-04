@@ -20,19 +20,35 @@
     </div>
     <div class="field">
       <%= label_tag :communication_type %>
-      <%= select_tag :communication_type_id, options_from_collection_for_select(@communication_types,:id,:name,params[:communication_type_id]), { :include_blank => true } %>
+      <%= select_tag :communication_type_id, options_from_collection_for_select(@communication_types,:id,:name, params[:communication_type_id]), { include_blank: true, class: 'multiselect', multiple: false} %>
     </div>
     <div class="field">
       <%= label_tag :event_name %>
       <%= text_field_tag :event_name, params[:event_name] %>
     </div>
     <div class="field">
+      <%= label_tag :topic %>
+      <%= select_tag :topic_id, options_from_collection_for_select(@topics,:id,:name, params[:topic_id]), { include_blank: true, class: 'multiselect', multiple: false} %>
+    </div>
+    <div class="field">
       <%= label_tag :interest_level %>
-      <%= select_tag :interest_level_id, options_from_collection_for_select(@interest_levels,:id,:name,params[:interest_level_id]), { :include_blank => true } %>
+      <%= select_tag :interest_level_id, options_from_collection_for_select(@interest_levels,:id,:name, params[:interest_level_id]), { include_blank: true, class: 'multiselect', multiple: false} %>
+    </div>
+    <div class="field">
+      <%= label_tag :contact %>
+      <%= select_tag :contact_id, options_from_collection_for_select(@contacts,:id,:first_and_last_name, params[:contact_id]), { include_blank: true, class: 'multiselect', multiple: false} %>
     </div>
     <div class="field">
       <%= label_tag :others_involved %>
       <%= text_field_tag :others_involved, params[:others_involved] %>
+    </div>
+    <div class="field">
+      <%= label_tag :city %>
+      <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:name_type_state, params[:city_id]), { include_blank: true, class: 'multiselect', multiple: false} %>
+    </div>
+    <div class="field">
+      <%= label_tag :staff_involved %>
+      <%= select_tag :staff_involved_id, options_from_collection_for_select(@users,:id,:first_and_last_name, params[:staff_involved_id]), { include_blank: true, class: 'multiselect', multiple: false} %>
     </div>
     <div class="field">
       <%= label_tag :notes %>

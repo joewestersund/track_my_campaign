@@ -6,7 +6,17 @@ class Heal::CommunicationsController < ApplicationController
   # GET /communications
   # GET /communications.json
   def index
-    @communications = current_db.communications.where(get_conditions).order(date: :desc).page(params[:page]).per_page(page_size)
+
+    conditions_string, parameters_hash, join_tables = get_conditions
+    conditions = [conditions_string, parameters_hash]
+
+    if join_tables.nil?
+      @communications = current_db.communications.where(conditions).order(date: :desc).page(params[:page]).per_page(page_size)
+    else
+      @communications = current_db.communications.joins(join_tables).where(conditions).order(date: :desc).page(params[:page]).per_page(page_size)
+      #@communications = current_db.communications.joins(join_tables).where("communications_topics.topic_id = 15").order(date: :desc).page(params[:page]).per_page(page_size)
+    end
+
   end
 
   # GET /communications/1
@@ -106,6 +116,11 @@ class Heal::CommunicationsController < ApplicationController
       sf.add_condition(:interest_level_id,"=",:interest_level_id,params)
       sf.add_condition(:others_involved,"LIKE",:others_involved,params)
       sf.add_condition(:notes,"LIKE",:notes,params)
+
+      sf.add_condition(:topic_id,"=",:topic_id, params,{join_table: :topics, join_object_name: :communications_topics})
+      sf.add_condition(:contact_id,"=",:contact_id, params,{join_table: :contacts, join_object_name: :communications_contacts})
+      sf.add_condition(:city_id,"=",:city_id, params,{join_table: :cities, join_object_name: :cities_communications})
+      sf.add_condition(:user_id,"=",:staff_involved_id, params,{join_table: :staff_involved, join_object_name: :communications_staff_involved})
 
       sf.get_search_filter
     end
