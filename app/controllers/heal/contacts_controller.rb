@@ -7,7 +7,14 @@ class Heal::ContactsController < ApplicationController
   # GET /contacts.json
   def index
     if request.format == :html
-      @contacts = current_db.contacts.where(get_conditions).order(:first_name, :last_name).page(params[:page]).per_page(page_size)
+      conditions_string, parameters_hash, join_tables = get_conditions
+      conditions = [conditions_string, parameters_hash]
+
+      if join_tables.nil?
+        @contacts = current_db.contacts.where(get_conditions).order(:first_name, :last_name).page(params[:page]).per_page(page_size)
+      else
+        @contacts = current_db.contacts.joins(join_tables).where(conditions).order(:first_name, :last_name).page(params[:page]).per_page(page_size)
+      end
     else
       #don't do paging if user is downloading as csv or xls.
       @contacts = current_db.contacts.order(:first_name, :last_name)
@@ -116,6 +123,8 @@ class Heal::ContactsController < ApplicationController
       sf.add_condition(:interest_level_id,"=",:interest_level_id,params)
       sf.add_condition(:heal_champion,"=",:heal_champion,params)
       sf.add_condition(:notes,"LIKE",:notes,params)
+
+      sf.add_condition(:city_id,"=",:city_id, params,{join_table: :cities, join_object_name: :cities_contacts})
 
       sf.get_search_filter
     end

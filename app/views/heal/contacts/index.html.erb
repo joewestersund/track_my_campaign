@@ -27,6 +27,10 @@
       <%= select_tag :organization_type_id, options_from_collection_for_select(@organization_types,:id,:name,params[:organization_type_id]), { :include_blank => true } %>
     </div>
     <div class="field">
+      <%= label_tag :city %>
+      <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:name_type_state, params[:city_id]), { include_blank: true, class: 'multiselect', multiple: false} %>
+    </div>
+    <div class="field">
       <%= label_tag :address_city %>
       <%= text_field_tag :address_city, params[:address_city] %>
     </div>

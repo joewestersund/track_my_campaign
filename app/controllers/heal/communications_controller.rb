@@ -14,7 +14,6 @@ class Heal::CommunicationsController < ApplicationController
       @communications = current_db.communications.where(conditions).order(date: :desc).page(params[:page]).per_page(page_size)
     else
       @communications = current_db.communications.joins(join_tables).where(conditions).order(date: :desc).page(params[:page]).per_page(page_size)
-      #@communications = current_db.communications.joins(join_tables).where("communications_topics.topic_id = 15").order(date: :desc).page(params[:page]).per_page(page_size)
     end
 
   end

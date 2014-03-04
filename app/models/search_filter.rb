@@ -13,7 +13,6 @@ class SearchFilter
     @conditions_string = []
     @parameters_hash = {}
     @join_tables = []
-    #@join_conditions = []
   end
 
   def add_condition(db_field_name, operator, param_name, params_hash, options = {} )
@@ -50,19 +49,5 @@ class SearchFilter
       return [@conditions_string.join(" AND "), @parameters_hash, @join_tables]
     end
   end
-
-  #def add_join_condition(join_table, db_field_name, param_value, options = {})
-  #  include_null = false
-  #  include_null = options[:include_null] if options[:include_null].present?
-  #
-  #  if param_value.present? or include_null
-  #    @join_conditions << {join_table => {db_field_name => param_value}}
-  #    @join_tables << join_table
-  #  end
-  #end
-
-  #def get_join_filter
-  #  return [@join_tables, @join_conditions]
-  #end
 
 end
