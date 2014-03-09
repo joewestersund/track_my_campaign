@@ -98,7 +98,7 @@
           <td><%= contact.organization_type.name if contact.organization_type.present? %></td>
           <td><%= show_cities_list(contact.cities) %></td>
           <td><%= contact.office_phone_number %></td>
-          <td><%= contact.email %></td>
+          <td><%= mail_to contact.email_address_with_name, contact.email if contact.email.present? %></td>
           <td><%= contact.interest_level.name if contact.interest_level.present? %></td>
           <td><%= show_boolean(contact.heal_champion) %></td>
           <td><%= link_to 'Show', contact %></td>

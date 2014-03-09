@@ -58,7 +58,7 @@
 
 <p>
   <strong>Email:</strong>
-  <%= @contact.email %>
+  <%= mail_to @contact.email_address_with_name, @contact.email if @contact.email.present? %>
 </p>
 
 <p>

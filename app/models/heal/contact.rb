@@ -66,6 +66,10 @@ class Heal::Contact < ActiveRecord::Base
     "#{self.first_name} #{self.last_name} #{self.organization_name}"
   end
 
+  def email_address_with_name
+    "#{self.first_name} #{self.last_name} <#{self.email}>"
+  end
+
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names

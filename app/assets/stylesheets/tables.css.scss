@@ -1,12 +1,9 @@
 
 th, td {
   border-left: 1px black solid;
+  border-bottom: 1px black solid;
   padding: 2px 5px;
   text-align: center;
-}
-
-th {
-  border-bottom: 1px black solid;
 }
 
 th:first-of-type, td:first-of-type {
