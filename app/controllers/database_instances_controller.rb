@@ -1,4 +1,5 @@
 class DatabaseInstancesController < ApplicationController
+  before_action :check_signed_in_user
   before_action :check_admin_user, except: [:select_database, :home]
   before_action :set_database_instance, only: [:show, :edit, :update, :destroy]
   before_action :set_select_options, only: [:new, :edit]
