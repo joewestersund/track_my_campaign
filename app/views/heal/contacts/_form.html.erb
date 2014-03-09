@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label "Honorific" %>
+    <%= f.collection_select :honorific_id, @honorifics, :id, :name, {include_blank: true}, {class: 'multiselect', multiple: false} %>
+    <%= link_to "Add / Edit", new_heal_honorific_path %>
+  </div>
+  <div class="field">
     <%= f.label "First Name" %>
     <%= f.text_field :first_name %>
   </div>
@@ -25,7 +30,7 @@
   </div>
   <div class="field">
     <%= f.label "Position Type" %>
-    <%= f.collection_select :position_type_id, @position_types, :id, :name, {}, {class: 'multiselect', multiple: false} %>
+    <%= f.collection_select :position_type_id, @position_types, :id, :name, {include_blank: true}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_position_type_path %>
   </div>
   <div class="field">
@@ -34,7 +39,7 @@
   </div>
   <div class="field">
     <%= f.label "Organization Type" %>
-    <%= f.collection_select :organization_type_id, @organization_types, :id, :name, {}, {class: 'multiselect', multiple: false} %>
+    <%= f.collection_select :organization_type_id, @organization_types, :id, :name, {include_blank: true}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_organization_type_path %>
   </div>
   <div class="field">
@@ -80,7 +85,7 @@
   </div>
   <div class="field">
     <%= f.label "Interest Level" %>
-    <%= f.collection_select :interest_level_id, @interest_levels, :id, :name, {}, {class: 'multiselect', multiple: false} %>
+    <%= f.collection_select :interest_level_id, @interest_levels, :id, :name, {include_blank: true}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_interest_level_path %>
   </div>
   <div class="field">

@@ -37,7 +37,7 @@
           <Cell><Data ss:Type="String"><%= contact.first_name %></Data></Cell>
           <Cell><Data ss:Type="String"><%= contact.last_name %></Data></Cell>
           <Cell><Data ss:Type="String"><%= contact.title %></Data></Cell>
-          <Cell><Data ss:Type="String"><%= contact.position_type.name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.position_type.name if contact.position_type.present?%></Data></Cell>
           <Cell><Data ss:Type="String"><%= contact.organization_name %></Data></Cell>
           <Cell><Data ss:Type="String"><%= contact.organization_type.name if contact.organization_type.present? %></Data></Cell>
           <Cell><Data ss:Type="String"><%= show_cities_list(contact.cities,{show_all: true}) %></Data></Cell>

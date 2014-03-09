@@ -93,7 +93,7 @@
           <td><%= contact.first_name %></td>
           <td><%= contact.last_name %></td>
           <td><%= contact.title %></td>
-          <td><%= contact.position_type.name %></td>
+          <td><%= contact.position_type.name if contact.position_type.present?%></td>
           <td><%= contact.organization_name %></td>
           <td><%= contact.organization_type.name if contact.organization_type.present? %></td>
           <td><%= show_cities_list(contact.cities) %></td>

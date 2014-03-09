@@ -45,8 +45,8 @@ class Heal::Contact < ActiveRecord::Base
   validates :database_instance, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :position_type_id, presence: true
-  validates :interest_level_id, presence: true
+  # not required    validates :position_type_id, presence: true
+  # not required    validates :interest_level_id, presence: true
 
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :photo, styles: {

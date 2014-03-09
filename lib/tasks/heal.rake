@@ -97,13 +97,6 @@ namespace :heal do
   desc "set up Contacts data for CCPHA"
   task setup_ccpha_contacts: :environment do
 
-    dbi_ccpha = Heal::DatabaseInstance.find({instance_name: CCPHA_DATABASE_INSTANCE_NAME}).first
-
-    if dbi_ccpha.contacts.count > 0
-      puts "CCPHA database already has contacts in it. Quitting."
-      return
-    end
-
     contacts = []
 
     contacts << { honorific: '', first_name: 'Julisa', last_name: "Alvizo-Silva", title: "Program Director", organization_name: "County of Riverside Dept. of Public Health - Community Outreach/Injury Prevention Services", address_line1: "Sherman Building 4065 County Circle Dr.", address_line_2: '', address_city: 'Riverside', address_state: 'CA', address_zip: '92503', phone: '(951) 358-7181', cell_phone: '', fax: '(951) 358-7175', email: "jalvizo@rivcocha.org", website: '' }
@@ -1953,32 +1946,46 @@ namespace :heal do
     contacts << { honorific: '', first_name: 'Michael', last_name: "Gregory", title: "City Council Member", organization_name: "San Leandro", address_line1: "1648 Daniels rive", address_line_2: '', address_city: 'San Leandro', address_state: 'CA', address_zip: '94577', phone: '(510) 594-5123', cell_phone: '(510) 773-1864', fax: '(510) 601-7852', email: "gregorym@usa.redcross.org", website: '' }
     contacts << { honorific: '', first_name: 'Leonard', last_name: "McNeil", title: "Councilmember", organization_name: "San Pablo", address_line1: "89 Villa Drive", address_line_2: '', address_city: 'San Pablo', address_state: 'CA', address_zip: '94806', phone: '(510) 215-3000', cell_phone: '', fax: '', email: "lmcneilsp@gmail.com", website: 'www.ci.san-pablo.ca.us' }
 
-    contacts[1..5].each do |c|
-      contact = Heal::Contact.new
+    dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
 
-      honorific = Heal::Honorific.find(name:c.honorific)
-      contact.honorific = honorific if honorific.present?
+    initial_count = dbi_ccpha.contacts.count
+    if initial_count > 0
+      puts "CCPHA database already has contacts in it. Quitting."
+    else
 
-      contact.first_name = c[:first_name]
-      contact.last_name = c[:last_name]
-      contact.title = c[:title]
-      contact.organization_name = c[:organization_name]
-      contact.address_line_1 = c[:address_line1]
-      contact.address_line_2 = c[:address_line_2]
-      contact.address_city = c[:address_city]
-      contact.address_state = c[:address_state]
-      contact.address_zip = c[:address_zip]
-      contact.office_phone_number = c[:phone]
-      contact.cell_phone_number = c[:cell_phone]
-      contact.fax = c[:fax]
-      contact.email_address = c[:email]
-      contact.notes = "website: #{c[:website]}" if c[:website].present?
+      contacts.each do |c|
+        contact = Heal::Contact.new
 
-      contact.database_instance = dbi_ccpha
+        if c[:honorific].present? and c[:honorific] != ""
+          honorific = dbi_ccpha.honorifics.find_by(name: c[:honorific])
+          contact.honorific_id = honorific.id if honorific.present?
+        end
 
-      contact.save
+        contact.first_name = c[:first_name]
+        contact.last_name = c[:last_name]
+        contact.title = c[:title]
+        contact.organization_name = c[:organization_name]
+        contact.address_line_1 = c[:address_line1]
+        contact.address_line_2 = c[:address_line_2]
+        contact.address_city = c[:address_city]
+        contact.address_state = c[:address_state]
+        contact.address_zip = c[:address_zip]
+        contact.office_phone_number = c[:phone]
+        contact.cell_phone_number = c[:cell_phone]
+        contact.fax = c[:fax]
+        contact.email = c[:email]
+        contact.notes = "website: #{c[:website]}" if c[:website].present?
+
+        contact.database_instance = dbi_ccpha
+
+        puts contact.errors.inspect unless contact.save
+      end
+
+      final_count = dbi_ccpha.contacts.count
+      number_added = final_count - initial_count
+      error_count = contacts.count - (number_added)
+      puts "Added #{number_added} contacts to the CCPHA HEAL Cities database. There were #{error_count} errors."
     end
-
   end
 
 end

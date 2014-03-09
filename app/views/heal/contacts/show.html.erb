@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+
+<p>
+  <strong>Honorific:</strong>
+  <%= @contact.honorific.name if @contact.honorific.present? %>
+</p>
+
 <p>
   <strong>First name:</strong>
   <%= @contact.first_name %>
@@ -17,7 +23,7 @@
 
 <p>
   <strong>Position type:</strong>
-  <%= @contact.position_type.name %>
+  <%= @contact.position_type.name if @contact.position_type.present?%>
 </p>
 
 <p>
@@ -32,7 +38,7 @@
 
 <p>
   <strong>Organization type:</strong>
-  <%= @contact.organization_type.name %>
+  <%= @contact.organization_type.name if @contact.organization_type.present?%>
 </p>
 
 <p>
