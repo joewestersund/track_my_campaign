@@ -11,5 +11,5 @@ DatabaseInstance.destroy_all
 User.delete_all
 
 DEFAULT_PASSWORD = 'testing'
-admin_user = User.create({first_name: 'Joe', last_name: 'Westersund', email: 'joe_westersund@hotmail.com', password: default_password, password_confirmation: default_password, admin: true})
+admin_user = User.create({first_name: 'Joe', last_name: 'Westersund', email: 'joe_westersund@hotmail.com', password: DEFAULT_PASSWORD, password_confirmation: DEFAULT_PASSWORD, admin: true})
 
