@@ -3,12 +3,14 @@ namespace :heal do
   CCPHA_DATABASE_INSTANCE_NAME = "CCPHA-test"
   OPHI_DATABASE_INSTANCE_NAME = "OPHI-test"
 
+  DEFAULT_USER_PASSWORD = 'testing'
+
   desc "set up default HEAL databases"
   task setup: :environment do
 
-    user_iphi = User.create({first_name: 'Marisa', last_name: 'Jones', email: 'mjones@institutephi.org', password: DEFAULT_PASSWORD, password_confirmation: DEFAULT_PASSWORD })
-    user_ccpha = User.create({first_name: 'Kanat', last_name: 'Tibet', email: 'kt@publichealthadvocacy.org', password: DEFAULT_PASSWORD, password_confirmation: DEFAULT_PASSWORD })
-    user_ophi = User.create({first_name: 'Beth', last_name: 'Kaye', email: 'bethkaye@ophi.org', password: DEFAULT_PASSWORD, password_confirmation: DEFAULT_PASSWORD })
+    user_iphi = User.create({first_name: 'Marisa', last_name: 'Jones', email: 'mjones@institutephi.org', password: DEFAULT_USER_PASSWORD, password_confirmation: DEFAULT_USER_PASSWORD })
+    user_ccpha = User.create({first_name: 'Kanat', last_name: 'Tibet', email: 'kt@publichealthadvocacy.org', password: DEFAULT_USER_PASSWORD, password_confirmation: DEFAULT_USER_PASSWORD })
+    user_ophi = User.create({first_name: 'Beth', last_name: 'Kaye', email: 'bethkaye@ophi.org', password: DEFAULT_USER_PASSWORD, password_confirmation: DEFAULT_USER_PASSWORD })
 
     dbi_iphi = Heal::DatabaseInstance.create({instance_name: IPHI_DATABASE_INSTANCE_NAME})
     dbi_ccpha = Heal::DatabaseInstance.create({instance_name: CCPHA_DATABASE_INSTANCE_NAME})
@@ -95,7 +97,7 @@ namespace :heal do
   end
 
   desc "set up Contacts data for CCPHA"
-  task setup_ccpha_contacts: :environment do
+  task upload_ccpha_contacts: :environment do
 
     contacts = []
 
