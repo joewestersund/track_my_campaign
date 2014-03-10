@@ -63,7 +63,7 @@ class Heal::Contact < ActiveRecord::Base
   end
 
   def first_last_organization_name
-    "#{self.first_name} #{self.last_name} #{self.organization_name}"
+    "#{self.first_name} #{self.last_name} (#{self.organization_name})"
   end
 
   def email_address_with_name
