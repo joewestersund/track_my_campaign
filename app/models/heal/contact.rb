@@ -30,6 +30,7 @@
 #  cell_phone_number    :string(255)
 #  fax                  :string(255)
 #  organization_type_id :integer
+#  website              :string(255)
 #
 
 class Heal::Contact < ActiveRecord::Base
@@ -68,6 +69,16 @@ class Heal::Contact < ActiveRecord::Base
 
   def email_address_with_name
     "#{self.first_name} #{self.last_name} <#{self.email}>"
+  end
+
+  def website_with_prefix
+    return nil if self.website.nil?
+    http_prefix = 'http://'
+    if self.website.start_with?(http_prefix)
+      return self.website
+    else
+      return "#{http_prefix}#{self.website}"
+    end
   end
 
   def self.to_csv(options = {})

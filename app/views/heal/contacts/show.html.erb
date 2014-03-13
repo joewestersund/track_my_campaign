@@ -102,6 +102,11 @@
 </p>
 
 <p>
+  <strong>Website:</strong>
+  <%= link_to @contact.website, @contact.website_with_prefix if @contact.website.present?%>
+</p>
+
+<p>
   <strong>Notes:</strong>
   <%= @contact.notes %>
 </p>
