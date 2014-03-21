@@ -43,7 +43,11 @@ module SessionsHelper
   end
 
   def check_current_db_exists
-    redirect_to signin_path, notice: "Please choose a database instance." unless current_db.present?
+    if current_db.nil?
+      set_default_current_db
+      #now, try again to see if current_db is set
+      redirect_to signin_path, notice: "Please choose a database instance." if current_db.nil?
+    end
   end
 
   def current_user=(user)
