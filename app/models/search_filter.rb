@@ -3,7 +3,8 @@ class SearchFilter
   end
 
   def operator_is_supported(operator)
-    if not ['=', '<', '<=', '>=', 'LIKE'].include? operator
+    #ILIKE is a case-insensitive like operator supported in postgresql.
+    if not ['=', '<', '<=', '>=', 'LIKE', 'ILIKE'].include? operator
       raise OperatorNotRecognizedError
     end
     return true
@@ -31,7 +32,7 @@ class SearchFilter
       else
         @conditions_string << "#{db_field_name} #{operator} :#{param_name}"
       end
-      if operator == "LIKE"
+      if operator == "LIKE" or operator == "ILIKE"
         @parameters_hash[param_name] = "%#{params_hash[param_name]}%"
       else
         @parameters_hash[param_name] = params_hash[param_name]

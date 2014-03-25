@@ -92,9 +92,9 @@ class Heal::CitiesController < ApplicationController
     def get_conditions
       sf = SearchFilter.new
 
-      sf.add_condition(:name,"LIKE",:name,params)
-      sf.add_condition(:state,"LIKE",:state,params)
-      sf.add_condition(:county,"LIKE",:county,params)
+      sf.add_condition(:name,"ILIKE",:name,params)
+      sf.add_condition(:state,"ILIKE",:state,params)
+      sf.add_condition(:county,"ILIKE",:county,params)
       sf.add_condition(:jurisdiction_type_id,"=",:jurisdiction_type_id,params)
       sf.add_condition(:league_division_id,"=",:league_division_id,params)
       sf.add_condition(:population,">=",:min_population,params)

@@ -111,18 +111,18 @@ class Heal::ContactsController < ApplicationController
     def get_conditions
       sf = SearchFilter.new
 
-      sf.add_condition(:first_name,"LIKE",:first_name,params)
-      sf.add_condition(:last_name,"LIKE",:last_name,params)
-      sf.add_condition(:title,"LIKE",:title,params)
+      sf.add_condition(:first_name,"ILIKE",:first_name,params)
+      sf.add_condition(:last_name,"ILIKE",:last_name,params)
+      sf.add_condition(:title,"ILIKE",:title,params)
       sf.add_condition(:position_type_id,"=",:position_type_id,params)
-      sf.add_condition(:organization_name,"LIKE",:organization_name,params)
+      sf.add_condition(:organization_name,"ILIKE",:organization_name,params)
       sf.add_condition(:organization_type_id,"=",:organization_type_id,params)
-      sf.add_condition(:address_city,"LIKE",:address_city,params)
-      sf.add_condition(:address_state,"LIKE",:address_state,params)
-      sf.add_condition(:address_zip,"LIKE",:address_zip,params)
+      sf.add_condition(:address_city,"ILIKE",:address_city,params)
+      sf.add_condition(:address_state,"ILIKE",:address_state,params)
+      sf.add_condition(:address_zip,"ILIKE",:address_zip,params)
       sf.add_condition(:interest_level_id,"=",:interest_level_id,params)
       sf.add_condition(:heal_champion,"=",:heal_champion,params)
-      sf.add_condition(:notes,"LIKE",:notes,params)
+      sf.add_condition(:notes,"ILIKE",:notes,params)
 
       sf.add_condition(:city_id,"=",:city_id, params,{join_table: :cities, join_object_name: :cities_contacts})
 

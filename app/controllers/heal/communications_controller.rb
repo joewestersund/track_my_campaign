@@ -111,10 +111,10 @@ class Heal::CommunicationsController < ApplicationController
       sf.add_condition(:duration_minutes,">=",:min_duration,params)
       sf.add_condition(:duration_minutes,"<=",:max_duration,params)
       sf.add_condition(:communication_type_id,"=",:communication_type_id,params)
-      sf.add_condition(:event_name,"LIKE",:event_name,params)
+      sf.add_condition(:event_name,"ILIKE",:event_name,params)
       sf.add_condition(:interest_level_id,"=",:interest_level_id,params)
-      sf.add_condition(:others_involved,"LIKE",:others_involved,params)
-      sf.add_condition(:notes,"LIKE",:notes,params)
+      sf.add_condition(:others_involved,"ILIKE",:others_involved,params)
+      sf.add_condition(:notes,"ILIKE",:notes,params)
 
       sf.add_condition(:topic_id,"=",:topic_id, params,{join_table: :topics, join_object_name: :communications_topics})
       sf.add_condition(:contact_id,"=",:contact_id, params,{join_table: :contacts, join_object_name: :communications_contacts})

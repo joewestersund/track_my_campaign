@@ -71,8 +71,8 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>County</th>
         <th>State</th>
+        <th>County</th>
         <th>Jurisdiction Type</th>
         <th>League Division</th>
         <th>Population</th>
@@ -91,8 +91,8 @@
       <% @cities.each do |city| %>
         <tr>
           <td><%= city.name %></td>
-          <td><%= city.county %></td>
           <td><%= city.state %></td>
+          <td><%= city.county %></td>
           <td><%= city.jurisdiction_type.name %></td>
           <td><%= city.league_division.name %></td>
           <td><%= number_with_delimiter(city.population) %></td>
