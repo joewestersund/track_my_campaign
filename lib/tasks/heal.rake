@@ -2206,4 +2206,604 @@ namespace :heal do
       puts "Added #{number_added} contacts to the IPHI HEAL Cities database. There were #{error_count} errors."
     end
   end
+
+  desc "set up Cities data for CCPHA"
+  task upload_ccpha_cities: :environment do
+
+    cities = []
+
+    cities << {name:"Emeryville", county:"Alameda"}
+    cities << {name:"Fremont", county:"Alameda"}
+    cities << {name:"Hayward", county:"Alameda"}
+    cities << {name:"Livermore", county:"Alameda"}
+    cities << {name:"Newark", county:"Alameda"}
+    cities << {name:"San Leandro", county:"Alameda"}
+    cities << {name:"Union City", county:"Alameda"}
+    cities << {name:"Chico", county:"Butte"}
+    cities << {name:"Gridley", county:"Butte"}
+    cities << {name:"Antioch", county:"Contra Costa"}
+    cities << {name:"Brentwood", county:"Contra Costa"}
+    cities << {name:"Danville", county:"Contra Costa"}
+    cities << {name:"El Cerrito", county:"Contra Costa"}
+    cities << {name:"Lafayette", county:"Contra Costa"}
+    cities << {name:"Martinez", county:"Contra Costa"}
+    cities << {name:"San Pablo", county:"Contra Costa"}
+    cities << {name:"Crescent City", county:"Del Norte"}
+    cities << {name:"Clovis", county:"Fresno"}
+    cities << {name:"Fowler", county:"Fresno"}
+    cities << {name:"Huron", county:"Fresno"}
+    cities << {name:"Reedley", county:"Fresno"}
+    cities << {name:"San Joaquin", county:"Fresno"}
+    cities << {name:"Sanger", county:"Fresno"}
+    cities << {name:"Orland", county:"Glen"}
+    cities << {name:"Arcata", county:"Humboldt"}
+    cities << {name:"Ferndale", county:"Humboldt"}
+    cities << {name:"El Centro", county:"Imperial"}
+    cities << {name:"Bakersfield", county:"Kern"}
+    cities << {name:"Delano", county:"Kern"}
+    cities << {name:"Alhambra", county:"Los Angeles"}
+    cities << {name:"Avalon", county:"Los Angeles"}
+    cities << {name:"Azusa", county:"Los Angeles"}
+    cities << {name:"Baldwin Park", county:"Los Angeles"}
+    cities << {name:"Bell  ", county:"Los Angeles"}
+    cities << {name:"Bell Gardens", county:"Los Angeles"}
+    cities << {name:"Beverly Hills", county:"Los Angeles"}
+    cities << {name:"Calabasas", county:"Los Angeles"}
+    cities << {name:"Carson", county:"Los Angeles"}
+    cities << {name:"Claremont", county:"Los Angeles"}
+    cities << {name:"Duarte", county:"Los Angeles"}
+    cities << {name:"El Monte", county:"Los Angeles"}
+    cities << {name:"Hawaiian Gardens", county:"Los Angeles"}
+    cities << {name:"Hawthorne", county:"Los Angeles"}
+    cities << {name:"Hermosa Beach", county:"Los Angeles"}
+    cities << {name:"Huntington Park", county:"Los Angeles"}
+    cities << {name:"Inglewood", county:"Los Angeles"}
+    cities << {name:"La Puente", county:"Los Angeles"}
+    cities << {name:"Lancaster", county:"Los Angeles"}
+    cities << {name:"Lawndale", county:"Los Angeles"}
+    cities << {name:"Long Beach", county:"Los Angeles"}
+    cities << {name:"Manhattan Beach", county:"Los Angeles"}
+    cities << {name:"Maywood", county:"Los Angeles"}
+    cities << {name:"Paramount", county:"Los Angeles"}
+    cities << {name:"Pasadena", county:"Los Angeles"}
+    cities << {name:"Pico Rivera", county:"Los Angeles"}
+    cities << {name:"Pomona", county:"Los Angeles"}
+    cities << {name:"Redondo Beach", county:"Los Angeles"}
+    cities << {name:"San Fernando", county:"Los Angeles"}
+    cities << {name:"Santa Clarita", county:"Los Angeles"}
+    cities << {name:"Santa Monica", county:"Los Angeles"}
+    cities << {name:"South El Monte", county:"Los Angeles"}
+    cities << {name:"South Gate", county:"Los Angeles"}
+    cities << {name:"Torrance", county:"Los Angeles"}
+    cities << {name:"West Hollywood", county:"Los Angeles"}
+    cities << {name:"Corte Madera", county:"Marin"}
+    cities << {name:"Marin City", county:"Marin"}
+    cities << {name:"Novato", county:"Marin"}
+    cities << {name:"Fort Bragg", county:"Mendocino"}
+    cities << {name:"Livingston", county:"Merced"}
+    cities << {name:"Merced", county:"Merced"}
+    cities << {name:"Greenfield", county:"Monterey"}
+    cities << {name:"Seaside", county:"Monterey"}
+    cities << {name:"American Canyon", county:"Napa"}
+    cities << {name:"Yountville", county:"Napa"}
+    cities << {name:"Anaheim", county:"Orange"}
+    cities << {name:"Brea", county:"Orange"}
+    cities << {name:"Dana Point", county:"Orange"}
+    cities << {name:"Fullerton", county:"Orange"}
+    cities << {name:"Irvine", county:"Orange"}
+    cities << {name:"Mission Viejo", county:"Orange"}
+    cities << {name:"Newport Beach", county:"Orange"}
+    cities << {name:"Placentia", county:"Orange"}
+    cities << {name:"San Clemente", county:"Orange"}
+    cities << {name:"Santa Ana", county:"Orange"}
+    cities << {name:"Banning", county:"Riverside"}
+    cities << {name:"Beaumont", county:"Riverside"}
+    cities << {name:"Cathedral City", county:"Riverside"}
+    cities << {name:"Corona", county:"Riverside"}
+    cities << {name:"Eastvale", county:"Riverside"}
+    cities << {name:"Desert Hot Springs", county:"Riverside"}
+    cities << {name:"La Quinta", county:"Riverside"}
+    cities << {name:"Palm Springs", county:"Riverside"}
+    cities << {name:"Perris", county:"Riverside"}
+    cities << {name:"Riverside", county:"Riverside"}
+    cities << {name:"Citrus Heights", county:"Sacramento"}
+    cities << {name:"Elk Grove", county:"Sacramento"}
+    cities << {name:"Rancho Cordova", county:"Sacramento"}
+    cities << {name:"Sacramento", county:"Sacramento"}
+    cities << {name:"Adelanto", county:"San Bernardino"}
+    cities << {name:"Apple Valley", county:"San Bernardino"}
+    cities << {name:"Barstow", county:"San Bernardino"}
+    cities << {name:"Chino  ", county:"San Bernardino"}
+    cities << {name:"Chino Hills", county:"San Bernardino"}
+    cities << {name:"Colton", county:"San Bernardino"}
+    cities << {name:"Fontana", county:"San Bernardino"}
+    cities << {name:"Hesperia", county:"San Bernardino"}
+    cities << {name:"Ontario", county:"San Bernardino"}
+    cities << {name:"Rancho Cucamonga", county:"San Bernardino"}
+    cities << {name:"Redlands", county:"San Bernardino"}
+    cities << {name:"Victorville", county:"San Bernardino"}
+    cities << {name:"Yucca Valley", county:"San Bernardino"}
+    cities << {name:"Chula Vista", county:"San Diego"}
+    cities << {name:"Coronado", county:"San Diego"}
+    cities << {name:"La Mesa", county:"San Diego"}
+    cities << {name:"National City", county:"San Diego"}
+    cities << {name:"Poway", county:"San Diego"}
+    cities << {name:"Solana Beach", county:"San Diego"}
+    cities << {name:"San Francisco", county:"San Francisco"}
+    cities << {name:"Lodi", county:"San Joaquin"}
+    cities << {name:"Stockton", county:"San Joaquin"}
+    cities << {name:"Arroyo Grande", county:"San Luis Obispo"}
+    cities << {name:"Grover Beach", county:"San Luis Obispo"}
+    cities << {name:"San Luis Obispo", county:"San Luis Obispo"}
+    cities << {name:"Belmont", county:"San Mateo"}
+    cities << {name:"Brisbane", county:"San Mateo"}
+    cities << {name:"Burlingame", county:"San Mateo"}
+    cities << {name:"Daly City", county:"San Mateo"}
+    cities << {name:"Foster City", county:"San Mateo"}
+    cities << {name:"Menlo Park", county:"San Mateo"}
+    cities << {name:"South San Francisco", county:"San Mateo"}
+    cities << {name:"Lompoc", county:"Santa Barbara"}
+    cities << {name:"Cupertino", county:"Santa Clara"}
+    cities << {name:"Mountain View", county:"Santa Clara"}
+    cities << {name:"Scotts Valley", county:"Santa Cruz"}
+    cities << {name:"Watsonville", county:"Santa Cruz"}
+    cities << {name:"Anderson", county:"Shasta"}
+    cities << {name:"Redding", county:"Shasta"}
+    cities << {name:"Benicia", county:"Solano"}
+    cities << {name:"Fairfield", county:"Solano"}
+    cities << {name:"Suisun City", county:"Solano"}
+    cities << {name:"Vallejo", county:"Solano"}
+    cities << {name:"Cotati", county:"Sonoma"}
+    cities << {name:"Healdsburg", county:"Sonoma"}
+    cities << {name:"Petaluma", county:"Sonoma"}
+    cities << {name:"Rohnert Park", county:"Sonoma"}
+    cities << {name:"Sebastopol", county:"Sonoma"}
+    cities << {name:"Windsor", county:"Sonoma"}
+    cities << {name:"Ceres", county:"Stanislaus"}
+    cities << {name:"Ceres School District", county:"Stanislaus"}
+    cities << {name:"Modesto", county:"Stanislaus"}
+    cities << {name:"Oakdale", county:"Stanislaus"}
+    cities << {name:"Patterson", county:"Stanislaus"}
+    cities << {name:"Riverbank", county:"Stanislaus"}
+    cities << {name:"Turloc", county:"Stanislaus"}
+    cities << {name:"Waterford", county:"Stanislaus"}
+    cities << {name:"Red Bluff", county:"Tehama"}
+    cities << {name:"Dinuba", county:"Tulare"}
+    cities << {name:"Moorpark", county:"Ventura"}
+    cities << {name:"Ventura", county:"Ventura"}
+    cities << {name:"Davis", county:"Yolo"}
+    cities << {name:"West Sacramento", county:"Yolo"}
+    cities << {name:"Winters", county:"Yolo"}
+    cities << {name:"Woodland", county:"Yolo"}
+
+    dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
+
+    initial_count = dbi_ccpha.cities.count
+    if initial_count > 0
+      puts "CCPHA database already has cities in it. Quitting."
+    else
+
+      cities.each do |c|
+        city = Heal::City.new
+
+        city.name = c[:name]
+        city.county = c[:county]
+        city.state = 'CA'
+        city.database_instance = dbi_ccpha
+
+        puts city.errors.inspect unless city.save
+      end
+
+      final_count = dbi_ccpha.cities.count
+      number_added = final_count - initial_count
+      error_count = cities.count - (number_added)
+      puts "Added #{number_added} cities to the CCPHA HEAL Cities database. There were #{error_count} errors."
+    end
+  end
+
+  desc "set up Cities data for CCPHA"
+  task upload_ccpha_cities: :environment do
+
+    cities = []
+
+    cities << {name:"Aberdeen", county:"Harford",state:"MD",jurisdiction_type:"City",league_division:"Cecil & Harford County Chapter",population: 14959,kp_service_area:"No",municipal_median_income: 39190,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Accident", county:"Garrett",state:"MD",jurisdiction_type:"Town",league_division:"Allegany & Garrett County Chapter",population: 325,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Annapolis", county:"Anne Arundel",state:"MD",jurisdiction_type:"City",league_division:"Southern Maryland Municipal Association",population: 38394,kp_service_area:"Yes",municipal_median_income: 71082,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Baltimore", county:"Independent City",state:"MD",jurisdiction_type:"City",league_division:"None",population: 620961,kp_service_area:"Yes",municipal_median_income: 39788,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Barclay", county:"Queen Anne's",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 120,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Barnesville", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 172,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Barton", county:"Allegany",state:"MD",jurisdiction_type:"Town",league_division:"Allegany & Garrett County Chapter",population: 457,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Bel Air", county:"Harford",state:"MD",jurisdiction_type:"Town",league_division:"Cecil & Harford County Chapter",population: 10120,kp_service_area:"No",state_median_income:71707,heal_designation:"Bronze",resolution_passed:"yes",date_resolution_passed:"11/06/2013"}
+    cities << {name:"Berlin", county:"Worcester",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 4485,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Berwyn Heights", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 3123,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Betterton", county:"Kent",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 345,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Bladensburg", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 9148,kp_service_area:"Yes",state_median_income:71707,heal_designation:"Silver",resolution_passed:"yes",date_resolution_passed:"09/09/2013"}
+    cities << {name:"Boonsboro", county:"Washington",state:"MD",jurisdiction_type:"Town",league_division:"Washington County Chapter",population: 3336,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Bowie", county:"Prince George's",state:"MD",jurisdiction_type:"City",league_division:"Prince George's County Chapter",population: 54727,kp_service_area:"Yes",municipal_median_income: 105106,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Brentwood", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 3046,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Brookview", county:"Dorchester ",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 134,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Brookville", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 60,kp_service_area:"Yes",municipal_median_income: 43483,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Brunswick", county:"Frederick ",state:"MD",jurisdiction_type:"City",league_division:"Frederick County Chapter",population: 5870,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Burkittsville", county:"Frederick",state:"MD",jurisdiction_type:"Town",league_division:"Frederick County Chapter",population: 151,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Cambridge", county:"Dorchester ",state:"MD",jurisdiction_type:"City",league_division:"Eastern Shore Association of Municipalities",population: 12326,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Capitol Heights", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 4337,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Cecilton", county:"Cecil",state:"MD",jurisdiction_type:"Town",league_division:"Cecil & Harford County Chapter",population: 663,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Centreville", county:"Queen Anne's",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 4285,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Charlestown", county:"Cecil",state:"MD",jurisdiction_type:"Town",league_division:"Cecil & Harford County Chapter",population: 1183,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Chesapeake Beach", county:"Calvert",state:"MD",jurisdiction_type:"Town",league_division:"Southern Maryland Municipal Association",population: 5753,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Chesapeake City", county:"Cecil",state:"MD",jurisdiction_type:"Town",league_division:"Cecil & Harford County Chapter",population: 673,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Chestertown", county:"Kent",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 5252,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Cheverly", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 6173,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Chevy Chase", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 658,kp_service_area:"Yes",municipal_median_income: 70325,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Chevy Chase Section 3", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 760,kp_service_area:"Yes",municipal_median_income: 76392,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Chevy Chase Section 5", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 2824,kp_service_area:"Yes",municipal_median_income: 70372,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Chevy Chase View", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 920,kp_service_area:"Yes",municipal_median_income: 58916,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Chevy Chase Village", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 1953,kp_service_area:"Yes",municipal_median_income: 95174,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Church Creek", county:"Dorchester ",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 125,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Church Hill", county:"Queen Anne's",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 745,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Clear Spring", county:"Washington",state:"MD",jurisdiction_type:"Town",league_division:"Washington County Chapter",population: 358,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"College Park", county:"Prince George's",state:"MD",jurisdiction_type:"City",league_division:"Prince George's County Chapter",population: 30413,kp_service_area:"Yes",municipal_median_income: 53913,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Colmar Manor", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 1404,kp_service_area:"Yes",state_median_income:71707,heal_designation:"Bronze",resolution_passed:"yes",date_resolution_passed:"08/13/2013"}
+    cities << {name:"Cottage City", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 1305,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Crisfield", county:"Somerset",state:"MD",jurisdiction_type:"City",league_division:"Eastern Shore Association of Municipalities",population: 2726,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Cumberland", county:"Allegany",state:"MD",jurisdiction_type:"City",league_division:"Allegany & Garrett County Chapter",population: 20859,kp_service_area:"No",municipal_median_income: 32256,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Deer Park", county:"Garrett",state:"MD",jurisdiction_type:"Town",league_division:"Allegany & Garrett County Chapter",population: 399,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Delmar", county:"Wicomico",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 3003,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Denton", county:"Caroline",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 4418,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"District Heights", county:"Prince George's",state:"MD",jurisdiction_type:"City",league_division:"Prince George's County Chapter",population: 5837,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Eagle Harbor", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 63,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"East New Market", county:"Dorchester ",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 400,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Easton", county:"Talbot",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 15945,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Edmonston", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 1445,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Eldorado", county:"Dorchester ",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 59,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Elkton", county:"Cecil",state:"MD",jurisdiction_type:"Town",league_division:"Cecil & Harford County Chapter",population: 15443,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Emmittsburg", county:"Frederick",state:"MD",jurisdiction_type:"Town",league_division:"Frederick County Chapter",population: 2814,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Fairmount Heights", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 1494,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Federalsburg ", county:"Caroline",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 2739,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Forest Heights ", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 2447,kp_service_area:"Yes",state_median_income:71707,heal_designation:"Silver",resolution_passed:"yes",date_resolution_passed:"02/04/2013"}
+    cities << {name:"Frederick ", county:"Frederick",state:"MD",jurisdiction_type:"City",league_division:"Frederick County Chapter",population: 65239,kp_service_area:"Yes",municipal_median_income: 65070,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Friendsville ", county:"Garrett",state:"MD",jurisdiction_type:"Town",league_division:"Allegany & Garrett County Chapter",population: 491,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Frostburg", county:"Allegany",state:"MD",jurisdiction_type:"City",league_division:"Allegany & Garrett County Chapter",population: 9002,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Fruitland", county:"Wicomico",state:"MD",jurisdiction_type:"City",league_division:"Eastern Shore Association of Municipalities",population: 4866,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Funkstown", county:"Washington",state:"MD",jurisdiction_type:"Town",league_division:"Washington County Chapter",population: 904,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Gaithersburg", county:"Montgomery",state:"MD",jurisdiction_type:"City",league_division:"Montgomery County Chapter",population: 59933,kp_service_area:"Yes",municipal_median_income: 73996,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Galena", county:"Kent",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 612,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Galestown", county:"Dorchester ",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 138,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Garret Park", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 992,kp_service_area:"Yes",municipal_median_income: 50305,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Glen Echo", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 255,kp_service_area:"Yes",municipal_median_income: 56728,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Glenarden", county:"Prince George's",state:"MD",jurisdiction_type:"City",league_division:"Prince George's County Chapter",population: 6000,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Goldsboro", county:"Caroline",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 246,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Grantsville", county:"Garrett",state:"MD",jurisdiction_type:"Town",league_division:"Allegany & Garrett County Chapter",population: 766,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Greenbelt", county:"Prince George's",state:"MD",jurisdiction_type:"City",league_division:"Prince George's County Chapter",population: 23068,kp_service_area:"Yes",municipal_median_income: 57252,state_median_income:71707,heal_designation:"Silver",resolution_passed:"yes",date_resolution_passed:"11/25/2013"}
+    cities << {name:"Greensboro", county:"Caroline",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 1931,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Hagerstown", county:"Washington",state:"MD",jurisdiction_type:"City",league_division:"Washington County Chapter",population: 39662,kp_service_area:"No",municipal_median_income: 36897,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Hampstead", county:"Carroll",state:"MD",jurisdiction_type:"Town",league_division:"Carroll County Chapter",population: 6323,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Hancock", county:"Washington",state:"MD",jurisdiction_type:"Town",league_division:"Washington County Chapter",population: 1545,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Havre de Grace", county:"Harford",state:"MD",jurisdiction_type:"City",league_division:"Cecil & Harford County Chapter",population: 12952,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Hebron", county:"Wicomico",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 1084,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Henderson", county:"Caroline",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 146,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Highland Beach", county:"Anne Arundel",state:"MD",jurisdiction_type:"Town",league_division:"Southern Maryland Municipal Association",population: 96,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Hillsboro", county:"Caroline",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 161,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Hurlock", county:"Dorchester ",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 2092,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Hyattsville", county:"Prince George's",state:"MD",jurisdiction_type:"City",league_division:"Prince George's County Chapter",population: 17557,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Indian Head", county:"Charles",state:"MD",jurisdiction_type:"Town",league_division:"Southern Maryland Municipal Association",population: 3844,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Keedysville", county:"Washington",state:"MD",jurisdiction_type:"Town",league_division:"Washington County Chapter",population: 1152,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Kensington ", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 2213,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Kitzmiller", county:"Garrett",state:"MD",jurisdiction_type:"Town",league_division:"Allegany & Garrett County Chapter",population: 321,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"La Plata ", county:"Charles",state:"MD",jurisdiction_type:"Town",league_division:"Southern Maryland Municipal Association",population: 8753,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Landover Hills", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 1687,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Laurel", county:"Prince George's",state:"MD",jurisdiction_type:"City",league_division:"Prince George's County Chapter",population: 25115,kp_service_area:"Yes",municipal_median_income: 62783,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Laytonsville", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 353,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Leonardtown", county:"St. Mary's",state:"MD",jurisdiction_type:"Town",league_division:"Southern Maryland Municipal Association",population: 2930,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Loch Lynn Heights", county:"Garrett",state:"MD",jurisdiction_type:"Town",league_division:"Allegany & Garrett County Chapter",population: 552,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Lonaconing", county:"Allegany",state:"MD",jurisdiction_type:"Town",league_division:"Allegany & Garrett County Chapter",population: 1214,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Luke", county:"Allegany",state:"MD",jurisdiction_type:"Town",league_division:"Allegany & Garrett County Chapter",population: 65,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Manchester", county:"Carroll",state:"MD",jurisdiction_type:"Town",league_division:"Carroll County Chapter",population: 4808,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Mardela Springs", county:"Wicomico",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 347,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Martin's Additions", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 933,kp_service_area:"Yes",municipal_median_income: 59502,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Marydel", county:"Caroline",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 141,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Middletown", county:"Frederick",state:"MD",jurisdiction_type:"Town",league_division:"Frederick County Chapter",population: 4136,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Midland", county:"Allegany",state:"MD",jurisdiction_type:"Town",league_division:"Allegany & Garrett County Chapter",population: 446,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Millington", county:"Kent, Queen Anne's County",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 642,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Morningside", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 2015,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Mount Airy", county:"Carroll, Frederick",state:"MD",jurisdiction_type:"Town",league_division:"Carroll County Chapter, Frederick County Chapter",population: 9288,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Mount Rainier", county:"Prince George's",state:"MD",jurisdiction_type:"City",league_division:"Prince George's County Chapter",population: 8080,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Mountain Lake Park", county:"Garrett",state:"MD",jurisdiction_type:"Town",league_division:"Allegany & Garrett County Chapter",population: 2092,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Myersville", county:"Frederick",state:"MD",jurisdiction_type:"Town",league_division:"Frederick County Chapter",population: 1626,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"New Carrollton", county:"Prince George's ",state:"MD",jurisdiction_type:"City",league_division:"Prince George's County Chapter",population: 12135,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"New Market", county:"Frederick",state:"MD",jurisdiction_type:"Town",league_division:"Frederick County Chapter",population: 656,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"New Windsor", county:"Carroll",state:"MD",jurisdiction_type:"Town",league_division:"Carroll County Chapter",population: 1396,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"North Beach", county:"Calvert",state:"MD",jurisdiction_type:"Town",league_division:"Southern Maryland Municipal Association",population: 1978,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"North Brentwood", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 517,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"North Chevy Chase", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 519,kp_service_area:"Yes",municipal_median_income: 43499,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"North East", county:"Cecil",state:"MD",jurisdiction_type:"Town",league_division:"Cecil & Harford County Chapter",population: 3572,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Oakland", county:"Garrett",state:"MD",jurisdiction_type:"Town",league_division:"Allegany & Garrett County Chapter",population: 1925,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Ocean City", county:"Worcester",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 7102,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Oxford", county:"Talbot",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 651,kp_service_area:"No",municipal_median_income: 47971,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Perryville", county:"Cecil",state:"MD",jurisdiction_type:"Town",league_division:"Cecil & Harford County Chapter",population: 4361,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Pittsville", county:"Wicomico",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 1417,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Pocomoke City", county:"Worcester",state:"MD",jurisdiction_type:"City",league_division:"Eastern Shore Association of Municipalities",population: 4184,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Poolesville", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 4883,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Port Deposit", county:"Cecil",state:"MD",jurisdiction_type:"Town",league_division:"Cecil & Harford County Chapter",population: 653,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Port Tobacco", county:"Charles",state:"MD",jurisdiction_type:"Town",league_division:"Southern Maryland Municipal Association",population: 13,kp_service_area:"No",municipal_median_income: 43017,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Preston", county:"Caroline",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 719,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Princess Anne", county:"Somerset",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 3290,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Queen Anne", county:"Queen Anne's, Talbot",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 222,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Queenstown", county:"Queen Anne's",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 664,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Ridgely", county:"Caroline",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 1639,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Rising Sun", county:"Cecil",state:"MD",jurisdiction_type:"Town",league_division:"Cecil & Harford County Chapter",population: 2781,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Riverdale Park", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 6956,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Rock Hall", county:"Kent",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 1310,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Rockville", county:"Montgomery",state:"MD",jurisdiction_type:"City",league_division:"Montgomery County Chapter",population: 61209,kp_service_area:"Yes",municipal_median_income: 96650,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Rosemont", county:"Frederick",state:"MD",jurisdiction_type:"Town",league_division:"Frederick County Chapter",population: 294,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Salisbury", county:"Wicomico",state:"MD",jurisdiction_type:"City",league_division:"Eastern Shore Association of Municipalities",population: 30343,kp_service_area:"No",municipal_median_income: 36674,state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Seat Pleasant", county:"Prince George's",state:"MD",jurisdiction_type:"City",league_division:"Prince George's County Chapter",population: 4542,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Secretary", county:"Dorchester ",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 535,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Sharpsburg", county:"Washington",state:"MD",jurisdiction_type:"Town",league_division:"Washington County Chapter",population: 705,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Sharptown", county:"Wicomico",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 651,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Smithsburg", county:"Washington",state:"MD",jurisdiction_type:"Town",league_division:"Washington County Chapter",population: 2975,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Snow Hill", county:"Worcester",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 2103,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Somerset", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 1216,kp_service_area:"Yes",municipal_median_income: 242811,state_median_income:71707,heal_designation:"Silver",resolution_passed:"yes",date_resolution_passed:"01/07/2013"}
+    cities << {name:"St. Michael's", county:"Talbot",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 1029,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Sudlersville", county:"Queen Anne's",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 497,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Sykesville", county:"Carroll",state:"MD",jurisdiction_type:"Town",league_division:"Carroll County Chapter",population: 4436,kp_service_area:"Yes",state_median_income:71707,heal_designation:"Bronze",resolution_passed:"yes",date_resolution_passed:"01/27/2014"}
+    cities << {name:"Takoma Park", county:"Montgomery",state:"MD",jurisdiction_type:"City",league_division:"Montgomery County Chapter",population: 16715,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Taneytown", county:"Carroll",state:"MD",jurisdiction_type:"City",league_division:"Carroll County Chapter",population: 6728,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Templeville", county:"Caroline, Queen Anne's",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 138,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Thurmont", county:"Frederick",state:"MD",jurisdiction_type:"Town",league_division:"Frederick County Chapter",population: 6170,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Trappe", county:"Talbot",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 1077,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Union Bridge", county:"Carroll",state:"MD",jurisdiction_type:"Town",league_division:"Carroll County Chapter",population: 975,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"University Park", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 2548,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Upper Marlboro", county:"Prince George's",state:"MD",jurisdiction_type:"Town",league_division:"Prince George's County Chapter",population: 631,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Vienna", county:"Dorchester ",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 271,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Walkersville", county:"Frederick",state:"MD",jurisdiction_type:"Town",league_division:"Frederick County Chapter",population: 5800,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Washington Grove", county:"Montgomery",state:"MD",jurisdiction_type:"Town",league_division:"Montgomery County Chapter",population: 555,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Westernport", county:"Allegany",state:"MD",jurisdiction_type:"Town",league_division:"Allegany & Garrett County Chapter",population: 1888,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Westminster", county:"Carroll",state:"MD",jurisdiction_type:"City",league_division:"Carroll County Chapter",population: 18590,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Willards", county:"Wicomico",state:"MD",jurisdiction_type:"Town",league_division:"Eastern Shore Association of Municipalities",population: 958,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Williamsport", county:"Washington",state:"MD",jurisdiction_type:"Town",league_division:"Washington County Chapter",population: 2137,kp_service_area:"No",state_median_income:71707,heal_designation:"",resolution_passed:""}
+    cities << {name:"Woodsboro", county:"Frederick",state:"MD",jurisdiction_type:"Town",league_division:"Frederick County Chapter",population: 1141,kp_service_area:"Yes",state_median_income:71707,heal_designation:"",resolution_passed:""}
+
+    cities << {name:"Abingdon", county:"Washington",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Accomac", county:"Accomack",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Alberta", county:"Brunswick",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Alexandria", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"yes",municipal_median_income: 80847,state_median_income:63636,heal_designation:""}
+    cities << {name:"Altavista", county:"Campbell",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Amherst", county:"Amherst",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Appalachia", county:"Wise",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Appomattox", county:"Appomattox",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Ashland", county:"Hanover",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Bedford", county:"Bedford",state:"VA",jurisdiction_type:"City",kp_service_area:"",municipal_median_income: 32262,state_median_income:63636,heal_designation:""}
+    cities << {name:"Belle Haven", county:"Accomack",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Berryville", county:"Clarke",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Big Stone Gap", county:"Wise",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Blacksburg", county:"Montgomery",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Blackstone", county:"Nottoway",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Bloxom", county:"Accomack",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Bluefield", county:"Tazewell",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Bowling Green", county:"Caroline",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Boydton", county:"Mecklenburg",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Boykins", county:"Southampton",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Branchville", county:"Southampton",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Bridgewater", county:"Rockingham",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Bristol", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 32079,state_median_income:63636,heal_designation:""}
+    cities << {name:"Broadway", county:"Rockingham",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Brodnax", county:"Brunswick",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Brookneal", county:"Campbell",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Buchanan", county:"Botetourt",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Buena Vista", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 39955,state_median_income:63636,heal_designation:""}
+    cities << {name:"Burkeville", county:"Nottoway",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Cape Charles", county:"Northampton",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Cedar Bluff", county:"Tazewell",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Charlotte Courthouse", county:"Charlotte",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Charlottesville", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 42240,state_median_income:63636,heal_designation:"HEAL City"}
+    cities << {name:"Chase City", county:"Mecklenburg",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Chatham", county:"Pittsylvania",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Cheriton", county:"Northampton",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Chesapeake", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 67855,state_median_income:63636,heal_designation:""}
+    cities << {name:"Chilhowie", county:"Smyth",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Chincoteague", county:"Accomack",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Christiansburg", county:"Montgomery",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Clarksville", county:"Mecklenburg, Halifax",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Clifton", county:"Fairfax",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Clifton Forge", county:"Alleghany",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Clintwood", county:"Dickenson",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Coeburn", county:"Wise",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Colonial Beach", county:"Westmoreland",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Colonial Heights", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 50571,state_median_income:63636,heal_designation:""}
+    cities << {name:"Courtland", county:"Southampton",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Covington", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 35277,state_median_income:63636,heal_designation:""}
+    cities << {name:"Craigsville", county:"Augusta",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Crewe", county:"Nottoway",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:"HEAL City"}
+    cities << {name:"Culpeper", county:"Culpeper",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Damascus", county:"Washington",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Danville", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 29936,state_median_income:63636,heal_designation:""}
+    cities << {name:"Dayton", county:"Rockingham",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Dillwyn", county:"Buckingham",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Drakes Branch", county:"Charlotte",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Dublin", county:"Pulaski",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Dumfries", county:"Prince William",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Eastville", county:"Northampton",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Edinburg", county:"Shenandoah",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Elkton", county:"Rockingham",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Emporia", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 32788,state_median_income:63636,heal_designation:""}
+    cities << {name:"Exmore", county:"Northampton",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Fairfax", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"yes",municipal_median_income: 97900,state_median_income:63636,heal_designation:""}
+    cities << {name:"Falls Church", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"yes",municipal_median_income: 114409,state_median_income:63636,heal_designation:""}
+    cities << {name:"Farmville", county:"Prince Edward, Cumberland",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Fincastle", county:"Botetourt",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Floyd", county:"Floyd",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Franklin", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 33174,state_median_income:63636,heal_designation:""}
+    cities << {name:"Fredericksburg", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"yes",municipal_median_income: 43558,state_median_income:63636,heal_designation:""}
+    cities << {name:"Fries", county:"Grayson",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Front Royal", county:"Warren",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Galax", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 22333,state_median_income:63636,heal_designation:""}
+    cities << {name:"Gate City", county:"Scott",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Glade Springs", county:"Washington",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Glasgow", county:"Rockbridge",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Gordonsville", county:"Orange",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Gretna", county:"Pittsylvania",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Grottoes", county:"Augusta",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Grundy", county:"Buchanan",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Halifax", county:"Halifax",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Hallwood", county:"Accomack",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Hamilton", county:"Loudon",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Hampton", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 49815,state_median_income:63636,heal_designation:""}
+    cities << {name:"Harrisonburg", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 37235,state_median_income:63636,heal_designation:""}
+    cities << {name:"Haymarket", county:"Prince William",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:"HEAL City"}
+    cities << {name:"Herndon", county:"Fairfax",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Hillsville", county:"Carroll",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Honaker", county:"Russell",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Hopewell", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 37789,state_median_income:63636,heal_designation:""}
+    cities << {name:"Hurt", county:"Pittsylvania",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Independence", county:"Grayson",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Iron Gate", county:"Alleghany",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Irvington", county:"Lancaster",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Ivor", county:"Southampton",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Jarratt", county:"Greensville, Sussex",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Jonesville", county:"Lee",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Kenbridge", county:"Lunenburg",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Keysville", county:"Charlotte",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Kilmarnock", county:"Lancaster",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"La Crosse", county:"Mecklenburg",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Lawrenceville", county:"Brunswick",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Lebanon", county:"Russell",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Leesburg", county:"Loudon",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Lexington", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 31571,state_median_income:63636,heal_designation:""}
+    cities << {name:"Louisa", county:"Louisa",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Lovettsville", county:"Loudon",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:"HEAL City"}
+    cities << {name:"Luray", county:"Page",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Lynchburg", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 37058,state_median_income:63636,heal_designation:""}
+    cities << {name:"Madison", county:"Madison",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Manassas", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"yes",municipal_median_income: 75173,state_median_income:63636,heal_designation:""}
+    cities << {name:"Manassas Park", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"yes",municipal_median_income: 70299,state_median_income:63636,heal_designation:""}
+    cities << {name:"Marion", county:"Smyth",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Martinsville", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 32408,state_median_income:63636,heal_designation:""}
+    cities << {name:"McKenney", county:"Dinwiddie",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Middleburg", county:"Loudon",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:"HEAL City"}
+    cities << {name:"Middletown", county:"Frederick",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Mineral", county:"Louisa",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Mount Jackson", county:"Shenandoah",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Narrows", county:"Giles",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"New Market", county:"Shenandoah",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Newport News", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 49562,state_median_income:63636,heal_designation:""}
+    cities << {name:"Newsoms", county:"Southampton",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Norfolk", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 42677,state_median_income:63636,heal_designation:""}
+    cities << {name:"Norton", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 33944,state_median_income:63636,heal_designation:""}
+    cities << {name:"Occoquan", county:"Prince William",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Onancock", county:"Accomack",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Onley", county:"Accomack",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Orange", county:"Orange",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Painter", county:"Accomack",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Pamplin", county:"Appomattox",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Parksley", county:"Accomack",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Pearisburg", county:"Giles",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Pembroke", county:"Giles",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Pennington Gap", county:"Lee",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Petersburg", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 36449,state_median_income:63636,heal_designation:""}
+    cities << {name:"Phenix", county:"Charlotte",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Poquoson", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 84315,state_median_income:63636,heal_designation:""}
+    cities << {name:"Port Royal", county:"Caroline",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Portsmouth", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 45488,state_median_income:63636,heal_designation:""}
+    cities << {name:"Pulaski", county:"Pulaski",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Purcellville", county:"Loudon",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Quantico", county:"Prince WIlliam",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Radford", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 29155,state_median_income:63636,heal_designation:""}
+    cities << {name:"Remington", county:"Fauquier",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Rich Creek", county:"Giles",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Richlands", county:"Tazewell",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Richmond", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 38266,state_median_income:63636,heal_designation:""}
+    cities << {name:"Ridgeway", county:"Henry",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Roanoke", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 36422,state_median_income:63636,heal_designation:""}
+    cities << {name:"Rocky Mount ", county:"Franklin",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Round Hill", county:"Loudon",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Rural Retreat", county:"Wythe",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Saint Paul", county:"Wise",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Salem", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 48828,state_median_income:63636,heal_designation:""}
+    cities << {name:"Scottsville", county:"Albemarle",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Shenandoah", county:"Page",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Smithfield", county:"Isle of Wight",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"South Boston", county:"Halifax",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"South Hill", county:"Mecklenburg",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Stanardsville", county:"Greene",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Stanley", county:"Page",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Staunton", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 42724,state_median_income:63636,heal_designation:"HEAL City"}
+    cities << {name:"Stephens City", county:"Frederick",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Stony Creek", county:"Sussex",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Strasburg", county:"Shenandoah",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Stuart", county:"Patrick",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Suffolk", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 65104,state_median_income:63636,heal_designation:""}
+    cities << {name:"Tangier", county:"Accomack",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Tappahannock", county:"Essex",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Tazewell", county:"Tazewell",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"The Plains", county:"Fauquier",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Timberville", county:"Rockingham",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Toms Brook", county:"Shenandoah",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Troutville", county:"Botetourt",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Urbanna", county:"Middlesex",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Victoria", county:"Lunenburg",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Vienna", county:"Fairfax",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Vinton", county:"Roanoke",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Virginia Beach", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 64618,state_median_income:63636,heal_designation:""}
+    cities << {name:"Wakefield", county:"Sussex",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Warrenton", county:"Fauquier",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Warsaw", county:"Richmond",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Washington", county:"Rappahannock",state:"VA",jurisdiction_type:"Town",kp_service_area:"yes",state_median_income:63636,heal_designation:""}
+    cities << {name:"Waverly", county:"Sussex",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Waynesboro", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 40977,state_median_income:63636,heal_designation:""}
+    cities << {name:"Weber City", county:"Scott",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"West Point", county:"King William",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"White Stone", county:"Lancaster",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Williamsburg", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 50794,state_median_income:63636,heal_designation:"HEAL City"}
+    cities << {name:"Winchester", county:"Independent City",state:"VA",jurisdiction_type:"City",kp_service_area:"no",municipal_median_income: 44873,state_median_income:63636,heal_designation:""}
+    cities << {name:"Windsor", county:"Isle of Wight",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Wise", county:"Wise",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Woodstock", county:"Shenandoah",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+    cities << {name:"Wytheville", county:"Wythe",state:"VA",jurisdiction_type:"Town",kp_service_area:"",state_median_income:63636,heal_designation:""}
+
+    dbi_iphi = Heal::DatabaseInstance.find_by(instance_name: IPHI_DATABASE_INSTANCE_NAME)
+
+    initial_count = dbi_iphi.cities.count
+    if initial_count > 0
+      puts "IPHI database already has cities in it. Quitting."
+    else
+
+      cities.each do |c|
+        city = Heal::City.new
+
+        city.name = c[:name]
+        city.county = c[:county]
+        city.state = c[:state]
+
+        jt = db_iphi.jurisdiction_types.where(name: c[:jurisdiction_type]).first
+        city.jurisdiction_type = jt if jt.present?
+
+        if c[:kp_service_area] == "yes"
+          city.kp_service_area = true
+        elsif c[:kp_service_area] == "no"
+          city.kp_service_area = false
+        else
+          city.kp_service_area = nil
+        end
+
+        city.state_median_income = c[:state_median_income] if c[:state_median_income].present?
+        city.city_median_income = c[:municipal_median_income] if c[:municipal_median_income].present?
+
+        if c[:heal_designation].present?
+          d = db_iphi.city_designations.where(name: c[:heal_designation])
+          if d.present?
+            city.city_designation = d
+          end
+        end
+        city.database_instance = dbi_iphi
+
+        puts city.errors.inspect unless city.save
+      end
+
+      final_count = dbi_iphi.cities.count
+      number_added = final_count - initial_count
+      error_count = cities.count - (number_added)
+      puts "Added #{number_added} cities to the IPHI HEAL Cities database. There were #{error_count} errors."
+    end
+  end
 end
