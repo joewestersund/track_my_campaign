@@ -30,7 +30,7 @@
   </div>
   <div class="field">
     <%= f.label :league_division %>
-    <%= f.collection_select :league_division_id, @league_divisions, :id, :name, {}, {class: 'multiselect', multiple: false} %>
+    <%= f.collection_select :league_division_id, @league_divisions, :id, :name, {include_blank: true}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_league_division_path %>
   </div>
   <div class="field">

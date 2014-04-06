@@ -17,12 +17,12 @@
 
 <p>
   <strong>Jurisdiction type:</strong>
-  <%= @city.jurisdiction_type.name %>
+  <%= @city.jurisdiction_type.name if @city.jurisdiction_type.present?%>
 </p>
 
 <p>
   <strong>League division:</strong>
-  <%= @city.league_division.name %>
+  <%= @city.league_division.name if @city.league_division.present?%>
 </p>
 
 <p>

@@ -93,8 +93,8 @@
           <td><%= city.name %></td>
           <td><%= city.state %></td>
           <td><%= city.county %></td>
-          <td><%= city.jurisdiction_type.name %></td>
-          <td><%= city.league_division.name %></td>
+          <td><%= city.jurisdiction_type.name if city.jurisdiction_type.present?%></td>
+          <td><%= city.league_division.name if city.league_division.present?%></td>
           <td><%= number_with_delimiter(city.population) %></td>
           <td><%= show_boolean(city.kp_service_area) %></td>
           <td><%= show_boolean(city.under_resourced_or_disease_burden) %></td>

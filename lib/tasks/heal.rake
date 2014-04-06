@@ -44,10 +44,6 @@ namespace :heal do
       Heal::InterestLevel.create({database_instance: dbi, name: 'Cool', order_in_list: 3})
       Heal::InterestLevel.create({database_instance: dbi, name: 'Cold', order_in_list: 4})
 
-      Heal::JurisdictionType.create({database_instance: dbi, name: 'City', order_in_list: 1})
-      Heal::JurisdictionType.create({database_instance: dbi, name: 'County', order_in_list: 2})
-      Heal::JurisdictionType.create({database_instance: dbi, name: 'State', order_in_list: 3})
-
       Heal::LeagueDivision.create({database_instance: dbi, name: 'League Division 1', order_in_list: 1})
       Heal::LeagueDivision.create({database_instance: dbi, name: 'League Division 2', order_in_list: 2})
       Heal::LeagueDivision.create({database_instance: dbi, name: 'League Division 3', order_in_list: 3})
@@ -89,10 +85,19 @@ namespace :heal do
     Heal::CityDesignation.create({database_instance: dbi_iphi, name: "Gold", order_in_list: 2})
     Heal::CityDesignation.create({database_instance: dbi_iphi, name: "Platinum", order_in_list: 3})
 
+    Heal::JurisdictionType.create({database_instance: dbi_iphi, name: 'City', order_in_list: 1})
+    Heal::JurisdictionType.create({database_instance: dbi_iphi, name: 'Town', order_in_list: 2})
+    Heal::JurisdictionType.create({database_instance: dbi_iphi, name: 'County', order_in_list: 3})
+    Heal::JurisdictionType.create({database_instance: dbi_iphi, name: 'State', order_in_list: 4})
+
     [dbi_ccpha, dbi_ophi].each do |dbi|
       Heal::CityDesignation.create({database_instance: dbi, name: "Eager", order_in_list: 1})
       Heal::CityDesignation.create({database_instance: dbi, name: "Active", order_in_list: 2})
       Heal::CityDesignation.create({database_instance: dbi, name: "Fit", order_in_list: 3})
+
+      Heal::JurisdictionType.create({database_instance: dbi, name: 'City', order_in_list: 1})
+      Heal::JurisdictionType.create({database_instance: dbi, name: 'County', order_in_list: 2})
+      Heal::JurisdictionType.create({database_instance: dbi, name: 'State', order_in_list: 3})
     end
   end
 
@@ -2383,11 +2388,16 @@ namespace :heal do
       puts "CCPHA database already has cities in it. Quitting."
     else
 
+
+      jt_city = dbi_ccpha.jurisdiction_types.find_by(name: "City")
+
       cities.each do |c|
         city = Heal::City.new
 
         city.name = c[:name]
         city.county = c[:county]
+        city.jurisdiction_type = jt_city
+        city.kp_service_area = true
         city.state = 'CA'
         city.database_instance = dbi_ccpha
 
@@ -2401,8 +2411,8 @@ namespace :heal do
     end
   end
 
-  desc "set up Cities data for CCPHA"
-  task upload_ccpha_cities: :environment do
+  desc "set up Cities data for IPHI"
+  task upload_iphi_cities: :environment do
 
     cities = []
 
@@ -2775,22 +2785,22 @@ namespace :heal do
         city.county = c[:county]
         city.state = c[:state]
 
-        jt = db_iphi.jurisdiction_types.where(name: c[:jurisdiction_type]).first
+        jt = dbi_iphi.jurisdiction_types.find_by(name: c[:jurisdiction_type])
         city.jurisdiction_type = jt if jt.present?
 
         if c[:kp_service_area] == "yes"
           city.kp_service_area = true
         elsif c[:kp_service_area] == "no"
           city.kp_service_area = false
-        else
-          city.kp_service_area = nil
+        else  #assume it's in the service territory, unless told otherwise
+          city.kp_service_area = true
         end
 
         city.state_median_income = c[:state_median_income] if c[:state_median_income].present?
         city.city_median_income = c[:municipal_median_income] if c[:municipal_median_income].present?
 
         if c[:heal_designation].present?
-          d = db_iphi.city_designations.where(name: c[:heal_designation])
+          d = dbi_iphi.city_designations.find_by(name: c[:heal_designation])
           if d.present?
             city.city_designation = d
           end
