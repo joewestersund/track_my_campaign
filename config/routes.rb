@@ -22,6 +22,9 @@ TrackMyCampaign::Application.routes.draw do
     resources :resolutions
     resources :status_types
     resources :topics
+    get '/reports/to_do'
+    get '/reports/cities_summary'
+    get '/reports/communications_summary'
   end
 
   resources :database_instances

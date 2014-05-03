@@ -45,9 +45,22 @@ class Heal::Communication < ActiveRecord::Base
       summary = summary + " with #{show_contacts_list(self.contacts)}"
     end
 
-    summary = summary + " #{self.date}"
+    summary = "#{summary} #{self.date}"
+  end
 
-    summary
+  def summary_date_first
+    summary = ""
+    if self.event_name.present?
+      summary = "#{self.event_name}"
+    elsif self.communication_type.present?
+      summary = "#{self.communication_type.name}"
+    end
+
+    if self.contacts.count > 0
+      summary = summary + " with #{show_contacts_list(self.contacts)}"
+    end
+
+    summary = "#{self.date} #{summary}"
   end
 
 end

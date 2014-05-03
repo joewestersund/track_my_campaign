@@ -21,4 +21,12 @@ class Heal::PolicyAdoption < ActiveRecord::Base
   validates :city, presence: true
   validates :date, presence: true
 
+  def policy_summary
+    policy_names = []
+    self.policies.order(:order_in_list).each do |p|
+      policy_names << p.name
+    end
+    summary = "#{self.date} #{policy_names.join(', ')}"
+  end
+
 end

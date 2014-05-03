@@ -22,7 +22,7 @@
 
 <p>
   <strong>Prior communication:</strong>
-  <%= @followup_task.prior_communication.summary %>
+  <%= @followup_task.prior_communication.summary if @followup_task.prior_communication.present?%>
 </p>
 
 <p>

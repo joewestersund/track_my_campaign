@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :prior_communication %>
-    <%= f.collection_select :prior_communication_id, @communications, :id, :summary, {}, {class: 'multiselect', multiple: false} %>
+    <%= f.collection_select :prior_communication_id, @communications, :id, :summary, {include_blank: true}, {class: 'multiselect', multiple: false} %>
   </div>
   <div class="field">
     <%= f.label :completed %>

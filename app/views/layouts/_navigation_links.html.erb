@@ -8,6 +8,18 @@
 
     <li id="fat-menu" class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        Reports <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "To Do", heal_reports_to_do_path%></li>
+        <li><%= link_to "Cities Summary", heal_reports_cities_summary_path %></li>
+        <li><%= link_to "Communications Summary", heal_reports_communications_summary_path %></li>
+      </ul>
+    </li>
+
+
+    <li id="fat-menu" class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         Successes <b class="caret"></b>
       </a>
       <ul class="dropdown-menu">

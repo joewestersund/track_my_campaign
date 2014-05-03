@@ -1,0 +1,88 @@
+<h1>Cities Summary Report</h1>
+
+<div class="filter">
+  <%= form_tag request.path, method: 'get' do %>
+    <div class="field">
+      <%= label_tag :name %>
+      <%= text_field_tag :name, params[:name] %>
+    </div>
+    <div class="field">
+      <%= label_tag :state %>
+      <%= text_field_tag :state, params[:state] %>
+    </div>
+    <div class="field">
+      <%= label_tag :kp_service_area %>
+      <%= select_tag :kp_service_area, options_for_select(get_yes_no_options_list,params[:kp_service_area]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :under_resourced_or_disease_burdened %>
+      <%= select_tag :under_resourced_or_disease_burden, options_for_select(get_yes_no_options_list,params[:under_resourced_or_disease_burden]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :city_designation %>
+      <%= select_tag :city_designation_id, options_from_collection_for_select(@city_designations,:id,:name,params[:city_designation_id]), { :include_blank => true } %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Search" %>
+    </div>
+  <% end %>
+</div>
+
+<% if @cities.nil? or @cities.count == 0 %>
+  <div class="no_data">No data has been entered, or no data matches the filter above.</div>
+<% else %>
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>State</th>
+      <th>In KP Service Area</th>
+      <th>Under-Resourced or Disease Burdened Area</th>
+      <th>HEAL City Designation</th>
+      <th>Policies Adopted <div><%= link_to 'Add', new_heal_policy_adoption_path %></div></th>
+      <th>Resolutions <div><%= link_to 'Add', new_heal_resolution_path %></div></th>
+      <th>Communications</th>
+      <th>Contacts</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @cities.each do |city| %>
+      <tr>
+        <td><%= city.name %></td>
+        <td><%= city.state %></td>
+        <td><%= show_boolean(city.kp_service_area) %></td>
+        <td><%= show_boolean(city.under_resourced_or_disease_burden) %></td>
+        <td><%= city.city_designation.name if city.city_designation.present? %></td>
+        <td>
+          <% city.policy_adoptions.order(:date).each do |pa| %>
+            <div><%= link_to pa.policy_summary, edit_heal_policy_adoption_path(pa) %></div>
+          <% end %>
+        </td>
+        <td>
+          <% city.resolutions.order(:date).each do |r| %>
+            <div><%= link_to r.policy_summary, edit_heal_resolution_path(r) %></div>
+          <% end %>
+        </td>
+        <td>
+          <% if city.communications.count > 0 %>
+            <div><%= city.communications.count %> communications</div>
+            <% c = city.communications.order(date: :desc).last %>
+            <div>last: <%= link_to c.summary_date_first, edit_heal_communication_path(c) %></div>
+          <% end %>
+        </td>
+        <td>
+          <% city.contacts.order(:first_name, :last_name).each do |contact| %>
+            <div><%= link_to contact.first_and_last_name, edit_heal_contact_path(contact) %></div>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', city %></td>
+        <td><%= link_to 'Edit', edit_heal_city_path(city) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @cities %>
+<% end %>
