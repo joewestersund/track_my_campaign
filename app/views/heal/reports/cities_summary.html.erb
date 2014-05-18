@@ -43,8 +43,6 @@
       <th>Resolutions <div><%= link_to 'Add', new_heal_resolution_path %></div></th>
       <th>Communications <div><%= link_to 'Add', new_heal_communication_path %></div></th>
       <th>Contacts <div><%= link_to 'Add', new_heal_contact_path %></div></th>
-      <th></th>
-      <th></th>
     </tr>
     </thead>
 
@@ -78,8 +76,6 @@
             <div><%= link_to contact.first_and_last_name, "#{heal_reports_contacts_summary_path}?first_name=#{contact.first_name}&last_name=#{contact.last_name}" %></div>
           <% end %>
         </td>
-        <td><%= link_to 'Show', city %></td>
-        <td><%= link_to 'Edit', edit_heal_city_path(city) %></td>
       </tr>
     <% end %>
     </tbody>
