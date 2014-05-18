@@ -41,8 +41,8 @@
       <th>HEAL City Designation</th>
       <th>Policies Adopted <div><%= link_to 'Add', new_heal_policy_adoption_path %></div></th>
       <th>Resolutions <div><%= link_to 'Add', new_heal_resolution_path %></div></th>
-      <th>Communications</th>
-      <th>Contacts</th>
+      <th>Communications <div><%= link_to 'Add', new_heal_communication_path %></div></th>
+      <th>Contacts <div><%= link_to 'Add', new_heal_contact_path %></div></th>
       <th></th>
       <th></th>
     </tr>
@@ -51,7 +51,7 @@
     <tbody>
     <% @cities.each do |city| %>
       <tr>
-        <td><%= city.name %></td>
+        <td><%= link_to city.name, edit_heal_city_path(city)%></td>
         <td><%= city.state %></td>
         <td><%= show_boolean(city.kp_service_area) %></td>
         <td><%= show_boolean(city.under_resourced_or_disease_burden) %></td>

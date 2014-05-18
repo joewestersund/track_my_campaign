@@ -14,22 +14,19 @@ class Heal::ReportsController < ApplicationController
     @cities = current_db.cities.where(get_cities_conditions).order(:state, :name).page(params[:page]).per_page(page_size)
   end
 
-  def communications_summary
-    @communication_types = current_db.communication_types.order(:order_in_list)
-    @interest_levels = current_db.interest_levels.order(:order_in_list)
-    @topics = current_db.topics.order(:order_in_list)
-    @contacts = current_db.contacts.order(:first_name, :last_name)
+  def contacts_summary
     @cities = current_db.cities.order(:name)
-    @users = current_db.users.order(:first_name, :last_name)
+    @interest_levels = current_db.interest_levels.order(:order_in_list)
 
-    conditions_string, parameters_hash, join_tables = get_communications_conditions
+    conditions_string, parameters_hash, join_tables = get_contacts_conditions
     conditions = [conditions_string, parameters_hash]
 
     if join_tables.nil?
-      @communications = current_db.communications.where(conditions).order(date: :desc).page(params[:page]).per_page(page_size)
+      @contacts = current_db.contacts.joins(:communications).where(get_contacts_conditions).group('contacts.id').order('max(communications.date) desc, contacts.first_name, contacts.last_name').page(params[:page]).per_page(page_size)
     else
-      @communications = current_db.communications.joins(join_tables).where(conditions).order(date: :desc).page(params[:page]).per_page(page_size)
+      @contacts = current_db.contacts.joins(:communications).joins(join_tables).where(conditions).group('contacts.id').order('max(communications.date) desc, contacts.first_name, contacts.last_name').page(params[:page]).per_page(page_size)
     end
+
   end
 
   private
@@ -55,23 +52,16 @@ class Heal::ReportsController < ApplicationController
       sf.get_search_filter
     end
 
-    def get_communications_conditions
+    def get_contacts_conditions
       sf = SearchFilter.new
 
-      sf.add_condition(:date,">=",:min_date,params)
-      sf.add_condition(:date,"<=",:max_date,params)
-      sf.add_condition(:duration_minutes,">=",:min_duration,params)
-      sf.add_condition(:duration_minutes,"<=",:max_duration,params)
-      sf.add_condition(:communication_type_id,"=",:communication_type_id,params)
-      sf.add_condition(:event_name,"ILIKE",:event_name,params)
-      sf.add_condition(:interest_level_id,"=",:interest_level_id,params)
-      sf.add_condition(:others_involved,"ILIKE",:others_involved,params)
-      sf.add_condition(:notes,"ILIKE",:notes,params)
-
-      sf.add_condition(:topic_id,"=",:topic_id, params,{join_table: :topics, join_object_name: :communications_topics})
-      sf.add_condition(:contact_id,"=",:contact_id, params,{join_table: :contacts, join_object_name: :communications_contacts})
-      sf.add_condition(:city_id,"=",:city_id, params,{join_table: :cities, join_object_name: :cities_communications})
-      sf.add_condition(:user_id,"=",:staff_involved_id, params,{join_table: :staff_involved, join_object_name: :communications_staff_involved})
+      sf.add_condition(:first_name,"ILIKE",:first_name,params)
+      sf.add_condition(:last_name,"ILIKE",:last_name,params)
+      sf.add_condition(:organization_name,"ILIKE",:organization_name,params)
+      #sf.add_condition(:interest_level_id,"=",:interest_level_id,params,)
+      sf.add_condition('contacts.interest_level_id',"=",:interest_level_id,params,)
+      sf.add_condition(:heal_champion,"=",:heal_champion,params)
+      sf.add_condition(:city_id,"=",:city_id, params,{join_table: :cities, join_object_name: :cities_contacts})
 
       sf.get_search_filter
     end

@@ -1,0 +1,83 @@
+<h1>Contacts Summary Report</h1>
+<%= link_to 'New Contact', new_heal_contact_path %>
+
+<div class="filter">
+  <%= form_tag request.path, method: 'get' do %>
+    <div class="field">
+      <%= label_tag :first_name %>
+      <%= text_field_tag :first_name, params[:first_name] %>
+    </div>
+    <div class="field">
+      <%= label_tag :last_name %>
+      <%= text_field_tag :last_name, params[:last_name] %>
+    </div>
+    <div class="field">
+      <%= label_tag :organization_name %>
+      <%= text_field_tag :organization_name, params[:organization_name] %>
+    </div>
+    <div class="field">
+      <%= label_tag :interest_level %>
+      <%= select_tag :interest_level_id, options_from_collection_for_select(@interest_levels,:id,:name,params[:interest_level_id]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :heal_champion %>
+      <%= select_tag :heal_champion, options_for_select(get_yes_no_options_list,params[:heal_champion]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :city %>
+      <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:name_type_state, params[:city_id]), { include_blank: true, class: 'multiselect', multiple: false} %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Search" %>
+    </div>
+  <% end %>
+</div>
+
+<% if @contacts.nil? or @contacts.count == 0 %>
+  <div class="no_data">No data has been entered, or no data matches the filter above.</div>
+<% else %>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Organization</th>
+      <th>Interest Level</th>
+      <th>Heal Champion</th>
+      <th>Cities</th>
+      <th>Communications <div><%= link_to 'Add', new_heal_communication_path %></div></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= link_to "#{contact.first_name} #{contact.last_name}", edit_heal_contact_path(contact) %></td>
+        <td><%= contact.organization_name %></td>
+        <td><%= contact.interest_level.name if contact.interest_level.present? %></td>
+        <td><%= show_boolean(contact.heal_champion) %></td>
+        <td>
+          <% contact.cities.each do |city| %>
+            <div><%= link_to "#{city.name} #{ "(#{city.city_designation.name})" if city.city_designation.present?}", "#{heal_reports_cities_summary_path}?name=#{city.name}&state=#{city.state}" %></div>
+          <% end %>
+        </td>
+        <td>
+          <div><%= "#{contact.communications.count} #{"communication".pluralize(contact.communications.count)}" %></div>
+          <% communication_count = 0
+          max_communications_to_show = 4%>
+            <% contact.communications.order(date: :desc).each do |com|
+              communication_count += 1
+              break if communication_count > max_communications_to_show%>
+              <div>
+                <%= link_to com.summary_for_contact(contact), edit_heal_communication_path(com) %>
+              </div>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @contacts %>
+<% end %>
+
