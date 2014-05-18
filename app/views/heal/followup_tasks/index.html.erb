@@ -1,5 +1,8 @@
 <h1>Followup Tasks</h1>
 
+<%= link_to 'New Followup task', new_heal_followup_task_path %>
+<br><br>
+
 <table>
   <thead>
     <tr>
@@ -38,6 +41,3 @@
   </tbody>
 </table>
 <%= will_paginate @followup_tasks %>
-<br>
-
-<%= link_to 'New Followup task', new_heal_followup_task_path %>

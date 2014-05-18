@@ -1,5 +1,8 @@
 <h1>Policy Adoptions</h1>
 
+<%= link_to 'New Policy adoption', new_heal_policy_adoption_path %>
+<br><br>
+
 <table>
   <thead>
     <tr>
@@ -30,6 +33,3 @@
   </tbody>
 </table>
 <%= will_paginate @policy_adoptions %>
-<br>
-
-<%= link_to 'New Policy adoption', new_heal_policy_adoption_path %>

@@ -1,5 +1,8 @@
 <h1>Resolutions</h1>
 
+<%= link_to 'New Resolution', new_heal_resolution_path %>
+<br><br>
+
 <table>
   <thead>
     <tr>
@@ -30,6 +33,3 @@
   </tbody>
 </table>
 <%= will_paginate @resolutions %>
-<br>
-
-<%= link_to 'New Resolution', new_heal_resolution_path %>

@@ -1,5 +1,8 @@
 <h1>Milestones Reached</h1>
 
+<%= link_to 'New Milestone', new_heal_milestone_path %>
+<br><br>
+
 <table>
   <thead>
     <tr>
@@ -32,6 +35,3 @@
   </tbody>
 </table>
 <%= will_paginate @milestones %>
-<br>
-
-<%= link_to 'New Milestone', new_heal_milestone_path %>

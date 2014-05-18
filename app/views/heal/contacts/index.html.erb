@@ -1,5 +1,8 @@
 <h1>Contacts</h1>
 
+<%= link_to 'New Contact', new_heal_contact_path %>
+<br><br>
+
 <div class="filter">
   <%= form_tag request.path, method: 'get' do %>
     <div class="field">
@@ -110,6 +113,3 @@
   </table>
   <%= will_paginate @contacts %>
 <% end %>
-<br>
-
-<%= link_to 'New Contact', new_heal_contact_path %>

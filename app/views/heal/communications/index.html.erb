@@ -1,5 +1,8 @@
 <h1>Communications</h1>
 
+<%= link_to 'New Communication', new_heal_communication_path %>
+<br><br>
+
 <div class="filter">
   <%= form_tag request.path, method: 'get' do %>
     <div class="field">
@@ -106,6 +109,3 @@
   </table>
   <%= will_paginate @communications %>
 <% end %>
-<br>
-
-<%= link_to 'New Communication', new_heal_communication_path %>

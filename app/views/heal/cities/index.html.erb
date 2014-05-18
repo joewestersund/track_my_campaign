@@ -1,5 +1,8 @@
 <h1>Cities</h1>
 
+<%= link_to 'New City', new_heal_city_path %>
+<br><br>
+
 <div class="filter">
   <%= form_tag request.path, method: 'get' do %>
     <div class="field">
@@ -110,6 +113,3 @@
   </table>
   <%= will_paginate @cities %>
 <% end %>
-<br>
-
-<%= link_to 'New City', new_heal_city_path %>
