@@ -1,5 +1,5 @@
 <h1>Contacts Summary Report</h1>
-<%= link_to 'New Contact', new_heal_contact_path %>
+<div>Contacts for which a Communication has been entered</div><br>
 
 <div class="filter">
   <%= form_tag request.path, method: 'get' do %>
@@ -36,7 +36,6 @@
 <% if @contacts.nil? or @contacts.count == 0 %>
   <div class="no_data">No data has been entered, or no data matches the filter above.</div>
 <% else %>
-
   <table>
     <thead>
     <tr>
@@ -62,7 +61,7 @@
           <% end %>
         </td>
         <td>
-          <div><%= "#{contact.communications.count} #{"communication".pluralize(contact.communications.count)}" %></div>
+          <div><%= "#{contact.communications.count} #{"communication".pluralize(contact.communications.count)}, #{contact.communications.sum(:duration_minutes)} minutes" %></div>
           <% communication_count = 0
           max_communications_to_show = 4%>
             <% contact.communications.order(date: :desc).each do |com|
