@@ -68,14 +68,14 @@
         </td>
         <td>
           <% if city.communications.count > 0 %>
-            <div><%= city.communications.count %> communications</div>
+            <div><%= "#{city.communications.count} #{"communication".pluralize(city.communications.count)}, #{city.communications.sum(:duration_minutes)} minutes" %></div>
             <% c = city.communications.order(date: :desc).last %>
             <div>last: <%= link_to c.summary_date_first, edit_heal_communication_path(c) %></div>
           <% end %>
         </td>
         <td>
           <% city.contacts.order(:first_name, :last_name).each do |contact| %>
-            <div><%= link_to contact.first_and_last_name, edit_heal_contact_path(contact) %></div>
+            <div><%= link_to contact.first_and_last_name, "#{heal_reports_contacts_summary_path}?first_name=#{contact.first_name}&last_name=#{contact.last_name}" %></div>
           <% end %>
         </td>
         <td><%= link_to 'Show', city %></td>
