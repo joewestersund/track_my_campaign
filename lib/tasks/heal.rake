@@ -2,6 +2,8 @@ namespace :heal do
   IPHI_DATABASE_INSTANCE_NAME = "IPHI-test"
   CCPHA_DATABASE_INSTANCE_NAME = "CCPHA-test"
   OPHI_DATABASE_INSTANCE_NAME = "OPHI-test"
+  LVC_DATABASE_INSTANCE_NAME = "LiveWell-test"
+
 
   DEFAULT_USER_PASSWORD = 'testing'
 
@@ -2814,6 +2816,500 @@ namespace :heal do
       number_added = final_count - initial_count
       error_count = cities.count - (number_added)
       puts "Added #{number_added} cities to the IPHI HEAL Cities database. There were #{error_count} errors."
+    end
+  end
+
+  desc "set up Cities data for LiveWell Colorado"
+  task upload_livewellcolorado_cities: :environment do
+
+    cities = []
+
+    cities << {name:"Arvada", state:"CO"}
+    cities << {name:"Aurora", state:"CO"}
+    cities << {name:"Bennett", state:"CO"}
+    cities << {name:"Brush", state:"CO"}
+    cities << {name:"Buena Vista", state:"CO"}
+    cities << {name:"Commerce City", state:"CO"}
+    cities << {name:"Cortez", state:"CO"}
+    cities << {name:"Denver", state:"CO"}
+    cities << {name:"Durango", state:"CO"}
+    cities << {name:"Frederick", state:"CO"}
+    cities << {name:"Golden", state:"CO"}
+    cities << {name:"Ignacio", state:"CO"}
+    cities << {name:"La Junta", state:"CO"}
+    cities << {name:"Lafayette", state:"CO"}
+    cities << {name:"Lakewood", state:"CO"}
+    cities << {name:"Lamar", state:"CO"}
+    cities << {name:"Leadville", state:"CO"}
+    cities << {name:"Littleton", state:"CO"}
+    cities << {name:"Lone Tree", state:"CO"}
+    cities << {name:"Manitou Springs", state:"CO"}
+    cities << {name:"Milliken", state:"CO"}
+    cities << {name:"New Castle", state:"CO"}
+    cities << {name:"Northglenn", state:"CO"}
+    cities << {name:"Oak Creek", state:"CO"}
+    cities << {name:"Parker", state:"CO"}
+    cities << {name:"Pueblo", state:"CO"}
+    cities << {name:"Salida", state:"CO"}
+    cities << {name:"Sheridan", state:"CO"}
+    cities << {name:"Steamboat Springs", state:"CO"}
+    cities << {name:"Thornton", state:"CO"}
+    cities << {name:"Trinidad", state:"CO"}
+    cities << {name:"Westminster", state:"CO"}
+    cities << {name:"Wheat Ridge", state:"CO"}
+    cities << {name:"Wiley", state:"CO"}
+    cities << {name:"Yuma ", state:"CO"}
+
+
+    dbi_lvc = Heal::DatabaseInstance.find_by(instance_name: LVC_DATABASE_INSTANCE_NAME)
+
+    initial_count = dbi_lvc.cities.count
+    if initial_count > 0
+      puts "LiveWell Colorado database already has cities in it. Quitting."
+    else
+
+      cities.each do |c|
+        city = Heal::City.new
+
+        city.name = c[:name]
+        city.state = c[:state]
+
+        #assume it's in the service territory, unless told otherwise
+        city.kp_service_area = true
+
+        city.database_instance = dbi_lvc
+
+        puts city.errors.inspect unless city.save
+      end
+
+      final_count = dbi_lvc.cities.count
+      number_added = final_count - initial_count
+      error_count = cities.count - (number_added)
+      puts "Added #{number_added} cities to the LiveWell Colorado Cities database. There were #{error_count} errors."
+    end
+
+  end
+
+  desc "set up Contacts data for LiveWell Colorado"
+  task upload_livewellcolorado_contacts: :environment do
+
+    contacts = []
+
+    contacts << { first_name: 'Carole', last_name: 'Abruzzese', title: 'COMMISSIONER', organization_name: 'TOWN OF OXFORD', address_line1: 'PO Box 339', address_line_2: '', address_city: 'Oxford', address_state: 'MD', address_zip: '21654', phone: '', cell_phone: '(410)725-0885', email: 'theshore_98@yahoo.com', website: 'www.oxfordmd.net'}
+    contacts << { city_name: "Arvada", first_name: "Jessica ", last_name: "Prosser", title: "Sustainability Coordinator", organization_name: "City of Arvada", email: "jprosser@arvada.org", phone: ""}
+    contacts << { city_name: "Arvada", first_name: "Rose ", last_name: "Chavez", title: "Healthy Places Coordinator", organization_name: "City of Arvada", email: "rchavez@arvada.org", phone: "720-898-7535"}
+    contacts << { city_name: "Aurora", first_name: "Nancy ", last_name: "Freed", title: "Deputy City Manager", organization_name: "City of Aurora", email: "", phone: ""}
+    contacts << { city_name: "Aurora", first_name: "Karen ", last_name: "Hancock", title: "", organization_name: "City of Aurora", email: "khancock@auroragov.org", phone: ""}
+    contacts << { city_name: "Aurora", first_name: "Suzanne ", last_name: "Hahn", title: "Compensation & Employment Benefits", organization_name: "City of Aurora", email: "shahn@auroragov.org ", phone: "(303) 739-7232"}
+    contacts << { city_name: "Bennett", first_name: "Charles ", last_name: "Bayley", title: "Mayor Pro Tem", organization_name: "City of Bennett", email: "CBayley@bennett.co.us", phone: ""}
+    contacts << { city_name: "Bennett", first_name: "Lynette ", last_name: "White ", title: "Town Clerk", organization_name: "City of Bennett", email: "lwhite@bennett.co.us", phone: ""}
+    contacts << { city_name: "Bennett", first_name: "Trish ", last_name: "Stiles", title: "Acting Town Administrator", organization_name: "City of Bennett", email: "TStiles@bennett.co.us", phone: ""}
+    contacts << { city_name: "Brush", first_name: "Vicky ", last_name: "Quinlin", title: "Council Member", organization_name: "City of Brush", email: "VQuinlin@EbenEzer-cares.org", phone: ""}
+    contacts << { city_name: "Brush", first_name: "Monty ", last_name: "Torres", title: "Town Administrator", organization_name: "City of Brush", email: "mtorres@brushcolo.com", phone: ""}
+    contacts << { city_name: "Buena Vista", first_name: "Kathryn ", last_name: "Wadsworth ", title: "Rec Director", organization_name: "City of Buena Vista", email: "recdirector@buenavistaco.gov", phone: ""}
+    contacts << { city_name: "Commerce City", first_name: "Rene ", last_name: "Bullock ", title: "Mayor Pro Tem", organization_name: "City of Commerce City", email: "rbullock@c3gov.com", phone: ""}
+    contacts << { city_name: "Commerce City", first_name: "Michelle ", last_name: "Halstead", title: "Communications Dir.", organization_name: "City of Commerce City", email: "mhalstead@c3gov.com", phone: ""}
+    contacts << { city_name: "Cortez", first_name: "Shane ", last_name: "Hale ", title: "City Manager", organization_name: "City of Cortez", email: "shane_hale@hotmail.com", phone: ""}
+    contacts << { city_name: "Cortez", first_name: "Bob ", last_name: "Archibeque", title: "Council Member", organization_name: "City of Cortez", email: "", phone: ""}
+    contacts << { city_name: "Denver", first_name: "Gretchen ", last_name: "Armijo", title: "Food Access Progrm Administrator", organization_name: "City of Denver", email: "Gretchen.Armijo@denvergov.org", phone: ""}
+    contacts << { city_name: "Denver", first_name: "Mondi ", last_name: "Mason", title: "Denver Environmental Health", organization_name: "City of Denver", email: "mondi.mason@denvergov.org", phone: ""}
+    contacts << { city_name: "Durango", first_name: "Amber ", last_name: "Blake", title: "Multi Modal Administrator", organization_name: "City of Durango", email: "Amber.blake@durangogov.org ", phone: ""}
+    contacts << { city_name: "Frederick", first_name: "Jim ", last_name: "Wollack", title: "Council Member", organization_name: "City of Frederick", email: "jwollack@frederickco.gov", phone: ""}
+    contacts << { city_name: "Frederick", first_name: "Meghan ", last_name: "Martinez ", title: "Town Clerk", organization_name: "City of Frederick", email: "MMartinez@frederickco.gov", phone: ""}
+    contacts << { city_name: "Golden", first_name: "Julie ", last_name: "Brooks ", title: "Education and Healthy Communities Coord", organization_name: "City of Golden", email: "JBrooks@cityofgolden.net", phone: "303-384-8013"}
+    contacts << { city_name: "Golden", first_name: "Pamela ", last_name: "Gould", title: "Council Member", organization_name: "City of Golden", email: "pgould@cityofgolden.net", phone: ""}
+    contacts << { city_name: "Lafayette", first_name: "Debbie ", last_name: "Wilmot", title: "PIO", organization_name: "City of Lafayette", email: "debbiew@cityoflafayette.com", phone: ""}
+    contacts << { city_name: "Lakewood", first_name: "Mary ", last_name: "Masini", title: "Strategic Initiatives Manager", organization_name: "City of Lakewood", email: "marmas@lakewood.org", phone: ""}
+    contacts << { city_name: "La Junta", first_name: "Dawn ", last_name: "Marsh ", title: "", organization_name: "City of La Junta", email: "dmarsh@ci.la-junta.co.us", phone: ""}
+    contacts << { city_name: "Lamar", first_name: "John ", last_name: "Sutherland", title: "City Manager", organization_name: "City of Lamar", email: "john.sutherland@ci.lamar.co.us", phone: ""}
+    contacts << { city_name: "Leadville", first_name: "Jaime ", last_name: "Stuever", title: "Mayor", organization_name: "City of Leadville", email: "lvmayor@leadville-co.gov", phone: "719-486-2571"}
+    contacts << { city_name: "Leadville", first_name: "Amanda ", last_name: "Redd", title: "Administrative Services Mgr.", organization_name: "City of Leadville", email: "adminservices@leadville-co.gov", phone: "719-486-2092"}
+    contacts << { city_name: "Leadville", first_name: "Colleen ", last_name: "Nielson", title: "Lake County Pub Health Dir.", organization_name: "City of Leadville", email: "cnielsen@co.lake.co.us", phone: ""}
+    contacts << { city_name: "Littleton", first_name: "Mike ", last_name: "Braaten", title: "Deputy City Mgr", organization_name: "City of Littleton", email: "mbraaten@littletongov.org", phone: ""}
+    contacts << { city_name: "Littleton", first_name: "Kelli ", last_name: "Narde ", title: "Communications Dir.", organization_name: "City of Littleton", email: "knarde@littletongov.org", phone: ""}
+    contacts << { city_name: "Manitou Springs", first_name: "Coreen ", last_name: "Toll ", title: "Council Member", organization_name: "City of Manitou Springs", email: "ctoll@comsgov.com", phone: ""}
+    contacts << { city_name: "Manitou Springs", first_name: "Jack ", last_name: "Benson ", title: "City Administrator", organization_name: "City of Manitou Springs", email: "jbenson@comsgov.com", phone: ""}
+    contacts << { city_name: "Manitou Springs", first_name: "Marc ", last_name: "Snyder", title: "Mayor", organization_name: "City of Manitou Springs", email: "msnyder@comsgov.com", phone: ""}
+    contacts << { city_name: "Manitou Springs", first_name: "Ken ", last_name: "Jaray", title: "Peak Living Project", organization_name: "", email: "ken@jaraywebsterlaw.com", phone: ""}
+    contacts << { city_name: "Milliken", first_name: "Anne ", last_name: "Johnson", title: "Community Dev Director", organization_name: "City of Milliken", email: "annejohnson@town.milliken.co.us", phone: "970-660-5046"}
+    contacts << { city_name: "Milliken", first_name: "Jim ", last_name: "Burack", title: "Town Administrator/Police Chief", organization_name: "City of Milliken", email: "jim.burack@town.milliken.co.us", phone: "970-660-5047"}
+    contacts << { city_name: "Oak Creek", first_name: "Mary ", last_name: "Alice Page-Allen", title: "Town Administrator and Clerk", organization_name: "City of Oak Creek", email: "maryalice@townofoakcreek.com", phone: ""}
+    contacts << { city_name: "Oak Creek", first_name: "Nikki ", last_name: "Knoebel", title: "Mayor", organization_name: "City of Oak Creek", email: "nknoebel@catamountranchclub.com", phone: ""}
+    contacts << { city_name: "Salida", first_name: "Emily ", last_name: "Katsimpalis", title: "Administrative Intern ", organization_name: "City of Salida", email: "emily.katsimpalis@cityofsalida.com", phone: ""}
+    contacts << { city_name: "Steamboat Springs", first_name: "Jennifer ", last_name: "Valora", title: "Human Resources", organization_name: "City of Steamboat Springs", email: "jvalora@steamboatsprings.net", phone: ""}
+    contacts << { city_name: "Thornton", first_name: "Heidi ", last_name: "Williams", title: "Mayor", organization_name: "City of Thornton", email: "heidi.williams@cityofthornton.net", phone: ""}
+    contacts << { city_name: "Thornton", first_name: "Jack ", last_name: "Ethridge", title: "City Manager", organization_name: "City of Thornton", email: "Jack.ethredge@cityofthornton.net", phone: ""}
+    contacts << { city_name: "Thornton", first_name: "Nancy ", last_name: "Vincent ", title: "City Clerk", organization_name: "City of Thornton", email: "Nancy.Vincent@cityofthornton.net", phone: "303-538-7223"}
+    contacts << { city_name: "Thornton", first_name: "Glenda ", last_name: "Lainis", title: "Policy Planning Manager", organization_name: "City of Thornton", email: "glenda.lainis@cityofthornton.net", phone: "303-538-7438"}
+    contacts << { city_name: "Wheat Ridge", first_name: "Patrick ", last_name: "Goff ", title: "City Manager", organization_name: "City of Wheat Ridge", email: "pgoff@ci.wheatridge.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Jessica", last_name: "Prosser", title: "", organization_name: "", email: "jprosser@arvada.org", phone: ""}
+    contacts << { city_name: "", first_name: "Karen", last_name: "Hancock", title: "", organization_name: "", email: "khancock@auroragov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Charles ", last_name: "Bayley", title: "", organization_name: "", email: "CBayley@bennett.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Kathryn ", last_name: "Wadsworth", title: "", organization_name: "", email: "recdirector@buenavistaco.gov", phone: ""}
+    contacts << { city_name: "", first_name: "Gretchen ", last_name: "Armijo", title: "", organization_name: "", email: "Gretchen.Armijo@denvergov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Kristin ", last_name: "Accola", title: "", organization_name: "", email: "kaccola@crgov.com", phone: ""}
+    contacts << { city_name: "", first_name: "Keith ", last_name: "Gardner", title: "", organization_name: "", email: "kgardner@centennialcolorado.com", phone: ""}
+    contacts << { city_name: "", first_name: "Jan ", last_name: "Martin", title: "", organization_name: "", email: "jmartin@springsgov.com", phone: ""}
+    contacts << { city_name: "", first_name: "Michelle ", last_name: "Halstead", title: "", organization_name: "", email: "mhalstead@c3gov.com", phone: ""}
+    contacts << { city_name: "", first_name: "Shane ", last_name: "Hale", title: "", organization_name: "", email: "shale@cityofcortez.com", phone: ""}
+    contacts << { city_name: "", first_name: "Christina ", last_name: "Rinderle", title: "", organization_name: "", email: "ChristinaRinderle@ci.durango.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Katie", last_name: "Haas", title: "", organization_name: "", email: "katie.haas@eaglecounty.us", phone: ""}
+    contacts << { city_name: "", first_name: "Jim ", last_name: "Wollack", title: "", organization_name: "", email: "jkwollack@msn.com", phone: ""}
+    contacts << { city_name: "", first_name: "Emily ", last_name: "Moulter", title: "", organization_name: "", email: "EmilyM@townoffrisco.com", phone: ""}
+    contacts << { city_name: "", first_name: "Alison ", last_name: "deKay", title: "", organization_name: "", email: "alidekay@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "John ", last_name: "Sutherland", title: "", organization_name: "", email: "john.sutherland@ci.lamar.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Todd ", last_name: "Ackerman", title: "", organization_name: "", email: "adminservices@leadville-co.gov", phone: ""}
+    contacts << { city_name: "", first_name: "Mike ", last_name: "Braaten", title: "", organization_name: "", email: "mbraaten@littletongov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Sarah ", last_name: "Levison", title: "", organization_name: "", email: "sarah.levison@ci.longmont.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Coreen ", last_name: "Toll", title: "", organization_name: "", email: "ctoll@comsgov.com", phone: ""}
+    contacts << { city_name: "", first_name: "Anne", last_name: "Johnson", title: "", organization_name: "", email: "annejohnson@town.milliken.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Nikki", last_name: "Knoebel", title: "", organization_name: "", email: "nknoebel@catamountranchclub.com", phone: ""}
+    contacts << { city_name: "", first_name: "Katie", last_name: "Davis", title: "", organization_name: "", email: "katie.davis@co.pueblo.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Emily", last_name: "Katsimpalis", title: "", organization_name: "", email: "emily.katsimpalis@cityofsalida.com", phone: ""}
+    contacts << { city_name: "", first_name: "Bernadette", last_name: "Gonzalez", title: "", organization_name: "", email: "bg81082@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Sid ", last_name: "Fleming", title: "", organization_name: "", email: "s.fleming@yumacolo.org", phone: ""}
+    contacts << { city_name: "", first_name: "Steve ", last_name: "Smithers", title: "", organization_name: "", email: "SSmither@CityofWestminster.us", phone: ""}
+    contacts << { city_name: "", first_name: "Jim ", last_name: "Peterson", title: "", organization_name: "", email: "gdsolutions@hotmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Suzanne ", last_name: "Hahn", title: "", organization_name: "", email: "shahn@auroragov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Nancy ", last_name: "Freed", title: "", organization_name: "", email: "nfreed@auroragov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Molly ", last_name: "Markert", title: "", organization_name: "", email: "mmarkert@auroragov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Lynette ", last_name: "White", title: "", organization_name: "", email: "lwhite@bennett.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Monty ", last_name: "Torres", title: "", organization_name: "", email: "mtorres@brushcolo.com", phone: ""}
+    contacts << { city_name: "", first_name: "Doug", last_name: "Linkhart", title: "", organization_name: "", email: "Doug.Linkhart@denvergov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Paul ", last_name: "Lopez", title: "", organization_name: "", email: "paul.lopez@denvergov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Eric ", last_name: "Eddy", title: "", organization_name: "", email: "eeddy@centennialcolorado.com", phone: ""}
+    contacts << { city_name: "", first_name: "Rene ", last_name: "Bullock", title: "", organization_name: "", email: "rbullock@c3gov.com", phone: ""}
+    contacts << { city_name: "", first_name: "Bob ", last_name: "Archibeque", title: "", organization_name: "", email: "barchibeque@cityofcortez.com", phone: ""}
+    contacts << { city_name: "", first_name: "Kirsten ", last_name: "Sackett", title: "", organization_name: "", email: "ksackett@cityofcortez.com", phone: ""}
+    contacts << { city_name: "", first_name: "Dean ", last_name: "Brookie", title: "", organization_name: "", email: "deanbrookie@durangogov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Meghan ", last_name: "Martinez", title: "", organization_name: "", email: "MMartinez@frederickco.gov", phone: ""}
+    contacts << { city_name: "", first_name: "Lauren", last_name: "Mueller", title: "", organization_name: "", email: "lmueller@frederickco.gov", phone: ""}
+    contacts << { city_name: "", first_name: "Rick ", last_name: "Akers", title: "", organization_name: "", email: "rick.akers@ci.lamar.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Colleen ", last_name: "Nielson", title: "", organization_name: "", email: "cnielsen@co.lake.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Jaime ", last_name: "Stuever", title: "", organization_name: "", email: "lvmayor@leadville-co.gov", phone: ""}
+    contacts << { city_name: "", first_name: "Kelli ", last_name: "Narde", title: "", organization_name: "", email: "knarde@littletongov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Mary", last_name: "Page-Allen", title: "", organization_name: "", email: "maryalice@townofoakcreek.com", phone: ""}
+    contacts << { city_name: "", first_name: "Ami ", last_name: "Nawrocki", title: "", organization_name: "", email: "anawrocki@pueblo.us", phone: ""}
+    contacts << { city_name: "", first_name: "Jack ", last_name: "Ethridge", title: "", organization_name: "", email: "Jack.ethredge@cityofthornton.net", phone: ""}
+    contacts << { city_name: "", first_name: "Nancy ", last_name: "Vincent", title: "", organization_name: "", email: "Nancy.Vincent@cityofthornton.net", phone: ""}
+    contacts << { city_name: "", first_name: "Tara ", last_name: "Marshall", title: "", organization_name: "", email: "tara.marshall@trinidad.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Lisa ", last_name: "White", title: "", organization_name: "", email: "lwhite@cml.org", phone: ""}
+    contacts << { city_name: "", first_name: "Christine ", last_name: "Taniguchi", title: "", organization_name: "", email: "ctaniguchi@cml.org", phone: ""}
+    contacts << { city_name: "", first_name: "Corina ", last_name: "Lindley", title: "", organization_name: "", email: "Corina.Lindley@kp.org", phone: ""}
+    contacts << { city_name: "", first_name: "Alexis ", last_name: "Weightman", title: "", organization_name: "", email: "aweightman@ColoradoHealth.org", phone: ""}
+    contacts << { city_name: "", first_name: "Kyle ", last_name: "Legleiter", title: "", organization_name: "", email: "klegleiter@coloradohealth.org", phone: ""}
+    contacts << { city_name: "", first_name: "Hillary ", last_name: "Fulton", title: "", organization_name: "", email: "hfulton@ColoradoHealth.org", phone: ""}
+    contacts << { city_name: "", first_name: "Khanh ", last_name: "Nguyen", title: "", organization_name: "", email: "knguyen@coloradohealth.org", phone: ""}
+    contacts << { city_name: "", first_name: "Charlotte ", last_name: "Dickson", title: "", organization_name: "", email: "cd@publichealthadvocacy.org", phone: ""}
+    contacts << { city_name: "", first_name: "Marisa ", last_name: "Jones", title: "", organization_name: "", email: "mjones@institutephi.org", phone: ""}
+    contacts << { city_name: "", first_name: "Beth ", last_name: "Kaye", title: "", organization_name: "", email: "bethkaye@orphi.org", phone: ""}
+    contacts << { city_name: "", first_name: "Michelle ", last_name: "Haugh", title: "", organization_name: "", email: "mhaugh@tchd.org", phone: ""}
+    contacts << { city_name: "", first_name: "Shawna ", last_name: "Golden", title: "", organization_name: "", email: "sgolden@groundfloormedia.com", phone: ""}
+    contacts << { city_name: "", first_name: "Kimberly ", last_name: "Langston", title: "", organization_name: "", email: "KLangston@groundfloormedia.com", phone: ""}
+    contacts << { city_name: "", first_name: "Jill ", last_name: "Petersen", title: "", organization_name: "", email: "jpetersen@groundfloormedia.com", phone: ""}
+    contacts << { city_name: "", first_name: "Bob ", last_name: "Roman", title: "", organization_name: "", email: "broman@fireantstudio.com", phone: ""}
+    contacts << { city_name: "", first_name: "Lauren ", last_name: "Baker", title: "", organization_name: "", email: "lbaker@fireantstudio.com", phone: ""}
+    contacts << { city_name: "", first_name: "Rene ", last_name: "Doubleday", title: "", organization_name: "", email: "doubleday.rene@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Jacqueline ", last_name: "Ciccio Murphy", title: "", organization_name: "", email: "Murphy_J@cde.state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Erin ", last_name: "Leets", title: "", organization_name: "", email: "erin@pumaworldhq.com", phone: ""}
+    contacts << { city_name: "", first_name: "Patricia ", last_name: "Brewster-Willeke", title: "", organization_name: "", email: "pbrewsterwilleke@hotmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Danny ", last_name: "Katz", title: "", organization_name: "", email: "danny@copirg.org", phone: ""}
+    contacts << { city_name: "", first_name: "John ", last_name: "Simmerman", title: "", organization_name: "", email: "john@activetowns.org", phone: ""}
+    contacts << { city_name: "", first_name: "Leila ", last_name: "Schaub", title: "", organization_name: "", email: "lschaub@bennettrec.org", phone: ""}
+    contacts << { city_name: "", first_name: "Karen ", last_name: "Bryant", title: "", organization_name: "", email: "karen.bryant@prowersmedical.com", phone: ""}
+    contacts << { city_name: "", first_name: "Emily ", last_name: "Fields", title: "", organization_name: "", email: "emily.fields@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Erin ", last_name: "O'Reilly", title: "", organization_name: "", email: "erin.oreilly@heart.org", phone: ""}
+    contacts << { city_name: "", first_name: "Susanna ", last_name: "Morris", title: "", organization_name: "", email: "Susanna.Morris@heart.org", phone: ""}
+    contacts << { city_name: "", first_name: "Dan ", last_name: "Grunig", title: "", organization_name: "", email: "dan@bicyclecolorado.org", phone: ""}
+    contacts << { city_name: "", first_name: "Carol ", last_name: "Muller", title: "", organization_name: "", email: "cmuller@actionforhealthykids.org", phone: ""}
+    contacts << { city_name: "", first_name: "Stephanie ", last_name: "Ekoniak", title: "", organization_name: "", email: "sekoniak@actionforhealthykids.org", phone: ""}
+    contacts << { city_name: "", first_name: "Chris ", last_name: "Watney", title: "", organization_name: "", email: "chris@coloradokids.org", phone: ""}
+    contacts << { city_name: "", first_name: "Cody ", last_name: "Belzley", title: "", organization_name: "", email: "cody@coloradokids.org", phone: ""}
+    contacts << { city_name: "", first_name: "Andrea ", last_name: "Wagner", title: "", organization_name: "", email: "andrea.wagner@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Amy ", last_name: "Dillon", title: "", organization_name: "", email: "amy.dillon@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Beth ", last_name: "Wyatt", title: "", organization_name: "", email: "beth.wyatt@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Betsy ", last_name: "Jacobsen", title: "", organization_name: "", email: "betsy.jacobsen@dot.state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Monica ", last_name: "Lyle", title: "", organization_name: "", email: "mlyle@coloradohealth.org", phone: ""}
+    contacts << { city_name: "", first_name: "Sara ", last_name: "Schmitt", title: "", organization_name: "", email: "SchmittS@coloradohealthinstitute.org", phone: ""}
+    contacts << { city_name: "", first_name: "Kristina ", last_name: "Kachur", title: "", organization_name: "", email: "kristina.kachur@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Renee ", last_name: "Sheeder", title: "", organization_name: "", email: "renee.sheeder@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Kathy ", last_name: "Underhill", title: "", organization_name: "", email: "kathy@hungerfreecolorado.org", phone: ""}
+    contacts << { city_name: "", first_name: "Maura ", last_name: "Barnes", title: "", organization_name: "", email: "Maura@hungerfreecolorado.org", phone: ""}
+    contacts << { city_name: "", first_name: "Sandra ", last_name: "Stenmark", title: "", organization_name: "", email: "sandra.h.stenmark@kp.org", phone: ""}
+    contacts << { city_name: "", first_name: "Ruth ", last_name: "Aponte", title: "", organization_name: "", email: "raponte@aponte-busam.com", phone: ""}
+    contacts << { city_name: "", first_name: "Sara ", last_name: "Odendahl", title: "", organization_name: "", email: "sodendahl@aponte-busam.com", phone: ""}
+    contacts << { city_name: "", first_name: "Riley ", last_name: "McIntyre", title: "", organization_name: "", email: "riley@padresunidos.org", phone: ""}
+    contacts << { city_name: "", first_name: "Summer ", last_name: "Gathercole", title: "", organization_name: "", email: "sgathercole@strength.org", phone: ""}
+    contacts << { city_name: "", first_name: "Patty ", last_name: "Boyd", title: "", organization_name: "", email: "pboyd@tchd.org", phone: ""}
+    contacts << { city_name: "", first_name: "Nikki ", last_name: "Daruwala", title: "", organization_name: "", email: "nikki@leadershipforhealthycommunities.org", phone: ""}
+    contacts << { city_name: "", first_name: "Bill ", last_name: "Mahar", title: "", organization_name: "", email: "maharbill@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Jessica ", last_name: "Osborn", title: "", organization_name: "", email: "jessicao@gpred.org", phone: ""}
+    contacts << { city_name: "", first_name: "Deb ", last_name: "Federspiel", title: "", organization_name: "", email: "deborah.federspiel@childrenscolorado.org", phone: ""}
+    contacts << { city_name: "", first_name: "Jenna ", last_name: "Berman", title: "", organization_name: "", email: "jenna@bicyclecolorado.org", phone: ""}
+    contacts << { city_name: "", first_name: "Dave ", last_name: "Cowan", title: "", organization_name: "", email: "dave@saferoutespartnership.org", phone: ""}
+    contacts << { city_name: "", first_name: "Maya ", last_name: "Rockeymoore", title: "", organization_name: "", email: "maya@leadershipforhealthycommunities.org", phone: ""}
+    contacts << { city_name: "", first_name: "Gabriel ", last_name: "Kaplan", title: "", organization_name: "", email: "gabriel.kaplan@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Cate", last_name: "Sweeney", title: "", organization_name: "", email: "catesweeney@livewellcolorado.org", phone: ""}
+    contacts << { city_name: "", first_name: "Lisa", last_name: "Walvoord", title: "", organization_name: "", email: "lisawalvoord@livewellcolorado.org", phone: ""}
+    contacts << { city_name: "", first_name: "Julie ", last_name: "George", title: "", organization_name: "", email: "juliegeorge@livewellcolorado.org", phone: ""}
+    contacts << { city_name: "", first_name: "Max ", last_name: "Gibson", title: "", organization_name: "", email: "maxgib@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Jack ", last_name: "Benson", title: "", organization_name: "", email: "jbenson@comsgov.com", phone: ""}
+    contacts << { city_name: "", first_name: "Marc ", last_name: "Snyder", title: "", organization_name: "", email: "msnyder@comsgov.com", phone: ""}
+    contacts << { city_name: "", first_name: "Glenda ", last_name: "Lainis", title: "", organization_name: "", email: "glenda.lainis@cityofthornton.net", phone: ""}
+    contacts << { city_name: "", first_name: "Julie ", last_name: "Brooks", title: "", organization_name: "", email: "JBrooks@cityofgolden.net", phone: ""}
+    contacts << { city_name: "", first_name: "Ralph ", last_name: "Trenary", title: "", organization_name: "", email: "ralph.trenary@cityofloveland.org", phone: ""}
+    contacts << { city_name: "", first_name: "Jennifer ", last_name: "Valora", title: "", organization_name: "", email: "jvalora@steamboatsprings.net", phone: ""}
+    contacts << { city_name: "", first_name: "Jennifer ", last_name: "Henninger", title: "", organization_name: "", email: "jhenninger@rgengineers.com", phone: ""}
+    contacts << { city_name: "", first_name: "Tina ", last_name: "Axelrad", title: "", organization_name: "", email: "tina.axelrad@denvergov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Katie ", last_name: "Baldassar", title: "", organization_name: "", email: "katie@lcbag.org", phone: ""}
+    contacts << { city_name: "", first_name: "Kim ", last_name: "Barman", title: "", organization_name: "", email: "kimberly.barman@uchealth.org", phone: ""}
+    contacts << { city_name: "", first_name: "Katherine ", last_name: "Blair", title: "", organization_name: "", email: "katherine.blair@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Sara ", last_name: "Brainard", title: "", organization_name: "", email: "livewell@garfield-county.com", phone: ""}
+    contacts << { city_name: "", first_name: "Rene ", last_name: "Bullock", title: "", organization_name: "", email: "achavarria@c3gov.com", phone: ""}
+    contacts << { city_name: "", first_name: "Cindy ", last_name: "Campbell", title: "", organization_name: "", email: "ccampbell@sprhc.org", phone: ""}
+    contacts << { city_name: "", first_name: "Roy ", last_name: "Chaney", title: "", organization_name: "", email: "rchaney@comsgov.com", phone: ""}
+    contacts << { city_name: "", first_name: "Lisa ", last_name: "Chrisman", title: "", organization_name: "", email: "lchrisma@cityofwestminster.us", phone: ""}
+    contacts << { city_name: "", first_name: "Patti ", last_name: "Clavier", title: "", organization_name: "", email: "patti.clavier@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Melissa ", last_name: "Collison", title: "", organization_name: "", email: "mcolliso@cityofwestminster.us", phone: ""}
+    contacts << { city_name: "", first_name: "Nikki ", last_name: "Daruwala", title: "", organization_name: "", email: "nikki@globalpolicysolutions.com", phone: ""}
+    contacts << { city_name: "", first_name: "Nick ", last_name: "Eagleson", title: "", organization_name: "", email: "neagleson@cityofgolden.net", phone: ""}
+    contacts << { city_name: "", first_name: "Bud ", last_name: "Elliott", title: "", organization_name: "", email: "bud.elliott@msn.com", phone: ""}
+    contacts << { city_name: "", first_name: "Lindsay" , last_name: "Ex", title: "", organization_name: "", email: "lex@fcgov.com", phone: ""}
+    contacts << { city_name: "", first_name: "Barbara" , last_name: "Giedraitis", title: "", organization_name: "", email: "BGiedrai@CityofWestminster.us", phone: ""}
+    contacts << { city_name: "", first_name: "Kim", last_name: "Grant", title: "", organization_name: "", email: "kgrant@arvada.org", phone: ""}
+    contacts << { city_name: "", first_name: "Indira ", last_name: "Gujral, title: ", organization_name: "", email: "indira.gujral@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Maritza ", last_name: "	Gutierrez", title: "", organization_name: "", email: "maritza@communityenterprise.net", phone: ""}
+    contacts << { city_name: "", first_name: "Millie ", last_name: "	Hamner", title: "", organization_name: "", email: "rephamner@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Pam ", last_name: "	Heimbach", title: "", organization_name: "", email: "pheimbach@cityofgolden.net", phone: ""}
+    contacts << { city_name: "", first_name: "Linda ", last_name: "	Hoover", title: "", organization_name: "", email: "lhoover@arvada.org", phone: ""}
+    contacts << { city_name: "", first_name: "Rachel ", last_name: "	Hultin", title: "", organization_name: "", email: "LiveWellWheatRidge@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Karen ", last_name: "	Koenemann", title: "", organization_name: "", email: "karen.koenemann@eaglecounty.us", phone: ""}
+    contacts << { city_name: "", first_name: "Laurie ", last_name: "	Konsella", title: "", organization_name: "", email: "laurie.konsella@hhs.gov", phone: ""}
+    contacts << { city_name: "", first_name: "Yael ", last_name: "	Lehmann", title: "", organization_name: "", email: "ylehmann@thefoodtrust.org", phone: ""}
+    contacts << { city_name: "", first_name: "Anne ", last_name: "	Tully", title: "", organization_name: "", email: "abtully@arvada.org", phone: ""}
+    contacts << { city_name: "", first_name: "Amanda ", last_name: "	Visosky", title: "", organization_name: "", email: "alvisosky@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Beth ", last_name: "	Truby", title: "", organization_name: "", email: "Beth.Truby@denvergov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Christina ", last_name: "	Torizzo", title: "", organization_name: "", email: "Christina.L.Torizzo@nsmtp.kp.org", phone: ""}
+    contacts << { city_name: "", first_name: "Cindy ", last_name: "	McDonald", title: "", organization_name: "", email: "cmcdonal@cityofwestminster.us", phone: ""}
+    contacts << { city_name: "", first_name: "Chad ", last_name: "	Meinert", title: "", organization_name: "", email: "cmeinert@cityofgolden.net", phone: ""}
+    contacts << { city_name: "", first_name: "Cheryl ", last_name: "	Powell", title: "", organization_name: "", email: "cpowell@town.milliken.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Cristie ", last_name: "	Martin", title: "", organization_name: "", email: "cristie@communityenterprise.net", phone: ""}
+    contacts << { city_name: "", first_name: "Dan ", last_name: "	McKenna", title: "", organization_name: "", email: "daniel.mckenna@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Deirdre ", last_name: "	Oss", title: "", organization_name: "", email: "deirdre.oss@denvergov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Melanie ", last_name: "	Peterson", title: "", organization_name: "", email: "Director@bennettrec.org", phone: ""}
+    contacts << { city_name: "", first_name: "Drew ", last_name: "	O'Connor", title: "", organization_name: "", email: "drew@civiccanopy.org", phone: ""}
+    contacts << { city_name: "", first_name: "Anne ", last_name: "	Warhover", title: "", organization_name: "", email: "dwallis@ColoradoHealth.org", phone: ""}
+    contacts << { city_name: "", first_name: "Ed ", last_name: "	McMahon", title: "", organization_name: "", email: "Ed.McMahon@uli.org", phone: ""}
+    contacts << { city_name: "", first_name: "Emily ", last_name: "	Snyder", title: "", organization_name: "", email: "Emily.Snyder@denvergov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Eric ", last_name: "	Whitney", title: "", organization_name: "", email: "ericreporter@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Erin ", last_name: "	Mooney", title: "", organization_name: "", email: "erin@communityenterprise.net", phone: ""}
+    contacts << { city_name: "", first_name: "Libby ", last_name: "	Tart-Schoenfelder", title: "", organization_name: "", email: "etart@auroragov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Erich ", last_name: "	WonSavage", title: "", organization_name: "", email: "ewonsavage@littletongov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Jan ", last_name: "	Oen", title: "", organization_name: "", email: "jan.oen@juno.com", phone: ""}
+    contacts << { city_name: "", first_name: "Jeff ", last_name: "	Shroll", title: "", organization_name: "", email: "jeff@townofgypsum.com", phone: ""}
+    contacts << { city_name: "", first_name: "Jeff ", last_name: "	Layman", title: "", organization_name: "", email: "jefflayman@eaglevail.org", phone: ""}
+    contacts << { city_name: "", first_name: "Karen ", last_name: "	Scopel", title: "", organization_name: "", email: "Karen.Scopel@Greeleygov.com", phone: ""}
+    contacts << { city_name: "", first_name: "Karen ", last_name: "	Widomski", title: "", organization_name: "", email: "karen.widomski@cityofthornton.net", phone: ""}
+    contacts << { city_name: "", first_name: "Leslie ", last_name: "	Levine", title: "", organization_name: "", email: "leslielevine@livewellcolorado.org", phone: ""}
+    contacts << { city_name: "", first_name: "Larry ", last_name: "	Wolk", title: "", organization_name: "", email: "linda.ward@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Lisa ", last_name: "	Schott", title: "", organization_name: "", email: "lisa@communityenterprise.net", phone: ""}
+    contacts << { city_name: "", first_name: "Barb ", last_name: "	Parnell", title: "", organization_name: "", email: "livewellbparnell@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Lisa ", last_name: "	Malde", title: "", organization_name: "", email: "lmalde@chaffeecounty.org", phone: ""}
+    contacts << { city_name: "", first_name: "Mary Beth", last_name: "Powell", title: "", organization_name: "", email: "marybeth_powell@activelivingbydesign.org", phone: ""}
+    contacts << { city_name: "", first_name: "Meggan ", last_name: "	Pickner", title: "", organization_name: "", email: "megganpickner@livewellcolorado.org", phone: ""}
+    contacts << { city_name: "", first_name: "Meighen ", last_name: "	Lovelace", title: "", organization_name: "", email: "meighen.vail@hotmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Michael ", last_name: "	Yerman", title: "", organization_name: "", email: "Michael.Yerman@CityofSalida.com", phone: ""}
+    contacts << { city_name: "", first_name: "Mina ", last_name: "	Liebert", title: "", organization_name: "", email: "mliebert@ppymca.org", phone: ""}
+    contacts << { city_name: "", first_name: "Marcie ", last_name: "	Miller", title: "", organization_name: "", email: "mmiller@cityofgolden.net", phone: ""}
+    contacts << { city_name: "", first_name: "Marc ", last_name: "	Williams", title: "", organization_name: "", email: "mwilliams@arvada.org", phone: ""}
+    contacts << { city_name: "", first_name: "Nicole ", last_name: "	Nicoletta", title: "", organization_name: "", email: "nicolettaward3@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Nicki ", last_name: "	Leo", title: "", organization_name: "", email: "NLeo@CityofWestminster.us", phone: ""}
+    contacts << { city_name: "", first_name: "Noelle ", last_name: "	Melchizedek", title: "", organization_name: "", email: "noelle@stapletonfoundation.org", phone: ""}
+    contacts << { city_name: "", first_name: "Debbie ", last_name: "	Ortega", title: "", organization_name: "", email: "OrtegaAtLarge@denvergov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Rita ", last_name: "	McConnell", title: "", organization_name: "", email: "rmcconnell@arvada.org", phone: ""}
+    contacts << { city_name: "", first_name: "Shannon ", last_name: "	Spurlock", title: "", organization_name: "", email: "shannon@dug.org", phone: ""}
+    contacts << { city_name: "", first_name: "Sarah ", last_name: "	Porter Osborn", title: "", organization_name: "", email: "spo@me.com", phone: ""}
+    contacts << { city_name: "", first_name: "Theresa ", last_name: "Young", title: "", organization_name: "", email: "Theresa.D.Young@kp.org", phone: ""}
+    contacts << { city_name: "", first_name: "Tom ", last_name: "	Massey", title: "", organization_name: "", email: "tom.massey@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Tracy ", last_name: "	Weidt", title: "", organization_name: "", email: "wiedt@nlc.org", phone: ""}
+    contacts << { city_name: "", first_name: "Lois ", last_name: "Ann", title: "", organization_name: "", email: "Onorato.lonorato52@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Aubrey ", last_name: "Hoover", title: "", organization_name: "", email: "ahoover@ppymca.org", phone: ""}
+    contacts << { city_name: "", first_name: "Erin ", last_name: "Quinn", title: "", organization_name: "", email: "ErinQ@townoffrisco.com", phone: ""}
+    contacts << { city_name: "", first_name: "Kristin ", last_name: "Kirkpatrick", title: "", organization_name: "", email: "kkirkpatrick@bellisimoinc.com", phone: ""}
+    contacts << { city_name: "", first_name: "Pamela ", last_name: "Gould", title: "", organization_name: "", email: "pgould@cityofgolden.net", phone: ""}
+    contacts << { city_name: "", first_name: "", last_name: "Dore", title: "Representative ", organization_name: "", email: "representativedore@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "", last_name: "Salazar", title: "Representative ", organization_name: "", email: "repsalazar31@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "", last_name: "May", title: "Representative ", organization_name: "", email: "jenise.may.house@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "", last_name: "Pabon", title: "Representative ", organization_name: "", email: "pabonforcolorado@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "", last_name: "Hodge", title: "Senator ", organization_name: "", email: "senmaryhodge@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "", last_name: "Herpin", title: "Senator ", organization_name: "", email: "bernie.herpin@outlook.com", phone: ""}
+    contacts << { city_name: "", first_name: "", last_name: "Fields", title: "Representative ", organization_name: "", email: "rhonda@rhondafields.com", phone: ""}
+    contacts << { city_name: "", first_name: "", last_name: "Ryden", title: "Representative ", organization_name: "", email: "su@suryden.com", phone: ""}
+    contacts << { city_name: "", first_name: "", last_name: "Lebsock", title: "Representative ", organization_name: "", email: "stevelebsock@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Alexis ", last_name: "Ulrich", title: "", organization_name: "", email: "alexis.ulrich@yahoo.com", phone: ""}
+    contacts << { city_name: "", first_name: "Pamela ", last_name: "Gould", title: "", organization_name: "", email: "pamelatgould@yahoo.com", phone: ""}
+    contacts << { city_name: "", first_name: "Carly ", last_name: "Lorentz", title: "", organization_name: "", email: "clorentz@ci.wheatridge.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Heather ", last_name: "Geyer", title: "", organization_name: "", email: "hgeyer@ci.wheatridge.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Erika ", last_name: "Wey", title: "", organization_name: "", email: "Erika.Wey@luhcares.org", phone: ""}
+    contacts << { city_name: "", first_name: "Rose ", last_name: "D. Chavez", title: "", organization_name: "", email: "rchavez@arvada.org", phone: ""}
+    contacts << { city_name: "", first_name: "Meghan ", last_name: "Marshall", title: "", organization_name: "", email: "Meghan.marshall@hhs.gov", phone: ""}
+    contacts << { city_name: "", first_name: "Rachel ", last_name: "A. Beason", title: "", organization_name: "", email: "Rachel.beason@hhs.gov", phone: ""}
+    contacts << { city_name: "", first_name: "Amber ", last_name: "K. Blake", title: "", organization_name: "", email: "Amber.blake@durangogov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Becky ", last_name: "Smith", title: "", organization_name: "", email: "bsmith@northglenn.org", phone: ""}
+    contacts << { city_name: "", first_name: "Mary ", last_name: "Masini", title: "", organization_name: "", email: "marmas@lakewood.org", phone: ""}
+    contacts << { city_name: "", first_name: "John ", last_name: "Pick", title: "", organization_name: "", email: "manager@northglenn.org", phone: ""}
+    contacts << { city_name: "", first_name: "Sheila ", last_name: "Berger", title: "", organization_name: "", email: "sheila.berger@durangogov.org", phone: ""}
+    contacts << { city_name: "", first_name: "Geri ", last_name: "Montoya", title: "", organization_name: "", email: "gmontoya@mzlfh.com", phone: ""}
+    contacts << { city_name: "", first_name: "Dawn ", last_name: "Marsh", title: "", organization_name: "", email: "dmarsh@ci.la-junta.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Tanya ", last_name: "Wheeler-Berliner", title: "", organization_name: "", email: "tanyawheelerberliner@livewellcolorado.org", phone: ""}
+    contacts << { city_name: "", first_name: "Liz ", last_name: "DeJongh", title: "", organization_name: "", email: "dejongh.elizabeth@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Jill ", last_name: "Asrael", title: "", organization_name: "", email: "Jill.T.Asrael@kp.org", phone: ""}
+    contacts << { city_name: "", first_name: "Patrick ", last_name: "Goff", title: "", organization_name: "", email: "pgoff@ci.wheatridge.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Hilary ", last_name: "Miller", title: "", organization_name: "", email: "hilarymiller@livewellcolorado.org", phone: ""}
+    contacts << { city_name: "", first_name: "Tom ", last_name: "Baker", title: "", organization_name: "", email: "tbaker@newcastlecolorado.org", phone: ""}
+    contacts << { city_name: "", first_name: "Jennifer ", last_name: "Henninger", title: "", organization_name: "", email: "jhenninger@ci.sheridan.co.us", phone: ""}
+    contacts << { city_name: "Arvada", first_name: "Jessica", last_name: "Prosser", title: "Sustainability Coordinator", organization_name: "City of Arvada", email: "jprosser@arvada.org", phone: ""}
+    contacts << { city_name: "Arvada", first_name: "Rose", last_name: "Chavez", title: "Healthy Places Coordinator", organization_name: "City of Arvada", email: "rchavez@arvada.org", phone: "720-898-7535"}
+    contacts << { city_name: "Aurora", first_name: "Molly", last_name: "Markert", title: "Council Member", organization_name: "City of Aurora", email: "mmarkert@auroragov.org", phone: ""}
+    contacts << { city_name: "Aurora", first_name: "Karen", last_name: "Hancock", title: "Planning Staff", organization_name: "City of Aurora", email: "khancock@auroragov.org", phone: ""}
+    contacts << { city_name: "Aurora", first_name: "Nancy", last_name: "Freed", title: "Deputy City Manager", organization_name: "City of Aurora", email: "nfreed@auroragov.org", phone: ""}
+    contacts << { city_name: "Aurora", first_name: "Suzanne", last_name: "Hahn", title: "Compensation & Employment Benefits", organization_name: "City of Aurora", email: "shahn@auroragov.org ", phone: "303-739-7232"}
+    contacts << { city_name: "Bennett", first_name: "Charles", last_name: "Bayley", title: "Mayor Pro Tem", organization_name: "City of Bennett", email: "CBayley@bennett.co.us", phone: ""}
+    contacts << { city_name: "Bennett", first_name: "Lynette", last_name: "White", title: "Town Clerk", organization_name: "City of Bennett", email: "lwhite@bennett.co.us", phone: ""}
+    contacts << { city_name: "Bennett", first_name: "Trish", last_name: "Stiles", title: "Acting Town Admin.", organization_name: "City of Bennett", email: "tstiles@bennett.co.us", phone: ""}
+    contacts << { city_name: "Brush", first_name: "Vicky", last_name: "Quinlin", title: "Council Member", organization_name: "City of Brush", email: "VQuinlin@EbenEzer-cares.org", phone: ""}
+    contacts << { city_name: "Brush", first_name: "Monty", last_name: "Torres", title: "Town Administrator", organization_name: "City of Brush", email: "mtorres@brushcolo.com", phone: ""}
+    contacts << { city_name: "Buena Vista", first_name: "Kathryn", last_name: "Wadsworth", title: "Rec Director", organization_name: "City of Buena Vista", email: "recdirector@buenavistaco.gov", phone: ""}
+    contacts << { city_name: "Commerce City", first_name: "Rene", last_name: "Bullock", title: "Mayor Pro Tem", organization_name: "City of Commerce City", email: "rbullock@c3gov.com", phone: ""}
+    contacts << { city_name: "Commerce City", first_name: "Michelle", last_name: "Halstead", title: "Communications Dir.", organization_name: "City of Commerce City", email: "mhalstead@c3gov.com", phone: ""}
+    contacts << { city_name: "Commerce City", first_name: "Carolyn", last_name: "J. Keith", title: "Director of Parks and Recreation", organization_name: "City of Commerce City", email: "ckeith@c3gov.com", phone: "303.289.3691"}
+    contacts << { city_name: "Cortez", first_name: "Shane", last_name: "Hale", title: "City Manager", organization_name: "City of Cortez", email: "shane_hale@hotmail.com", phone: ""}
+    contacts << { city_name: "Cortez", first_name: "Bob", last_name: "Archibeque", title: "Council Member", organization_name: "City of Cortez", email: "", phone: ""}
+    contacts << { city_name: "Denver", first_name: "Gretchen", last_name: "Armijo", title: "Food Access Progrm Administrator", organization_name: "City of Denver", email: "Gretchen.Armijo@denvergov.org", phone: ""}
+    contacts << { city_name: "Denver", first_name: "Mondi", last_name: "Mason", title: "Denver Environmental Health", organization_name: "City of Denver", email: "mondi.mason@denvergov.org", phone: ""}
+    contacts << { city_name: "Durango", first_name: "Amber", last_name: "Blake", title: "Multi Modal Administrator", organization_name: "City of Durango", email: "Amber.blake@durangogov.org ", phone: ""}
+    contacts << { city_name: "Frederick", first_name: "Meghan", last_name: "Martinez", title: "Town Clerk", organization_name: "City of Frederick", email: "MMartinez@frederickco.gov", phone: ""}
+    contacts << { city_name: "Golden", first_name: "Julie", last_name: "Brooks", title: "Education and Healthy Communities Coord", organization_name: "City of Golden", email: "JBrooks@cityofgolden.net", phone: "303-384-8013"}
+    contacts << { city_name: "Golden", first_name: "Pamela", last_name: "Gould", title: "Council Member", organization_name: "City of Golden", email: "pgould@cityofgolden.net", phone: ""}
+    contacts << { city_name: "Ignacio", first_name: "", last_name: "", title: "", organization_name: "City of Ignacio", email: "", phone: ""}
+    contacts << { city_name: "Lafayette", first_name: "Debbie", last_name: "Wilmot", title: "PIO", organization_name: "City of Lafayette", email: "debbiew@cityoflafayette.com", phone: ""}
+    contacts << { city_name: "La Junta", first_name: "Dawn", last_name: "Marsh", title: "", organization_name: "City of La Junta", email: "dmarsh@ci.la-junta.co.us", phone: ""}
+    contacts << { city_name: "Lakewood", first_name: "Mary", last_name: "Masini", title: "Strategic Initiatives Manager", organization_name: "City of Lakewood", email: "marmas@lakewood.org", phone: ""}
+    contacts << { city_name: "Lamar", first_name: "John", last_name: "Sutherland", title: "City Manager", organization_name: "City of Lamar", email: "john.sutherland@ci.lamar.co.us", phone: ""}
+    contacts << { city_name: "Leadville", first_name: "Jaime", last_name: "Stuever", title: "Mayor", organization_name: "City of Leadville", email: "lvmayor@leadville-co.gov", phone: "719-486-2571"}
+    contacts << { city_name: "Leadville", first_name: "Amanda", last_name: "Redd", title: "Administrative Services Mgr.", organization_name: "City of Leadville", email: "adminservices@leadville-co.gov", phone: "719-486-2092"}
+    contacts << { city_name: "Leadville", first_name: "Colleen", last_name: "Nielson", title: "Lake County Pub Health Dir.", organization_name: "City of Leadville", email: "cnielsen@co.lake.co.us", phone: ""}
+    contacts << { city_name: "Littleton", first_name: "Mike", last_name: "Braaten", title: "Deputy City Mgr", organization_name: "City of Littleton", email: "mbraaten@littletongov.org", phone: ""}
+    contacts << { city_name: "Littleton", first_name: "Kelli", last_name: "Narde", title: "Communications Dir.", organization_name: "City of Littleton", email: "knarde@littletongov.org", phone: ""}
+    contacts << { city_name: "Lone Tree", first_name: "Torie", last_name: "Brazitis", title: "", organization_name: "City of Lone Tree", email: "torie.brazitis@cityoflonetree.com", phone: ""}
+    contacts << { city_name: "Manitou Springs", first_name: "Coreen", last_name: "Toll", title: "Council Member", organization_name: "City of Manitou Springs", email: "ctoll@comsgov.com", phone: ""}
+    contacts << { city_name: "Manitou Springs", first_name: "Jack", last_name: "Benson", title: "City Administrator", organization_name: "City of Manitou Springs", email: "jbenson@comsgov.com", phone: ""}
+    contacts << { city_name: "Manitou Springs", first_name: "Marc", last_name: "Snyder", title: "Mayor", organization_name: "City of Manitou Springs", email: "msnyder@comsgov.com", phone: ""}
+    contacts << { city_name: "Manitou Springs", first_name: "Ken", last_name: "Jaray", title: "Peak Living Project", organization_name: "City of Manitou Springs", email: "ken@jaraywebsterlaw.com", phone: ""}
+    contacts << { city_name: "Milliken", first_name: "Anne", last_name: "Johnson", title: "Community Dev Director", organization_name: "City of Milliken", email: "annejohnson@town.milliken.co.us", phone: "970-660-5046"}
+    contacts << { city_name: "New Castle", first_name: "Tom", last_name: "Baker", title: "City Manager", organization_name: "City of New Castle", email: "tbaker@newcastlecolorado.org ", phone: ""}
+    contacts << { city_name: "Northglenn", first_name: "John", last_name: "Pick", title: "City Manager", organization_name: "City of Northglenn", email: "manager@northglenn.org", phone: "303-450-8706"}
+    contacts << { city_name: "Northglenn", first_name: "Becky", last_name: "Smith", title: "Planner", organization_name: "City of Northglenn", email: "bsmith@northglenn.org", phone: "303-450-8741"}
+    contacts << { city_name: "Oak Creek", first_name: "Mary", last_name: "Alice Page-Allen", title: "Town Administrator and Clerk", organization_name: "City of Oak Creek", email: "maryalice@townofoakcreek.com", phone: ""}
+    contacts << { city_name: "Oak Creek", first_name: "Nikki", last_name: "Knoebel", title: "Mayor", organization_name: "City of Oak Creek", email: "nknoebel@catamountranchclub.com", phone: ""}
+    contacts << { city_name: "Pueblo", first_name: "Katie", last_name: "Davis", title: "Program Manager/Epidemiologist", organization_name: "City of Pueblo", email: "katie.davis@co.pueblo.co.us", phone: "719-583-4432"}
+    contacts << { city_name: "Pueblo", first_name: "Ami", last_name: "Nawrocki", title: "Council Member", organization_name: "City of Pueblo", email: "anawrocki@pueblo.us", phone: ""}
+    contacts << { city_name: "Salida", first_name: "Emily", last_name: "Katsimpalis", title: "Administrative Intern ", organization_name: "City of Salida", email: "emily.katsimpalis@cityofsalida.com", phone: "719-530-2628"}
+    contacts << { city_name: "Sheridan", first_name: "Jennifer", last_name: "Henninger", title: "Planning Consultant", organization_name: "City of Sheridan", email: "jhenninger@ci.sheridan.co.us", phone: "303-961-2623"}
+    contacts << { city_name: "Sheridan", first_name: "Devin", last_name: "Granbery", title: "City Manager", organization_name: "City of Sheridan", email: "dgranbery@ci.sheridan.co.us", phone: ""}
+    contacts << { city_name: "Steamboat Springs", first_name: "Jennifer", last_name: "Valora", title: "Human Resources", organization_name: "City of Steamboat Springs", email: "jvalora@steamboatsprings.net", phone: ""}
+    contacts << { city_name: "Thornton", first_name: "Heidi", last_name: "Williams", title: "Mayor", organization_name: "City of Thornton", email: "heidi.williams@cityofthornton.net", phone: ""}
+    contacts << { city_name: "Thornton", first_name: "Jack", last_name: "Ethridge", title: "City Manager", organization_name: "City of Thornton", email: "Jack.ethredge@cityofthornton.net", phone: ""}
+    contacts << { city_name: "Thornton", first_name: "Glenda", last_name: "Lainis", title: "Policy Planning Manager", organization_name: "City of Thornton", email: "glenda.lainis@cityofthornton.net", phone: "303-538-7438"}
+    contacts << { city_name: "Thornton", first_name: "Nancy", last_name: "Vincent", title: "City Clerk", organization_name: "City of Thornton", email: "Nancy.Vincent@cityofthornton.net", phone: "303-538-7223"}
+    contacts << { city_name: "Trinidad", first_name: "Bernadette", last_name: "Gonzalez", title: "Mayor", organization_name: "City of Trinidad", email: "bg81082@gmail.com bacagonzalez@gmail.com", phone: ""}
+    contacts << { city_name: "Trinidad", first_name: "Tara", last_name: "Marshall", title: "", organization_name: "City of Trinidad", email: "tara.marshall@trinidad.co.us", phone: ""}
+    contacts << { city_name: "Yuma ", first_name: "Sid", last_name: "Fleming", title: "City Manager", organization_name: "City of Yuma ", email: "s.fleming@yumacolo.org", phone: "970-848-3878 x2107"}
+    contacts << { city_name: "Westminster", first_name: "Steve", last_name: "Smithers", title: "Deputy City Manger", organization_name: "City of Westminster", email: "SSmither@CityofWestminster.us", phone: "303-658-2014 "}
+    contacts << { city_name: "Westminster", first_name: "Barbara", last_name: "Giedraitis", title: "Recreation Superintendent", organization_name: "City of Westminster", email: "BGiedrai@CityofWestminster.us", phone: ""}
+    contacts << { city_name: "Wheat Ridge", first_name: "Patrick", last_name: "Goff", title: "City Manager", organization_name: "City of Wheat Ridge", email: "pgoff@ci.wheatridge.co.us", phone: ""}
+    contacts << { city_name: "Wheat Ridge", first_name: "Heather", last_name: "Geyer", title: "Administratvie Services Director", organization_name: "City of Wheat Ridge", email: "hgeyer@ci.wheatridge.co.us)", phone: ""}
+    contacts << { city_name: "Wheat Ridge", first_name: "Carly", last_name: "Lorentz", title: "Administrative Support Technician", organization_name: "City of Wheat Ridge", email: "clorentz@ci.wheatridge.co.us", phone: ""}
+    contacts << { city_name: "Wiley", first_name: "Allen", last_name: "Campbell", title: "Mayor", organization_name: "City of Wiley", email: "", phone: "719-829-4559"}
+    contacts << { city_name: "Wiley", first_name: "Debbie", last_name: "Dillon", title: "Town Clerk", organization_name: "City of Wiley", email: "wileytown@centurytel.net", phone: ""}
+    contacts << { city_name: "", first_name: "Andy ", last_name: "Hill", title: "Dir., Community Development", organization_name: "Colorado Dept. of Local Affairs", email: "andy.hill@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Sam ", last_name: "Mamet", title: "Executive Director", organization_name: "Colorado Municipal League", email: "smamet@cml.org", phone: ""}
+    contacts << { city_name: "", first_name: "Lisa ", last_name: "White", title: "Membership Sevices Manager", organization_name: "Colorado Municipal League", email: "lwhite@cml.org", phone: ""}
+    contacts << { city_name: "", first_name: "Christine ", last_name: "Taniguchi", title: "Communications Coordinator", organization_name: "Colorado Municipal League", email: "ctaniguchi@cml.org", phone: ""}
+    contacts << { city_name: "", first_name: "Carmen ", last_name: "Martin", title: "Senior Community Health Specialist ", organization_name: "Kaiser Permanente", email: "Carmen.R.Martin@kp.org", phone: ""}
+    contacts << { city_name: "", first_name: "Corina ", last_name: "Lindley", title: "Community Benefit Healthy Communities and Schools Manager ", organization_name: "Kaiser Permanente", email: "Corina.Lindley@kp.org", phone: ""}
+    contacts << { city_name: "", first_name: "Tristan ", last_name: "Sanders", title: "Evaluation Analyst ", organization_name: "Kaiser Permanente", email: "tristan.sanders@kp.org", phone: ""}
+    contacts << { city_name: "", first_name: "Alexis ", last_name: "Weightman", title: "Senior Public Policy Officer", organization_name: "TCHF", email: "aweightman@ColoradoHealth.org", phone: ""}
+    contacts << { city_name: "", first_name: "Kyle ", last_name: "Legleiter", title: "", organization_name: "TCHF", email: "klegleiter@coloradohealth.org", phone: ""}
+    contacts << { city_name: "", first_name: "Hillary ", last_name: "Fulton ", title: "Program Officer", organization_name: "TCHF", email: "hfulton@ColoradoHealth.org", phone: ""}
+    contacts << { city_name: "", first_name: "Khanh ", last_name: "Nguyen ", title: "Portfolio Director", organization_name: "TCHF", email: "knguyen@coloradohealth.org", phone: ""}
+    contacts << { city_name: "", first_name: "Shepard ", last_name: "Nevel", title: "VP Policy, Evaluation and Communications", organization_name: "TCHF", email: "snevel@coloradohealth.org", phone: ""}
+    contacts << { city_name: "", first_name: "Charlotte ", last_name: "Dickson", title: "Director, HEAL Cities Campaign", organization_name: "California HEAL Cities", email: "cd@publichealthadvocacy.org", phone: ""}
+    contacts << { city_name: "", first_name: "Kanat ", last_name: "Tibet", title: "Policy Director, HEAL Cities Campaign", organization_name: "California HEAL Cities", email: "kt@publichealthadvocacy.org", phone: ""}
+    contacts << { city_name: "", first_name: "Marisa ", last_name: "Jones", title: "Program Associate", organization_name: "Mid Atlantic HEAL Cities & Towns", email: "mjones@institutephi.org", phone: ""}
+    contacts << { city_name: "", first_name: "Beth ", last_name: "Kaye", title: "Program Manager", organization_name: "Oregon HEAL Cities", email: "bethkaye@orphi.org", phone: ""}
+    contacts << { city_name: "", first_name: "Michelle ", last_name: "Haugh", title: "Worksite Wellness Coordinator", organization_name: "Tri County Health", email: "mhaugh@tchd.org", phone: ""}
+    contacts << { city_name: "", first_name: "Shawna ", last_name: "Golden", title: "Senior Director of Communications", organization_name: "Ground Floor Media", email: "sgolden@groundfloormedia.com", phone: ""}
+    contacts << { city_name: "", first_name: "Kimberly ", last_name: "Langston", title: "", organization_name: "Ground Floor Media", email: "KLangston@groundfloormedia.com", phone: ""}
+    contacts << { city_name: "", first_name: "Jill ", last_name: "Petersen", title: "", organization_name: "Ground Floor Media", email: "jpetersen@groundfloormedia.com", phone: ""}
+    contacts << { city_name: "", first_name: "Bob ", last_name: "Roman", title: "Owner", organization_name: "Fireant", email: "broman@fireantstudio.com", phone: ""}
+    contacts << { city_name: "", first_name: "Lauren ", last_name: "Baker ", title: "", organization_name: "Fireant", email: "lbaker@fireantstudio.com", phone: ""}
+    contacts << { city_name: "", first_name: "Susan ", last_name: "Motika", title: "", organization_name: "CDPHE", email: "susan.motika@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Beth ", last_name: "Wyatt", title: "", organization_name: "CDPHE", email: " beth.wyatt@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Emily ", last_name: "Fields", title: "", organization_name: "CDPHE", email: "emily.fields@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Shale ", last_name: "Wong", title: "", organization_name: "RWJF", email: "Shale.Wong@ucdenver.edu", phone: ""}
+    contacts << { city_name: "", first_name: "Wendy ", last_name: "Peters Moschetti", title: "", organization_name: "WPM", email: "wendy@wpmconsulting.net", phone: ""}
+    contacts << { city_name: "", first_name: "Rene ", last_name: "Doubleday", title: "", organization_name: "RD Consulting", email: "doubleday.rene@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Jacqueline ", last_name: "Ciccio Murphy", title: "Senior Consultant for Public Libraries and Community Development", organization_name: "State Library", email: "Murphy_J@cde.state.co.us  303.866.6891 ", phone: ""}
+    contacts << { city_name: "", first_name: "Erica ", last_name: "Heller", title: "Senior Associate", organization_name: "P.U.M.A.", email: "erica@pumaworldhq.com", phone: ""}
+    contacts << { city_name: "", first_name: "Anna ", last_name: "Jones", title: "Vice President", organization_name: "P.U.M.A.", email: "anna@pumaworldhq.com", phone: ""}
+    contacts << { city_name: "", first_name: "Erin ", last_name: "Laetz", title: "Associate", organization_name: "P.U.M.A.", email: "erin@pumaworldhq.com", phone: ""}
+    contacts << { city_name: "", first_name: "Patricia ", last_name: "Brewster-Willeke", title: "Co-Director", organization_name: "Rural Communities Resource Center", email: "pbrewsterwilleke@hotmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Katherine ", last_name: "Blair", title: "", organization_name: "Governor's Office", email: "", phone: ""}
+    contacts << { city_name: "", first_name: "Danny ", last_name: "Katz", title: "State Director", organization_name: "CoPIRG", email: "danny@copirg.org", phone: ""}
+    contacts << { city_name: "", first_name: "Elise ", last_name: "Lubell", title: "Dir., Health Promotion & Lifestyle Management Division", organization_name: "Jeffco Public Health", email: "elubell@jeffco.us", phone: ""}
+    contacts << { city_name: "", first_name: "Molly ", last_name: "Hanson", title: "", organization_name: "Jeffco Public Health", email: "mhanson@co.jefferson.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "John ", last_name: "Simmerman", title: "", organization_name: "Active Towns", email: "john@activetowns.org", phone: ""}
+    contacts << { city_name: "", first_name: "Ted ", last_name: "Heyd", title: "Regional Policy Director", organization_name: "Bicycle Colorado", email: "Ted@bicyclecolorado.org", phone: ""}
+    contacts << { city_name: "", first_name: "Leila ", last_name: "Schaub", title: "", organization_name: "Bennett Parks and Rec District", email: "lschaub@bennettrec.org", phone: ""}
+    contacts << { city_name: "", first_name: "Karen ", last_name: "Bryant", title: "Chief Operating Officer", organization_name: "Prowers Medical Center", email: "karen.bryant@prowersmedical.com", phone: ""}
+
+    dbi_lvc = Heal::DatabaseInstance.find_by(instance_name: LVC_DATABASE_INSTANCE_NAME)
+
+    initial_count = dbi_lvc.contacts.count
+    if initial_count > 0
+      puts "LiveWell Colorado database already has contacts in it. Quitting."
+    else
+
+      contacts.each do |c|
+        contact = Heal::Contact.new
+
+        if c[:honorific].present? and c[:honorific] != ""
+          honorific = dbi_lvc.honorifics.find_by(name: c[:honorific])
+          contact.honorific_id = honorific.id if honorific.present?
+        end
+
+        if c[:city_name].present? and c[:city_name] != ""
+          city = dbi_lvc.cities.find_by(name: c[:city_name])
+          contact.cities.add(city) if city.present?
+        end
+
+        contact.first_name = c[:first_name].strip
+        contact.last_name = c[:last_name].strip
+        contact.title = c[:title].strip
+        contact.organization_name = c[:organization_name].strip
+        contact.office_phone_number = c[:phone].strip
+        contact.email = c[:email].strip
+
+        contact.database_instance = dbi_lvc
+
+        puts contact.errors.inspect unless contact.save
+      end
+
+      final_count = dbi_lvc.contacts.count
+      number_added = final_count - initial_count
+      error_count = contacts.count - (number_added)
+      puts "Added #{number_added} contacts to the LiveWell Colorado HEAL Cities database. There were #{error_count} errors."
     end
   end
 end
