@@ -2,7 +2,7 @@ namespace :heal do
   IPHI_DATABASE_INSTANCE_NAME = "IPHI-test"
   CCPHA_DATABASE_INSTANCE_NAME = "CCPHA-test"
   OPHI_DATABASE_INSTANCE_NAME = "OPHI-test"
-  LVC_DATABASE_INSTANCE_NAME = "LiveWell-test"
+  LVC_DATABASE_INSTANCE_NAME = "LiveWell Colorado"
 
 
   DEFAULT_USER_PASSWORD = 'testing'
@@ -2867,12 +2867,14 @@ namespace :heal do
     if initial_count > 0
       puts "LiveWell Colorado database already has cities in it. Quitting."
     else
+      jt = dbi_lvc.jurisdiction_types.find_by(name: "City")
 
       cities.each do |c|
         city = Heal::City.new
 
         city.name = c[:name]
         city.state = c[:state]
+        city.jurisdiction_type = jt
 
         #assume it's in the service territory, unless told otherwise
         city.kp_service_area = true
@@ -2997,7 +2999,7 @@ namespace :heal do
     contacts << { city_name: "", first_name: "Christine ", last_name: "Taniguchi", title: "", organization_name: "", email: "ctaniguchi@cml.org", phone: ""}
     contacts << { city_name: "", first_name: "Corina ", last_name: "Lindley", title: "", organization_name: "", email: "Corina.Lindley@kp.org", phone: ""}
     contacts << { city_name: "", first_name: "Alexis ", last_name: "Weightman", title: "", organization_name: "", email: "aweightman@ColoradoHealth.org", phone: ""}
-    contacts << { city_name: "", first_name: "Kyle ", last_name: "Legleiter", title: "", organization_name: "", email: "klegleiter@coloradohealth.org", phone: ""}
+    contacts << { city_name: "", first_name: "Kyle", last_name: "Legleiter", title: "", organization_name: "", email: "klegleiter@coloradohealth.org", phone: ""}
     contacts << { city_name: "", first_name: "Hillary ", last_name: "Fulton", title: "", organization_name: "", email: "hfulton@ColoradoHealth.org", phone: ""}
     contacts << { city_name: "", first_name: "Khanh ", last_name: "Nguyen", title: "", organization_name: "", email: "knguyen@coloradohealth.org", phone: ""}
     contacts << { city_name: "", first_name: "Charlotte ", last_name: "Dickson", title: "", organization_name: "", email: "cd@publichealthadvocacy.org", phone: ""}
@@ -3077,7 +3079,7 @@ namespace :heal do
     contacts << { city_name: "", first_name: "Lindsay" , last_name: "Ex", title: "", organization_name: "", email: "lex@fcgov.com", phone: ""}
     contacts << { city_name: "", first_name: "Barbara" , last_name: "Giedraitis", title: "", organization_name: "", email: "BGiedrai@CityofWestminster.us", phone: ""}
     contacts << { city_name: "", first_name: "Kim", last_name: "Grant", title: "", organization_name: "", email: "kgrant@arvada.org", phone: ""}
-    contacts << { city_name: "", first_name: "Indira ", last_name: "Gujral, title: ", organization_name: "", email: "indira.gujral@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Indira ", last_name: "Gujral", title: "", organization_name: "", email: "indira.gujral@state.co.us", phone: ""}
     contacts << { city_name: "", first_name: "Maritza ", last_name: "	Gutierrez", title: "", organization_name: "", email: "maritza@communityenterprise.net", phone: ""}
     contacts << { city_name: "", first_name: "Millie ", last_name: "	Hamner", title: "", organization_name: "", email: "rephamner@gmail.com", phone: ""}
     contacts << { city_name: "", first_name: "Pam ", last_name: "	Heimbach", title: "", organization_name: "", email: "pheimbach@cityofgolden.net", phone: ""}
@@ -3137,15 +3139,15 @@ namespace :heal do
     contacts << { city_name: "", first_name: "Erin ", last_name: "Quinn", title: "", organization_name: "", email: "ErinQ@townoffrisco.com", phone: ""}
     contacts << { city_name: "", first_name: "Kristin ", last_name: "Kirkpatrick", title: "", organization_name: "", email: "kkirkpatrick@bellisimoinc.com", phone: ""}
     contacts << { city_name: "", first_name: "Pamela ", last_name: "Gould", title: "", organization_name: "", email: "pgould@cityofgolden.net", phone: ""}
-    contacts << { city_name: "", first_name: "", last_name: "Dore", title: "Representative ", organization_name: "", email: "representativedore@gmail.com", phone: ""}
-    contacts << { city_name: "", first_name: "", last_name: "Salazar", title: "Representative ", organization_name: "", email: "repsalazar31@gmail.com", phone: ""}
-    contacts << { city_name: "", first_name: "", last_name: "May", title: "Representative ", organization_name: "", email: "jenise.may.house@state.co.us", phone: ""}
-    contacts << { city_name: "", first_name: "", last_name: "Pabon", title: "Representative ", organization_name: "", email: "pabonforcolorado@gmail.com", phone: ""}
-    contacts << { city_name: "", first_name: "", last_name: "Hodge", title: "Senator ", organization_name: "", email: "senmaryhodge@gmail.com", phone: ""}
-    contacts << { city_name: "", first_name: "", last_name: "Herpin", title: "Senator ", organization_name: "", email: "bernie.herpin@outlook.com", phone: ""}
-    contacts << { city_name: "", first_name: "", last_name: "Fields", title: "Representative ", organization_name: "", email: "rhonda@rhondafields.com", phone: ""}
-    contacts << { city_name: "", first_name: "", last_name: "Ryden", title: "Representative ", organization_name: "", email: "su@suryden.com", phone: ""}
-    contacts << { city_name: "", first_name: "", last_name: "Lebsock", title: "Representative ", organization_name: "", email: "stevelebsock@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Timothy", last_name: "Dore", title: "Representative ", organization_name: "", email: "representativedore@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Joe", last_name: "Salazar", title: "Representative ", organization_name: "", email: "repsalazar31@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Jenise", last_name: "May", title: "Representative ", organization_name: "", email: "jenise.may.house@state.co.us", phone: ""}
+    contacts << { city_name: "", first_name: "Dan", last_name: "Pabon", title: "Representative ", organization_name: "", email: "pabonforcolorado@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Mary", last_name: "Hodge", title: "Senator ", organization_name: "", email: "senmaryhodge@gmail.com", phone: ""}
+    contacts << { city_name: "", first_name: "Bernie", last_name: "Herpin", title: "Senator ", organization_name: "", email: "bernie.herpin@outlook.com", phone: ""}
+    contacts << { city_name: "", first_name: "Rhonda", last_name: "Fields", title: "Representative ", organization_name: "", email: "rhonda@rhondafields.com", phone: ""}
+    contacts << { city_name: "", first_name: "Su", last_name: "Ryden", title: "Representative ", organization_name: "", email: "su@suryden.com", phone: ""}
+    contacts << { city_name: "", first_name: "Steve", last_name: "Lebsock", title: "Representative ", organization_name: "", email: "stevelebsock@gmail.com", phone: ""}
     contacts << { city_name: "", first_name: "Alexis ", last_name: "Ulrich", title: "", organization_name: "", email: "alexis.ulrich@yahoo.com", phone: ""}
     contacts << { city_name: "", first_name: "Pamela ", last_name: "Gould", title: "", organization_name: "", email: "pamelatgould@yahoo.com", phone: ""}
     contacts << { city_name: "", first_name: "Carly ", last_name: "Lorentz", title: "", organization_name: "", email: "clorentz@ci.wheatridge.co.us", phone: ""}
@@ -3191,7 +3193,6 @@ namespace :heal do
     contacts << { city_name: "Frederick", first_name: "Meghan", last_name: "Martinez", title: "Town Clerk", organization_name: "City of Frederick", email: "MMartinez@frederickco.gov", phone: ""}
     contacts << { city_name: "Golden", first_name: "Julie", last_name: "Brooks", title: "Education and Healthy Communities Coord", organization_name: "City of Golden", email: "JBrooks@cityofgolden.net", phone: "303-384-8013"}
     contacts << { city_name: "Golden", first_name: "Pamela", last_name: "Gould", title: "Council Member", organization_name: "City of Golden", email: "pgould@cityofgolden.net", phone: ""}
-    contacts << { city_name: "Ignacio", first_name: "", last_name: "", title: "", organization_name: "City of Ignacio", email: "", phone: ""}
     contacts << { city_name: "Lafayette", first_name: "Debbie", last_name: "Wilmot", title: "PIO", organization_name: "City of Lafayette", email: "debbiew@cityoflafayette.com", phone: ""}
     contacts << { city_name: "La Junta", first_name: "Dawn", last_name: "Marsh", title: "", organization_name: "City of La Junta", email: "dmarsh@ci.la-junta.co.us", phone: ""}
     contacts << { city_name: "Lakewood", first_name: "Mary", last_name: "Masini", title: "Strategic Initiatives Manager", organization_name: "City of Lakewood", email: "marmas@lakewood.org", phone: ""}
@@ -3240,7 +3241,7 @@ namespace :heal do
     contacts << { city_name: "", first_name: "Corina ", last_name: "Lindley", title: "Community Benefit Healthy Communities and Schools Manager ", organization_name: "Kaiser Permanente", email: "Corina.Lindley@kp.org", phone: ""}
     contacts << { city_name: "", first_name: "Tristan ", last_name: "Sanders", title: "Evaluation Analyst ", organization_name: "Kaiser Permanente", email: "tristan.sanders@kp.org", phone: ""}
     contacts << { city_name: "", first_name: "Alexis ", last_name: "Weightman", title: "Senior Public Policy Officer", organization_name: "TCHF", email: "aweightman@ColoradoHealth.org", phone: ""}
-    contacts << { city_name: "", first_name: "Kyle ", last_name: "Legleiter", title: "", organization_name: "TCHF", email: "klegleiter@coloradohealth.org", phone: ""}
+    contacts << { city_name: "", first_name: "Kyle", last_name: "Legleiter", title: "", organization_name: "TCHF", email: "klegleiter@coloradohealth.org", phone: ""}
     contacts << { city_name: "", first_name: "Hillary ", last_name: "Fulton ", title: "Program Officer", organization_name: "TCHF", email: "hfulton@ColoradoHealth.org", phone: ""}
     contacts << { city_name: "", first_name: "Khanh ", last_name: "Nguyen ", title: "Portfolio Director", organization_name: "TCHF", email: "knguyen@coloradohealth.org", phone: ""}
     contacts << { city_name: "", first_name: "Shepard ", last_name: "Nevel", title: "VP Policy, Evaluation and Communications", organization_name: "TCHF", email: "snevel@coloradohealth.org", phone: ""}
@@ -3280,36 +3281,55 @@ namespace :heal do
     if initial_count > 0
       puts "LiveWell Colorado database already has contacts in it. Quitting."
     else
+      duplicate_contacts = 0
+      error_list = []
 
       contacts.each do |c|
         contact = Heal::Contact.new
 
-        if c[:honorific].present? and c[:honorific] != ""
-          honorific = dbi_lvc.honorifics.find_by(name: c[:honorific])
-          contact.honorific_id = honorific.id if honorific.present?
+        first_name_stripped = c[:first_name].strip
+        last_name_stripped = c[:last_name].strip
+
+        #check if a contact of this first/last name already exists
+        #if so, don't add. List contains duplicates.
+        existing_contact = dbi_lvc.contacts.find_by(first_name: first_name_stripped, last_name: last_name_stripped)
+        if !existing_contact.nil?
+          duplicate_contacts += 1
+          #contact = existing_contact
+        else
+
+          #connect to a city, if one is listed.
+          if c[:city_name].present? and c[:city_name] != ""
+            city = dbi_lvc.cities.find_by(name: c[:city_name])
+            contact.cities << city if city.present?
+          end
+
+          if c[:honorific].present? and c[:honorific] != ""
+            honorific = dbi_lvc.honorifics.find_by(name: c[:honorific])
+            contact.honorific_id = honorific.id if honorific.present?
+          end
+
+          contact.first_name = first_name_stripped
+          contact.last_name = last_name_stripped
+          contact.title = c[:title].strip if c[:title].present? and c[:title] != ""
+          contact.organization_name = c[:organization_name].strip if c[:organization_name].present? and c[:organization_name] != ""
+          contact.office_phone_number = c[:phone].strip if c[:phone].present? and c[:phone] != ""
+          contact.email = c[:email].strip if c[:email].present? and c[:email] != ""
+
+          contact.database_instance = dbi_lvc
+
+          if not contact.save
+            puts contact.errors.inspect
+            error_list << contact.errors.inspect
+          end
         end
-
-        if c[:city_name].present? and c[:city_name] != ""
-          city = dbi_lvc.cities.find_by(name: c[:city_name])
-          contact.cities.add(city) if city.present?
-        end
-
-        contact.first_name = c[:first_name].strip
-        contact.last_name = c[:last_name].strip
-        contact.title = c[:title].strip
-        contact.organization_name = c[:organization_name].strip
-        contact.office_phone_number = c[:phone].strip
-        contact.email = c[:email].strip
-
-        contact.database_instance = dbi_lvc
-
-        puts contact.errors.inspect unless contact.save
       end
 
       final_count = dbi_lvc.contacts.count
       number_added = final_count - initial_count
-      error_count = contacts.count - (number_added)
-      puts "Added #{number_added} contacts to the LiveWell Colorado HEAL Cities database. There were #{error_count} errors."
+      error_count = contacts.count - (number_added) - duplicate_contacts
+      puts error_list
+      puts "Added #{number_added} contacts to the LiveWell Colorado HEAL Cities database. #{duplicate_contacts} duplicates were not added, and there were #{error_count} errors."
     end
   end
 end
