@@ -6,18 +6,18 @@ class Heal::ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    if request.format == :html
-      conditions_string, parameters_hash, join_tables = get_conditions
-      conditions = [conditions_string, parameters_hash]
+    conditions_string, parameters_hash, join_tables = get_conditions
+    conditions = [conditions_string, parameters_hash]
 
-      if join_tables.nil?
-        @contacts = current_db.contacts.where(get_conditions).order(:first_name, :last_name).page(params[:page]).per_page(page_size)
-      else
-        @contacts = current_db.contacts.joins(join_tables).where(conditions).order(:first_name, :last_name).page(params[:page]).per_page(page_size)
-      end
+    if join_tables.nil?
+      @contacts = current_db.contacts.where(get_conditions).order(:first_name, :last_name)
     else
-      #don't do paging if user is downloading as csv or xls.
-      @contacts = current_db.contacts.order(:first_name, :last_name)
+      @contacts = current_db.contacts.joins(join_tables).where(conditions).order(:first_name, :last_name)
+    end
+
+    if request.format == :html
+      #only do paging if in html format, not if in csv or in xls
+      @contacts = @contacts.page(params[:page]).per_page(page_size)
     end
     respond_to do |format|
       format.html

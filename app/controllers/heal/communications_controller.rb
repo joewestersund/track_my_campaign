@@ -11,11 +11,24 @@ class Heal::CommunicationsController < ApplicationController
     conditions = [conditions_string, parameters_hash]
 
     if join_tables.nil?
-      @communications = current_db.communications.where(conditions).order(date: :desc).page(params[:page]).per_page(page_size)
+      @communications = current_db.communications.where(conditions)
     else
-      @communications = current_db.communications.joins(join_tables).where(conditions).order(date: :desc).page(params[:page]).per_page(page_size)
+      @communications = current_db.communications.joins(join_tables).where(conditions)
     end
 
+    if request.format == :html
+      #only do paging if in html format, not if in csv or in xls
+      @communications = @communications.order(date: :desc).page(params[:page]).per_page(page_size)
+    else
+      # order by date ascending for xls and csv formats
+      @communications = @communications.order(:date)
+    end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @contacts.to_csv }
+      format.xls
+    end
   end
 
   # GET /communications/1

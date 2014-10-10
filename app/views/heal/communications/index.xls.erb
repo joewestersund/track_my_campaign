@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Communications">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Date</Data></Cell>
+        <Cell><Data ss:Type="String">Duration (minutes)</Data></Cell>
+        <Cell><Data ss:Type="String">Communication Type</Data></Cell>
+        <Cell><Data ss:Type="String">Event Name</Data></Cell>
+        <Cell><Data ss:Type="String">Topics</Data></Cell>
+        <Cell><Data ss:Type="String">Interest Level</Data></Cell>
+        <Cell><Data ss:Type="String">Cities Involved</Data></Cell>
+        <Cell><Data ss:Type="String">Contacts Involved</Data></Cell>
+        <Cell><Data ss:Type="String">Others Involved</Data></Cell>
+        <Cell><Data ss:Type="String">Staff Involved</Data></Cell>
+        <Cell><Data ss:Type="String">Notes</Data></Cell>
+      </Row>
+      <% @communications.each do |communication| %>
+        <Row>
+          <Cell><Data ss:Type="Number"><%= communication.id %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= communication.date.strftime("%m/%d/%Y") %></Data></Cell>
+          <Cell><Data ss:Type="Number"><%= communication.duration_minutes %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= communication.communication_type.name if communication.communication_type.present? %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= communication.event_name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= show_comma_separated_list(communication.topics.all, "topics") %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= communication.interest_level.name if communication.interest_level.present? %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= show_cities_list(communication.cities,{show_all: true}) %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= show_contacts_list(communication.contacts,{show_all: true}) %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= communication.others_involved %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= show_users_list(communication.staff_involved.all) %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= communication.notes %></Data></Cell>
+        </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

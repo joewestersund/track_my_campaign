@@ -66,6 +66,10 @@
 <% if @communications.nil? or @communications.count == 0 %>
   <div class="no_data">No data has been entered, or no data matches the filter above.</div>
 <% else %>
+  <p>
+    <%= link_to "Download to Excel", heal_communications_path(format: "xls") %>
+  </p>
+
   <table>
     <thead>
       <tr>
