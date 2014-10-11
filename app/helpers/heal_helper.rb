@@ -45,4 +45,8 @@ module HealHelper
     return [["Yes", 1], ["No", 0]]
   end
 
+  def get_name(attribute_name)
+    attribute_name.name if attribute_name.present?
+  end
+
 end

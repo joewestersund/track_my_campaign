@@ -21,8 +21,8 @@ class Heal::ContactsController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.csv { send_data @contacts.to_csv }
-      format.xls
+      #format.xls
+      format.xlsx
     end
   end
 
