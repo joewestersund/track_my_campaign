@@ -16,7 +16,7 @@ class Heal::ContactsController < ApplicationController
     end
 
     if request.format == :html
-      #only do paging if in html format, not if in csv or in xls
+      #only do paging if in html format, not if in xlsx
       @contacts = @contacts.page(params[:page]).per_page(page_size)
     end
     respond_to do |format|

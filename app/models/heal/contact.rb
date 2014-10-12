@@ -80,13 +80,4 @@ class Heal::Contact < ActiveRecord::Base
       return "#{http_prefix}#{self.website}"
     end
   end
-
-  def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
-      csv << column_names
-      all.each do |contact|
-        csv << contact.attributes.values_at(*column_names)
-      end
-    end
-  end
 end

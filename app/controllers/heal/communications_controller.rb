@@ -17,10 +17,10 @@ class Heal::CommunicationsController < ApplicationController
     end
 
     if request.format == :html
-      #only do paging if in html format, not if in csv or in xls
+      #only do paging if in html format, not in xlsx
       @communications = @communications.order(date: :desc).page(params[:page]).per_page(page_size)
     else
-      # order by date ascending for xls and csv formats
+      # order by date ascending for xlsx format
       @communications = @communications.order(:date)
     end
 
