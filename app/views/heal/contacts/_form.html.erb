@@ -44,7 +44,7 @@
   </div>
   <div class="field">
     <%= f.label :cities %>
-    <%= f.collection_select :city_ids, @cities, :id, :name, {}, {class: 'multiselect', multiple: true} %>
+    <%= f.collection_select :city_ids, @cities, :id, :name_and_state, {}, {class: 'multiselect', multiple: true} %>
     <%= link_to "Add / Edit", new_heal_city_path %>
   </div>
   <div class="field">

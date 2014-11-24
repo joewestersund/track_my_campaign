@@ -99,7 +99,7 @@
           <td><%= contact.position_type.name if contact.position_type.present?%></td>
           <td><%= contact.organization_name %></td>
           <td><%= contact.organization_type.name if contact.organization_type.present? %></td>
-          <td><%= show_cities_list(contact.cities) %></td>
+          <td><%= show_cities_list(contact.cities, {show_state: true}) %></td>
           <td><%= contact.office_phone_number %></td>
           <td><%= mail_to contact.email_address_with_name, contact.email if contact.email.present? %></td>
           <td><%= contact.interest_level.name if contact.interest_level.present? %></td>
