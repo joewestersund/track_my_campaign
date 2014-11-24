@@ -16,7 +16,7 @@
         <td><%= topic.name %></td>
         <td><%= topic.order_in_list %></td>
         <td><%= link_to 'Edit', edit_heal_topic_path(topic) %></td>
-        <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

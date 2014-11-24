@@ -16,7 +16,7 @@
         <td><%= position_type.name %></td>
         <td><%= position_type.order_in_list %></td>
         <td><%= link_to 'Edit', edit_heal_position_type_path(position_type) %></td>
-        <td><%= link_to 'Destroy', position_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', position_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 <%= will_paginate @position_types %>
 <br>
 
-<%= link_to 'New Position type', new_heal_position_type_path %>
+<%= link_to 'New Position Type', new_heal_position_type_path %>

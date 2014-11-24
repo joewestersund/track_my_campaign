@@ -16,7 +16,7 @@
         <td><%= status_type.name %></td>
         <td><%= status_type.order_in_list %></td>
         <td><%= link_to 'Edit', edit_heal_status_type_path(status_type) %></td>
-        <td><%= link_to 'Destroy', status_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', status_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 <%= will_paginate @status_types %>
 <br>
 
-<%= link_to 'New Status type', new_heal_status_type_path %>
+<%= link_to 'New Status Type', new_heal_status_type_path %>

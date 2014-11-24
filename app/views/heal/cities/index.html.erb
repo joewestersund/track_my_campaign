@@ -86,7 +86,6 @@
         <th>HEAL City Designation</th>
         <th></th>
         <th></th>
-        <th></th>
       </tr>
     </thead>
 
@@ -104,9 +103,8 @@
           <td><%= number_to_currency(city.state_median_income, precision: 0) %></td>
           <td><%= number_to_currency(city.city_median_income, precision: 0) %></td>
           <td><%= city.city_designation.name if city.city_designation.present? %></td>
-          <td><%= link_to 'Show', city %></td>
           <td><%= link_to 'Edit', edit_heal_city_path(city) %></td>
-          <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Delete', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

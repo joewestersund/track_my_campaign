@@ -16,7 +16,7 @@
         <td><%= jurisdiction_type.name %></td>
         <td><%= jurisdiction_type.order_in_list %></td>
         <td><%= link_to 'Edit', edit_heal_jurisdiction_type_path(jurisdiction_type) %></td>
-        <td><%= link_to 'Destroy', jurisdiction_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', jurisdiction_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 <%= will_paginate @jurisdiction_types %>
 <br>
 
-<%= link_to 'New Jurisdiction type', new_heal_jurisdiction_type_path %>
+<%= link_to 'New Jurisdiction Type', new_heal_jurisdiction_type_path %>

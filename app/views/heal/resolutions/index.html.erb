@@ -13,7 +13,6 @@
       <th>Notes</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -25,9 +24,8 @@
         <td><%= show_policies_list(resolution.policies)%></td>
         <td><%= show_boolean(resolution.prior_to_joining_campaign) %></td>
         <td><%= resolution.notes %></td>
-        <td><%= link_to 'Show', resolution %></td>
         <td><%= link_to 'Edit', edit_heal_resolution_path(resolution) %></td>
-        <td><%= link_to 'Destroy', resolution, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', resolution, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

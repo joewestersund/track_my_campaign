@@ -16,7 +16,7 @@
         <td><%= communication_type.name %></td>
         <td><%= communication_type.order_in_list %></td>
         <td><%= link_to 'Edit', edit_heal_communication_type_path(communication_type) %></td>
-        <td><%= link_to 'Destroy', communication_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', communication_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 <%= will_paginate @communication_types %>
 <br>
 
-<%= link_to 'New Communication type', new_heal_communication_type_path %>
+<%= link_to 'New Communication Type', new_heal_communication_type_path %>

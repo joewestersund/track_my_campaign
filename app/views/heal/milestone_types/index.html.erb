@@ -16,7 +16,7 @@
         <td><%= milestone_type.name %></td>
         <td><%= milestone_type.order_in_list %></td>
         <td><%= link_to 'Edit', edit_heal_milestone_type_path(milestone_type) %></td>
-        <td><%= link_to 'Destroy', milestone_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', milestone_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

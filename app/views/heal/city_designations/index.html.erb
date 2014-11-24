@@ -16,7 +16,7 @@
         <td><%= city_designation.name %></td>
         <td><%= city_designation.order_in_list %></td>
         <td><%= link_to 'Edit', edit_heal_city_designation_path(city_designation) %></td>
-        <td><%= link_to 'Destroy', city_designation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', city_designation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 <%= will_paginate @city_designations %>
 <br>
 
-<%= link_to 'New City designation', new_heal_city_designation_path %>
+<%= link_to 'New City Designation', new_heal_city_designation_path %>

@@ -1,6 +1,6 @@
 <h1>Policy Adoptions</h1>
 
-<%= link_to 'New Policy adoption', new_heal_policy_adoption_path %>
+<%= link_to 'New Policy Adoption', new_heal_policy_adoption_path %>
 <br><br>
 
 <table>
@@ -11,7 +11,6 @@
       <th>Policies Adopted</th>
       <th>Prior to joining campaign</th>
       <th>Notes</th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -25,9 +24,8 @@
         <td><%= show_policies_list(policy_adoption.policies)%></td>
         <td><%= show_boolean(policy_adoption.prior_to_joining_campaign) %></td>
         <td><%= policy_adoption.notes %></td>
-        <td><%= link_to 'Show', policy_adoption %></td>
         <td><%= link_to 'Edit', edit_heal_policy_adoption_path(policy_adoption) %></td>
-        <td><%= link_to 'Destroy', policy_adoption, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', policy_adoption, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

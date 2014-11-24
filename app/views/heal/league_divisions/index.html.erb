@@ -16,7 +16,7 @@
         <td><%= league_division.name %></td>
         <td><%= league_division.order_in_list %></td>
         <td><%= link_to 'Edit', edit_heal_league_division_path(league_division) %></td>
-        <td><%= link_to 'Destroy', league_division, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', league_division, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 <%= will_paginate @league_divisions %>
 <br>
 
-<%= link_to 'New League division', new_heal_league_division_path %>
+<%= link_to 'New League Division', new_heal_league_division_path %>

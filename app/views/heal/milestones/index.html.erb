@@ -14,7 +14,6 @@
       <th>Notes</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -22,14 +21,13 @@
     <% @milestones.each do |milestone| %>
       <tr>
         <td><%= milestone.milestone_type.name %></td>
-        <td><%= milestone.city_id %></td>
+        <td><%= milestone.city.name if milestone.city.present? %></td>
         <td><%= milestone.status_type.name %></td>
         <td><%= milestone.assigned_to.first_and_last_name  if milestone.assigned_to.present?%></td>
         <td><%= milestone.completion_date %></td>
         <td><%= milestone.notes %></td>
-        <td><%= link_to 'Show', milestone %></td>
         <td><%= link_to 'Edit', edit_heal_milestone_path(milestone) %></td>
-        <td><%= link_to 'Destroy', milestone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', milestone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

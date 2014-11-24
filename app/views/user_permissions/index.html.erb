@@ -18,7 +18,7 @@
         <td><%= user_permission.user.first_and_last_name %></td>
         <td><%= show_boolean(user_permission.read_only) %></td>
         <td><%= link_to 'Edit', edit_user_permission_path(user_permission) %></td>
-        <td><%= link_to 'Destroy', user_permission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', user_permission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 <%= will_paginate @user_permissions %>
 <br>
 
-<%= link_to 'New User permission', new_user_permission_path %>
+<%= link_to 'New User Permission', new_user_permission_path %>
