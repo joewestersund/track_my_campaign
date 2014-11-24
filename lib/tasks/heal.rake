@@ -1,6 +1,6 @@
 namespace :heal do
   IPHI_DATABASE_INSTANCE_NAME = "IPHI-test"
-  CCPHA_DATABASE_INSTANCE_NAME = "CCPHA-test"
+  CCPHA_DATABASE_INSTANCE_NAME = "CCPHA"
   OPHI_DATABASE_INSTANCE_NAME = "OPHI-test"
   LVC_DATABASE_INSTANCE_NAME = "LiveWell Colorado"
 
@@ -394,4 +394,39 @@ namespace :heal do
       puts "Added #{number_added} contacts to the LiveWell Colorado HEAL Cities database. #{duplicate_contacts} duplicates were not added, and there were #{error_count} errors."
     end
   end
+
+  desc "update city field for CCPHA Contacts data"
+  task update_ccpha_contact_cities: :environment do
+    contact_cities_added = 0
+    error_count = 0
+
+    dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
+
+    dbi_ccpha.contacts.each do |contact|
+
+      if contact.cities.count == 0
+        #see if we can add a city, based on the organization name
+
+        if contact.organization_name.present?
+          cities = dbi_ccpha.cities.where(name: contact.organization_name)
+          if cities.count == 1
+            contact.cities << cities.first
+            if contact.save
+              contact_cities_added += 1
+            else
+              error_count += 1
+              puts contact.errors.inspect
+            end
+            #break #do only one loop, to test.
+          end
+        end
+      end
+    end
+
+    puts "Added city information to #{contact_cities_added} contacts in the CCPHA HEAL Cities database. There were #{error_count} errors."
+  end
+
+
+
+
 end
