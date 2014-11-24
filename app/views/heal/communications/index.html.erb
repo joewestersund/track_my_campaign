@@ -100,7 +100,7 @@
           <td><%= communication.interest_level.name %></td>
           <td><%= show_users_list(communication.contacts.all) %></td>
           <td><%= communication.others_involved %></td>
-          <td><%= show_cities_list(communication.cities.all, {show_state: true}) %></td>
+          <td><%= show_cities_list(communication.cities.all, {show_state: true, max_to_show:5}) %></td>
           <td><%= show_users_list(communication.staff_involved.all) %></td>
           <td><%= communication.notes %></td>
           <td><%= link_to 'Edit', edit_heal_communication_path(communication) %></td>
