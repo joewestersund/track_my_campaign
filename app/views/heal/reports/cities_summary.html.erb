@@ -65,11 +65,20 @@
           <% end %>
         </td>
         <td>
-          <% if city.communications.count > 0 %>
-            <div><%= "#{city.communications.count} #{"communication".pluralize(city.communications.count)}, #{city.communications.sum(:duration_minutes)} minutes" %></div>
-            <% c = city.communications.order(date: :desc).last %>
-            <div>last: <%= link_to c.summary_date_first, edit_heal_communication_path(c) %></div>
+          <div>
+            <% link_text = "#{city.communications.count} #{"communication".pluralize(city.communications.count)}, #{city.communications.sum(:duration_minutes)} minutes" %>
+            <%= link_to link_text, heal_communications_path + "?city_id=" + city.id.to_s %>
+          </div>
+          <% communication_count = 0
+           max_communications_to_show = 4%>
+          <% city.communications.order(date: :desc).each do |com|
+            communication_count += 1
+            break if communication_count > max_communications_to_show%>
+            <div>
+              <%= link_to com.summary_date_first, heal_communication_path(com) %>
+            </div>
           <% end %>
+
         </td>
         <td>
           <% city.contacts.order(:first_name, :last_name).each do |contact| %>

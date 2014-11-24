@@ -61,7 +61,10 @@
           <% end %>
         </td>
         <td>
-          <div><%= "#{contact.communications.count} #{"communication".pluralize(contact.communications.count)}, #{contact.communications.sum(:duration_minutes)} minutes" %></div>
+          <div>
+            <% link_text = "#{contact.communications.count} #{"communication".pluralize(contact.communications.count)}, #{contact.communications.sum(:duration_minutes)} minutes" %>
+            <%= link_to link_text, heal_communications_path + "?contact_id=" + contact.id.to_s %>
+          </div>
           <% communication_count = 0
           max_communications_to_show = 4%>
             <% contact.communications.order(date: :desc).each do |com|
