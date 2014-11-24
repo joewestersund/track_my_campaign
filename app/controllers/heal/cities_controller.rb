@@ -6,7 +6,18 @@ class Heal::CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    @cities = current_db.cities.where(get_conditions).order(:name).page(params[:page]).per_page(page_size)
+    @cities = current_db.cities.where(get_conditions).order(:name)
+
+    if request.format == :html
+      #only do paging if in html format, not if in xlsx
+      @cities = @cities.page(params[:page]).per_page(page_size)
+    end
+
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
+
   end
 
   # GET /cities/1
