@@ -68,7 +68,7 @@ class Heal::Contact < ActiveRecord::Base
   end
 
   def first_last_city_names
-    cities = self.cities.map{ |city| city.name}.join(", ")
+    cities = self.cities.map{ |city| city.name_and_state}.join(", ")
     text = "#{self.first_name} #{self.last_name}"
     text += " (#{cities})" unless cities.blank?
     text
