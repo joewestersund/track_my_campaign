@@ -3,7 +3,7 @@ module HealHelper
     show_state = options[:show_state] || false
     show_jurisdiction_type = options[:show_jurisdiction_type] || false
     show_all = options[:show_all] || false
-    max_to_show = options[:max_to_show] || 2
+    max_to_show = options[:max_to_show] || 5
     if cities_array.nil? or cities_array.empty?
       return nil
     elsif !show_all and cities_array.count > max_to_show

@@ -1,0 +1,26 @@
+wb = xlsx_package.workbook
+
+header_style = wb.styles.add_style alignment: {horizontal: :center, vertical: :center, wrap_text: true}, b: true, sz: 10, bg_color: "C0C0C0"
+data_style = wb.styles.add_style alignment: {horizontal: :center, vertical: :center, wrap_text: true}, sz: 10
+
+
+wb.add_worksheet(name: 'Cities') do |sheet|
+
+  sheet.add_row ["ID", "Name", "State",
+                 "County", "Jurisdiction Type", "League Division",
+                 "Population", "In KP Service Area", "Under-Resourced or Disease Burdened Area",
+                 "State Median Income", "City Median Income",
+                 "HEAL City Designation"], style: header_style
+
+  @cities.each do |city|
+    sheet.add_row [city.id, city.name, city.state, city.county,
+                   (city.jurisdiction_type.name if city.jurisdiction_type.present?),
+                   (city.league_division.name if city.league_division.present?),
+                   number_with_delimiter(city.population),
+                   show_boolean(city.kp_service_area),
+                   show_boolean(city.under_resourced_or_disease_burden),
+                   number_to_currency(city.state_median_income, precision: 0),
+                   number_to_currency(city.city_median_income, precision: 0),
+                   (city.city_designation.name if city.city_designation.present?)], style: data_style
+  end
+end

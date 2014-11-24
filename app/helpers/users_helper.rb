@@ -4,7 +4,7 @@ module UsersHelper
   end
 
   def show_people_list(people_array, measure_word, options = {})
-    max_to_show = options[:max_to_show] || 2
+    max_to_show = options[:max_to_show] || 5
     show_all = options[:show_all] || false
     if people_array.nil? or people_array.empty?
       nil

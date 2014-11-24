@@ -70,6 +70,10 @@
 <% if @cities.nil? or @cities.count == 0 %>
   <div class="no_data">No data has been entered, or no data matches the filter above.</div>
 <% else %>
+  <p>
+    <%= link_to "Download to Excel", heal_cities_path(format: "xlsx") + "?" + request.query_string %>
+  </p>
+
   <table>
     <thead>
       <tr>

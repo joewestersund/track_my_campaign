@@ -13,7 +13,7 @@ wb.add_worksheet(name: 'Contacts') do |sheet|
 
   @contacts.each do |c|
     sheet.add_row [c.id, get_name(c.honorific) , c.first_name, c.last_name, c.title,
-                   get_name(c.position_type), c.organization_name, get_name(c.organization_type), show_cities_list(c.cities,{show_all: true}),
+                   get_name(c.position_type), c.organization_name, get_name(c.organization_type), show_cities_list(c.cities,{show_state: true, show_all: true}),
                    c.office_phone_number, c.cell_phone_number, c.fax, c.email,
                    c.address_line_1, c.address_line_2, c.address_city, c.address_state, c.address_zip,
                    get_name(c.interest_level), show_boolean(c.heal_champion),c.heal_champion_notes, c.notes], style: data_style
