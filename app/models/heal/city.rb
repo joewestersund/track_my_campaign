@@ -41,7 +41,7 @@ class Heal::City < ActiveRecord::Base
   # city_designation not required.
 
   def name_and_state
-    "#{self.name}, #{self.state}"
+    "#{self.name} #{self.state}"
   end
 
   def name_type_state
