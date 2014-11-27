@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Database instance:</strong>
+  <%= @city_designation_achievement.database_instance_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @city_designation_achievement.date %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @city_designation_achievement.city_id %>
+</p>
+
+<p>
+  <strong>City designation:</strong>
+  <%= @city_designation_achievement.city_designation_id %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @city_designation_achievement.notes %>
+</p>
+
+<%= link_to 'Edit', edit_city_designation_achievement_path(@city_designation_achievement) %> |
+<%= link_to 'Back', city_designation_achievements_path %>

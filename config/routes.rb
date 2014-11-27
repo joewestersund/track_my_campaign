@@ -4,6 +4,7 @@ TrackMyCampaign::Application.routes.draw do
 
   namespace :heal do
     resources :cities
+    resources :city_designation_achievements
     resources :city_designations
     resources :communication_types
     resources :communications

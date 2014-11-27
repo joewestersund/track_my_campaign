@@ -1,0 +1,35 @@
+<h1>Listing city_designation_achievements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Database instance</th>
+      <th>Date</th>
+      <th>City</th>
+      <th>City designation</th>
+      <th>Notes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @city_designation_achievements.each do |city_designation_achievement| %>
+      <tr>
+        <td><%= city_designation_achievement.database_instance_id %></td>
+        <td><%= city_designation_achievement.date %></td>
+        <td><%= city_designation_achievement.city_id %></td>
+        <td><%= city_designation_achievement.city_designation_id %></td>
+        <td><%= city_designation_achievement.notes %></td>
+        <td><%= link_to 'Show', city_designation_achievement %></td>
+        <td><%= link_to 'Edit', edit_city_designation_achievement_path(city_designation_achievement) %></td>
+        <td><%= link_to 'Destroy', city_designation_achievement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New City designation achievement', new_city_designation_achievement_path %>
