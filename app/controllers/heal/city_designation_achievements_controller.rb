@@ -1,10 +1,12 @@
 class Heal::CityDesignationAchievementsController < ApplicationController
+  before_action :check_current_db_exists
   before_action :set_city_designation_achievement, only: [:show, :edit, :update, :destroy]
+  before_action :set_select_options, only: [:new, :edit, :index]
 
   # GET /city_designation_achievements
   # GET /city_designation_achievements.json
   def index
-    @city_designation_achievements = current_db.city_designation_achievements.where(get_conditions).order(:date)
+    @city_designation_achievements = current_db.city_designation_achievements.joins(:city, :city_designation).where(get_conditions).order("cities.name", "city_designations.order_in_list", :date).page(params[:page]).per_page(page_size)
   end
 
   # GET /city_designation_achievements/1
@@ -29,9 +31,10 @@ class Heal::CityDesignationAchievementsController < ApplicationController
 
     respond_to do |format|
       if @city_designation_achievement.save
-        format.html { redirect_to @city_designation_achievement, notice: 'City designation achievement was successfully created.' }
+        format.html { redirect_to heal_city_designation_achievements_url, notice: 'City designation achievement was successfully created.' }
         format.json { render action: 'show', status: :created, location: @city_designation_achievement }
       else
+        set_select_options
         format.html { render action: 'new' }
         format.json { render json: @city_designation_achievement.errors, status: :unprocessable_entity }
       end
@@ -43,9 +46,10 @@ class Heal::CityDesignationAchievementsController < ApplicationController
   def update
     respond_to do |format|
       if @city_designation_achievement.update(city_designation_achievement_params)
-        format.html { redirect_to @city_designation_achievement, notice: 'City designation achievement was successfully updated.' }
+        format.html { redirect_to heal_city_designation_achievements_url, notice: 'City designation achievement was successfully updated.' }
         format.json { head :no_content }
       else
+        set_select_options
         format.html { render action: 'edit' }
         format.json { render json: @city_designation_achievement.errors, status: :unprocessable_entity }
       end
@@ -55,9 +59,15 @@ class Heal::CityDesignationAchievementsController < ApplicationController
   # DELETE /city_designation_achievements/1
   # DELETE /city_designation_achievements/1.json
   def destroy
-    @city_designation_achievement.destroy
+    notice = 'City designation achievement was successfully destroyed'
+    begin
+      @city_designation_achievement.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @city_designation_achievement.errors.add(:base, e)
+      notice = "City designation achievement could not be destroyed. #{e.message}"
+    end
     respond_to do |format|
-      format.html { redirect_to heal_city_designation_achievements_url }
+      format.html { redirect_to heal_city_designation_achievements_url, notice: notice }
       format.json { head :no_content }
     end
   end
@@ -70,7 +80,7 @@ class Heal::CityDesignationAchievementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_designation_achievement_params
-      params.require(:city_designation_achievement).permit(:database_instance_id, :date, :city_id, :city_designation_id, :notes)
+      params.require(:heal_city_designation_achievement).permit(:database_instance_id, :date, :city_id, :city_designation_id, :notes)
     end
 
     def set_select_options

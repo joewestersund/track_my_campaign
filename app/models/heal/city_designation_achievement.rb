@@ -19,7 +19,7 @@ class Heal::CityDesignationAchievement < ActiveRecord::Base
 
   validates :database_instance, presence: true
   validates :city, presence: true
-  validates :city_designation, presence: true
+  validates :city_designation, presence: true, :uniqueness => {:scope => [:database_instance, :city], message: "This city already has a record for this city designation."}
   # date not required.
   # notes not required.
 

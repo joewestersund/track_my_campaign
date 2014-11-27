@@ -28,6 +28,7 @@ class Heal::City < ActiveRecord::Base
   has_many :milestones, dependent: :restrict_with_exception
   has_many :policy_adoptions, dependent: :restrict_with_exception
   has_many :resolutions, dependent: :restrict_with_exception
+  has_many :city_designation_achievements
 
   has_and_belongs_to_many :contacts
   has_and_belongs_to_many :communications
@@ -46,6 +47,18 @@ class Heal::City < ActiveRecord::Base
 
   def name_type_state
     "#{self.name} (#{self.jurisdiction_type.name} in #{self.state})"
+  end
+
+  def current_designation
+    if self.city_designation_achievements.count = 0
+      return nil
+    else
+      self.city_designations_achievements_in_order.first
+    end
+  end
+
+  def city_designations_achievements_in_order
+    self.city_designation_achievements.joins(:city_designation).order("date desc, city_designations.order_in_list desc")
   end
 
 end

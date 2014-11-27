@@ -21,6 +21,25 @@ module HealHelper
     show_people_list(contacts_array, "contacts", options)
   end
 
+  def show_city_designation_achievement(cda)
+    if cda.present?
+      if cda.date.present?
+        return link_to "#{cda.city_designation.name} #{cda.date}", edit_heal_city_designation_achievement_path(cda)
+      else
+        return link_to "#{cda.city_designation.name}", edit_heal_city_designation_achievement_path(cda)
+      end
+    end
+  end
+
+  def show_city_designation_achievements_list(city, options = {})
+    cda_array = city.city_designations_achievements_in_order
+    if cda_array.nil? or cda_array.empty?
+      return ""
+    else
+      return raw(cda_array.map{ |cda| "<div>#{show_city_designation_achievement(cda)}</div>" }.join)
+    end
+  end
+
   def show_policies_list(policies_array, show_all = false)
     show_comma_separated_list(policies_array, "policies", {show_all: show_all})
   end

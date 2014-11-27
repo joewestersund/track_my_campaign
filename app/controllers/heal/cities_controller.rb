@@ -6,7 +6,13 @@ class Heal::CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    @cities = current_db.cities.where(get_conditions).order(:name)
+    if params[:city_designation_id].present?
+      #only do this join if we're filtering down to only one city_designation.
+      #otherwise we might have multiple rows for one city.
+      @cities = current_db.cities.joins(:city_designation_achievements).where(get_conditions).order(:name)
+    else
+      @cities = current_db.cities.where(get_conditions).order(:name)
+    end
 
     if request.format == :html
       #only do paging if in html format, not if in xlsx
@@ -116,7 +122,8 @@ class Heal::CitiesController < ApplicationController
       sf.add_condition(:state_median_income,"<=",:max_state_median_income,params)
       sf.add_condition(:city_median_income,">=",:min_city_median_income,params)
       sf.add_condition(:city_median_income,"<=",:max_city_median_income,params)
-      sf.add_condition(:city_designation_id,"=",:city_designation_id,params)
+      sf.add_condition("city_designation_achievements.city_designation_id","=",:city_designation_id,params)
+      #sf.add_condition(:city_designation_id,"=",:city_designation_id,params) delete after changing to new, separate designations table
 
       sf.get_search_filter
     end

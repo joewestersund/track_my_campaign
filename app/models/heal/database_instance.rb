@@ -11,6 +11,7 @@
 
 class Heal::DatabaseInstance < DatabaseInstance
   has_many :cities, dependent: :destroy
+  has_many :city_designation_achievements, dependent: :destroy
   has_many :city_designations, dependent: :destroy
   has_many :communications, dependent: :destroy
   has_many :communication_types, dependent: :destroy

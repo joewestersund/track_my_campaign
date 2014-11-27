@@ -1,7 +1,7 @@
 <%= form_for(@city_designation_achievement) do |f| %>
   <% if @city_designation_achievement.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@city_designation_achievement.errors.count, "error") %> prohibited this city_designation_achievement from being saved:</h2>
+      <h2><%= pluralize(@city_designation_achievement.errors.count, "error") %> prohibited this City Designation Achievement from being saved:</h2>
 
       <ul>
       <% @city_designation_achievement.errors.full_messages.each do |msg| %>
@@ -12,20 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :database_instance_id %><br>
-    <%= f.number_field :database_instance_id %>
+    <%= f.label :date %>
+    <%= f.text_field :date, {class: 'datepicker'} %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
+    <%= f.label :cities %>
+    <%= f.collection_select :city_id, @cities, :id, :name_and_state, {}, {class: 'multiselect', multiple: false} %>
+    <%= link_to "Add / Edit", new_heal_city_path %>
   </div>
   <div class="field">
-    <%= f.label :city_id %><br>
-    <%= f.number_field :city_id %>
-  </div>
-  <div class="field">
-    <%= f.label :city_designation_id %><br>
-    <%= f.number_field :city_designation_id %>
+    <%= f.label "HEAL City Designation" %>
+    <%= f.collection_select :city_designation_id, @city_designations, :id, :name, {}, {class: 'multiselect', multiple: false} %>
+    <%= link_to "Add / Edit", new_heal_city_designation_path %>
   </div>
   <div class="field">
     <%= f.label :notes %><br>

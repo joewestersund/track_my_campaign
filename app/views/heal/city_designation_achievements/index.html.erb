@@ -1,35 +1,63 @@
-<h1>Listing city_designation_achievements</h1>
+<h1>City Designation Achievements</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Database instance</th>
-      <th>Date</th>
-      <th>City</th>
-      <th>City designation</th>
-      <th>Notes</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= link_to 'New City Designation Achievement', new_heal_city_designation_achievement_path %>
+<br><br>
 
-  <tbody>
-    <% @city_designation_achievements.each do |city_designation_achievement| %>
+<div class="filter">
+  <%= form_tag request.path, method: 'get' do %>
+    <div class="field">
+      <%= label_tag :min_date %>
+      <%= text_field_tag :min_date, params[:min_date], {class: 'datepicker'} %>
+    </div>
+    <div class="field">
+      <%= label_tag :max_date %>
+      <%= text_field_tag :max_date, params[:max_date], {class: 'datepicker'} %>
+    </div>
+    <div class="field">
+      <%= label_tag :city %>
+      <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:name_type_state, params[:city_id]), { include_blank: true, class: 'multiselect', multiple: false} %>
+    </div>
+    <div class="field">
+      <%= label_tag :city_designation %>
+      <%= select_tag :city_designation_id, options_from_collection_for_select(@city_designations,:id,:name,params[:city_designation_id]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :notes %>
+      <%= text_field_tag :notes, params[:notes] %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Search" %>
+    </div>
+  <% end %>
+</div>
+
+<% if @city_designation_achievements.nil? or @city_designation_achievements.count == 0 %>
+  <div class="no_data">No data has been entered, or no data matches the filter above.</div>
+<% else %>
+  <table>
+    <thead>
       <tr>
-        <td><%= city_designation_achievement.database_instance_id %></td>
-        <td><%= city_designation_achievement.date %></td>
-        <td><%= city_designation_achievement.city_id %></td>
-        <td><%= city_designation_achievement.city_designation_id %></td>
-        <td><%= city_designation_achievement.notes %></td>
-        <td><%= link_to 'Show', city_designation_achievement %></td>
-        <td><%= link_to 'Edit', edit_city_designation_achievement_path(city_designation_achievement) %></td>
-        <td><%= link_to 'Destroy', city_designation_achievement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Date</th>
+        <th>City</th>
+        <th>City designation</th>
+        <th>Notes</th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New City designation achievement', new_city_designation_achievement_path %>
+    <tbody>
+      <% @city_designation_achievements.each do |city_designation_achievement| %>
+        <tr>
+          <td><%= city_designation_achievement.date %></td>
+          <td><%= city_designation_achievement.city.name_and_state if city_designation_achievement.city.present? %></td>
+          <td><%= city_designation_achievement.city_designation.name if city_designation_achievement.city_designation.present? %></td>
+          <td><%= city_designation_achievement.notes %></td>
+          <td><%= link_to 'Edit', edit_heal_city_designation_achievement_path(city_designation_achievement) %></td>
+          <td><%= link_to 'Delete', city_designation_achievement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @city_designation_achievements %>
+<% end %>
