@@ -1,8 +1,8 @@
 namespace :heal do
-  IPHI_DATABASE_INSTANCE_NAME = "IPHI-test" #"IPHI"
-  CCPHA_DATABASE_INSTANCE_NAME = "CCPHA-test" #"CCPHA"
+  IPHI_DATABASE_INSTANCE_NAME = "IPHI"
+  CCPHA_DATABASE_INSTANCE_NAME = "CCPHA"
   OPHI_DATABASE_INSTANCE_NAME = "OPHI-test"
-  LVC_DATABASE_INSTANCE_NAME = "LiveWell-test" #"LiveWell Colorado"
+  LVC_DATABASE_INSTANCE_NAME = "LiveWell Colorado"
 
 
   DEFAULT_USER_PASSWORD = 'testing'
@@ -435,6 +435,8 @@ namespace :heal do
     dbi_lvc = Heal::DatabaseInstance.find_by(instance_name: LVC_DATABASE_INSTANCE_NAME)
     dbi_ophi = Heal::DatabaseInstance.find_by(instance_name: OPHI_DATABASE_INSTANCE_NAME)
 
+    messages = []
+
     dbis = [dbi_ccpha, dbi_iphi, dbi_lvc, dbi_ophi]
 
     dbis.each do |dbi|
@@ -457,8 +459,10 @@ namespace :heal do
         end
       end
 
-      puts "Added city designation information to #{city_designations_added} cities in the #{dbi.instance_name} database. There were #{error_count} errors."
+      messages << "Added city designation information to #{city_designations_added} cities in the #{dbi.instance_name} database. There were #{error_count} errors."
     end
+
+    puts messages
   end
 
 end

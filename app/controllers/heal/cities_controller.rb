@@ -11,9 +11,9 @@ class Heal::CitiesController < ApplicationController
       #otherwise we might have multiple rows for one city.
 
       cda_ids = current_db.city_designation_achievements.joins("INNER JOIN
-        (select city_id, max(cda.date) as maxdate from city_designation_achievements cda
+        (select city_id, max(coalesce(cda.date,'1/1/1900')) as maxdate from city_designation_achievements cda
         GROUP BY city_id) AS MAX_QUERY ON city_designation_achievements.city_id = MAX_Query.city_id
-        AND city_designation_achievements.date = MAX_QUERY.maxdate").where.not(id: nil).select(:id)
+        AND coalesce(city_designation_achievements.date,'1/1/1900') = MAX_QUERY.maxdate").where.not(id: nil).select(:id)
 
       @cities = current_db.cities.joins(:city_designation_achievements).where("city_designation_achievements.id IN (?)", cda_ids)
     else
