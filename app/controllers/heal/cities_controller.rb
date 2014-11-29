@@ -9,7 +9,11 @@ class Heal::CitiesController < ApplicationController
     if params[:city_designation_id].present?
       #only do this join if we're filtering down to only one city_designation.
       #otherwise we might have multiple rows for one city.
-      @cities = current_db.cities.joins(:city_designation_achievements).where(get_conditions).order(:name)
+
+      @cities = current_db.cities.joins(:city_designation_achievements).where("city_designation_achievements.date = (SELECT MAX(date) FROM city_designation_achievements cda group by city_id having cda.city_id = cities.id)")
+
+      #this query gets all cities that have that city designation, even if it's not their most current designation.
+      #@cities = current_db.cities.joins(:city_designation_achievements).where(get_conditions).order(:name)
     else
       @cities = current_db.cities.where(get_conditions).order(:name)
     end

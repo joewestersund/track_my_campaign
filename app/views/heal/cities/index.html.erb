@@ -58,7 +58,7 @@
       <%= number_field_tag :max_city_median_income, params[:max_city_median_income] %>
     </div>
     <div class="field">
-      <%= label_tag :city_designation %>
+      <%= label_tag :city_designation, "Current City Designation"%>
       <%= select_tag :city_designation_id, options_from_collection_for_select(@city_designations,:id,:name,params[:city_designation_id]), { :include_blank => true } %>
     </div>
     <div class="actions">
@@ -87,6 +87,7 @@
         <th>Under-Resourced or Disease Burdened Area</th>
         <th>State Median Income</th>
         <th>City Median Income</th>
+        <th>old HEAL City Designation</th>
         <th>HEAL City Designation <%= link_to "add", new_heal_city_designation_achievement_path %></th>
         <th></th>
         <th></th>
@@ -106,6 +107,7 @@
           <td><%= show_boolean(city.under_resourced_or_disease_burden) %></td>
           <td><%= number_to_currency(city.state_median_income, precision: 0) %></td>
           <td><%= number_to_currency(city.city_median_income, precision: 0) %></td>
+          <td><%= city.city_designation.name if city.city_designation.present? %>
           <td><%= show_city_designation_achievements_list(city) %>
           </td>
           <td><%= link_to 'Edit', edit_heal_city_path(city) %></td>
