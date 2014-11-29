@@ -1,8 +1,8 @@
 namespace :heal do
-  IPHI_DATABASE_INSTANCE_NAME = "IPHI-test"
-  CCPHA_DATABASE_INSTANCE_NAME = "CCPHA"
+  IPHI_DATABASE_INSTANCE_NAME = "IPHI-test" #"IPHI"
+  CCPHA_DATABASE_INSTANCE_NAME = "CCPHA-test" #"CCPHA"
   OPHI_DATABASE_INSTANCE_NAME = "OPHI-test"
-  LVC_DATABASE_INSTANCE_NAME = "LiveWell Colorado"
+  LVC_DATABASE_INSTANCE_NAME = "LiveWell-test" #"LiveWell Colorado"
 
 
   DEFAULT_USER_PASSWORD = 'testing'
@@ -433,19 +433,21 @@ namespace :heal do
     dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
     dbi_iphi = Heal::DatabaseInstance.find_by(instance_name: IPHI_DATABASE_INSTANCE_NAME)
     dbi_lvc = Heal::DatabaseInstance.find_by(instance_name: LVC_DATABASE_INSTANCE_NAME)
+    dbi_ophi = Heal::DatabaseInstance.find_by(instance_name: OPHI_DATABASE_INSTANCE_NAME)
 
-    dbis = [dbi_ccpha, dbi_iphi, dbi_lvc]
+    dbis = [dbi_ccpha, dbi_iphi, dbi_lvc, dbi_ophi]
 
     dbis.each do |dbi|
       city_designations_added = 0
       error_count = 0
-      dbi.cities.where.not(city_designation: nil).each do |city|
+      dbi.cities.where.not(city_designation_id: nil).each do |city|
 
         if city.city_designation_achievements.count == 0
           #there aren't any city designations saved yet.
           cda = Heal::CityDesignationAchievement.new
           cda.city = city
-          cda.city_designation = city.city_designation
+          cda.city_designation_id = city.city_designation_id
+          cda.database_instance_id = dbi.id
           if cda.save
             city_designations_added += 1
           else

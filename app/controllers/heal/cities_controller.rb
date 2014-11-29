@@ -10,13 +10,17 @@ class Heal::CitiesController < ApplicationController
       #only do this join if we're filtering down to only one city_designation.
       #otherwise we might have multiple rows for one city.
 
-      @cities = current_db.cities.joins(:city_designation_achievements).where("city_designation_achievements.date = (SELECT MAX(date) FROM city_designation_achievements cda group by city_id having cda.city_id = cities.id)")
+      cda_ids = current_db.city_designation_achievements.joins("INNER JOIN
+        (select city_id, max(cda.date) as maxdate from city_designation_achievements cda
+        GROUP BY city_id) AS MAX_QUERY ON city_designation_achievements.city_id = MAX_Query.city_id
+        AND city_designation_achievements.date = MAX_QUERY.maxdate").where.not(id: nil).select(:id)
 
-      #this query gets all cities that have that city designation, even if it's not their most current designation.
-      #@cities = current_db.cities.joins(:city_designation_achievements).where(get_conditions).order(:name)
+      @cities = current_db.cities.joins(:city_designation_achievements).where("city_designation_achievements.id IN (?)", cda_ids)
     else
-      @cities = current_db.cities.where(get_conditions).order(:name)
+      @cities = current_db.cities
     end
+
+    @cities = @cities.where(get_conditions).order(:name)
 
     if request.format == :html
       #only do paging if in html format, not if in xlsx

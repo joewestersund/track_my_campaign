@@ -11,7 +11,25 @@ class Heal::ReportsController < ApplicationController
 
   def cities_summary
     @city_designations = current_db.city_designations
-    @cities = current_db.cities.where(get_cities_conditions).order(:state, :name).page(params[:page]).per_page(page_size)
+
+    if params[:city_designation_id].present?
+      #only do this join if we're filtering down to only one city_designation.
+      #otherwise we might have multiple rows for one city.
+
+      cda_ids = current_db.city_designation_achievements.joins("INNER JOIN
+        (select city_id, max(cda.date) as maxdate from city_designation_achievements cda
+        GROUP BY city_id) AS MAX_QUERY ON city_designation_achievements.city_id = MAX_Query.city_id
+        AND city_designation_achievements.date = MAX_QUERY.maxdate").where.not(id: nil).select(:id)
+
+      @cities = current_db.cities.joins(:city_designation_achievements).where("city_designation_achievements.id IN (?)", cda_ids)
+    else
+      @cities = current_db.cities
+    end
+
+    @cities = @cities.where(get_cities_conditions).order(:state, :name).page(params[:page]).per_page(page_size)
+
+
+    #@cities = current_db.cities.where(get_cities_conditions).order(:state, :name).page(params[:page]).per_page(page_size)
   end
 
   def contacts_summary
@@ -47,7 +65,8 @@ class Heal::ReportsController < ApplicationController
       sf.add_condition(:state_median_income,"<=",:max_state_median_income,params)
       sf.add_condition(:city_median_income,">=",:min_city_median_income,params)
       sf.add_condition(:city_median_income,"<=",:max_city_median_income,params)
-      sf.add_condition(:city_designation_id,"=",:city_designation_id,params)
+      sf.add_condition("city_designation_achievements.city_designation_id","=",:city_designation_id,params)
+      #sf.add_condition(:city_designation_id,"=",:city_designation_id,params)
 
       sf.get_search_filter
     end
