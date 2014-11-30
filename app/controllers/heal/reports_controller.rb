@@ -66,7 +66,6 @@ class Heal::ReportsController < ApplicationController
       sf.add_condition(:city_median_income,">=",:min_city_median_income,params)
       sf.add_condition(:city_median_income,"<=",:max_city_median_income,params)
       sf.add_condition("city_designation_achievements.city_designation_id","=",:city_designation_id,params)
-      #sf.add_condition(:city_designation_id,"=",:city_designation_id,params)
 
       sf.get_search_filter
     end

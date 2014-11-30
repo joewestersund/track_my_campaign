@@ -53,11 +53,6 @@
     <%= f.label :city_median_income %>
     <%= f.text_field :city_median_income %>
   </div>
-  <div class="field">
-    <%= f.label "HEAL City Designation" %>
-    <%= f.collection_select :city_designation_id, @city_designations, :id, :name, {include_blank: true}, {class: 'multiselect', multiple: false} %>
-    <%= link_to "Add / Edit", new_heal_city_designation_path %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

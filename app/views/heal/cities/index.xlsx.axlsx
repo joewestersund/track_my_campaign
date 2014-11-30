@@ -21,6 +21,6 @@ wb.add_worksheet(name: 'Cities') do |sheet|
                    show_boolean(city.under_resourced_or_disease_burden),
                    number_to_currency(city.state_median_income, precision: 0),
                    number_to_currency(city.city_median_income, precision: 0),
-                   (city.city_designation.name if city.city_designation.present?)], style: data_style
+                   show_city_designation_achievements_list(city)], style: data_style
   end
 end

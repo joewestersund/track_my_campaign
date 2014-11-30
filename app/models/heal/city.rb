@@ -14,7 +14,6 @@
 #  under_resourced_or_disease_burden :boolean
 #  state_median_income               :decimal(, )
 #  city_median_income                :decimal(, )
-#  city_designation_id               :integer
 #  created_at                        :datetime
 #  updated_at                        :datetime
 #
