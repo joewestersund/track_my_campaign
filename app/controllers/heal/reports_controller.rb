@@ -45,6 +45,28 @@ class Heal::ReportsController < ApplicationController
 
   end
 
+  def policy_grid
+    @city_designations = current_db.city_designations.order(:order_in_list)
+    @policies = current_db.policies.order(:order_in_list)
+
+    if params[:city_designation_id].present?
+      #only do this join if we're filtering down to only one city_designation.
+      #otherwise we might have multiple rows for one city.
+
+      cda_ids = current_db.city_designation_achievements.joins("INNER JOIN
+        (select city_id, max(coalesce(cda.date,'1/1/1900')) as maxdate from city_designation_achievements cda
+        GROUP BY city_id) AS MAX_QUERY ON city_designation_achievements.city_id = MAX_Query.city_id
+        AND coalesce(city_designation_achievements.date,'1/1/1900') = MAX_QUERY.maxdate").where.not(id: nil).select(:id)
+
+      @cities = current_db.cities.joins(:city_designation_achievements).where("city_designation_achievements.id IN (?)", cda_ids)
+    else
+      @cities = current_db.cities
+    end
+
+    @cities = @cities.where(get_cities_conditions).order(:state, :name).page(params[:page]).per_page(page_size)
+
+  end
+
   private
 
     def get_cities_conditions

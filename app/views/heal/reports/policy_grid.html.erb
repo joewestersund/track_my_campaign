@@ -1,0 +1,71 @@
+<h1>Policy Grid Report</h1>
+
+<div class="filter">
+  <%= form_tag request.path, method: 'get' do %>
+    <div class="field">
+      <%= label_tag :name %>
+      <%= text_field_tag :name, params[:name] %>
+    </div>
+    <div class="field">
+      <%= label_tag :state %>
+      <%= text_field_tag :state, params[:state] %>
+    </div>
+    <div class="field">
+      <%= label_tag "Current City Designation" %>
+      <%= select_tag :city_designation_id, options_from_collection_for_select(@city_designations,:id,:name,params[:city_designation_id]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :policy_change_in_progress %>
+      <%= select_tag :policy_change_in_progress, options_for_select(get_yes_no_options_list,params[:policy_change_in_progress]), { :include_blank => true } %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Search" %>
+    </div>
+  <% end %>
+</div>
+
+<% policy_ids = [] %>
+<% if @cities.nil? or @cities.count == 0 %>
+  <div class="no_data">No data has been entered, or no data matches the filter above.</div>
+<% else %>
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>State</th>
+      <th>HEAL City Designation</th>
+      <th>Policy Change in Progress</th>
+      <% @policies.each do |policy| %>
+        <% policy_ids << policy.id %>
+        <th><%= policy.name %></th>
+      <% end %>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @cities.each do |city| %>
+      <tr>
+        <td><%= link_to city.name, edit_heal_city_path(city)%></td>
+        <td><%= city.state %></td>
+        <td><%= show_city_designation_achievements_list(city) %>
+        <td><%= show_boolean(city.policy_change_in_progress) %></td>
+        <% @policies.each do |policy| %>
+          <td>
+            <% pa = city.policy_adoptions.joins(:policies).where("policies_policy_adoptions.policy_id" => policy.id).order(date: :desc).first
+             if pa.present? %>
+              <%= pa.date.year %>
+             <% else
+                  res = city.resolutions.joins(:policies).where("policies_resolutions.policy_id" => policy.id).order(date: :desc).first
+                  if res.present?
+                    %> R <%
+                  end
+                end %>
+            </td>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @cities %>
+<% end %>

@@ -26,6 +26,7 @@ TrackMyCampaign::Application.routes.draw do
     get '/reports/to_do'
     get '/reports/cities_summary'
     get '/reports/contacts_summary'
+    get '/reports/policy_grid'
   end
 
   resources :database_instances
