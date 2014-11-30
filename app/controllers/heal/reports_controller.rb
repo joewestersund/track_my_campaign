@@ -63,7 +63,7 @@ class Heal::ReportsController < ApplicationController
       @cities = current_db.cities
     end
 
-    @cities = @cities.where(get_cities_conditions).order(:state, :name).page(params[:page]).per_page(page_size)
+    @cities = @cities.where(get_cities_conditions).order(:state, :county, :name).page(params[:page]).per_page(page_size)
 
   end
 
@@ -81,6 +81,8 @@ class Heal::ReportsController < ApplicationController
       sf.add_condition(:population,"<=",:max_population,params)
       sf.add_condition(:kp_service_area,"=",:kp_service_area,params)
       sf.add_condition(:under_resourced_or_disease_burden,"=",:under_resourced_or_disease_burden,params)
+      sf.add_condition(:percent_obesity,">=",:min_percent_obesity,params)
+      sf.add_condition(:percent_obesity,"<=",:max_percent_obesity,params)
       sf.add_condition(:state_median_income,">=",:min_state_median_income,params)
       sf.add_condition(:state_median_income,"<=",:max_state_median_income,params)
       sf.add_condition(:city_median_income,">=",:min_city_median_income,params)

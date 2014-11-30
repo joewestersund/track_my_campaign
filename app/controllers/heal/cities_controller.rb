@@ -105,7 +105,7 @@ class Heal::CitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_params
-      params.require(:heal_city).permit(:name, :county, :state, :jurisdiction_type_id, :league_division_id, :population, :kp_service_area, :under_resourced_or_disease_burden, :state_median_income, :city_median_income, :policy_change_in_progress)
+      params.require(:heal_city).permit(:name, :county, :state, :jurisdiction_type_id, :league_division_id, :population, :kp_service_area, :under_resourced_or_disease_burden, :percent_obesity, :state_median_income, :city_median_income, :policy_change_in_progress)
     end
 
     def set_select_options
@@ -126,6 +126,8 @@ class Heal::CitiesController < ApplicationController
       sf.add_condition(:population,"<=",:max_population,params)
       sf.add_condition(:kp_service_area,"=",:kp_service_area,params)
       sf.add_condition(:under_resourced_or_disease_burden,"=",:under_resourced_or_disease_burden,params)
+      sf.add_condition(:percent_obesity,">=",:min_percent_obesity,params)
+      sf.add_condition(:percent_obesity,"<=",:max_percent_obesity,params)
       sf.add_condition(:state_median_income,">=",:min_state_median_income,params)
       sf.add_condition(:state_median_income,"<=",:max_state_median_income,params)
       sf.add_condition(:city_median_income,">=",:min_city_median_income,params)

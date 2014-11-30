@@ -38,6 +38,10 @@
     <%= f.number_field :population %>
   </div>
   <div class="field">
+    <%= f.label :percent_obesity %>
+    <%= f.number_field :percent_obesity, in: 0..100, step: 0.1 %>
+  </div>
+  <div class="field">
     <%= f.label :kp_service_area %>
     <%= f.check_box :kp_service_area %>
   </div>

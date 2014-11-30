@@ -68,4 +68,18 @@ module HealHelper
     attribute_name.name if attribute_name.present?
   end
 
+  def show_percentage(percentage)
+    if percentage.nil?
+      nil
+    elsif percentage >= 10
+      number_to_percentage(percentage,precision:0)
+    elsif percentage >= 1
+      number_to_percentage(percentage,precision:1)
+    elsif percentage >= 0.1
+      number_to_percentage(percentage,precision:2)
+    else
+      number_to_percentage(percentage,precision:3)
+    end
+  end
+
 end
