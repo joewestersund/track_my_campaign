@@ -48,5 +48,10 @@
   <%= number_to_currency(@city.city_median_income,precision: 0) %>
 </p>
 
+<p>
+  <strong>Policy Change in Progress:</strong>
+  <%= show_boolean(@city.policy_change_in_progress) %>
+</p>
+
 <%= link_to 'Edit', edit_heal_city_path(@city) %> |
 <%= link_to 'Back to Index', heal_cities_path %>
