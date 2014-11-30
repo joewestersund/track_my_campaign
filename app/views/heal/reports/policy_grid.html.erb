@@ -53,11 +53,11 @@
           <td>
             <% pa = city.policy_adoptions.joins(:policies).where("policies_policy_adoptions.policy_id" => policy.id).order(date: :desc).first
              if pa.present? %>
-              <%= pa.date.year %>
+              <%= link_to pa.date.year, heal_policy_adoption_path(pa) %>
              <% else
                   res = city.resolutions.joins(:policies).where("policies_resolutions.policy_id" => policy.id).order(date: :desc).first
                   if res.present?
-                    %> R <%
+                    %> <%= link_to "R", heal_resolution_path(res) %><%
                   end
                 end %>
             </td>
