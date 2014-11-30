@@ -47,7 +47,7 @@
 <%= link_to 'New Heal City Designation Achievement', new_heal_city_designation_achievement_path %> |
 <%= link_to 'New Policy Adoption', new_heal_policy_adoption_path %> |
 <%= link_to 'New Resolution', new_heal_resolution_path %>
-
+<br><br>
 
 <% policy_ids = [] %>
 <% if @cities.nil? or @cities.count == 0 %>
@@ -61,7 +61,6 @@
       <th>Name</th>
       <th>Population</th>
       <th>% Obesity</th>
-      <th>State</th>
       <th>HEAL City Designation</th>
       <th>Policy Change in Progress</th>
       <% @policies.each do |policy| %>
