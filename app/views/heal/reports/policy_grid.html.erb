@@ -24,6 +24,11 @@
   <% end %>
 </div>
 
+<%= link_to 'New Heal City Designation Achievement', new_heal_city_designation_achievement_path %> |
+<%= link_to 'New Policy Adoption', new_heal_policy_adoption_path %> |
+<%= link_to 'New Resolution', new_heal_resolution_path %>
+
+
 <% policy_ids = [] %>
 <% if @cities.nil? or @cities.count == 0 %>
   <div class="no_data">No data has been entered, or no data matches the filter above.</div>
@@ -37,7 +42,7 @@
       <th>Policy Change in Progress</th>
       <% @policies.each do |policy| %>
         <% policy_ids << policy.id %>
-        <th><%= policy.name %></th>
+        <th class="vertical-text"><%= policy.name %></th>
       <% end %>
     </tr>
     </thead>
@@ -50,16 +55,21 @@
         <td><%= show_city_designation_achievements_list(city) %>
         <td><%= show_boolean(city.policy_change_in_progress) %></td>
         <% @policies.each do |policy| %>
-          <td>
-            <% pa = city.policy_adoptions.joins(:policies).where("policies_policy_adoptions.policy_id" => policy.id).order(date: :desc).first
-             if pa.present? %>
-              <%= link_to pa.date.year, heal_policy_adoption_path(pa) %>
-             <% else
-                  res = city.resolutions.joins(:policies).where("policies_resolutions.policy_id" => policy.id).order(date: :desc).first
-                  if res.present?
-                    %> <%= link_to "R", heal_resolution_path(res) %><%
-                  end
-                end %>
+          <% pa = city.policy_adoptions.joins(:policies).where("policies_policy_adoptions.policy_id" => policy.id).order(date: :desc).first
+           if pa.present?
+              if pa.prior_to_joining_campaign
+                %><td class="policy-grid prior"><%= link_to "P", heal_policy_adoption_path(pa), title: pa.notes %></td><%
+              else
+                %><td class="policy-grid adopted-in-<%=pa.date.year%>"><%= link_to pa.date.year, heal_policy_adoption_path(pa), title: pa.notes %></td><%
+              end
+            else
+                res = city.resolutions.joins(:policies).where("policies_resolutions.policy_id" => policy.id).order(date: :desc).first
+                if res.present?
+                  %> <td class="policy-grid resolution"><%= link_to "R", heal_resolution_path(res), title: res.notes %></td><%
+                else
+                  %> <td></td><%
+                end
+            end %>
             </td>
         <% end %>
         </td>

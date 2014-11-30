@@ -1,0 +1,63 @@
+th.vertical-text {
+  transform: rotate(-45deg);
+  /*transform-origin: left top 0;*/
+}
+
+td.policy-grid {
+  a {
+    font-weight: bold;
+    color: #ffffff;
+  }
+}
+
+td.prior {
+  background-color: #ffffff;
+  a {
+    color: blue;
+  }
+  a:hover {
+    color: #ffffff;
+  }
+}
+
+td.resolution {
+  background-color: #ffffff;
+  a {
+    color: black;
+  }
+  a:hover {
+    color: #ffffff;
+  }
+}
+
+td.adopted-in-2010 {
+  background-color: lightpink;
+}
+
+td.adopted-in-2011 {
+  background-color: red;
+}
+
+td.adopted-in-2012 {
+  background-color: royalblue;
+}
+
+td.adopted-in-2013 {
+  background-color: gold;
+}
+
+td.adopted-in-2014 {
+  background-color: purple;
+}
+
+td.adopted-in-2015 {
+  background-color: green;
+}
+
+td.adopted-in-2016 {
+  background-color: brown;
+}
+
+td.adopted-in-2017 {
+  background-color: orange;
+}
