@@ -105,7 +105,7 @@ class Heal::CitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_params
-      params.require(:heal_city).permit(:name, :county, :state, :jurisdiction_type_id, :league_division_id, :population, :kp_service_area, :under_resourced_or_disease_burden, :state_median_income, :city_median_income, :city_designation_id)
+      params.require(:heal_city).permit(:name, :county, :state, :jurisdiction_type_id, :league_division_id, :population, :kp_service_area, :under_resourced_or_disease_burden, :state_median_income, :city_median_income, :policy_change_in_progress)
     end
 
     def set_select_options
@@ -131,6 +131,7 @@ class Heal::CitiesController < ApplicationController
       sf.add_condition(:city_median_income,">=",:min_city_median_income,params)
       sf.add_condition(:city_median_income,"<=",:max_city_median_income,params)
       sf.add_condition("city_designation_achievements.city_designation_id","=",:city_designation_id,params)
+      sf.add_condition(:policy_change_in_progress,"=",:policy_change_in_progress,params)
 
       sf.get_search_filter
     end

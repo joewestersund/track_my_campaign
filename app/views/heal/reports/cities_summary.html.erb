@@ -22,6 +22,10 @@
       <%= label_tag "Current City Designation" %>
       <%= select_tag :city_designation_id, options_from_collection_for_select(@city_designations,:id,:name,params[:city_designation_id]), { :include_blank => true } %>
     </div>
+    <div class="field">
+      <%= label_tag :policy_change_in_progress %>
+      <%= select_tag :policy_change_in_progress, options_for_select(get_yes_no_options_list,params[:policy_change_in_progress]), { :include_blank => true } %>
+    </div>
     <div class="actions">
       <%= submit_tag "Search" %>
     </div>
@@ -39,6 +43,7 @@
       <th>In KP Service Area</th>
       <th>Under-Resourced or Disease Burdened Area</th>
       <th>HEAL City Designation</th>
+      <th>Policy Change in Progress</th>
       <th>Policies Adopted <div><%= link_to 'Add', new_heal_policy_adoption_path %></div></th>
       <th>Resolutions <div><%= link_to 'Add', new_heal_resolution_path %></div></th>
       <th>Communications <div><%= link_to 'Add', new_heal_communication_path %></div></th>
@@ -54,6 +59,7 @@
         <td><%= show_boolean(city.kp_service_area) %></td>
         <td><%= show_boolean(city.under_resourced_or_disease_burden) %></td>
         <td><%= show_city_designation_achievements_list(city) %>
+        <td><%= show_boolean(city.policy_change_in_progress) %></td>
         <td>
           <% city.policy_adoptions.order(:date).each do |pa| %>
             <div><%= link_to pa.policy_summary, edit_heal_policy_adoption_path(pa) %></div>

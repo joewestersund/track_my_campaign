@@ -28,8 +28,6 @@ class Heal::ReportsController < ApplicationController
 
     @cities = @cities.where(get_cities_conditions).order(:state, :name).page(params[:page]).per_page(page_size)
 
-
-    #@cities = current_db.cities.where(get_cities_conditions).order(:state, :name).page(params[:page]).per_page(page_size)
   end
 
   def contacts_summary
@@ -66,6 +64,7 @@ class Heal::ReportsController < ApplicationController
       sf.add_condition(:city_median_income,">=",:min_city_median_income,params)
       sf.add_condition(:city_median_income,"<=",:max_city_median_income,params)
       sf.add_condition("city_designation_achievements.city_designation_id","=",:city_designation_id,params)
+      sf.add_condition(:policy_change_in_progress,"=",:policy_change_in_progress,params)
 
       sf.get_search_filter
     end

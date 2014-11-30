@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129234015) do
+ActiveRecord::Schema.define(version: 20141130000750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20141129234015) do
     t.decimal  "city_median_income"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "policy_change_in_progress",         default: false
   end
 
   create_table "cities_communications", id: false, force: true do |t|

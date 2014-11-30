@@ -61,6 +61,10 @@
       <%= label_tag :city_designation, "Current City Designation"%>
       <%= select_tag :city_designation_id, options_from_collection_for_select(@city_designations,:id,:name,params[:city_designation_id]), { :include_blank => true } %>
     </div>
+    <div class="field">
+      <%= label_tag :policy_change_in_progress %>
+      <%= select_tag :policy_change_in_progress, options_for_select(get_yes_no_options_list,params[:policy_change_in_progress]), { :include_blank => true } %>
+    </div>
     <div class="actions">
       <%= submit_tag "Search" %>
     </div>
@@ -88,6 +92,7 @@
         <th>State Median Income</th>
         <th>City Median Income</th>
         <th>HEAL City Designation <%= link_to "add", new_heal_city_designation_achievement_path %></th>
+        <th>Policy Change in Progress</th>
         <th></th>
         <th></th>
       </tr>
@@ -107,7 +112,7 @@
           <td><%= number_to_currency(city.state_median_income, precision: 0) %></td>
           <td><%= number_to_currency(city.city_median_income, precision: 0) %></td>
           <td><%= show_city_designation_achievements_list(city) %>
-          </td>
+          <td><%= show_boolean(city.policy_change_in_progress) %></td>
           <td><%= link_to 'Edit', edit_heal_city_path(city) %></td>
           <td><%= link_to 'Delete', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>

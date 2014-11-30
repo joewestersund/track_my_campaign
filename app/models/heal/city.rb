@@ -16,6 +16,7 @@
 #  city_median_income                :decimal(, )
 #  created_at                        :datetime
 #  updated_at                        :datetime
+#  policy_change_in_progress         :boolean
 #
 
 class Heal::City < ActiveRecord::Base

@@ -10,7 +10,7 @@ wb.add_worksheet(name: 'Cities') do |sheet|
                  "County", "Jurisdiction Type", "League Division",
                  "Population", "In KP Service Area", "Under-Resourced or Disease Burdened Area",
                  "State Median Income", "City Median Income",
-                 "HEAL City Designation"], style: header_style
+                 "HEAL City Designation", "Policy Change in Progress"], style: header_style
 
   @cities.each do |city|
     sheet.add_row [city.id, city.name, city.state, city.county,
@@ -21,6 +21,7 @@ wb.add_worksheet(name: 'Cities') do |sheet|
                    show_boolean(city.under_resourced_or_disease_burden),
                    number_to_currency(city.state_median_income, precision: 0),
                    number_to_currency(city.city_median_income, precision: 0),
-                   show_city_designation_achievements_list(city)], style: data_style
+                   show_city_designation_achievements_list(city),
+                   show_boolean(city.policy_change_in_progress)], style: data_style
   end
 end
