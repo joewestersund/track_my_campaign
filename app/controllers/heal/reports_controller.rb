@@ -41,6 +41,7 @@ class Heal::ReportsController < ApplicationController
   private
     def get_cities_query
       cities = current_db.cities
+      do_id_subquery = false
 
       if params[:city_designation_id].present?
         #only do this join if we're filtering down to only one city_designation.
@@ -58,15 +59,24 @@ class Heal::ReportsController < ApplicationController
         #only do this join if we're filtering down to only one resolution_policy_id.
         #otherwise we might have multiple rows for one city.
         cities = cities.joins(resolutions: [:policies])
+        do_id_subquery = true
       end
 
       if params[:policy_adoption_policy_id].present?
         #only do this join if we're filtering down to only one policy_adoption_policy_id.
         #otherwise we might have multiple rows for one city.
         cities = cities.joins(policy_adoptions: [:policies])
+        do_id_subquery = true
       end
 
-      return cities.where(get_cities_conditions)
+      if do_id_subquery
+        #have to do this, since a city can adopt a policy (or resolve a policy) more than once.
+        #this prevents 1 city from having multiple rows under that circumstance.
+        city_ids = cities.where(get_cities_conditions).select("cities.id").group("cities.id").all
+        return current_db.cities.where(id: city_ids)
+      else
+        return cities.where(get_cities_conditions)
+      end
 
     end
 
