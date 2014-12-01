@@ -555,20 +555,20 @@ namespace :heal_ccpha do
     policy_open_space = dbi_ccpha.policies.find_by(name: "Open Space (increase)")
     policy_joint_use = dbi_ccpha.policies.find_by(name: "Joint Use")
 
-    policies = []
-    policies << { policy_string: city[:compact_mixed_use], policy: policy_compact_mixed_use}
-    policies << { policy_string: city[:transit_oriented], policy: policy_transit_oriented}
-    policies << { policy_string: city[:walkability], policy: policy_walkability}
-    policies << { policy_string: city[:capital_improvement], policy: policy_capital_improvement}
-    policies << { policy_string: city[:open_space], policy: policy_open_space}
-    policies << { policy_string: city[:joint_use], policy: policy_joint_use}
-
     city_data.each do |city|
       saved_city = dbi_ccpha.cities.find_by(name: city[:name], county: city[:county])
       if saved_city.nil?
         error_messages << "error: city '#{city[:name]}' was not found."
         break
       end
+
+      policies = []
+      policies << { policy_string: city[:compact_mixed_use], policy: policy_compact_mixed_use}
+      policies << { policy_string: city[:transit_oriented], policy: policy_transit_oriented}
+      policies << { policy_string: city[:walkability], policy: policy_walkability}
+      policies << { policy_string: city[:capital_improvement], policy: policy_capital_improvement}
+      policies << { policy_string: city[:open_space], policy: policy_open_space}
+      policies << { policy_string: city[:joint_use], policy: policy_joint_use}
 
       policies.each do |p|
         policy = p[:policy]
@@ -840,20 +840,20 @@ namespace :heal_ccpha do
     policy_activity_breaks = dbi_ccpha.policies.find_by(name: "WW- Activity Breaks")
     ww_other = dbi_ccpha.policies.find_by(name: "WW- other")
 
-    policies = []
-    policies << { policy_string: city[:farmers_markets], policy: policy_farmers_markets}
-    policies << { policy_string: city[:community_gardens], policy: policy_community_gardens}
-    policies << { policy_string: city[:nutrition_standards], policy: policy_nutrition_standards}
-    policies << { policy_string: city[:breastfeeding], policy: policy_breastfeeding}
-    policies << { policy_string: city[:activity_breaks], policy: policy_activity_breaks}
-    policies << { policy_string: city[:ww_other], policy: ww_other}
-
     city_data.each do |city|
       saved_city = dbi_ccpha.cities.find_by(name: city[:name], county: city[:county])
       if saved_city.nil?
         error_messages << "error: city '#{city[:name]}' was not found."
         break
       end
+
+      policies = []
+      policies << { policy_string: city[:farmers_markets], policy: policy_farmers_markets}
+      policies << { policy_string: city[:community_gardens], policy: policy_community_gardens}
+      policies << { policy_string: city[:nutrition_standards], policy: policy_nutrition_standards}
+      policies << { policy_string: city[:breastfeeding], policy: policy_breastfeeding}
+      policies << { policy_string: city[:activity_breaks], policy: policy_activity_breaks}
+      policies << { policy_string: city[:ww_other], policy: ww_other}
 
       policies.each do |p|
         policy = p[:policy]
