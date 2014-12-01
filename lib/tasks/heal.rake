@@ -427,42 +427,4 @@ namespace :heal do
     puts "Added city information to #{contact_cities_added} contacts in the CCPHA HEAL Cities database. There were #{error_count} errors."
   end
 
-  desc "migrate city designation in cities table to separate table"
-  task migrate_city_designation_data: :environment do
-
-    dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
-    dbi_iphi = Heal::DatabaseInstance.find_by(instance_name: IPHI_DATABASE_INSTANCE_NAME)
-    dbi_lvc = Heal::DatabaseInstance.find_by(instance_name: LVC_DATABASE_INSTANCE_NAME)
-    dbi_ophi = Heal::DatabaseInstance.find_by(instance_name: OPHI_DATABASE_INSTANCE_NAME)
-
-    messages = []
-
-    dbis = [dbi_ccpha, dbi_iphi, dbi_lvc, dbi_ophi]
-
-    dbis.each do |dbi|
-      city_designations_added = 0
-      error_count = 0
-      dbi.cities.where.not(city_designation_id: nil).each do |city|
-
-        if city.city_designation_achievements.count == 0
-          #there aren't any city designations saved yet.
-          cda = Heal::CityDesignationAchievement.new
-          cda.city = city
-          cda.city_designation_id = city.city_designation_id
-          cda.database_instance_id = dbi.id
-          if cda.save
-            city_designations_added += 1
-          else
-            error_count += 1
-            puts cda.errors.inspect
-          end
-        end
-      end
-
-      messages << "Added city designation information to #{city_designations_added} cities in the #{dbi.instance_name} database. There were #{error_count} errors."
-    end
-
-    puts messages
-  end
-
 end
