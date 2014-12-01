@@ -91,4 +91,9 @@ module HealHelper
     end
   end
 
+  def truncate_text(text, options = {})
+    max_length = options[:max_length] || 30
+    truncate(text, length: max_length, separator: ' ')
+  end
+
 end

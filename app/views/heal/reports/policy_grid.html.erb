@@ -66,7 +66,7 @@
       <th>Policy Change in Progress</th>
       <% @policies.each do |policy| %>
         <% policy_ids << policy.id %>
-        <th class="angle-text"><%= policy.name %></th>
+        <th class="small-title"><span title="<%= policy.name %>"><%= truncate_text(policy.name) %></span></th>
       <% end %>
     </tr>
     </thead>
