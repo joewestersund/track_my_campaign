@@ -121,7 +121,7 @@
           <td><%= show_boolean(city.under_resourced_or_disease_burden) %></td>
           <td><%= number_to_currency(city.state_median_income, precision: 0) %></td>
           <td><%= number_to_currency(city.city_median_income, precision: 0) %></td>
-          <td><%= show_city_designation_achievements_list(city) %>
+          <td class="bold-black <%= get_city_designation_class(city) %>"><%= show_city_designation_achievements_list(city) %>
           <td><%= show_boolean(city.policy_change_in_progress) %></td>
           <td><%= link_to 'Edit', edit_heal_city_path(city) %></td>
           <td><%= link_to 'Delete', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>

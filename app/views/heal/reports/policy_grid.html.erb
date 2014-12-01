@@ -61,11 +61,12 @@
       <th>Name</th>
       <th>Population</th>
       <th>% Obesity</th>
+      <th>Median Income</th>
       <th>HEAL City Designation</th>
       <th>Policy Change in Progress</th>
       <% @policies.each do |policy| %>
         <% policy_ids << policy.id %>
-        <th class="vertical-text"><%= policy.name %></th>
+        <th class="angle-text"><%= policy.name %></th>
       <% end %>
     </tr>
     </thead>
@@ -78,20 +79,21 @@
         <td><%= link_to city.name, edit_heal_city_path(city)%></td>
         <td><%= city.population %></td>
         <td><%= show_percentage(city.percent_obesity) %></td>
-        <td><%= show_city_designation_achievements_list(city) %>
+        <td><%= number_to_currency(city.city_median_income, precision: 0) %></td>
+        <td class="bold-black <%= get_city_designation_class(city) %>"><%= show_city_designation_achievements_list(city) %>
         <td><%= show_boolean(city.policy_change_in_progress) %></td>
         <% @policies.each do |policy| %>
           <% pa = city.policy_adoptions.joins(:policies).where("policies_policy_adoptions.policy_id" => policy.id).order(date: :desc).first
            if pa.present?
               if pa.prior_to_joining_campaign
-                %><td class="policy-grid prior"><%= link_to "P", heal_policy_adoption_path(pa), title: pa.notes %></td><%
+                %><td class="bold-white prior"><%= link_to "P", heal_policy_adoption_path(pa), title: pa.notes %></td><%
               else
-                %><td class="policy-grid adopted-in-<%=pa.date.year%>"><%= link_to pa.date.year, heal_policy_adoption_path(pa), title: pa.notes %></td><%
+                %><td class="bold-white adopted-in-<%=pa.date.year%>"><%= link_to pa.date.year, heal_policy_adoption_path(pa), title: pa.notes %></td><%
               end
             else
                 res = city.resolutions.joins(:policies).where("policies_resolutions.policy_id" => policy.id).order(date: :desc).first
                 if res.present?
-                  %> <td class="policy-grid resolution"><%= link_to "R", heal_resolution_path(res), title: res.notes %></td><%
+                  %> <td class="bold-white resolution"><%= link_to "R", heal_resolution_path(res), title: res.notes %></td><%
                 else
                   %> <td></td><%
                 end

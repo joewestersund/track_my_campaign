@@ -1,12 +1,22 @@
-th.vertical-text {
+th.angle-text {
   transform: rotate(-45deg);
   /*transform-origin: left top 0;*/
 }
 
-td.policy-grid {
+td.bold-white {
   a {
     font-weight: bold;
     color: #ffffff;
+  }
+}
+
+td.bold-black {
+  a {
+    font-weight: bold;
+    color: black;
+  }
+  a:hover {
+    color: white;
   }
 }
 
@@ -60,4 +70,28 @@ td.adopted-in-2016 {
 
 td.adopted-in-2017 {
   background-color: orange;
+}
+
+td.city-designation-1 {
+ background-color: lightslategray;
+}
+
+td.city-designation-2 {
+  background-color: greenyellow;
+}
+
+td.city-designation-3 {
+  background-color: green;
+}
+
+td.city-designation-4 {
+  background-color: blue;
+}
+
+td.city-designation-5 {
+  background-color: darkblue;
+}
+
+td.city-designation-6 {
+  background-color: orangered;
 }

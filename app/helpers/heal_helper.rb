@@ -82,4 +82,13 @@ module HealHelper
     end
   end
 
+  def get_city_designation_class(city)
+    cd = city.current_designation
+    if cd.nil?
+      return ""
+    else
+      return "city-designation-#{cd.city_designation.order_in_list}"
+    end
+  end
+
 end

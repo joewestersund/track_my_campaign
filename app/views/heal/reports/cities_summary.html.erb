@@ -84,7 +84,7 @@
         <td><%= show_percentage(city.percent_obesity) %></td>
         <td><%= show_boolean(city.kp_service_area) %></td>
         <td><%= show_boolean(city.under_resourced_or_disease_burden) %></td>
-        <td><%= show_city_designation_achievements_list(city) %>
+        <td class="bold-black <%= get_city_designation_class(city) %>"><%= show_city_designation_achievements_list(city) %>
         <td><%= show_boolean(city.policy_change_in_progress) %></td>
         <td>
           <% city.policy_adoptions.order(:date).each do |pa| %>
