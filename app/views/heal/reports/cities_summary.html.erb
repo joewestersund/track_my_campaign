@@ -95,12 +95,12 @@
         <td class="bold-black <%= get_city_designation_class(city) %>"><%= show_city_designation_achievements_list(city) %>
         <td><%= show_boolean(city.policy_change_in_progress) %></td>
         <td>
-          <% city.resolutions.order(:date).each do |r| %>
+          <% city.resolutions.order(date: :desc).each do |r| %>
             <div><%= link_to r.policy_summary, edit_heal_resolution_path(r) %></div>
           <% end %>
         </td>
         <td>
-          <% city.policy_adoptions.order(:date).each do |pa| %>
+          <% city.policy_adoptions.order(date: :desc).each do |pa| %>
             <div><%= link_to pa.policy_summary, edit_heal_policy_adoption_path(pa) %></div>
           <% end %>
         </td>

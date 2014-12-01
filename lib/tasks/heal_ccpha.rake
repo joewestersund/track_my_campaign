@@ -299,12 +299,10 @@ namespace :heal_ccpha do
       if saved_city.save
         cities_updated += 1
       else
+        error_messages << saved_city.errors.inspect
         update_error_count += 1
+        break
       end
-
-      #if cities_updated > 2
-      #  break #debug
-      #end
 
     end
 
@@ -316,9 +314,359 @@ namespace :heal_ccpha do
   task ccpha_upload_2: :environment do
     city_data = []
 
+    city_data << { county: 'Alameda', name: 'Emeryville', compact_mixed_use: '2011', transit_oriented: '2011', walkability: '2011', capital_improvement: '2011', open_space: '2011', joint_use: '2011' }
+    city_data << { county: 'Alameda', name: 'Fremont', compact_mixed_use: '2011', transit_oriented: '2011', walkability: '2011', capital_improvement: '2011', open_space: '2011', joint_use: '2011' }
+    city_data << { county: 'Alameda', name: 'Hayward', compact_mixed_use: '2011', transit_oriented: '2011', walkability: '2011', capital_improvement: '2011', open_space: '2011', joint_use: '2011' }
+    city_data << { county: 'Alameda', name: 'Livermore', compact_mixed_use: '', transit_oriented: '2010', walkability: '2010', capital_improvement: '', open_space: '', joint_use: '2010' }
+    city_data << { county: 'Alameda', name: 'Newark', compact_mixed_use: '', transit_oriented: 'P', walkability: 'P', capital_improvement: 'P', open_space: '', joint_use: '' }
+    city_data << { county: 'Alameda', name: 'San Leandro', compact_mixed_use: '2011', transit_oriented: 'P', walkability: '2011', capital_improvement: '2011', open_space: '2011', joint_use: '2011' }
+    city_data << { county: 'Alameda', name: 'Union City', compact_mixed_use: 'H', transit_oriented: 'H', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'H' }
+    city_data << { county: 'Butte', name: 'Chico', compact_mixed_use: '2011', transit_oriented: '2011', walkability: '2011', capital_improvement: '2011', open_space: '2011', joint_use: '' }
+    city_data << { county: 'Butte', name: 'Gridley', compact_mixed_use: 'P', transit_oriented: 'P', walkability: '2011', capital_improvement: '2011', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Contra Costa', name: 'Antioch', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Contra Costa', name: 'Brentwood', compact_mixed_use: '', transit_oriented: '', walkability: '2011', capital_improvement: '', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Contra Costa', name: 'Danville', compact_mixed_use: 'P', transit_oriented: 'P', walkability: '2013', capital_improvement: '2013', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Contra Costa', name: 'El Cerrito', compact_mixed_use: '', transit_oriented: '', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Contra Costa', name: 'Lafayette', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: '', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Contra Costa', name: 'Martinez', compact_mixed_use: 'P', transit_oriented: 'P', walkability: '', capital_improvement: '', open_space: '', joint_use: 'P' }
+    city_data << { county: 'Contra Costa', name: 'San Pablo', compact_mixed_use: '2011', transit_oriented: '2011', walkability: '2011', capital_improvement: '2011', open_space: '2011', joint_use: '2011' }
+    city_data << { county: 'Del Norte', name: 'Crescent City', compact_mixed_use: '', transit_oriented: '', walkability: '', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'Fresno', name: 'Clovis', compact_mixed_use: 'P', transit_oriented: 'H', walkability: 'P', capital_improvement: 'H', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Fresno', name: 'Fowler', compact_mixed_use: 'P', transit_oriented: 'H', walkability: 'P', capital_improvement: 'H', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Fresno', name: 'Huron', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: '' }
+    city_data << { county: 'Fresno', name: 'Reedley', compact_mixed_use: 'H', transit_oriented: 'H', walkability: '2013', capital_improvement: '2013', open_space: '2013', joint_use: '' }
+    city_data << { county: 'Fresno', name: 'San Joaquin', compact_mixed_use: '2011', transit_oriented: '', walkability: '2011', capital_improvement: '2011', open_space: '2011', joint_use: '2011' }
+    city_data << { county: 'Fresno', name: 'Sanger', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Glen', name: 'Orland', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Humboldt', name: 'Arcata', compact_mixed_use: '', transit_oriented: '', walkability: '', capital_improvement: '', open_space: 'P', joint_use: '' }
+    city_data << { county: 'Humboldt', name: 'Ferndale', compact_mixed_use: '-', transit_oriented: '-', walkability: 'H', capital_improvement: 'H', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Imperial', name: 'Brawley', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: '', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Imperial', name: 'El Centro', compact_mixed_use: '2012', transit_oriented: '2012', walkability: '2012', capital_improvement: '2012', open_space: '2012', joint_use: 'P' }
+    city_data << { county: 'Imperial', name: 'Holtville', compact_mixed_use: '', transit_oriented: '', walkability: '', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'Inyo', name: 'Bishop', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: '', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Kern', name: 'Bakersfield', compact_mixed_use: 'P', transit_oriented: '', walkability: '2013', capital_improvement: '2013', open_space: 'H', joint_use: '' }
+    city_data << { county: 'Kern', name: 'Delano', compact_mixed_use: 'H', transit_oriented: 'H', walkability: 'H', capital_improvement: 'H', open_space: '   ', joint_use: 'H' }
+    city_data << { county: 'Los Angeles', name: 'Alhambra', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Los Angeles', name: 'Avalon', compact_mixed_use: '', transit_oriented: 'H', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Los Angeles', name: 'Azusa', compact_mixed_use: '2011', transit_oriented: 'P', walkability: 'H', capital_improvement: '', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Los Angeles', name: 'Baldwin Park', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: '2011', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Los Angeles', name: 'Bell  ', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: '' }
+    city_data << { county: 'Los Angeles', name: 'Bell Gardens', compact_mixed_use: '', transit_oriented: '', walkability: '', capital_improvement: 'H', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Los Angeles', name: 'Beverly Hills', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'H', capital_improvement: 'P', open_space: 'H', joint_use: 'H' }
+    city_data << { county: 'Los Angeles', name: 'Calabasas', compact_mixed_use: 'P', transit_oriented: '2013', walkability: '2013', capital_improvement: 'P', open_space: '', joint_use: 'P' }
+    city_data << { county: 'Los Angeles', name: 'Carson', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Los Angeles', name: 'Claremont', compact_mixed_use: '2013', transit_oriented: '2013', walkability: '2013', capital_improvement: '2013', open_space: 'P', joint_use: 'H' }
+    city_data << { county: 'Los Angeles', name: 'Duarte', compact_mixed_use: 'H', transit_oriented: 'H', walkability: 'P', capital_improvement: 'H', open_space: 'P', joint_use: 'H' }
+    city_data << { county: 'Los Angeles', name: 'El Monte', compact_mixed_use: '2012', transit_oriented: '2012', walkability: 'P', capital_improvement: '', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Los Angeles', name: 'Hawaiian Gardens', compact_mixed_use: '', transit_oriented: '', walkability: '', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'Los Angeles', name: 'Hawthorne', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Los Angeles', name: 'Hermosa Beach', compact_mixed_use: '', transit_oriented: '', walkability: '2011', capital_improvement: '', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Los Angeles', name: 'Huntington Park', compact_mixed_use: 'P', transit_oriented: '', walkability: 'H', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Los Angeles', name: 'Inglewood', compact_mixed_use: '', transit_oriented: '', walkability: 'P', capital_improvement: '', open_space: 'P', joint_use: '' }
+    city_data << { county: 'Los Angeles', name: 'La Puente', compact_mixed_use: 'P', transit_oriented: '', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Los Angeles', name: 'Lancaster', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Los Angeles', name: 'Lawndale', compact_mixed_use: 'P', transit_oriented: '', walkability: '2011', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'Los Angeles', name: 'Long Beach', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: '', open_space: 'P', joint_use: '' }
+    city_data << { county: 'Los Angeles', name: 'Manhattan Beach', compact_mixed_use: 'P', transit_oriented: '', walkability: '2011', capital_improvement: '', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Los Angeles', name: 'Maywood', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Los Angeles', name: 'Paramount', compact_mixed_use: '2012', transit_oriented: '', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: 'P' }
+    city_data << { county: 'Los Angeles', name: 'Pasadena', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Los Angeles', name: 'Pico Rivera', compact_mixed_use: '', transit_oriented: '', walkability: '', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'Los Angeles', name: 'Pomona', compact_mixed_use: 'P', transit_oriented: 'P', walkability: '2012', capital_improvement: '2012', open_space: '2012', joint_use: 'P' }
+    city_data << { county: 'Los Angeles', name: 'Redondo Beach', compact_mixed_use: 'P', transit_oriented: '', walkability: '2011', capital_improvement: '2011', open_space: 'P', joint_use: '' }
+    city_data << { county: 'Los Angeles', name: 'San Fernando', compact_mixed_use: 'P', transit_oriented: '', walkability: '', capital_improvement: '', open_space: 'P', joint_use: '' }
+    city_data << { county: 'Los Angeles', name: 'Santa Clarita', compact_mixed_use: '2011', transit_oriented: '2011', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Los Angeles', name: 'Santa Monica', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Los Angeles', name: 'South El Monte', compact_mixed_use: 'P', transit_oriented: 'P', walkability: '', capital_improvement: '', open_space: '', joint_use: 'P' }
+    city_data << { county: 'Los Angeles', name: 'South Gate', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Los Angeles', name: 'Torrance', compact_mixed_use: 'P', transit_oriented: 'P', walkability: '2011', capital_improvement: 'P', open_space: 'H', joint_use: 'H' }
+    city_data << { county: 'Los Angeles', name: 'West Hollywood', compact_mixed_use: 'P', transit_oriented: 'P', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Marin', name: 'Corte Madera', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Marin', name: 'Marin City', compact_mixed_use: '', transit_oriented: '', walkability: '', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'Marin', name: 'Novato', compact_mixed_use: '2012', transit_oriented: '2012', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: '' }
+    city_data << { county: 'Mendocino', name: 'Fort Bragg', compact_mixed_use: 'H', transit_oriented: 'H', walkability: '', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'Merced', name: 'Gustine', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Merced', name: 'Livingston', compact_mixed_use: 'H', transit_oriented: 'H', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: '' }
+    city_data << { county: 'Merced', name: 'Merced', compact_mixed_use: 'H', transit_oriented: 'H', walkability: 'H', capital_improvement: 'H', open_space: 'H', joint_use: 'H' }
+    city_data << { county: 'Monterey', name: 'Greenfield', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'Monterey', name: 'Seaside', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: '' }
+    city_data << { county: 'Napa', name: 'American Canyon', compact_mixed_use: 'P', transit_oriented: '', walkability: '', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Napa', name: 'Yountville', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Orange', name: 'Anaheim', compact_mixed_use: 'H', transit_oriented: 'H', walkability: 'H', capital_improvement: 'H', open_space: 'H', joint_use: '' }
+    city_data << { county: 'Orange', name: 'Brea', compact_mixed_use: 'H', transit_oriented: '', walkability: 'H', capital_improvement: 'H', open_space: 'H', joint_use: 'P' }
+    city_data << { county: 'Orange', name: 'Dana Point', compact_mixed_use: 'H', transit_oriented: 'H', walkability: 'H', capital_improvement: 'H', open_space: 'P', joint_use: 'H' }
+    city_data << { county: 'Orange', name: 'Fullerton', compact_mixed_use: '2012', transit_oriented: '2012', walkability: '2012', capital_improvement: '2012', open_space: '2012', joint_use: '2012' }
+    city_data << { county: 'Orange', name: 'Irvine', compact_mixed_use: '2012', transit_oriented: '2012', walkability: '2012', capital_improvement: 'H', open_space: 'P', joint_use: '2012' }
+    city_data << { county: 'Orange', name: 'LaHabra', compact_mixed_use: 'H', transit_oriented: 'H', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Orange', name: 'Mission Viejo', compact_mixed_use: '2012', transit_oriented: '2012', walkability: 'P', capital_improvement: '', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Orange', name: 'Newport Beach', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'H', open_space: 'P', joint_use: 'H' }
+    city_data << { county: 'Orange', name: 'Placentia', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: '', open_space: 'P', joint_use: '' }
+    city_data << { county: 'Orange', name: 'San Clemente', compact_mixed_use: '2014', transit_oriented: '2014', walkability: '2014', capital_improvement: '2014', open_space: '2014', joint_use: '2014' }
+    city_data << { county: 'Orange', name: 'Santa Ana', compact_mixed_use: 'P', transit_oriented: 'P', walkability: '2014', capital_improvement: '', open_space: '2014', joint_use: '2014' }
+    city_data << { county: 'Orange', name: 'Westminster', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: 'H', open_space: 'H', joint_use: 'H' }
+    city_data << { county: 'Riverside', name: 'Banning', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'Riverside', name: 'Beaumont', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'H', capital_improvement: '', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Riverside', name: 'Canyon Lake', compact_mixed_use: '', transit_oriented: 'H', walkability: 'H', capital_improvement: '', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Riverside', name: 'Cathedral City', compact_mixed_use: '2010', transit_oriented: '2010', walkability: '2012', capital_improvement: 'H', open_space: '2010', joint_use: 'H' }
+    city_data << { county: 'Riverside', name: 'Corona', compact_mixed_use: 'P', transit_oriented: 'H', walkability: 'H', capital_improvement: 'P', open_space: 'P', joint_use: 'H' }
+    city_data << { county: 'Riverside', name: 'Desert Hot Springs', compact_mixed_use: 'H', transit_oriented: 'H', walkability: '2013', capital_improvement: 'P', open_space: 'P', joint_use: '2013' }
+    city_data << { county: 'Riverside', name: 'Eastvale', compact_mixed_use: 'H', transit_oriented: 'H', walkability: 'H', capital_improvement: '', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Riverside', name: 'La Quinta', compact_mixed_use: '2011', transit_oriented: '2013', walkability: '2013', capital_improvement: 'P', open_space: 'P', joint_use: 'H' }
+    city_data << { county: 'Riverside', name: 'Lake Elsinore', compact_mixed_use: '', transit_oriented: 'H', walkability: 'H', capital_improvement: '', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Riverside', name: 'Palm Springs', compact_mixed_use: 'P', transit_oriented: 'P', walkability: '2011', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Riverside', name: 'Perris', compact_mixed_use: '', transit_oriented: '', walkability: '', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'Riverside', name: 'Riverside', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Sacramento', name: 'Citrus Heights', compact_mixed_use: 'P', transit_oriented: 'P', walkability: '2011', capital_improvement: 'P', open_space: '2011', joint_use: 'P' }
+    city_data << { county: 'Sacramento', name: 'Elk Grove', compact_mixed_use: '', transit_oriented: '', walkability: 'P', capital_improvement: 'H', open_space: 'P', joint_use: '' }
+    city_data << { county: 'Sacramento', name: 'Rancho Cordova', compact_mixed_use: 'P', transit_oriented: 'P', walkability: '2013', capital_improvement: 'H', open_space: 'P', joint_use: 'H' }
+    city_data << { county: 'Sacramento', name: 'Roseville', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: '', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Sacramento', name: 'Sacramento', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: '', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'San Bernardino', name: 'Adelanto', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'San Bernardino', name: 'Apple Valley', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'San Bernardino', name: 'Barstow', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: '', open_space: '', joint_use: 'H' }
+    city_data << { county: 'San Bernardino', name: 'Chino  ', compact_mixed_use: '', transit_oriented: '', walkability: '', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'San Bernardino', name: 'Chino Hills', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'San Bernardino', name: 'Colton', compact_mixed_use: 'P', transit_oriented: '', walkability: '2013', capital_improvement: '2013', open_space: '', joint_use: '' }
+    city_data << { county: 'San Bernardino', name: 'Fontana', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'San Bernardino', name: 'Hesperia', compact_mixed_use: '', transit_oriented: '', walkability: '2011', capital_improvement: '', open_space: '2011', joint_use: '' }
+    city_data << { county: 'San Bernardino', name: 'Ontario', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'H', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'San Bernardino', name: 'Rancho Cucamonga', compact_mixed_use: '2011', transit_oriented: '2011', walkability: '2011', capital_improvement: '', open_space: '2011', joint_use: '2011' }
+    city_data << { county: 'San Bernardino', name: 'Redlands', compact_mixed_use: '', transit_oriented: '', walkability: '', capital_improvement: '', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'San Bernardino', name: 'Rialto', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: '' }
+    city_data << { county: 'San Bernardino', name: 'Victorville', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: '' }
+    city_data << { county: 'San Bernardino', name: 'Yucca Valley', compact_mixed_use: 'P', transit_oriented: '', walkability: '2014', capital_improvement: '2014', open_space: 'P', joint_use: '2014' }
+    city_data << { county: 'San Diego', name: 'Chula Vista', compact_mixed_use: '2010', transit_oriented: '', walkability: '2010', capital_improvement: '2010', open_space: '2010', joint_use: '' }
+    city_data << { county: 'San Diego', name: 'Coronado', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: 'H' }
+    city_data << { county: 'San Diego', name: 'La Mesa', compact_mixed_use: '2012', transit_oriented: '2012', walkability: '2012', capital_improvement: '2012', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'San Diego', name: 'National City', compact_mixed_use: 'H', transit_oriented: 'H', walkability: '2013', capital_improvement: 'H', open_space: '', joint_use: 'H' }
+    city_data << { county: 'San Diego', name: 'Poway', compact_mixed_use: 'P', transit_oriented: '', walkability: 'P', capital_improvement: '', open_space: 'P', joint_use: '' }
+    city_data << { county: 'San Diego', name: 'Solana Beach', compact_mixed_use: 'P', transit_oriented: '', walkability: 'H', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'San Francisco', name: 'San Francisco', compact_mixed_use: '', transit_oriented: '', walkability: '', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'San Joaquin', name: 'Lodi', compact_mixed_use: '2010', transit_oriented: '2010', walkability: '', capital_improvement: '2010', open_space: '2010', joint_use: '2010' }
+    city_data << { county: 'San Joaquin', name: 'Stockton', compact_mixed_use: 'P', transit_oriented: '', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'H' }
+    city_data << { county: 'San Luis Obispo', name: 'Arroyo Grande', compact_mixed_use: '2013', transit_oriented: 'H', walkability: '2012', capital_improvement: 'H', open_space: '', joint_use: 'H' }
+    city_data << { county: 'San Luis Obispo', name: 'Grover Beach', compact_mixed_use: 'H', transit_oriented: 'H', walkability: '2013', capital_improvement: '2013', open_space: 'H', joint_use: '2013' }
+    city_data << { county: 'San Luis Obispo', name: 'San Luis Obispo', compact_mixed_use: '', transit_oriented: '', walkability: '', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'San Mateo', name: 'Belmont', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'San Mateo', name: 'Brisbane', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: '', open_space: 'P', joint_use: '' }
+    city_data << { county: 'San Mateo', name: 'Burlingame', compact_mixed_use: 'P', transit_oriented: '', walkability: '2012', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'San Mateo', name: 'Daly City', compact_mixed_use: '', transit_oriented: '', walkability: '', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'San Mateo', name: 'Foster City', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'San Mateo', name: 'Menlo Park', compact_mixed_use: '2013', transit_oriented: 'P', walkability: '2013', capital_improvement: '2013', open_space: 'P', joint_use: '2013' }
+    city_data << { county: 'San Mateo', name: 'South San Francisco', compact_mixed_use: '2014', transit_oriented: '2014', walkability: '2014', capital_improvement: '2014', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Santa Barbara', name: 'Lompoc', compact_mixed_use: '2013', transit_oriented: 'H', walkability: '2013', capital_improvement: '2013', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Santa Barbara', name: 'Santa Barbara', compact_mixed_use: 'H', transit_oriented: 'H', walkability: 'H', capital_improvement: 'H', open_space: 'H', joint_use: 'H' }
+    city_data << { county: 'Santa Clara', name: 'Cupertino', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Santa Clara', name: 'Mountain View', compact_mixed_use: '2012', transit_oriented: '2012', walkability: '2012', capital_improvement: '2012', open_space: '2012', joint_use: '2012' }
+    city_data << { county: 'Santa Cruz', name: 'Scotts Valley', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Santa Cruz', name: 'Watsonville', compact_mixed_use: '2010', transit_oriented: '', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Shasta', name: 'Anderson', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: '2012', open_space: 'P', joint_use: 'H' }
+    city_data << { county: 'Shasta', name: 'Redding', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Solano', name: 'Benicia', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: '', open_space: 'P', joint_use: '' }
+    city_data << { county: 'Solano', name: 'Fairfield', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'Solano', name: 'Suisun City', compact_mixed_use: '', transit_oriented: 'P', walkability: 'P', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'Solano', name: 'Vallejo', compact_mixed_use: '2012', transit_oriented: '2012', walkability: '2012', capital_improvement: 'H', open_space: 'H', joint_use: 'H' }
+    city_data << { county: 'Sonoma', name: 'Cotati', compact_mixed_use: '2013', transit_oriented: '2013', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: '' }
+    city_data << { county: 'Sonoma', name: 'Healdsburg', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Sonoma', name: 'Petaluma', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Sonoma', name: 'Rohnert Park', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: '', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Sonoma', name: 'Sebastopol', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: '', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Sonoma', name: 'Windsor', compact_mixed_use: '2013', transit_oriented: '2013', walkability: '2013', capital_improvement: 'H', open_space: '', joint_use: '2013' }
+    city_data << { county: 'Stanislaus', name: 'Ceres', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Stanislaus', name: 'Ceres School District', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Stanislaus', name: 'Hughson', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Stanislaus', name: 'Modesto', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'H', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Stanislaus', name: 'Newman', compact_mixed_use: '', transit_oriented: '', walkability: '', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'Stanislaus', name: 'Oakdale', compact_mixed_use: 'P', transit_oriented: '', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Stanislaus', name: 'Patterson', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'H', capital_improvement: 'P', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Stanislaus', name: 'Riverbank', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'H', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Stanislaus', name: 'Turlock', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Stanislaus', name: 'Waterford', compact_mixed_use: '', transit_oriented: '', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Tehama', name: 'Red Bluff', compact_mixed_use: 'P', transit_oriented: '', walkability: '', capital_improvement: '', open_space: '', joint_use: '' }
+    city_data << { county: 'Tulare', name: 'Dinuba', compact_mixed_use: 'H', transit_oriented: 'H', walkability: 'H', capital_improvement: 'H', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Ventura', name: 'Moorpark', compact_mixed_use: '', transit_oriented: '', walkability: '2014', capital_improvement: '', open_space: '', joint_use: 'H' }
+    city_data << { county: 'Ventura', name: 'Ventura', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: '', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Yolo', name: 'Davis', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: '', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Yolo', name: 'West Sacramento', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Yolo', name: 'Winters', compact_mixed_use: 'P', transit_oriented: '', walkability: '', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Yolo', name: 'Woodland', compact_mixed_use: 'P', transit_oriented: 'P', walkability: 'P', capital_improvement: 'P', open_space: 'P', joint_use: 'P' }
+    city_data << { county: 'Alameda', name: 'Oakland', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Contra Costa', name: 'Concord', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Contra Costa', name: 'Pittsburg', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Contra Costa', name: 'Richmond', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Fresno', name: 'Fresno', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Fresno', name: 'Selma', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Humboldt', name: 'Eureka', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Imperial', name: 'Calexico', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Kern', name: 'Wasco', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Kings', name: 'Hanford', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Kings', name: 'Lemoore', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Los Angeles', name: 'Bellflower', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Los Angeles', name: 'Compton', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Los Angeles', name: 'Covina', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Los Angeles', name: 'Cudahy', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Los Angeles', name: 'Downey', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Los Angeles', name: 'Gardena', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Los Angeles', name: 'Lomita', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Los Angeles', name: 'Los Angeles', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Los Angeles', name: 'Norwalk', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Los Angeles', name: 'West Covina', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Madera', name: 'Madera', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Merced', name: 'Atwater', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Merced', name: 'Los Banos', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Monterey', name: 'Monterey', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Monterey', name: 'Salinas', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Monterey', name: 'Soledad', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Orange', name: 'Buena Park', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Orange', name: 'Orange', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Orange', name: 'Stanton', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Riverside', name: 'Blythe', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Riverside', name: 'Coachella', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Riverside', name: 'Indio', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Riverside', name: 'Moreno Valley', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Sacramento', name: 'Galt', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'San Benito', name: 'Hollister', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'San Bernardino', name: 'Loma Linda', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'San Bernardino', name: 'Montclair', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'San Bernardino', name: 'San Bernardino', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'San Bernardino', name: 'Upland', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'San Diego', name: 'Lemon Grove', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'San Mateo', name: 'San Bruno', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Santa Clara', name: 'Gilroy', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Tulare', name: 'Porterville', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Tulare', name: 'Tulare', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Tulare', name: 'Visalia', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Ventura', name: 'Oxnard', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Ventura', name: 'Port Hueneme', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+    city_data << { county: 'Ventura', name: 'Santa Paula', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
+
+
+    cities_updated = 0
+    update_error_count = 0
+    error_messages = []
+
+    policy_compact_mixed_use = dbi_ccpha.policies.find_by(name: "Compact Mixed Use").first
+    policy_transit_oriented = dbi_ccpha.policies.find_by(name: "Transit Oriented Development").first
+    policy_walkability = dbi_ccpha.policies.find_by(name: "Increase Walkability and Bikeability").first
+    policy_capital_improvement = dbi_ccpha.policies.find_by(name: "Capital Improvement Priority on PA, Walking, and Biking").first
+    policy_open_space = dbi_ccpha.policies.find_by(name: "Open Space (increase)").first
+    policy_joint_use = dbi_ccpha.policies.find_by(name: "Joint Use").first
+
+
     city_data.each do |city|
+      saved_city = dbi_ccpha.cities.find_by(name: city[:name], county: city[:county])
+      if saved_city.nil?
+        error_messages << "error: city '#{city[:name]}' was not found."
+        break
+      end
+
+      if city[:compact_mixed_use] != '-'
+        policy = policy_compact_mixed_use
+        result = add_policy_adoption(dbi_ccpha, saved_city, policy, city[:compact_mixed_use])
+        if result == 'ok'
+          cities_updated += 1
+        else
+          error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
+          update_error_count += 1
+          break
+        end
+      end
+
+      if city[:transit_oriented] != '-'
+        policy = policy_transit_oriented
+        result = add_policy_adoption(dbi_ccpha, saved_city, policy, city[:transit_oriented])
+        if result == 'ok'
+          cities_updated += 1
+        else
+          error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
+          update_error_count += 1
+          break
+        end
+      end
+
+      if city[:walkability] != '-'
+        policy = policy_walkability
+        result = add_policy_adoption(dbi_ccpha, saved_city, policy, city[:walkability])
+        if result == 'ok'
+          cities_updated += 1
+        else
+          error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
+          update_error_count += 1
+          break
+        end
+      end
+
+      if city[:capital_improvement] != '-'
+        policy = policy_capital_improvement
+        result = add_policy_adoption(dbi_ccpha, saved_city, policy, city[:capital_improvement])
+        if result == 'ok'
+          cities_updated += 1
+        else
+          error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
+          update_error_count += 1
+          break
+        end
+      end
+
+      if city[:open_space] != '-'
+        policy = policy_open_space
+        result = add_policy_adoption(dbi_ccpha, saved_city, policy, city[:open_space])
+        if result == 'ok'
+          cities_updated += 1
+        else
+          error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
+          update_error_count += 1
+          break
+        end
+      end
+
+      if city[:joint_use] != '-'
+        policy = policy_joint_use
+        result = add_policy_adoption(dbi_ccpha, saved_city, policy, city[:joint_use])
+        if result == 'ok'
+          cities_updated += 1
+        else
+          error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
+          update_error_count += 1
+          break
+        end
+      end
 
     end
 
+    puts error_messages
+    puts "Cities updated: #{cities_updated}/ errors:#{update_error_count}."
+
   end
+
+  private
+
+    def add_policy_adoption(database_instance, city, policy, policy_string)
+      prior = (policy_string == 'P')
+      if is_number?(policy_string)
+        year = policy_string.to_i
+      else
+        year = nil
+      end
+      return add_policy_adoption_to_city(database_instance, city, policy, year, prior)
+    end
+
+    def add_policy_adoption_to_city(database_instance, city, policy, year, prior)
+      pa = Heal::PolicyAdoption.new
+      pa.database_instance = database_instance
+      pa.city = city
+      pa.policies << policy
+      if year.present?
+        pa.date = Date::strptime("1-1-#{year}","%d-%m-%Y")
+      end
+      pa.prior_to_joining_campaign = prior
+      if pa.save
+        return 'ok'
+      else
+        return pa.errors.inspect
+      end
+    end
+
+
+
 end
