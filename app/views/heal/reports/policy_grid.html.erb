@@ -91,24 +91,32 @@
         <td class="bold-black <%= get_city_designation_class(city) %>"><%= show_city_designation_achievements_list(city) %>
         <td><%= show_boolean(city.policy_change_in_progress) %></td>
         <% @policies.each do |policy| %>
-          <% pa = city.policy_adoptions.joins(:policies).where("policies_policy_adoptions.policy_id" => policy.id).order(date: :desc).first
-           if pa.present?
-              if pa.prior_to_joining_campaign
-                %><td class="bold-white prior"><%= link_to "P", heal_policy_adoption_path(pa), title: pa.notes %></td><%
-              else
-                %><td class="bold-white adopted-in-<%=pa.date.year%>"><%= link_to pa.date.year, heal_policy_adoption_path(pa), title: pa.notes %></td><%
-              end
+          <% pa_all = city.policy_adoptions.joins(:policies).where("policies_policy_adoptions.policy_id" => policy.id).order(date: :desc)
+          pa_first = pa_all.first
+          res_all = city.resolutions.joins(:policies).where("policies_resolutions.policy_id" => policy.id).order(date: :desc)
+          res_first = res_all.first
+          if pa_first.present?
+            if pa_first.prior_to_joining_campaign
+              klass = "bold-white prior"
             else
-                res = city.resolutions.joins(:policies).where("policies_resolutions.policy_id" => policy.id).order(date: :desc).first
-                if res.present?
-                  %> <td class="bold-white resolution"><%= link_to "R", heal_resolution_path(res), title: res.notes %></td><%
-                else
-                  %> <td></td><%
-                end
-            end %>
-            </td>
-        <% end %>
-        </td>
+              klass = "bold-white adopted-in-#{pa_first.date.year}"
+            end
+          elsif res_first.present?
+             klass = "bold-white resolution"
+          end %>
+          <td class="<%= klass %>">
+          <% pa_all.each do |pa|
+            if pa.prior_to_joining_campaign
+              %><div><%= link_to "P", edit_heal_policy_adoption_path(pa), title: pa.notes %></div><%
+            else
+              %><div><%= link_to pa.date.year, edit_heal_policy_adoption_path(pa), title: pa.notes %></div><%
+            end
+          end
+          res_all.each do |res|
+            %> <div><%= link_to "R", edit_heal_resolution_path(res), title: res.notes %></div><%
+          end
+          %></td><%
+        end %>
       </tr>
     <% end %>
     </tbody>
