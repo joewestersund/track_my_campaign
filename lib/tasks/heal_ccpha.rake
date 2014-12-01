@@ -266,7 +266,7 @@ namespace :heal_ccpha do
       saved_city.population = city[:population] if city[:population].present?
       saved_city.percent_obesity = city[:percent_obesity] if city[:percent_obesity].present?
       saved_city.city_median_income = city[:city_median_income] if city[:city_median_income].present?
-      if city[:policy_change_in_progress] = ''
+      if city[:policy_change_in_progress] == ''
         saved_city.policy_change_in_progress = false
       else
         saved_city.policy_change_in_progress = true
