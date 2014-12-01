@@ -555,6 +555,13 @@ namespace :heal_ccpha do
     policy_open_space = dbi_ccpha.policies.find_by(name: "Open Space (increase)")
     policy_joint_use = dbi_ccpha.policies.find_by(name: "Joint Use")
 
+    policies = []
+    policies << { policy_string: city[:compact_mixed_use], policy: policy_compact_mixed_use}
+    policies << { policy_string: city[:transit_oriented], policy: policy_transit_oriented}
+    policies << { policy_string: city[:walkability], policy: policy_walkability}
+    policies << { policy_string: city[:capital_improvement], policy: policy_capital_improvement}
+    policies << { policy_string: city[:open_space], policy: policy_open_space}
+    policies << { policy_string: city[:joint_use], policy: policy_joint_use}
 
     city_data.each do |city|
       saved_city = dbi_ccpha.cities.find_by(name: city[:name], county: city[:county])
@@ -563,76 +570,308 @@ namespace :heal_ccpha do
         break
       end
 
-      policy = policy_compact_mixed_use
-      result = add_policy_adoption_or_resolution(dbi_ccpha, saved_city, policy, city[:compact_mixed_use])
-      if result == 'ok'
-        policy_adoptions_added += 1
-      elsif result == 'skip'
-        policy_adoptions_skipped += 1
-      elsif result != "empty"
-        error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
-        update_error_count += 1
+      policies.each do |p|
+        policy = p[:policy]
+        if policy.nil?
+          error_messages << "error: there was no policy for policy string '#{p[:policy_string]}'."
+          update_error_count += 1
+          break
+        end
+        result = add_policy_adoption_or_resolution(dbi_ccpha, saved_city, policy, p[:policy_string])
+        if result == 'ok'
+          policy_adoptions_added += 1
+        elsif result == 'skip'
+          policy_adoptions_skipped += 1
+        elsif result != "empty"
+          error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
+          update_error_count += 1
+          break
+        end
+      end
+
+    end
+
+    puts error_messages
+    puts "Policy adoptions added: #{policy_adoptions_added}/skipped: #{policy_adoptions_skipped}/errors:#{update_error_count}."
+
+  end
+
+  desc "upload CCPHA cities data 3"
+  task ccpha_upload_3: :environment do
+    dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
+
+    city_data = []
+
+    city_data << { county: 'Alameda', name: 'Emeryville', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Alameda', name: 'Fremont', farmers_markets: '2011', community_gardens: '2011', nutrition_standards: '2011', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Alameda', name: 'Hayward', farmers_markets: '2014', community_gardens: '2014', nutrition_standards: '2014', breastfeeding: 'H', activity_breaks: 'H', ww_other: '2014' }
+    city_data << { county: 'Alameda', name: 'Livermore', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Alameda', name: 'Newark', farmers_markets: '', community_gardens: 'P', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: 'P' }
+    city_data << { county: 'Alameda', name: 'San Leandro', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: '' }
+    city_data << { county: 'Alameda', name: 'Union City', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: '', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Butte', name: 'Chico', farmers_markets: '2011', community_gardens: '2011', nutrition_standards: '', breastfeeding: 'H', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Butte', name: 'Gridley', farmers_markets: '', community_gardens: '', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Contra Costa', name: 'Antioch', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Contra Costa', name: 'Brentwood', farmers_markets: 'P', community_gardens: 'P', nutrition_standards: 'P', breastfeeding: 'H', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Contra Costa', name: 'Danville', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Contra Costa', name: 'El Cerrito', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Contra Costa', name: 'Lafayette', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Contra Costa', name: 'Martinez', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Contra Costa', name: 'San Pablo', farmers_markets: 'P', community_gardens: 'P', nutrition_standards: '2012', breastfeeding: 'H', activity_breaks: 'H', ww_other: '2012' }
+    city_data << { county: 'Del Norte', name: 'Crescent City', farmers_markets: '', community_gardens: '', nutrition_standards: '2013', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Fresno', name: 'Clovis', farmers_markets: 'H', community_gardens: '', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Fresno', name: 'Fowler', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Fresno', name: 'Huron', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Fresno', name: 'Reedley', farmers_markets: '2013', community_gardens: '2013', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Fresno', name: 'San Joaquin', farmers_markets: '2011', community_gardens: '2011', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Fresno', name: 'Sanger', farmers_markets: 'H', community_gardens: 'P', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Glen', name: 'Orland', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Humboldt', name: 'Arcata', farmers_markets: 'P', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Humboldt', name: 'Ferndale', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Imperial', name: 'Brawley', farmers_markets: 'H', community_gardens: '', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Imperial', name: 'El Centro', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: '2014', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Imperial', name: 'Holtville', farmers_markets: '', community_gardens: '', nutrition_standards: '2014', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Inyo', name: 'Bishop', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Kern', name: 'Bakersfield', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Kern', name: 'Delano', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'Alhambra', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Los Angeles', name: 'Avalon', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Los Angeles', name: 'Azusa', farmers_markets: '', community_gardens: '', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'Baldwin Park', farmers_markets: '', community_gardens: '', nutrition_standards: '2011', breastfeeding: 'P', activity_breaks: 'H', ww_other: '2011' }
+    city_data << { county: 'Los Angeles', name: 'Bell  ', farmers_markets: '', community_gardens: '', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Los Angeles', name: 'Bell Gardens', farmers_markets: '', community_gardens: '', nutrition_standards: '2011', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Los Angeles', name: 'Beverly Hills', farmers_markets: 'H', community_gardens: '2014', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '2013' }
+    city_data << { county: 'Los Angeles', name: 'Calabasas', farmers_markets: 'P', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: 'P' }
+    city_data << { county: 'Los Angeles', name: 'Carson', farmers_markets: '-', community_gardens: '-', nutrition_standards: '2012', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Los Angeles', name: 'Claremont', farmers_markets: '2013', community_gardens: '2013', nutrition_standards: '2013', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'Duarte', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Los Angeles', name: 'El Monte', farmers_markets: 'P', community_gardens: '', nutrition_standards: '2011', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'Hawaiian Gardens', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'Hawthorne', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Los Angeles', name: 'Hermosa Beach', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: '2013' }
+    city_data << { county: 'Los Angeles', name: 'Huntington Park', farmers_markets: '', community_gardens: '', nutrition_standards: '2011', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Los Angeles', name: 'Inglewood', farmers_markets: '2013', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'La Puente', farmers_markets: '', community_gardens: '', nutrition_standards: '2011', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'Lancaster', farmers_markets: '2012', community_gardens: 'H', nutrition_standards: '2011', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Los Angeles', name: 'Lawndale', farmers_markets: '', community_gardens: '', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'Long Beach', farmers_markets: '', community_gardens: '', nutrition_standards: '2012', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'Manhattan Beach', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'Maywood', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Los Angeles', name: 'Paramount', farmers_markets: '', community_gardens: '', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'Pasadena', farmers_markets: 'P', community_gardens: 'P', nutrition_standards: '2011', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'Pico Rivera', farmers_markets: '', community_gardens: '', nutrition_standards: '2011', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'Pomona', farmers_markets: '2012', community_gardens: '', nutrition_standards: '2012', breastfeeding: '', activity_breaks: 'H', ww_other: '2012' }
+    city_data << { county: 'Los Angeles', name: 'Redondo Beach', farmers_markets: '', community_gardens: 'P', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'San Fernando', farmers_markets: '', community_gardens: '', nutrition_standards: '2011', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'Santa Clarita', farmers_markets: '', community_gardens: '', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: '2010' }
+    city_data << { county: 'Los Angeles', name: 'Santa Monica', farmers_markets: 'P', community_gardens: 'P', nutrition_standards: '2012', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Los Angeles', name: 'South El Monte', farmers_markets: '', community_gardens: '', nutrition_standards: '2011', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Los Angeles', name: 'South Gate', farmers_markets: 'P', community_gardens: 'P', nutrition_standards: '', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Los Angeles', name: 'Torrance', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Los Angeles', name: 'West Hollywood', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Marin', name: 'Corte Madera', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Marin', name: 'Marin City', farmers_markets: '', community_gardens: '', nutrition_standards: '2013', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Marin', name: 'Novato', farmers_markets: '', community_gardens: '', nutrition_standards: '2012', breastfeeding: '', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Mendocino', name: 'Fort Bragg', farmers_markets: '', community_gardens: '', nutrition_standards: '2013', breastfeeding: '', activity_breaks: '2013', ww_other: '' }
+    city_data << { county: 'Merced', name: 'Gustine', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Merced', name: 'Livingston', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: '2014', breastfeeding: 'H', activity_breaks: 'H', ww_other: '2014' }
+    city_data << { county: 'Merced', name: 'Merced', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Monterey', name: 'Greenfield', farmers_markets: '', community_gardens: '', nutrition_standards: 'H', breastfeeding: '', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Monterey', name: 'Seaside', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Napa', name: 'American Canyon', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Napa', name: 'Yountville', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Orange', name: 'Anaheim', farmers_markets: '', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Orange', name: 'Brea', farmers_markets: '', community_gardens: '', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Orange', name: 'Dana Point', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: '', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Orange', name: 'Fullerton', farmers_markets: 'P', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Orange', name: 'Irvine', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Orange', name: 'LaHabra', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: '', breastfeeding: 'H', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Orange', name: 'Mission Viejo', farmers_markets: '2013', community_gardens: '2013', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Orange', name: 'Newport Beach', farmers_markets: 'H', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Orange', name: 'Placentia', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Orange', name: 'San Clemente', farmers_markets: '2014', community_gardens: '2014', nutrition_standards: '2014', breastfeeding: 'H', activity_breaks: '', ww_other: '2014' }
+    city_data << { county: 'Orange', name: 'Santa Ana', farmers_markets: '2014', community_gardens: '2014', nutrition_standards: '2014', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Orange', name: 'Westminster', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Riverside', name: 'Banning', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Riverside', name: 'Beaumont', farmers_markets: 'H', community_gardens: '', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Riverside', name: 'Canyon Lake', farmers_markets: '', community_gardens: '', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Riverside', name: 'Cathedral City', farmers_markets: '2013', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: '2012' }
+    city_data << { county: 'Riverside', name: 'Corona', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Riverside', name: 'Desert Hot Springs', farmers_markets: 'H', community_gardens: '2013', nutrition_standards: 'H', breastfeeding: '', activity_breaks: 'H', ww_other: '' }
+    city_data << { county: 'Riverside', name: 'Eastvale', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Riverside', name: 'La Quinta', farmers_markets: '2013', community_gardens: '2013', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '2013', ww_other: '2013' }
+    city_data << { county: 'Riverside', name: 'Lake Elsinore', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Riverside', name: 'Palm Springs', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: '', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Riverside', name: 'Perris', farmers_markets: 'H', community_gardens: '', nutrition_standards: '', breastfeeding: 'H', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Riverside', name: 'Riverside', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Sacramento', name: 'Citrus Heights', farmers_markets: 'P', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Sacramento', name: 'Elk Grove', farmers_markets: '2013', community_gardens: '2013', nutrition_standards: '2013', breastfeeding: '', activity_breaks: '', ww_other: '2013' }
+    city_data << { county: 'Sacramento', name: 'Rancho Cordova', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: '', breastfeeding: 'H', activity_breaks: 'H', ww_other: '2012' }
+    city_data << { county: 'Sacramento', name: 'Roseville', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: 'H', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Sacramento', name: 'Sacramento', farmers_markets: '', community_gardens: 'P', nutrition_standards: '2011', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Bernardino', name: 'Adelanto', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'San Bernardino', name: 'Apple Valley', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'San Bernardino', name: 'Barstow', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Bernardino', name: 'Chino  ', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Bernardino', name: 'Chino Hills', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'San Bernardino', name: 'Colton', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'San Bernardino', name: 'Fontana', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: '', breastfeeding: 'H', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'San Bernardino', name: 'Hesperia', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Bernardino', name: 'Ontario', farmers_markets: 'P', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Bernardino', name: 'Rancho Cucamonga', farmers_markets: '2011', community_gardens: '2011', nutrition_standards: '2012', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Bernardino', name: 'Redlands', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Bernardino', name: 'Rialto', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: '', breastfeeding: 'H', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'San Bernardino', name: 'Victorville', farmers_markets: '', community_gardens: '', nutrition_standards: '2010', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Bernardino', name: 'Yucca Valley', farmers_markets: '', community_gardens: '', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Diego', name: 'Chula Vista', farmers_markets: '', community_gardens: '2010', nutrition_standards: '2010', breastfeeding: 'P', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Diego', name: 'Coronado', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'San Diego', name: 'La Mesa', farmers_markets: '2012', community_gardens: '2012', nutrition_standards: '2012', breastfeeding: 'P', activity_breaks: '', ww_other: '2012' }
+    city_data << { county: 'San Diego', name: 'National City', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: '2013' }
+    city_data << { county: 'San Diego', name: 'Poway', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Diego', name: 'Solana Beach', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'San Francisco', name: 'San Francisco', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Joaquin', name: 'Lodi', farmers_markets: 'H', community_gardens: '2012', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Joaquin', name: 'Stockton', farmers_markets: '', community_gardens: '', nutrition_standards: 'H', breastfeeding: 'P', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Luis Obispo', name: 'Arroyo Grande', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: '', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'San Luis Obispo', name: 'Grover Beach', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'San Luis Obispo', name: 'San Luis Obispo', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Mateo', name: 'Belmont', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'San Mateo', name: 'Brisbane', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'San Mateo', name: 'Burlingame', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: '2013', breastfeeding: '', activity_breaks: '', ww_other: '2013' }
+    city_data << { county: 'San Mateo', name: 'Daly City', farmers_markets: '', community_gardens: '', nutrition_standards: 'P', breastfeeding: '', activity_breaks: 'P', ww_other: 'P' }
+    city_data << { county: 'San Mateo', name: 'Foster City', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'San Mateo', name: 'Menlo Park', farmers_markets: 'H', community_gardens: '2013', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'San Mateo', name: 'South San Francisco', farmers_markets: '2014', community_gardens: '', nutrition_standards: '2013', breastfeeding: 'H', activity_breaks: '2013', ww_other: '2013' }
+    city_data << { county: 'Santa Barbara', name: 'Lompoc', farmers_markets: '2013', community_gardens: '2013', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Santa Barbara', name: 'Santa Barbara', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Santa Clara', name: 'Cupertino', farmers_markets: '', community_gardens: 'P', nutrition_standards: '', breastfeeding: 'H', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Santa Clara', name: 'Mountain View', farmers_markets: 'P', community_gardens: '2012', nutrition_standards: '2012', breastfeeding: 'H', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Santa Cruz', name: 'Scotts Valley', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Santa Cruz', name: 'Watsonville', farmers_markets: '', community_gardens: '', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Shasta', name: 'Anderson', farmers_markets: 'H', community_gardens: 'P', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: '2011' }
+    city_data << { county: 'Shasta', name: 'Redding', farmers_markets: '', community_gardens: '', nutrition_standards: '2010', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Solano', name: 'Benicia', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Solano', name: 'Fairfield', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Solano', name: 'Suisun City', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Solano', name: 'Vallejo', farmers_markets: '2012', community_gardens: '2012', nutrition_standards: 'H', breastfeeding: '', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Sonoma', name: 'Cotati', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Sonoma', name: 'Healdsburg', farmers_markets: 'P', community_gardens: '2010', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Sonoma', name: 'Petaluma', farmers_markets: '', community_gardens: 'P', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Sonoma', name: 'Rohnert Park', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Sonoma', name: 'Sebastopol', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Sonoma', name: 'Windsor', farmers_markets: 'H', community_gardens: '2013', nutrition_standards: '', breastfeeding: '2012', activity_breaks: '2012', ww_other: '2012' }
+    city_data << { county: 'Stanislaus', name: 'Ceres', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Stanislaus', name: 'Ceres School District', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Stanislaus', name: 'Hughson', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Stanislaus', name: 'Modesto', farmers_markets: '', community_gardens: '', nutrition_standards: '2012', breastfeeding: '', activity_breaks: '', ww_other: '2012' }
+    city_data << { county: 'Stanislaus', name: 'Newman', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Stanislaus', name: 'Oakdale', farmers_markets: '2013', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Stanislaus', name: 'Patterson', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Stanislaus', name: 'Riverbank', farmers_markets: 'H', community_gardens: 'H', nutrition_standards: '2012', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Stanislaus', name: 'Turlock', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Stanislaus', name: 'Waterford', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Tehama', name: 'Red Bluff', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Tulare', name: 'Dinuba', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: 'H', activity_breaks: 'H', ww_other: 'H' }
+    city_data << { county: 'Ventura', name: 'Moorpark', farmers_markets: 'H', community_gardens: '2014', nutrition_standards: 'H', breastfeeding: 'H', activity_breaks: '', ww_other: 'H' }
+    city_data << { county: 'Ventura', name: 'Ventura', farmers_markets: '', community_gardens: 'P', nutrition_standards: 'H', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Yolo', name: 'Davis', farmers_markets: '', community_gardens: 'P', nutrition_standards: '2010', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Yolo', name: 'West Sacramento', farmers_markets: '', community_gardens: '', nutrition_standards: '2011', breastfeeding: '', activity_breaks: '', ww_other: '2011' }
+    city_data << { county: 'Yolo', name: 'Winters', farmers_markets: 'P', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Yolo', name: 'Woodland', farmers_markets: '', community_gardens: '', nutrition_standards: '', breastfeeding: '', activity_breaks: '', ww_other: '' }
+    city_data << { county: 'Alameda', name: 'Oakland', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Contra Costa', name: 'Concord', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Contra Costa', name: 'Pittsburg', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Contra Costa', name: 'Richmond', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Fresno', name: 'Fresno', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Fresno', name: 'Selma', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Humboldt', name: 'Eureka', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Imperial', name: 'Calexico', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Kern', name: 'Wasco', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Kings', name: 'Hanford', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Kings', name: 'Lemoore', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Los Angeles', name: 'Bellflower', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Los Angeles', name: 'Compton', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Los Angeles', name: 'Covina', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Los Angeles', name: 'Cudahy', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Los Angeles', name: 'Downey', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Los Angeles', name: 'Gardena', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Los Angeles', name: 'Lomita', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Los Angeles', name: 'Los Angeles', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Los Angeles', name: 'Norwalk', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Los Angeles', name: 'West Covina', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Madera', name: 'Madera', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Merced', name: 'Atwater', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Merced', name: 'Los Banos', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Monterey', name: 'Monterey', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Monterey', name: 'Salinas', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Monterey', name: 'Soledad', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Orange', name: 'Buena Park', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Orange', name: 'Orange', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Orange', name: 'Stanton', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Riverside', name: 'Blythe', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Riverside', name: 'Coachella', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Riverside', name: 'Indio', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Riverside', name: 'Moreno Valley', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Sacramento', name: 'Galt', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'San Benito', name: 'Hollister', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'San Bernardino', name: 'Loma Linda', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'San Bernardino', name: 'Montclair', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'San Bernardino', name: 'San Bernardino', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'San Bernardino', name: 'Upland', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'San Diego', name: 'Lemon Grove', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'San Mateo', name: 'San Bruno', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Santa Clara', name: 'Gilroy', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Tulare', name: 'Porterville', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Tulare', name: 'Tulare', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Tulare', name: 'Visalia', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Ventura', name: 'Oxnard', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Ventura', name: 'Port Hueneme', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+    city_data << { county: 'Ventura', name: 'Santa Paula', farmers_markets: '-', community_gardens: '-', nutrition_standards: '-', breastfeeding: '-', activity_breaks: '-', ww_other: '-' }
+
+    policy_adoptions_added = 0
+    policy_adoptions_skipped = 0
+    update_error_count = 0
+    error_messages = []
+
+    policy_farmers_markets = dbi_ccpha.policies.find_by(name: "Farmers Markets")
+    policy_community_gardens = dbi_ccpha.policies.find_by(name: "Community Gardens")
+    policy_nutrition_standards = dbi_ccpha.policies.find_by(name: "Nutrition Standards")
+    policy_breastfeeding = dbi_ccpha.policies.find_by(name: "Breastfeeding Accommodations")
+    policy_activity_breaks = dbi_ccpha.policies.find_by(name: "WW- Activity Breaks")
+    ww_other = dbi_ccpha.policies.find_by(name: "WW- other")
+
+    policies = []
+    policies << { policy_string: city[:farmers_markets], policy: policy_farmers_markets}
+    policies << { policy_string: city[:community_gardens], policy: policy_community_gardens}
+    policies << { policy_string: city[:nutrition_standards], policy: policy_nutrition_standards}
+    policies << { policy_string: city[:breastfeeding], policy: policy_breastfeeding}
+    policies << { policy_string: city[:activity_breaks], policy: policy_activity_breaks}
+    policies << { policy_string: city[:ww_other], policy: ww_other}
+
+    city_data.each do |city|
+      saved_city = dbi_ccpha.cities.find_by(name: city[:name], county: city[:county])
+      if saved_city.nil?
+        error_messages << "error: city '#{city[:name]}' was not found."
         break
       end
 
-      policy = policy_transit_oriented
-      result = add_policy_adoption_or_resolution(dbi_ccpha, saved_city, policy, city[:transit_oriented])
-      if result == 'ok'
-        policy_adoptions_added += 1
-      elsif result == 'skip'
-        policy_adoptions_skipped += 1
-      elsif result != "empty"
-        error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
-        update_error_count += 1
-        break
-      end
-
-      policy = policy_walkability
-      result = add_policy_adoption_or_resolution(dbi_ccpha, saved_city, policy, city[:walkability])
-      if result == 'ok'
-        policy_adoptions_added += 1
-      elsif result == 'skip'
-        policy_adoptions_skipped += 1
-      elsif result != "empty"
-        error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
-        update_error_count += 1
-        break
-      end
-
-      policy = policy_capital_improvement
-      result = add_policy_adoption_or_resolution(dbi_ccpha, saved_city, policy, city[:capital_improvement])
-      if result == 'ok'
-        policy_adoptions_added += 1
-      elsif result == 'skip'
-        policy_adoptions_skipped += 1
-      elsif result != "empty"
-        error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
-        update_error_count += 1
-        break
-      end
-
-      policy = policy_open_space
-      result = add_policy_adoption_or_resolution(dbi_ccpha, saved_city, policy, city[:open_space])
-      if result == 'ok'
-        policy_adoptions_added += 1
-      elsif result == 'skip'
-        policy_adoptions_skipped += 1
-      elsif result != "empty"
-        error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
-        update_error_count += 1
-        break
-      end
-
-      policy = policy_joint_use
-      result = add_policy_adoption_or_resolution(dbi_ccpha, saved_city, policy, city[:joint_use])
-      if result == 'ok'
-        policy_adoptions_added += 1
-      elsif result == 'skip'
-        policy_adoptions_skipped += 1
-      elsif result != "empty"
-        error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
-        update_error_count += 1
-        break
+      policies.each do |p|
+        policy = p[:policy]
+        if policy.nil?
+          error_messages << "error: there was no policy for policy string '#{p[:policy_string]}'."
+          update_error_count += 1
+          break
+        end
+        result = add_policy_adoption_or_resolution(dbi_ccpha, saved_city, policy, p[:policy_string])
+        if result == 'ok'
+          policy_adoptions_added += 1
+        elsif result == 'skip'
+          policy_adoptions_skipped += 1
+        elsif result != "empty"
+          error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
+          update_error_count += 1
+          break
+        end
       end
 
     end
