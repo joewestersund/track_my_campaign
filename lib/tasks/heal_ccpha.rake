@@ -241,13 +241,13 @@ namespace :heal_ccpha do
     city_designation_error_count = 0
 
     city_data.each do |city|
-      saved_city = dbi_ccpha.cities.find_by(name: city.name, county: city.county)
+      saved_city = dbi_ccpha.cities.find_by(name: city['name'], county: city['county'])
       if saved_city.nil?
         saved_city = City.new
         saved_city.database_instance = dbi_ccpha
-        saved_city.name = city.name
+        saved_city.name = city['name']
         saved_city.state = "CA"
-        saved_city.county = city.county
+        saved_city.county = city['county']
         if saved_city.save
           cities_added += 1
         else
@@ -256,17 +256,17 @@ namespace :heal_ccpha do
         end
       end
 
-      saved_city.population = city.population if city.population.present?
-      saved_city.percent_obesity = city.percent_obesity if city.percent_obesity.present?
-      saved_city.city_median_income = city.city_median_income if city.city_median_income.present?
-      if city.policy_change_in_progress = ''
+      saved_city.population = city['population'] if city['population'].present?
+      saved_city.percent_obesity = city['percent_obesity'] if city['percent_obesity'].present?
+      saved_city.city_median_income = city['city_median_income'] if city['city_median_income'].present?
+      if city['policy_change_in_progress'] = ''
         saved_city.policy_change_in_progress = false
       else
         saved_city.policy_change_in_progress = true
       end
-      if city.city_designation != ''
+      if city['city_designation'] != ''
         if saved_city.city_designations.nil? or saved_city.city_designations.count == 0
-          cd = dbi_ccpha.city_designations.find_by(name: city.city_designation)
+          cd = dbi_ccpha.city_designations.find_by(name: city['city_designation'])
           if cd.nil?
             city_designation_error_count += 1
             break
@@ -292,6 +292,8 @@ namespace :heal_ccpha do
       else
         update_error_count += 1
       end
+
+      break #just do one to start
 
     end
 
