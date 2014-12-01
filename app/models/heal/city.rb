@@ -16,7 +16,8 @@
 #  city_median_income                :decimal(, )
 #  created_at                        :datetime
 #  updated_at                        :datetime
-#  policy_change_in_progress         :boolean
+#  policy_change_in_progress         :boolean          default(FALSE)
+#  percent_obesity                   :decimal(5, 2)
 #
 
 class Heal::City < ActiveRecord::Base
