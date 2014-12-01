@@ -240,38 +240,46 @@ namespace :heal_ccpha do
     city_designation_additions_skipped = 0
     city_designation_error_count = 0
 
+    error_messages = []
+
     city_data.each do |city|
-      saved_city = dbi_ccpha.cities.find_by(name: city['name'], county: city['county'])
+      saved_city = dbi_ccpha.cities.find_by(name: city[:name], county: city[:county])
       if saved_city.nil?
-        saved_city = City.new
+
+        puts "city #{city[:name]} not found."  #debug
+        break #for debugging
+
+        saved_city = Heal::City.new
         saved_city.database_instance = dbi_ccpha
-        saved_city.name = city['name']
+        saved_city.name = city[:name]
         saved_city.state = "CA"
-        saved_city.county = city['county']
+        saved_city.county = city[:county]
         if saved_city.save
           cities_added += 1
         else
           add_error_count += 1
+          error_messages << saved_city.errors.inspect
           break
         end
       end
 
-      saved_city.population = city['population'] if city['population'].present?
-      saved_city.percent_obesity = city['percent_obesity'] if city['percent_obesity'].present?
-      saved_city.city_median_income = city['city_median_income'] if city['city_median_income'].present?
-      if city['policy_change_in_progress'] = ''
+      saved_city.population = city[:population] if city[:population].present?
+      saved_city.percent_obesity = city[:percent_obesity] if city[:percent_obesity].present?
+      saved_city.city_median_income = city[:city_median_income] if city[:city_median_income].present?
+      if city[:policy_change_in_progress] = ''
         saved_city.policy_change_in_progress = false
       else
         saved_city.policy_change_in_progress = true
       end
-      if city['city_designation'] != ''
-        if saved_city.city_designations.nil? or saved_city.city_designations.count == 0
-          cd = dbi_ccpha.city_designations.find_by(name: city['city_designation'])
+      if city[:city_designation] != ''
+        if saved_city.city_designation_achievements.nil? or saved_city.city_designation_achievements.count == 0
+          cd = dbi_ccpha.city_designations.where("lower(name) = ?", city[:city_designation].downcase).first #make case insensitive
           if cd.nil?
             city_designation_error_count += 1
+            error_messages << "can't find city_designation #{city[:city_designation]}"
             break
           else
-            cda = CityDesignationAchievement.new
+            cda = Heal::CityDesignationAchievement.new
             cda.database_instance = dbi_ccpha
             cda.city_id = saved_city.id
             cda.city_designation_id = cd.id
@@ -279,6 +287,7 @@ namespace :heal_ccpha do
               city_designations_added += 1
             else
               city_designation_error_count += 1
+              error_messages << cda.errors.inspect
             end
           end
         else
@@ -293,10 +302,13 @@ namespace :heal_ccpha do
         update_error_count += 1
       end
 
-      break #just do one to start
+      #if cities_updated > 2
+      #  break #debug
+      #end
 
     end
 
+    puts error_messages
     puts "Cities added: #{cities_added}/ errors:#{add_error_count}, updated: #{cities_updated}/ errors:#{update_error_count}. City designations added: #{city_designations_added}/ errors: #{city_designation_error_count}/ skipped: #{city_designation_additions_skipped}."
   end
 
