@@ -312,6 +312,8 @@ namespace :heal_ccpha do
 
   desc "upload CCPHA cities data 2"
   task ccpha_upload_2: :environment do
+    dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
+
     city_data = []
 
     city_data << { county: 'Alameda', name: 'Emeryville', compact_mixed_use: '2011', transit_oriented: '2011', walkability: '2011', capital_improvement: '2011', open_space: '2011', joint_use: '2011' }
@@ -541,16 +543,17 @@ namespace :heal_ccpha do
     city_data << { county: 'Ventura', name: 'Santa Paula', compact_mixed_use: '-', transit_oriented: '-', walkability: '-', capital_improvement: '-', open_space: '-', joint_use: '-' }
 
 
-    cities_updated = 0
+    policy_adoptions_added = 0
+    policy_adoptions_skipped = 0
     update_error_count = 0
     error_messages = []
 
-    policy_compact_mixed_use = dbi_ccpha.policies.find_by(name: "Compact Mixed Use").first
-    policy_transit_oriented = dbi_ccpha.policies.find_by(name: "Transit Oriented Development").first
-    policy_walkability = dbi_ccpha.policies.find_by(name: "Increase Walkability and Bikeability").first
-    policy_capital_improvement = dbi_ccpha.policies.find_by(name: "Capital Improvement Priority on PA, Walking, and Biking").first
-    policy_open_space = dbi_ccpha.policies.find_by(name: "Open Space (increase)").first
-    policy_joint_use = dbi_ccpha.policies.find_by(name: "Joint Use").first
+    policy_compact_mixed_use = dbi_ccpha.policies.find_by(name: "Compact Mixed Use")
+    policy_transit_oriented = dbi_ccpha.policies.find_by(name: "Transit Oriented Development")
+    policy_walkability = dbi_ccpha.policies.find_by(name: "Increase Walkability and Bikeability")
+    policy_capital_improvement = dbi_ccpha.policies.find_by(name: "Capital Improvement Priority on PA, Walking, and Biking")
+    policy_open_space = dbi_ccpha.policies.find_by(name: "Open Space (increase)")
+    policy_joint_use = dbi_ccpha.policies.find_by(name: "Joint Use")
 
 
     city_data.each do |city|
@@ -560,98 +563,116 @@ namespace :heal_ccpha do
         break
       end
 
-      if city[:compact_mixed_use] != '-'
-        policy = policy_compact_mixed_use
-        result = add_policy_adoption(dbi_ccpha, saved_city, policy, city[:compact_mixed_use])
-        if result == 'ok'
-          cities_updated += 1
-        else
-          error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
-          update_error_count += 1
-          break
-        end
+      policy = policy_compact_mixed_use
+      result = add_policy_adoption_or_resolution(dbi_ccpha, saved_city, policy, city[:compact_mixed_use])
+      if result == 'ok'
+        policy_adoptions_added += 1
+      elsif result == 'skip'
+        policy_adoptions_skipped += 1
+      elsif result != "empty"
+        error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
+        update_error_count += 1
+        break
       end
 
-      if city[:transit_oriented] != '-'
-        policy = policy_transit_oriented
-        result = add_policy_adoption(dbi_ccpha, saved_city, policy, city[:transit_oriented])
-        if result == 'ok'
-          cities_updated += 1
-        else
-          error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
-          update_error_count += 1
-          break
-        end
+      policy = policy_transit_oriented
+      result = add_policy_adoption_or_resolution(dbi_ccpha, saved_city, policy, city[:transit_oriented])
+      if result == 'ok'
+        policy_adoptions_added += 1
+      elsif result == 'skip'
+        policy_adoptions_skipped += 1
+      elsif result != "empty"
+        error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
+        update_error_count += 1
+        break
       end
 
-      if city[:walkability] != '-'
-        policy = policy_walkability
-        result = add_policy_adoption(dbi_ccpha, saved_city, policy, city[:walkability])
-        if result == 'ok'
-          cities_updated += 1
-        else
-          error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
-          update_error_count += 1
-          break
-        end
+      policy = policy_walkability
+      result = add_policy_adoption_or_resolution(dbi_ccpha, saved_city, policy, city[:walkability])
+      if result == 'ok'
+        policy_adoptions_added += 1
+      elsif result == 'skip'
+        policy_adoptions_skipped += 1
+      elsif result != "empty"
+        error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
+        update_error_count += 1
+        break
       end
 
-      if city[:capital_improvement] != '-'
-        policy = policy_capital_improvement
-        result = add_policy_adoption(dbi_ccpha, saved_city, policy, city[:capital_improvement])
-        if result == 'ok'
-          cities_updated += 1
-        else
-          error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
-          update_error_count += 1
-          break
-        end
+      policy = policy_capital_improvement
+      result = add_policy_adoption_or_resolution(dbi_ccpha, saved_city, policy, city[:capital_improvement])
+      if result == 'ok'
+        policy_adoptions_added += 1
+      elsif result == 'skip'
+        policy_adoptions_skipped += 1
+      elsif result != "empty"
+        error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
+        update_error_count += 1
+        break
       end
 
-      if city[:open_space] != '-'
-        policy = policy_open_space
-        result = add_policy_adoption(dbi_ccpha, saved_city, policy, city[:open_space])
-        if result == 'ok'
-          cities_updated += 1
-        else
-          error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
-          update_error_count += 1
-          break
-        end
+      policy = policy_open_space
+      result = add_policy_adoption_or_resolution(dbi_ccpha, saved_city, policy, city[:open_space])
+      if result == 'ok'
+        policy_adoptions_added += 1
+      elsif result == 'skip'
+        policy_adoptions_skipped += 1
+      elsif result != "empty"
+        error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
+        update_error_count += 1
+        break
       end
 
-      if city[:joint_use] != '-'
-        policy = policy_joint_use
-        result = add_policy_adoption(dbi_ccpha, saved_city, policy, city[:joint_use])
-        if result == 'ok'
-          cities_updated += 1
-        else
-          error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
-          update_error_count += 1
-          break
-        end
+      policy = policy_joint_use
+      result = add_policy_adoption_or_resolution(dbi_ccpha, saved_city, policy, city[:joint_use])
+      if result == 'ok'
+        policy_adoptions_added += 1
+      elsif result == 'skip'
+        policy_adoptions_skipped += 1
+      elsif result != "empty"
+        error_messages << "error: city '#{city[:name]}' policy #{policy.name} could not be added. #{result}"
+        update_error_count += 1
+        break
       end
 
     end
 
     puts error_messages
-    puts "Cities updated: #{cities_updated}/ errors:#{update_error_count}."
+    puts "Policy adoptions added: #{policy_adoptions_added}/skipped: #{policy_adoptions_skipped}/errors:#{update_error_count}."
 
   end
 
   private
 
-    def add_policy_adoption(database_instance, city, policy, policy_string)
-      prior = (policy_string == 'P')
-      if is_number?(policy_string)
-        year = policy_string.to_i
-      else
+    def add_policy_adoption_or_resolution(database_instance, city, policy, policy_string)
+      policy_string.strip! #strip out whitespace
+      if policy_string == '' or policy_string == '' or policy_string == '-'
+        return "empty" #no data to add
+      elsif policy_string == 'P'
+        prior = true
         year = nil
+        return add_policy_adoption_to_city(database_instance, city, policy, year, prior)
+      elsif policy_string == 'H'
+        prior = true
+        year = nil
+        return add_resolution_to_city(database_instance, city, policy, year, prior)
+      else
+        year = policy_string.to_i
+        if year.nil? or year < 2000 or year > 2015
+          return "error: the policy string ''#{policy_string}'' was not recognized."
+        end
+        prior = false
+        return add_policy_adoption_to_city(database_instance, city, policy, year, prior)
       end
-      return add_policy_adoption_to_city(database_instance, city, policy, year, prior)
     end
 
     def add_policy_adoption_to_city(database_instance, city, policy, year, prior)
+      prev_policy_adoptions = city.policy_adoptions.joins(:policies).where("policies.id" => policy.id)
+      if prev_policy_adoptions.present? and prev_policy_adoptions.count > 0
+        #this city has already adopted this policy, so don't add it again.
+        return 'skip'
+      end
+
       pa = Heal::PolicyAdoption.new
       pa.database_instance = database_instance
       pa.city = city
@@ -667,6 +688,27 @@ namespace :heal_ccpha do
       end
     end
 
+    def add_resolution_to_city(database_instance, city, policy, year, prior)
+      prev_resolutions = city.resolutions.joins(:policies).where("policies.id" => policy.id)
+      if prev_resolutions.present? and prev_resolutions.count > 0
+        #this city has already resolved this policy, so don't add it again.
+        return 'skip'
+      end
+
+      res = Heal::Resolution.new
+      res.database_instance = database_instance
+      res.city = city
+      res.policies << policy
+      if year.present?
+        res.date = Date::strptime("1-1-#{year}","%d-%m-%Y")
+      end
+      res.prior_to_joining_campaign = prior
+      if res.save
+        return 'ok'
+      else
+        return res.errors.inspect
+      end
+    end
 
 
 end
