@@ -246,14 +246,13 @@ namespace :heal_ccpha do
       saved_city = dbi_ccpha.cities.find_by(name: city[:name], county: city[:county])
       if saved_city.nil?
 
-        puts "city #{city[:name]} not found."  #debug
-        break #for debugging
-
         saved_city = Heal::City.new
         saved_city.database_instance = dbi_ccpha
         saved_city.name = city[:name]
         saved_city.state = "CA"
         saved_city.county = city[:county]
+        saved_city.jurisdiction_type = dbi_ccpha.jurisdiction_types.find_by(name: "City")
+        saved_city.kp_service_area = true
         if saved_city.save
           cities_added += 1
         else
@@ -261,6 +260,7 @@ namespace :heal_ccpha do
           error_messages << saved_city.errors.inspect
           break
         end
+
       end
 
       saved_city.population = city[:population] if city[:population].present?
