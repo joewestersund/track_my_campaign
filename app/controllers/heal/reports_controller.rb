@@ -10,24 +10,17 @@ class Heal::ReportsController < ApplicationController
   end
 
   def cities_summary
-    @city_designations = current_db.city_designations
+    @city_designations = current_db.city_designations.order(:order_in_list)
+    @policies = current_db.policies.order(:order_in_list)
 
-    if params[:city_designation_id].present?
-      #only do this join if we're filtering down to only one city_designation.
-      #otherwise we might have multiple rows for one city.
+    @cities = get_cities_query.order(:state, :name).page(params[:page]).per_page(page_size)
+  end
 
-      cda_ids = current_db.city_designation_achievements.joins("INNER JOIN
-        (select city_id, max(coalesce(cda.date,'1/1/1900')) as maxdate from city_designation_achievements cda
-        GROUP BY city_id) AS MAX_QUERY ON city_designation_achievements.city_id = MAX_Query.city_id
-        AND coalesce(city_designation_achievements.date,'1/1/1900') = MAX_QUERY.maxdate").where.not(id: nil).select(:id)
+  def policy_grid
+    @city_designations = current_db.city_designations.order(:order_in_list)
+    @policies = current_db.policies.order(:order_in_list)
 
-      @cities = current_db.cities.joins(:city_designation_achievements).where("city_designation_achievements.id IN (?)", cda_ids)
-    else
-      @cities = current_db.cities
-    end
-
-    @cities = @cities.where(get_cities_conditions).order(:state, :name).page(params[:page]).per_page(page_size)
-
+    @cities = get_cities_query.order(:state, :county, :name).page(params[:page]).per_page(page_size)
   end
 
   def contacts_summary
@@ -45,29 +38,38 @@ class Heal::ReportsController < ApplicationController
 
   end
 
-  def policy_grid
-    @city_designations = current_db.city_designations.order(:order_in_list)
-    @policies = current_db.policies.order(:order_in_list)
+  private
+    def get_cities_query
+      cities = current_db.cities
 
-    if params[:city_designation_id].present?
-      #only do this join if we're filtering down to only one city_designation.
-      #otherwise we might have multiple rows for one city.
+      if params[:city_designation_id].present?
+        #only do this join if we're filtering down to only one city_designation.
+        #otherwise we might have multiple rows for one city.
 
-      cda_ids = current_db.city_designation_achievements.joins("INNER JOIN
+        cda_ids = current_db.city_designation_achievements.joins("INNER JOIN
         (select city_id, max(coalesce(cda.date,'1/1/1900')) as maxdate from city_designation_achievements cda
         GROUP BY city_id) AS MAX_QUERY ON city_designation_achievements.city_id = MAX_Query.city_id
         AND coalesce(city_designation_achievements.date,'1/1/1900') = MAX_QUERY.maxdate").where.not(id: nil).select(:id)
 
-      @cities = current_db.cities.joins(:city_designation_achievements).where("city_designation_achievements.id IN (?)", cda_ids)
-    else
-      @cities = current_db.cities
+        cities = cities.joins(:city_designation_achievements).where("city_designation_achievements.id IN (?)", cda_ids)
+      end
+
+      if params[:resolution_policy_id].present?
+        #only do this join if we're filtering down to only one resolution_policy_id.
+        #otherwise we might have multiple rows for one city.
+        cities = cities.joins(resolutions: [:policies])
+      end
+
+      if params[:policy_adoption_policy_id].present?
+        #only do this join if we're filtering down to only one policy_adoption_policy_id.
+        #otherwise we might have multiple rows for one city.
+        cities = cities.joins(policy_adoptions: [:policies])
+      end
+
+      return cities.where(get_cities_conditions)
+
     end
 
-    @cities = @cities.where(get_cities_conditions).order(:state, :county, :name).page(params[:page]).per_page(page_size)
-
-  end
-
-  private
 
     def get_cities_conditions
       sf = SearchFilter.new
@@ -87,8 +89,19 @@ class Heal::ReportsController < ApplicationController
       sf.add_condition(:state_median_income,"<=",:max_state_median_income,params)
       sf.add_condition(:city_median_income,">=",:min_city_median_income,params)
       sf.add_condition(:city_median_income,"<=",:max_city_median_income,params)
-      sf.add_condition("city_designation_achievements.city_designation_id","=",:city_designation_id,params)
       sf.add_condition(:policy_change_in_progress,"=",:policy_change_in_progress,params)
+
+      #conditions in join tables
+      sf.add_condition("city_designation_achievements.city_designation_id","=",:city_designation_id,params)
+
+      if params[:resolution_policy_id].present? and params[:policy_adoption_policy_id].present?
+        #if filtering by both, need special handling since joining to policy table twice causes field name changes.
+        sf.add_condition("policies_resolutions.policy_id","=",:resolution_policy_id,params)
+        sf.add_condition("policies_policy_adoptions_join.policy_id","=",:policy_adoption_policy_id,params)
+      else
+        sf.add_condition("policies_resolutions.policy_id","=",:resolution_policy_id,params)
+        sf.add_condition("policies_policy_adoptions.policy_id","=",:policy_adoption_policy_id,params)
+      end
 
       sf.get_search_filter
     end

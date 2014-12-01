@@ -46,6 +46,14 @@
       <%= label_tag :policy_change_in_progress %>
       <%= select_tag :policy_change_in_progress, options_for_select(get_yes_no_options_list,params[:policy_change_in_progress]), { :include_blank => true } %>
     </div>
+    <div class="field">
+      <%= label_tag "Resolutions" %>
+      <%= select_tag :resolution_policy_id, options_from_collection_for_select(@policies,:id,:name,params[:resolution_policy_id]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag "Policy Adoptions" %>
+      <%= select_tag :policy_adoption_policy_id, options_from_collection_for_select(@policies,:id,:name,params[:policy_adoption_policy_id]), { :include_blank => true } %>
+    </div>
     <div class="actions">
       <%= submit_tag "Search" %>
     </div>
@@ -67,8 +75,8 @@
       <th>Under-Resourced or Disease Burdened Area</th>
       <th>HEAL City Designation</th>
       <th>Policy Change in Progress</th>
-      <th>Policies Adopted <div><%= link_to 'Add', new_heal_policy_adoption_path %></div></th>
       <th>Resolutions <div><%= link_to 'Add', new_heal_resolution_path %></div></th>
+      <th>Policies Adopted <div><%= link_to 'Add', new_heal_policy_adoption_path %></div></th>
       <th>Communications <div><%= link_to 'Add', new_heal_communication_path %></div></th>
       <th>Contacts <div><%= link_to 'Add', new_heal_contact_path %></div></th>
     </tr>
@@ -87,13 +95,13 @@
         <td class="bold-black <%= get_city_designation_class(city) %>"><%= show_city_designation_achievements_list(city) %>
         <td><%= show_boolean(city.policy_change_in_progress) %></td>
         <td>
-          <% city.policy_adoptions.order(:date).each do |pa| %>
-            <div><%= link_to pa.policy_summary, edit_heal_policy_adoption_path(pa) %></div>
+          <% city.resolutions.order(:date).each do |r| %>
+            <div><%= link_to r.policy_summary, edit_heal_resolution_path(r) %></div>
           <% end %>
         </td>
         <td>
-          <% city.resolutions.order(:date).each do |r| %>
-            <div><%= link_to r.policy_summary, edit_heal_resolution_path(r) %></div>
+          <% city.policy_adoptions.order(:date).each do |pa| %>
+            <div><%= link_to pa.policy_summary, edit_heal_policy_adoption_path(pa) %></div>
           <% end %>
         </td>
         <td>
