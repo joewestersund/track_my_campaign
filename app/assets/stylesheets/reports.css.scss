@@ -7,21 +7,24 @@ th.small-title {
   font-size: 9pt;
 }
 
-td.bold-white {
+td.white {
   a {
-    font-weight: bold;
     color: #ffffff;
   }
 }
 
-td.bold-black {
+td.black {
   a {
-    font-weight: bold;
     color: black;
   }
   a:hover {
     color: white;
   }
+}
+
+
+.bold {
+  font-weight: bold
 }
 
 td.prior {

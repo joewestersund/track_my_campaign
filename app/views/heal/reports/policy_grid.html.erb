@@ -88,7 +88,7 @@
         <td><%= city.population %></td>
         <td><%= show_percentage(city.percent_obesity) %></td>
         <td><%= number_to_currency(city.city_median_income, precision: 0) %></td>
-        <td class="bold-black <%= get_city_designation_class(city) %>"><%= show_city_designation_achievements_list(city) %>
+        <td class="black <%= get_city_designation_class(city) %>"><%= show_city_designation_achievements_list(city) %>
         <td><%= show_boolean(city.policy_change_in_progress) %></td>
         <% @policies.each do |policy| %>
           <% pa_all = city.policy_adoptions.joins(:policies).where("policies_policy_adoptions.policy_id" => policy.id).order(date: :desc)
@@ -97,23 +97,26 @@
           res_first = res_all.first
           if pa_first.present?
             if pa_first.prior_to_joining_campaign
-              klass = "bold-white prior"
+              klass = "white prior"
             else
-              klass = "bold-white adopted-in-#{pa_first.date.year}"
+              klass = "white adopted-in-#{pa_first.date.year}"
             end
           elsif res_first.present?
-             klass = "bold-white resolution"
+             klass = "white resolution"
           end %>
           <td class="<%= klass %>">
-          <% pa_all.each do |pa|
+          <% first = true
+          pa_all.each do |pa|
             if pa.prior_to_joining_campaign
-              %><div><%= link_to "P", edit_heal_policy_adoption_path(pa), title: pa.notes %></div><%
+              %><div<%= ' class=bold' if first%>><%= link_to "P", edit_heal_policy_adoption_path(pa), title: pa.notes %></div><%
             else
-              %><div><%= link_to pa.date.year, edit_heal_policy_adoption_path(pa), title: pa.notes %></div><%
+              %><div<%= ' class=bold' if first%>><%= link_to pa.date.year, edit_heal_policy_adoption_path(pa), title: pa.notes %></div><%
             end
+            first = false
           end
           res_all.each do |res|
-            %> <div><%= link_to "R", edit_heal_resolution_path(res), title: res.notes %></div><%
+            %> <div<%= ' class=bold' if first%>><%= link_to "R", edit_heal_resolution_path(res), title: res.notes %></div><%
+            first = false
           end
           %></td><%
         end %>

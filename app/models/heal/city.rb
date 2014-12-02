@@ -59,7 +59,8 @@ class Heal::City < ActiveRecord::Base
   end
 
   def city_designations_achievements_in_order
-    self.city_designation_achievements.joins(:city_designation).order("coalesce(date,'1/1/1900') desc, city_designations.order_in_list desc")
+    #self.city_designation_achievements.joins(:city_designation).order("coalesce(date,'1/1/1900') desc, city_designations.order_in_list desc")
+    self.city_designation_achievements.joins(:city_designation).order("city_designations.order_in_list desc")
   end
 
 end

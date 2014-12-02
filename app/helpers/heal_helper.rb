@@ -36,7 +36,14 @@ module HealHelper
     if cda_array.nil? or cda_array.empty?
       return ""
     else
-      return raw(cda_array.map{ |cda| "<div>#{show_city_designation_achievement(cda)}</div>" }.join)
+      cda_string = ""
+      first_item = true
+      cda_array.each do |cda|
+        cda_string += "<div#{" class=bold" if first_item}>#{show_city_designation_achievement(cda)}</div>"
+        first_item = false
+      end
+      return raw(cda_string)
+      #return raw(cda_array.map{ |cda| "<div>#{show_city_designation_achievement(cda)}</div>" }.join)
     end
   end
 
