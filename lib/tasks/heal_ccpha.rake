@@ -1154,8 +1154,10 @@ namespace :heal_ccpha do
               break
             end
 
-            break #for testing, just do one.
+            #break #for testing, just do one.
 
+          else
+            city_designation_additions_skipped += 1
           end
         else
             city_designation_additions_skipped += 1

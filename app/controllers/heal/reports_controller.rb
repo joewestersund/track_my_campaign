@@ -47,10 +47,18 @@ class Heal::ReportsController < ApplicationController
         #only do this join if we're filtering down to only one city_designation.
         #otherwise we might have multiple rows for one city.
 
-        cda_ids = current_db.city_designation_achievements.joins("INNER JOIN
-        (select city_id, max(coalesce(cda.date,'1/1/1900')) as maxdate from city_designation_achievements cda
-        GROUP BY city_id) AS MAX_QUERY ON city_designation_achievements.city_id = MAX_Query.city_id
-        AND coalesce(city_designation_achievements.date,'1/1/1900') = MAX_QUERY.maxdate").where.not(id: nil).select(:id)
+        cda_ids = current_db.city_designation_achievements.joins(:city_designation).joins("INNER JOIN
+        (SELECT city_id, max(order_in_list) as max_order
+        FROM city_designation_achievements cda INNER JOIN city_designations cd
+        ON cda.city_designation_id = cd.id GROUP BY city_id) AS MAXQUERY
+        ON city_designation_achievements.city_id = MAXQUERY.city_id
+        AND order_in_list = MAXQUERY.max_order")
+
+        #query if going by date, with nil date always last
+        #cda_ids = current_db.city_designation_achievements.joins("INNER JOIN
+        #(select city_id, max(coalesce(cda.date,'1/1/1900')) as maxdate from city_designation_achievements cda
+        #GROUP BY city_id) AS MAX_QUERY ON city_designation_achievements.city_id = MAX_Query.city_id
+        #AND coalesce(city_designation_achievements.date,'1/1/1900') = MAX_QUERY.maxdate").where.not(id: nil).select(:id)
 
         cities = cities.joins(:city_designation_achievements).where("city_designation_achievements.id IN (?)", cda_ids)
       end

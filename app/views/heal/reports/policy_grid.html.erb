@@ -108,14 +108,14 @@
           <% first = true
           pa_all.each do |pa|
             if pa.prior_to_joining_campaign
-              %><div<%= ' class=bold' if first%>><%= link_to "P", edit_heal_policy_adoption_path(pa), title: pa.notes %></div><%
+              %><div<%= ' class=bold' if first%>><%= link_to "P", edit_heal_policy_adoption_path(pa), title: "#{(pa.date.year.to_s+" ") if pa.date.present?}#{pa.notes}" %></div><%
             else
               %><div<%= ' class=bold' if first%>><%= link_to pa.date.year, edit_heal_policy_adoption_path(pa), title: pa.notes %></div><%
             end
             first = false
           end
           res_all.each do |res|
-            %> <div<%= ' class=bold' if first%>><%= link_to "R", edit_heal_resolution_path(res), title: res.notes %></div><%
+            %> <div<%= ' class=bold' if first%>><%= link_to "R", edit_heal_resolution_path(res), title: "#{(res.date.year.to_s+" ") if res.date.present?}#{res.notes}" %></div><%
             first = false
           end
           %></td><%
