@@ -109,9 +109,9 @@ class Heal::CitiesController < ApplicationController
     end
 
     def set_select_options
-      @jurisdiction_types = current_db.jurisdiction_types
-      @league_divisions = current_db.league_divisions
-      @city_designations = current_db.city_designations
+      @jurisdiction_types = current_db.jurisdiction_types.order(:order_in_list)
+      @league_divisions = current_db.league_divisions.order(:order_in_list)
+      @city_designations = current_db.city_designations.order(:order_in_list)
     end
 
     def get_conditions
