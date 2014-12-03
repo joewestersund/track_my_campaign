@@ -70,7 +70,7 @@
       <%= select_tag :city_designation_id, options_from_collection_for_select(@city_designations,:id,:name,params[:city_designation_id]), { :include_blank => true } %>
     </div>
     <div class="field">
-      <%= label_tag :policy_change_in_progress %>
+      <%= label_tag "General Plan / Policy Change in Progress" %>
       <%= select_tag :policy_change_in_progress, options_for_select(get_yes_no_options_list,params[:policy_change_in_progress]), { :include_blank => true } %>
     </div>
     <div class="actions">
@@ -101,7 +101,7 @@
         <th>State Median Income</th>
         <th>City Median Income</th>
         <th>HEAL City Designation <%= link_to "add", new_heal_city_designation_achievement_path %></th>
-        <th>Policy Change in Progress</th>
+        <th>General Plan / Policy Change in Progress</th>
         <th></th>
         <th></th>
       </tr>

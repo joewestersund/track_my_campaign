@@ -43,7 +43,7 @@
       <%= select_tag :city_designation_id, options_from_collection_for_select(@city_designations,:id,:name,params[:city_designation_id]), { :include_blank => true } %>
     </div>
     <div class="field">
-      <%= label_tag :policy_change_in_progress %>
+      <%= label_tag "General Plan / Policy Change in Progress" %>
       <%= select_tag :policy_change_in_progress, options_for_select(get_yes_no_options_list,params[:policy_change_in_progress]), { :include_blank => true } %>
     </div>
     <div class="field">
@@ -74,7 +74,7 @@
       <th>In KP Service Area</th>
       <th>Under-Resourced or Disease Burdened Area</th>
       <th>HEAL City Designation</th>
-      <th>Policy Change in Progress</th>
+      <th>General Plan / Policy Change in Progress</th>
       <th>Resolutions <div><%= link_to 'Add', new_heal_resolution_path %></div></th>
       <th>Policies Adopted <div><%= link_to 'Add', new_heal_policy_adoption_path %></div></th>
       <th>Communications <div><%= link_to 'Add', new_heal_communication_path %></div></th>

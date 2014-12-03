@@ -71,7 +71,7 @@
       <th>% Obesity</th>
       <th>Median Income</th>
       <th>HEAL City Designation</th>
-      <th>Policy Change in Progress</th>
+      <th>General Plan / Policy Change in Progress</th>
       <% @policies.each do |policy| %>
         <% policy_ids << policy.id %>
         <th class="small-title"><span title="<%= policy.name %>"><%= truncate_text(policy.name) %></span></th>
@@ -98,6 +98,8 @@
           if pa_first.present?
             if pa_first.prior_to_joining_campaign
               klass = "white prior"
+            elsif pa_first.date.nil?
+              klass = "white adopted-no-date"
             else
               klass = "white adopted-in-#{pa_first.date.year}"
             end
@@ -110,7 +112,7 @@
             if pa.prior_to_joining_campaign
               %><div<%= ' class=bold' if first%>><%= link_to "P", edit_heal_policy_adoption_path(pa), title: "#{(pa.date.year.to_s+" ") if pa.date.present?}#{pa.notes}" %></div><%
             else
-              %><div<%= ' class=bold' if first%>><%= link_to pa.date.year, edit_heal_policy_adoption_path(pa), title: pa.notes %></div><%
+              %><div<%= ' class=bold' if first%>><%= link_to pa.date.present? ? pa.date.year : "A", edit_heal_policy_adoption_path(pa), title: pa.notes %></div><%
             end
             first = false
           end

@@ -19,7 +19,6 @@ class Heal::PolicyAdoption < ActiveRecord::Base
 
   validates :database_instance, presence: true
   validates :city, presence: true
-  #validates :date, presence: true  #make date no longer required, to allow data upload from ccpha policy grid
 
   def policy_summary
     policy_names = []
