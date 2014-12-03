@@ -43,7 +43,7 @@
       <%= select_tag :policy_adoption_policy_id, options_from_collection_for_select(@policies,:id,:name,params[:policy_adoption_policy_id]), { :include_blank => true } %>
     </div>
     <div class="field">
-      <%= label_tag :policy_change_in_progress %>
+      <%= label_tag :policy_change_in_progress, "General Plan / Policy Change in Progress" %>
       <%= select_tag :policy_change_in_progress, options_for_select(get_yes_no_options_list,params[:policy_change_in_progress]), { :include_blank => true } %>
     </div>
     <div class="actions">
