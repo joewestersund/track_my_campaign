@@ -67,11 +67,11 @@
     </div>
     <div class="field">
       <%= label_tag :city_designation, "Current City Designation"%>
-      <%= select_tag :city_designation_id, options_from_collection_for_select(@city_designations,:id,:name,params[:city_designation_id]), { :include_blank => true } %>
+      <%= select_tag :city_designation_id, content_tag(:option,'', value: "" ) + content_tag(:option,'[none]',value: HealHelper::NONE_OF_THE_ABOVE_VALUE_IN_DROPDOWN, selected: (params[:city_designation_id] == HealHelper::NONE_OF_THE_ABOVE_VALUE_IN_DROPDOWN) ) + options_from_collection_for_select(@city_designations,:id,:name,params[:city_designation_id]) %>
     </div>
     <div class="field">
       <%= label_tag "General Plan / Policy Change in Progress" %>
-      <%= select_tag :policy_change_in_progress, options_for_select(get_yes_no_options_list,params[:policy_change_in_progress]), { :include_blank => true } %>
+      <%= select_tag :policy_change_in_progress, options_for_select(get_yes_no_options_list,params[:policy_change_in_progress]), { include_blank: true } %>
     </div>
     <div class="actions">
       <%= submit_tag "Search" %>

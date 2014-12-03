@@ -18,13 +18,17 @@ class SearchFilter
 
   def add_condition(db_field_name, operator, param_name, params_hash, options = {} )
 
-    if options[:ignore_if_null].present?
-    ignore_if_null = options[:ignore_if_null]
-    else
+    if options[:ignore_if_null].nil?
       ignore_if_null = true
+    else
+      ignore_if_null = options[:ignore_if_null]
     end
 
-    if params_hash[param_name].present? and operator_is_supported(operator)
+    if options[:is_null]
+      @conditions_string << "#{db_field_name} IS NULL"
+    elsif options[:is_not_null]
+      @conditions_string << "#{db_field_name} IS NOT NULL"
+    elsif params_hash[param_name].present? and operator_is_supported(operator)
       if options[:join_table].present?
         join_object_name = options[:join_object_name] || options[:join_table]
         @join_tables << options[:join_table] unless @join_tables.include? options[:join_table]

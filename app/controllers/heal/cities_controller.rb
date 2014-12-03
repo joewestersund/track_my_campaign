@@ -6,7 +6,10 @@ class Heal::CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    if params[:city_designation_id].present?
+    if params[:city_designation_id] == HealHelper::NONE_OF_THE_ABOVE_VALUE_IN_DROPDOWN
+      #the user wants a list of all cities that don't have any city designation achievements.
+      @cities = current_db.cities.joins("LEFT JOIN city_designation_achievements cda ON cities.id = cda.city_id").where("cda.id IS NULL")
+    elsif params[:city_designation_id].present?
       #only do this join if we're filtering down to only one city_designation.
       #otherwise we might have multiple rows for one city.
 
@@ -119,6 +122,7 @@ class Heal::CitiesController < ApplicationController
       @jurisdiction_types = current_db.jurisdiction_types.order(:order_in_list)
       @league_divisions = current_db.league_divisions.order(:order_in_list)
       @city_designations = current_db.city_designations.order(:order_in_list)
+
     end
 
     def get_conditions
@@ -139,7 +143,9 @@ class Heal::CitiesController < ApplicationController
       sf.add_condition(:state_median_income,"<=",:max_state_median_income,params)
       sf.add_condition(:city_median_income,">=",:min_city_median_income,params)
       sf.add_condition(:city_median_income,"<=",:max_city_median_income,params)
-      sf.add_condition("city_designation_achievements.city_designation_id","=",:city_designation_id,params)
+      if params[:city_designation_id] != HealHelper::NONE_OF_THE_ABOVE_VALUE_IN_DROPDOWN
+        sf.add_condition("city_designation_achievements.city_designation_id","=",:city_designation_id,params)
+      end
       sf.add_condition(:policy_change_in_progress,"=",:policy_change_in_progress,params)
 
       sf.get_search_filter

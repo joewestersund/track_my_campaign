@@ -1,4 +1,6 @@
 module HealHelper
+  NONE_OF_THE_ABOVE_VALUE_IN_DROPDOWN = "0"
+
   def show_cities_list(cities_array, options = {})
     show_state = options[:show_state] || false
     show_jurisdiction_type = options[:show_jurisdiction_type] || false

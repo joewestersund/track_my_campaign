@@ -43,7 +43,10 @@ class Heal::ReportsController < ApplicationController
       cities = current_db.cities
       do_id_subquery = false
 
-      if params[:city_designation_id].present?
+      if params[:city_designation_id] == HealHelper::NONE_OF_THE_ABOVE_VALUE_IN_DROPDOWN
+        #the user wants a list of all cities that don't have any city designation achievements.
+        cities = cities.joins("LEFT JOIN city_designation_achievements cda ON cities.id = cda.city_id").where("cda.id IS NULL")
+      elsif params[:city_designation_id].present?
         #only do this join if we're filtering down to only one city_designation.
         #otherwise we might have multiple rows for one city.
 
@@ -110,7 +113,9 @@ class Heal::ReportsController < ApplicationController
       sf.add_condition(:policy_change_in_progress,"=",:policy_change_in_progress,params)
 
       #conditions in join tables
-      sf.add_condition("city_designation_achievements.city_designation_id","=",:city_designation_id,params)
+      if params[:city_designation_id] != HealHelper::NONE_OF_THE_ABOVE_VALUE_IN_DROPDOWN
+        sf.add_condition("city_designation_achievements.city_designation_id","=",:city_designation_id,params)
+      end
 
       if params[:resolution_policy_id].present? and params[:policy_adoption_policy_id].present?
         #if filtering by both, need special handling since joining to policy table twice causes field name changes.
