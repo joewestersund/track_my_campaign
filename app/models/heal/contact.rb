@@ -88,26 +88,4 @@ class Heal::Contact < ActiveRecord::Base
     end
   end
 
-  def self.import(file)
-    #import contacts from Excel
-    spreadsheet = open_spreadsheet(file)
-    header = spreadsheet.row(1)
-    (2..spreadsheet.last_row).each do |i|
-      row = Hash[[header, spreadsheet.row(i)].transpose]
-      contact = Heal::Contact.new
-      contact.database_instance = current_db
-      contact.attributes = row.to_hash.slice(*accessible_attributes)
-      contact.save!
-    end
-  end
-
-  def self.open_spreadsheet(file)
-    #import contacts from Excel
-    case File.extname(file.original_filename)
-      when ".xls" then Roo::Excel.new(file.path, nil, :ignore)
-      when ".xlsx" then Roo::Excelx.new(file.path, nil, :ignore)
-      else raise "Unknown file type: #{file.original_filename}"
-    end
-  end
-
 end

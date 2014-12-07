@@ -1,5 +1,6 @@
 TrackMyCampaign::Application.routes.draw do
 
+
   resources :user_permissions
 
   namespace :heal do
@@ -8,9 +9,8 @@ TrackMyCampaign::Application.routes.draw do
     resources :city_designations
     resources :communication_types
     resources :communications
-    resources :contacts do
-      collection { post :import }
-    end
+    resources :contacts
+    resources :contact_imports, only: [:new, :create]
     resources :followup_tasks
     resources :honorifics
     resources :interest_levels
