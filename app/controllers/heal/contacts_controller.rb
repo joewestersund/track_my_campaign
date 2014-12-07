@@ -58,6 +58,13 @@ class Heal::ContactsController < ApplicationController
     end
   end
 
+  # POST /contacts/import
+  def import
+    Contact.import(params[:file])
+    redirect_to root_url, notice: "#{num_contacts} contacts were imported."
+  end
+
+
   # PATCH/PUT /contacts/1
   # PATCH/PUT /contacts/1.json
   def update

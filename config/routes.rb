@@ -8,7 +8,9 @@ TrackMyCampaign::Application.routes.draw do
     resources :city_designations
     resources :communication_types
     resources :communications
-    resources :contacts
+    resources :contacts do
+      collection { post :import }
+    end
     resources :followup_tasks
     resources :honorifics
     resources :interest_levels

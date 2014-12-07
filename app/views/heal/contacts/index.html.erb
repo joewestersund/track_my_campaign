@@ -1,6 +1,11 @@
 <h1>Contacts</h1>
 
-<%= link_to 'New Contact', new_heal_contact_path %>
+<%= link_to 'New Contact', new_heal_contact_path %> |
+
+<%= form_tag import_contacts_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import from Excel" %>
+<% end %>
 <br><br>
 
 <div class="filter">
