@@ -12,6 +12,20 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :contacts %>
+    <%= f.collection_select :contact_ids, @contacts, :id, :first_last_city_names, {max_height: "250px"}, {class: 'multiselect', multiple: true} %>
+    <%= link_to "Add / Edit", new_heal_contact_path %>
+  </div>
+  <div class="field">
+    <%= f.label :cities %>
+    <%= f.collection_select :city_ids, @cities, :id, :name_and_state, {}, {class: 'multiselect', multiple: true} %>
+    <%= link_to "Add / Edit", new_heal_city_path %>
+  </div>
+  <div class="field">
+    <%= f.label :event_name %>
+    <%= f.text_field :event_name %>
+  </div>
+  <div class="field">
     <%= f.label :date %>
     <%= f.text_field :date, {class: 'datepicker'} %>
   </div>
@@ -25,10 +39,6 @@
     <%= link_to "Add / Edit", new_heal_communication_type_path %>
   </div>
   <div class="field">
-    <%= f.label :event_name %>
-    <%= f.text_field :event_name %>
-  </div>
-  <div class="field">
     <%= f.label :topics %>
     <%= f.collection_select :topic_ids, @topics, :id, :name, {}, {class: 'multiselect', multiple: true} %>
     <%= link_to "Add / Edit", new_heal_topic_path %>
@@ -39,18 +49,8 @@
     <%= link_to "Add / Edit", new_heal_interest_level_path %>
   </div>
   <div class="field">
-    <%= f.label :contacts %>
-    <%= f.collection_select :contact_ids, @contacts, :id, :first_last_city_names, {max_height: "250px"}, {class: 'multiselect', multiple: true} %>
-    <%= link_to "Add / Edit", new_heal_contact_path %>
-  </div>
-  <div class="field">
     <%= f.label :others_involved %>
     <%= f.text_field :others_involved %>
-  </div>
-  <div class="field">
-    <%= f.label :cities %>
-    <%= f.collection_select :city_ids, @cities, :id, :name_and_state, {}, {class: 'multiselect', multiple: true} %>
-    <%= link_to "Add / Edit", new_heal_city_path %>
   </div>
   <div class="field">
     <%= f.label :staff_involved %>
