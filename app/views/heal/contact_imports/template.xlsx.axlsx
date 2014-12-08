@@ -7,8 +7,8 @@ data_style = wb.styles.add_style alignment: {horizontal: :center, vertical: :cen
 
 wb.add_worksheet(name: 'Contacts to Upload') do |sheet|
 
-  sheet.add_row contact_fields_and_descriptions.each{ |field| field[:name]}, style: header_style
-  sheet.add_row contact_fields_and_descriptions.each{ |field| field[:data_type]}, style: second_header_style
+  sheet.add_row contact_fields_and_descriptions.map{ |field| field[:name]}, style: header_style
+  sheet.add_row contact_fields_and_descriptions.map{ |field| field[:data_type]}, style: second_header_style
   sheet.add_row ["your data here, and on following rows"], style: data_style
 
 end
