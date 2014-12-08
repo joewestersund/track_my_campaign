@@ -28,7 +28,8 @@ class Heal::ContactImport
     else
       contacts.each_with_index do |contact, index|
         contact.errors.full_messages.each do |message|
-          errors.add :base, "Row #{index+2}: #{message}"
+          #index + 3, because the user's data starts on row 3 of the worksheet.
+          errors.add :base, "Row #{index+3}: #{message}"
         end
       end
       false
