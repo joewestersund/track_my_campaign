@@ -56,12 +56,18 @@ module HealHelper
   def show_comma_separated_list(array, measure_word, options = {})
     show_all = options[:show_all] || false
     max_to_show = options[:max_to_show] || 2
+    conjunction = options[:conjunction] || ""
     if array.nil? or array.empty?
       nil
     elsif !show_all and array.count > max_to_show
       return "#{array.count} #{measure_word}"
     else
-      return array.map{ |u| u.name }.join(", ")
+      if conjunction == "" or array.count == 1
+        return array.map{ |u| u.name }.join(", ")
+      else
+        last_item = array.pop
+        return array.map{ |u| u.name }.join(", ") + " #{conjunction} #{last_item.name}"
+      end
     end
   end
 

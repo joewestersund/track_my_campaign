@@ -13,10 +13,10 @@
       </li>
     <% end %>
   <% end %>
-  <li><strong>interest_level</strong> - String type, must be one of the choices defined in your db</li>
-  <li><strong>position_type</strong> - String type, must be one of the choices defined in your db</li>
-  <li><strong>honorific</strong> - String type, must be one of the choices defined in your db</li>
-  <li><strong>organization_type</strong> - String type, must be one of the choices defined in your db</li>
+  <li><strong>interest_level</strong> - <%= show_comma_separated_list(@interest_levels,"",{show_all: true, conjunction: "or"}) %></li>
+  <li><strong>position_type</strong> - <%= show_comma_separated_list(@position_types,"",{show_all: true, conjunction: "or"}) %></li>
+  <li><strong>honorific</strong> - <%= show_comma_separated_list(@honorifics,"",{show_all: true, conjunction: "or"}) %></li>
+  <li><strong>organization_type</strong> - <%= show_comma_separated_list(@organization_types,"",{show_all: true, conjunction: "or"}) %></li>
   <li><strong>cities</strong> - String type, must be a comma-separated list of zero or more cities, with state. Example: Portland OR, Sacramento CA</li>
 </ul>
 

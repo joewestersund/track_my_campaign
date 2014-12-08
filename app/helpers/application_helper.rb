@@ -1,12 +1,4 @@
 module ApplicationHelper
-  def full_title(page_title)
-    base_title = "Spending Tracker"
-    if(page_title.empty?)
-      base_title
-    else
-      "#{base_title} | #{page_title}"
-    end
-  end
 
   def swap_and_save(first, second)
     if first.order_in_list > second.order_in_list

@@ -12,6 +12,10 @@ class Heal::ContactImport
       :heal_champion, :heal_champion_notes, :notes]
   end
 
+  def self.state_abbreviations
+    ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
+  end
+
   def initialize(attributes = {})
     attributes.each { |name, value| send("#{name}=", value) }
   end
@@ -20,12 +24,12 @@ class Heal::ContactImport
     false
   end
 
-  def save
-    if imported_contacts.map(&:valid?).all?
-      imported_contacts.each(&:save!)
+  def save(db_instance)
+    if imported_contacts(db_instance).map(&:valid?).all?
+      imported_contacts(db_instance).each(&:save!)
       true
     else
-      imported_contacts.each_with_index do |contact, index|
+      imported_contacts(db_instance).each_with_index do |contact, index|
         contact.errors.full_messages.each do |message|
           errors.add :base, "Row #{index+2}: #{message}"
         end
@@ -34,33 +38,87 @@ class Heal::ContactImport
     end
   end
 
-  def imported_contacts
-    @imported_contacts ||= load_imported_contacts
+  def imported_contacts(db_instance)
+    @imported_contacts ||= load_imported_contacts(db_instance)
   end
 
-  def load_imported_contacts
+  def load_imported_contacts(db_instance)
     spreadsheet = open_spreadsheet
-    header = spreadsheet.row(1)
+    header = spreadsheet.row(1).map{ |str| str.to_sym} #convert each element to a symbol
     (2..spreadsheet.last_row).map do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       contact = Heal::Contact.new
-      contact.database_instance = current_db
-      contact.attributes = row.to_hash.slice(fields_to_directly_import)
+      contact.database_instance = db_instance
+      contact.attributes = row.to_hash.slice(*Heal::ContactImport::fields_to_directly_import)
 
-      contact.interest_level = Heal::InterestLevel.find_by(:name, row[:interest_level])
-      contact.position_type = Heal::PositionType.find_by(:name, row[:position_type])
-      contact.honorific = Heal::Honorific.find_by(:name, row[:honorific])
-      contact.organization_type = Heal::OrganizationType.find_by(:name, row[:organization_type])
+      current_record = db_instance.contacts.find_by(first_name: contact.first_name, last_name: contact.last_name, organization_name: contact.organization_name)
+      if current_record.present?
+        contact.errors.add :base, "There is already a contact in your database named #{contact.first_name} #{contact.last_name} who works for the organization #{contact.organization_name}"
+      end
 
-      contact.save
+      contact.interest_level = find_item_in_list(contact, row[:interest_level], db_instance.interest_levels)
+      contact.position_type = find_item_in_list(contact, row[:position_type], db_instance.position_types)
+      contact.honorific = find_item_in_list(contact, row[:honorific], db_instance.honorifics)
+      contact.organization_type = find_item_in_list(contact, row[:organization_type], db_instance.organization_types)
+
+      cities_array = []
+
+      if row[:cities].present?
+        city_names_array = row[:cities].split(",").map{ |c| c.strip }
+        city_names_array.each do |c|
+          state = ""
+          if c[-3,1] == " " and c[-2,2].upcase.in? Heal::ContactImport::state_abbreviations
+            # the 3rd to last character is a space,
+            # and the last 2 characters are in the state abbreviations list.
+            state = c[-2,2]
+            city_name = c.first
+
+            city_matches = db_instance.cities.where(name: city_name, state: state)
+          else
+            city_matches = db_instance.cities.where(name: city_name)
+          end
+
+          if city_matches.nil? or city_matches.count == 0
+            if state == ""
+              contact.errors.add :base, "There are no cities in the database with the name '#{c}'."
+            else
+              contact.errors.add :base, "There are no cities in the database with the name '#{city_name}' and state '#{state}'."
+            end
+          elsif city_matches.count > 1
+            contact.errors.add :base, "There were multiple cities with the name '#{c}' in the database."
+          else
+            #there's one and only one. add it to our list.
+            cities_array << city_matches.first
+          end
+        end
+
+        #add the cities to the contact object.
+        cities_array.each{ |c| contact.cities.add(c) }
+      end
+
+      contact
     end
   end
 
-  def open_spreadsheet
-    case File.extname(file.original_filename)
-      when ".xls" then Excel.new(file.path, nil, :ignore)
-      when ".xlsx" then Excelx.new(file.path, nil, :ignore)
-      else raise "Unknown file type: #{file.original_filename}"
+  private
+    def find_item_in_list(parent_object, name, item_type)
+      return nil if name.nil?
+      item = item_type.find_by(name: name)
+      if item.nil?
+        parent_object.errors.add :base, "Name '#{name}' was not recognized as a #{item_type.name}"
+        return nil
+      else
+        #we did find an object by this name.
+        return item
+      end
     end
-  end
+
+    def open_spreadsheet
+      case File.extname(file.original_filename)
+        when ".xls" then Roo::Excel.new(file.path, nil, :ignore)
+        when ".xlsx" then Roo::Excelx.new(file.path, nil, :ignore)
+        #when ".gsheet" then Roo::Google.new(file.path, nil, :ignore)
+        else raise "Unknown file type: #{file.original_filename}"
+      end
+    end
 end

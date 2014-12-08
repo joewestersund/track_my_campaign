@@ -58,6 +58,7 @@ gem 'bootstrap-datepicker-rails'
 
 #for uploading Excel files
 gem 'roo'
+#gem 'google-drive-ruby'  #for Google spreadsheets support
 
 group :development do
   gem 'rails_layout'  #gem to set up for bootstrap css and js http://railsapps.github.io/twitter-bootstrap-rails.html
@@ -88,11 +89,5 @@ end
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
 
 ruby '2.0.0'
