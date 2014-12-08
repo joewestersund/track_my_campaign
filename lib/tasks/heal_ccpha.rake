@@ -272,7 +272,7 @@ namespace :heal_ccpha do
         saved_city.policy_change_in_progress = true
       end
       if city[:city_designation] != ''
-        if saved_city.city_designation_achievements.nil? or saved_city.city_designation_achievements.count == 0
+        if saved_city.city_designation_achievements.nil? || saved_city.city_designation_achievements.count == 0
           cd = dbi_ccpha.city_designations.where("lower(name) = ?", city[:city_designation].downcase).first #make case insensitive
           if cd.nil?
             city_designation_error_count += 1
@@ -1139,7 +1139,7 @@ namespace :heal_ccpha do
             cda.city_id = saved_city.id
             cda.city_designation_id = city_designation_HEAL_City.id
             year = city[:joined_in].to_i
-            if year < 2000 or year > 2015
+            if year < 2000 || year > 2015
               city_designation_error_count += 1
               error_messages << "joined in year #{city[:joined_in]} was out of range."
               break
@@ -1174,7 +1174,7 @@ namespace :heal_ccpha do
 
     def add_policy_adoption_or_resolution(database_instance, city, policy, policy_string)
       policy_string.strip! #strip out whitespace
-      if policy_string == '' or policy_string == '' or policy_string == '-'
+      if policy_string == '' || policy_string == '' || policy_string == '-'
         return "empty" #no data to add
       elsif policy_string == 'P'
         prior = true
@@ -1186,7 +1186,7 @@ namespace :heal_ccpha do
         return add_resolution_to_city(database_instance, city, policy, year, prior)
       else
         year = policy_string.to_i
-        if year.nil? or year < 2000 or year > 2015
+        if year.nil? || year < 2000 || year > 2015
           return "error: the policy string ''#{policy_string}'' was not recognized."
         end
         prior = false
@@ -1196,7 +1196,7 @@ namespace :heal_ccpha do
 
     def add_policy_adoption_to_city(database_instance, city, policy, year, prior)
       prev_policy_adoptions = city.policy_adoptions.joins(:policies).where("policies.id" => policy.id)
-      if prev_policy_adoptions.present? and prev_policy_adoptions.count > 0
+      if prev_policy_adoptions.present? && prev_policy_adoptions.count > 0
         #this city has already adopted this policy, so don't add it again.
         return 'skip'
       end
@@ -1218,7 +1218,7 @@ namespace :heal_ccpha do
 
     def add_resolution_to_city(database_instance, city, policy, year, prior)
       prev_resolutions = city.resolutions.joins(:policies).where("policies.id" => policy.id)
-      if prev_resolutions.present? and prev_resolutions.count > 0
+      if prev_resolutions.present? && prev_resolutions.count > 0
         #this city has already resolved this policy, so don't add it again.
         return 'skip'
       end

@@ -6,11 +6,11 @@ module HealHelper
     show_jurisdiction_type = options[:show_jurisdiction_type] || false
     show_all = options[:show_all] || false
     max_to_show = options[:max_to_show] || 5
-    if cities_array.nil? or cities_array.empty?
+    if cities_array.nil? || cities_array.empty?
       return nil
-    elsif !show_all and cities_array.count > max_to_show
+    elsif !show_all && cities_array.count > max_to_show
       return "#{cities_array.count} cities"
-    elsif show_state and show_jurisdiction_type
+    elsif show_state && show_jurisdiction_type
       return cities_array.map{ |c| c.name_type_state }.join(", ")
     elsif show_state
       return cities_array.map{ |c| c.name_and_state }.join(", ")
@@ -35,7 +35,7 @@ module HealHelper
 
   def show_city_designation_achievements_list(city, options = {})
     cda_array = city.city_designations_achievements_in_order
-    if cda_array.nil? or cda_array.empty?
+    if cda_array.nil? || cda_array.empty?
       return ""
     else
       cda_string = ""
@@ -57,12 +57,12 @@ module HealHelper
     show_all = options[:show_all] || false
     max_to_show = options[:max_to_show] || 2
     conjunction = options[:conjunction] || ""
-    if array.nil? or array.empty?
+    if array.nil? || array.empty?
       nil
-    elsif !show_all and array.count > max_to_show
+    elsif !show_all && array.count > max_to_show
       return "#{array.count} #{measure_word}"
     else
-      if conjunction == "" or array.count == 1
+      if conjunction == "" || array.count == 1
         return array.map{ |u| u.name }.join(", ")
       else
         last_item = array.pop

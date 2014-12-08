@@ -120,7 +120,7 @@ namespace :heal do
       contacts.each do |c|
         contact = Heal::Contact.new
 
-        if c[:honorific].present? and c[:honorific] != ""
+        if c[:honorific].present? && c[:honorific] != ""
           honorific = dbi_ccpha.honorifics.find_by(name: c[:honorific])
           contact.honorific_id = honorific.id if honorific.present?
         end
@@ -170,7 +170,7 @@ namespace :heal do
       contacts.each do |c|
         contact = Heal::Contact.new
 
-        if c[:honorific].present? and c[:honorific] != ""
+        if c[:honorific].present? && c[:honorific] != ""
           honorific = dbi_iphi.honorifics.find_by(name: c[:honorific])
           contact.honorific_id = honorific.id if honorific.present?
         end
@@ -361,22 +361,22 @@ namespace :heal do
         else
 
           #connect to a city, if one is listed.
-          if c[:city_name].present? and c[:city_name] != ""
+          if c[:city_name].present? && c[:city_name] != ""
             city = dbi_lvc.cities.find_by(name: c[:city_name])
             contact.cities << city if city.present?
           end
 
-          if c[:honorific].present? and c[:honorific] != ""
+          if c[:honorific].present? && c[:honorific] != ""
             honorific = dbi_lvc.honorifics.find_by(name: c[:honorific])
             contact.honorific_id = honorific.id if honorific.present?
           end
 
           contact.first_name = first_name_stripped
           contact.last_name = last_name_stripped
-          contact.title = c[:title].strip if c[:title].present? and c[:title] != ""
-          contact.organization_name = c[:organization_name].strip if c[:organization_name].present? and c[:organization_name] != ""
-          contact.office_phone_number = c[:phone].strip if c[:phone].present? and c[:phone] != ""
-          contact.email = c[:email].strip if c[:email].present? and c[:email] != ""
+          contact.title = c[:title].strip if (c[:title].present? && c[:title] != "")
+          contact.organization_name = c[:organization_name].strip if (c[:organization_name].present? && c[:organization_name] != "")
+          contact.office_phone_number = c[:phone].strip if (c[:phone].present? && c[:phone] != "")
+          contact.email = c[:email].strip if (c[:email].present? && c[:email] != "")
 
           contact.database_instance = dbi_lvc
 

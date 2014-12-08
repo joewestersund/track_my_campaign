@@ -51,7 +51,7 @@ class Heal::City < ActiveRecord::Base
   end
 
   def current_designation
-    if self.city_designation_achievements.nil? or self.city_designation_achievements.count == 0
+    if self.city_designation_achievements.nil? || self.city_designation_achievements.count == 0
       return nil
     else
       self.city_designations_achievements_in_order.first

@@ -37,7 +37,7 @@ module SessionsHelper
   def has_write_permissions?
     if current_db.present?
       p = current_db.user_permissions.where(user: current_user)
-      return true if p.present? and p.read_only == false
+      return true if p.present? && p.read_only == false
     end
     false
   end
@@ -61,7 +61,7 @@ module SessionsHelper
 
   def current_db
     instance_id = session[:current_database_instance_id]
-    if instance_id.present? and db_instance_ids_this_user.include?(instance_id)
+    if instance_id.present? && db_instance_ids_this_user.include?(instance_id)
       return DatabaseInstance.find(instance_id)
     else
       return nil
@@ -69,7 +69,7 @@ module SessionsHelper
   end
 
   def set_current_db(instance)
-    if current_user.present? and db_instances_this_user.include?(instance)
+    if current_user.present? && db_instances_this_user.include?(instance)
       session[:current_database_instance_id] = instance.id
       return true
     else

@@ -67,7 +67,7 @@ class Heal::ContactImport
         city_names_array = row[:cities].split(",").map{ |c| c.strip }
         city_names_array.each do |c|
           state = ""
-          if c[-3,1] == " " and c[-2,2].upcase.in? STATE_ABBREVIATIONS
+          if (c[-3,1] == " ") && c[-2,2].upcase.in?(STATE_ABBREVIATIONS)
             # the 3rd to last character is a space,
             # and the last 2 characters are in the state abbreviations list.
             state = c[-2,2]
@@ -78,7 +78,7 @@ class Heal::ContactImport
             city_matches = db_instance.cities.where(name: city_name)
           end
 
-          if city_matches.nil? or city_matches.count == 0
+          if city_matches.nil? || city_matches.count == 0
             if state == ""
               contact.errors[:base] << "There are no cities in the database with the name '#{c}'."
             else

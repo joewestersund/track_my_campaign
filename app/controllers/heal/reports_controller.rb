@@ -117,7 +117,7 @@ class Heal::ReportsController < ApplicationController
         sf.add_condition("city_designation_achievements.city_designation_id","=",:city_designation_id,params)
       end
 
-      if params[:resolution_policy_id].present? and params[:policy_adoption_policy_id].present?
+      if params[:resolution_policy_id].present? && params[:policy_adoption_policy_id].present?
         #if filtering by both, need special handling since joining to policy table twice causes field name changes.
         sf.add_condition("policies_resolutions.policy_id","=",:resolution_policy_id,params)
         sf.add_condition("policies_policy_adoptions_join.policy_id","=",:policy_adoption_policy_id,params)

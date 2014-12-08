@@ -3,7 +3,7 @@
   <span class="main-title">Track my Campaign</span>
   <span class="sub-title">
     <% db_instances = db_instances_this_user
-    if (db_instances.present? and db_instances.count > 1) %>
+    if (db_instances.present? && db_instances.count > 1) %>
       <ul id='switch_db' class="nav navbar-nav navbar-right">
         <li id="fat-menu" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=current_db.present? ? "Switch" : "Select Database" %> <b class="caret"></b></a>

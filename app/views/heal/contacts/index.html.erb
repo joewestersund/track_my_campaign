@@ -64,7 +64,7 @@
   <% end %>
 </div>
 
-<% if @contacts.nil? or @contacts.count == 0 %>
+<% if @contacts.nil? || @contacts.count == 0 %>
   <div class="no_data">No data has been entered, or no data matches the filter above.</div>
 <% else %>
   <p>

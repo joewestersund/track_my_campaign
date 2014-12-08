@@ -1,6 +1,6 @@
 <%# add navigation links to this file %>
 <% if signed_in?
-  if current_db.present? and current_db.class == Heal::DatabaseInstance %>
+  if current_db.present? && current_db.class == Heal::DatabaseInstance %>
     <li><%= link_to "Communications", heal_communications_path %></li>
     <li><%= link_to "Contacts", heal_contacts_path %></li>
     <li><%= link_to "Cities", heal_cities_path %></li>

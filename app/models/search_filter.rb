@@ -28,7 +28,7 @@ class SearchFilter
       @conditions_string << "#{db_field_name} IS NULL"
     elsif options[:is_not_null]
       @conditions_string << "#{db_field_name} IS NOT NULL"
-    elsif params_hash[param_name].present? and operator_is_supported(operator)
+    elsif params_hash[param_name].present? && operator_is_supported(operator)
       if options[:join_table].present?
         join_object_name = options[:join_object_name] || options[:join_table]
         @join_tables << options[:join_table] unless @join_tables.include? options[:join_table]
@@ -36,7 +36,7 @@ class SearchFilter
       else
         @conditions_string << "#{db_field_name} #{operator} :#{param_name}"
       end
-      if operator == "LIKE" or operator == "ILIKE"
+      if operator == "LIKE" || operator == "ILIKE"
         @parameters_hash[param_name] = "%#{params_hash[param_name]}%"
       else
         @parameters_hash[param_name] = params_hash[param_name]
