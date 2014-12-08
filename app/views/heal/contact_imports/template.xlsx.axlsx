@@ -1,7 +1,7 @@
 wb = xlsx_package.workbook
 
 header_style = wb.styles.add_style alignment: {horizontal: :center, vertical: :center, wrap_text: true}, b: true, sz: 10, bg_color: "C0C0C0"
-second_header_style = wb.styles.add_style alignment: {horizontal: :center, vertical: :center, wrap_text: true}, b: false, sz: 9, bg_color: "C0C0C0"
+second_header_style = wb.styles.add_style alignment: {horizontal: :center, vertical: :center, wrap_text: true}, b: false, i: true, sz: 9, bg_color: "C0C0C0"
 data_style = wb.styles.add_style alignment: {horizontal: :center, vertical: :center, wrap_text: true}, sz: 10
 
 

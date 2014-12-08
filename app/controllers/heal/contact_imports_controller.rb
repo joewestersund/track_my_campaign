@@ -1,13 +1,9 @@
 class Heal::ContactImportsController < ApplicationController
+  before_action :set_select_options, only: [:new, :template]
 
   # GET /contact_imports/new
   def new
     @contact_import = Heal::ContactImport.new
-    @interest_levels = current_db.interest_levels.order(:order_in_list)
-    @position_types = current_db.position_types.order(:order_in_list)
-    @honorifics = current_db.honorifics.order(:order_in_list)
-    @organization_types = current_db.organization_types.order(:order_in_list)
-
   end
 
   # POST /contact_imports
@@ -19,10 +15,7 @@ class Heal::ContactImportsController < ApplicationController
       if @contact_import.save(current_db)
         format.html { redirect_to heal_contacts_path, notice: 'Contacts were successfully imported.' }
       else
-        @interest_levels = current_db.interest_levels.order(:order_in_list)
-        @position_types = current_db.position_types.order(:order_in_list)
-        @honorifics = current_db.honorifics.order(:order_in_list)
-        @organization_types = current_db.organization_types.order(:order_in_list)
+        set_select_options
         format.html { render action: 'new' }
       end
     end
@@ -33,5 +26,14 @@ class Heal::ContactImportsController < ApplicationController
       format.xlsx
     end
   end
+
+  private
+
+    def set_select_options
+      @interest_levels = current_db.interest_levels.order(:order_in_list)
+      @position_types = current_db.position_types.order(:order_in_list)
+      @honorifics = current_db.honorifics.order(:order_in_list)
+      @organization_types = current_db.organization_types.order(:order_in_list)
+    end
 
 end
