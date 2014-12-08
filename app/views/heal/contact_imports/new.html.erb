@@ -3,10 +3,10 @@
 <b><%= link_to 'Download Excel Template', heal_contact_imports_template_path(format: "xlsx") %></b>
 <br><br>
 
-<p>An Excel (.xls or .xlsx) file can be used to import contacts into the database.
-  Make sure these contacts aren't already in the database, so you don't mistakenly get duplicates there.</p>
+<p>Download the Excel template above, and fill it out, one row per new contact you want added to your database.
+  The database does some checking for duplicates, but try to make sure you aren't uploading multiple records for the same person.</p>
 
-<p>The first row of the spreadsheet contains the column names. The second row is explanatory only (ignored on upload) and contains descriptions of what values are allowed for that column.</p>
+<p>The first row of the spreadsheet contains the column names. The second row is explanatory only (ignored on upload) and contains descriptions of what values are allowed.</p>
 
 <p>The following columns are included:</p>
 
@@ -25,7 +25,7 @@
           <li><%= msg %></li>
         <% end %>
       </ul>
-      <h2>Please correct this data and then try again.</h2>
+      <h2>No data was uploaded. Please correct the data and then try again.</h2>
     </div>
   <% end %>
 
