@@ -1,0 +1,12 @@
+wb = xlsx_package.workbook
+
+header_style = wb.styles.add_style alignment: {horizontal: :center, vertical: :center, wrap_text: true}, b: true, sz: 10, bg_color: "C0C0C0"
+data_style = wb.styles.add_style alignment: {horizontal: :center, vertical: :center, wrap_text: true}, sz: 10
+
+
+wb.add_worksheet(name: 'Contacts to Upload') do |sheet|
+
+  sheet.add_row Heal::ContactImport::ALL_FIELDS_THAT_CAN_BE_IMPORTED, style: header_style
+  sheet.add_row ["your data here, and on following rows"], style: data_style
+
+end

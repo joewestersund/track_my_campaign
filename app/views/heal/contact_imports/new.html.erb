@@ -4,9 +4,12 @@
   Make sure these contacts aren't already in the database, so you don't mistakenly get duplicates there.</p>
 <p>The first row should be the column name. The following columns are allowed.</p>
 
+<%= link_to 'Download Excel Template', heal_contact_imports_template_path(format: "xlsx") %>
+<br><br>
+
 <ul>
   <% Heal::Contact.columns.each do |column| %>
-    <% if column.name.in? Heal::ContactImport.fields_to_directly_import.map {|field_name| field_name.to_s} %>
+    <% if column.name.in? Heal::ContactImport::FIELDS_TO_DIRECTLY_IMPORT.map {|field_name| field_name.to_s} %>
       <li>
         <strong><%= column.name %></strong> -
         <%= column.type.to_s.titleize %> type

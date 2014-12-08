@@ -5,16 +5,14 @@ class Heal::ContactImport
 
   attr_accessor :file
 
-  def self.fields_to_directly_import
-    [:first_name, :last_name, :title, :organization_name,
-      :office_phone_number, :email, :cell_phone_number, :fax, :website,
-      :address_line_1, :address_line_2, :address_city, :address_state, :address_zip,
-      :heal_champion, :heal_champion_notes, :notes]
-  end
+  FIELDS_TO_DIRECTLY_IMPORT = [:first_name, :last_name, :title, :organization_name,
+                               :office_phone_number, :email, :cell_phone_number, :fax, :website,
+                               :address_line_1, :address_line_2, :address_city, :address_state, :address_zip,
+                               :heal_champion, :heal_champion_notes, :notes]
 
-  def self.state_abbreviations
-    ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
-  end
+  ALL_FIELDS_THAT_CAN_BE_IMPORTED = FIELDS_TO_DIRECTLY_IMPORT + [:interest_level, :position_type, :honorific, :organization_type, :cities]
+
+  STATE_ABBREVIATIONS = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
 
   def initialize(attributes = {})
     attributes.each { |name, value| send("#{name}=", value) }
@@ -50,7 +48,7 @@ class Heal::ContactImport
       row = Hash[[header, spreadsheet.row(i)].transpose]
       contact = Heal::Contact.new
       contact.database_instance = db_instance
-      contact.attributes = row.to_hash.slice(*Heal::ContactImport::fields_to_directly_import)
+      contact.attributes = row.to_hash.slice(*FIELDS_TO_DIRECTLY_IMPORT)
 
       current_record = db_instance.contacts.find_by(first_name: contact.first_name, last_name: contact.last_name, organization_name: contact.organization_name)
       if current_record.present?
@@ -69,7 +67,7 @@ class Heal::ContactImport
         city_names_array = row[:cities].split(",").map{ |c| c.strip }
         city_names_array.each do |c|
           state = ""
-          if c[-3,1] == " " and c[-2,2].upcase.in? Heal::ContactImport::state_abbreviations
+          if c[-3,1] == " " and c[-2,2].upcase.in? STATE_ABBREVIATIONS
             # the 3rd to last character is a space,
             # and the last 2 characters are in the state abbreviations list.
             state = c[-2,2]

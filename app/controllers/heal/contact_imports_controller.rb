@@ -24,4 +24,10 @@ class Heal::ContactImportsController < ApplicationController
     end
   end
 
+  def template
+    respond_to do |format|
+      format.xlsx
+    end
+  end
+
 end

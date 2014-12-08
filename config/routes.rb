@@ -11,6 +11,7 @@ TrackMyCampaign::Application.routes.draw do
     resources :communications
     resources :contacts
     resources :contact_imports, only: [:new, :create]
+    get '/contact_imports/template' , to: 'contact_imports#template'
     resources :followup_tasks
     resources :honorifics
     resources :interest_levels
