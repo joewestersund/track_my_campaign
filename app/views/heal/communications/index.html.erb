@@ -1,6 +1,6 @@
 <h1>Communications</h1>
 
-<%= link_to 'New Communication', new_heal_communication_path %>
+<b><%= link_to 'New Communication', new_heal_communication_path %></b>
 <br><br>
 
 <div class="filter">
@@ -67,7 +67,7 @@
   <div class="no_data">No data has been entered, or no data matches the filter above.</div>
 <% else %>
   <p>
-    <%= link_to "Download to Excel", heal_communications_path(format: "xlsx") + "?" + request.query_string %>
+    <b><%= link_to "Download to Excel", heal_communications_path(format: "xlsx") + "?" + request.query_string %></b>
   </p>
 
   <table>

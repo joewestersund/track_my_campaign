@@ -10,7 +10,7 @@ class Heal::ContactImport
                                :address_line_1, :address_line_2, :address_city, :address_state, :address_zip,
                                :heal_champion, :heal_champion_notes, :notes]
 
-  ALL_FIELDS_THAT_CAN_BE_IMPORTED = FIELDS_TO_DIRECTLY_IMPORT + [:interest_level, :position_type, :honorific, :organization_type, :cities]
+  ALL_FIELDS_THAT_CAN_BE_IMPORTED = [:honorific] + FIELDS_TO_DIRECTLY_IMPORT[0,4] + [:cities] + FIELDS_TO_DIRECTLY_IMPORT[4,FIELDS_TO_DIRECTLY_IMPORT.length - 4] + [:interest_level, :position_type, :organization_type, :cities]
 
   STATE_ABBREVIATIONS = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
 

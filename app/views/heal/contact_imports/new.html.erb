@@ -1,11 +1,11 @@
 <h1>Import Contacts from Excel</h1>
 
+<b><%= link_to 'Download Excel Template', heal_contact_imports_template_path(format: "xlsx") %></b>
+<br><br>
+
 <p>An Excel (.xls or .xlsx) file can be used to import contacts into the database.
   Make sure these contacts aren't already in the database, so you don't mistakenly get duplicates there.</p>
 <p>The first row should be the column name. The following columns are allowed.</p>
-
-<%= link_to 'Download Excel Template', heal_contact_imports_template_path(format: "xlsx") %>
-<br><br>
 
 <ul>
   <% Heal::Contact.columns.each do |column| %>

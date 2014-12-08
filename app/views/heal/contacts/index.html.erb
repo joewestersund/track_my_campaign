@@ -1,7 +1,7 @@
 <h1>Contacts</h1>
 
-<%= link_to 'New Contact', new_heal_contact_path %> |
-<%= link_to 'Import Contacts from Excel', new_heal_contact_import_path %>
+<b><%= link_to 'New Contact', new_heal_contact_path %> |
+<%= link_to 'Import Contacts from Excel', new_heal_contact_import_path %></b>
 <br><br>
 
 <div class="filter">
@@ -68,7 +68,7 @@
   <div class="no_data">No data has been entered, or no data matches the filter above.</div>
 <% else %>
   <p>
-    <%= link_to "Download to Excel", heal_contacts_path(format: "xlsx") + "?" + request.query_string %>
+    <b><%= link_to "Download to Excel", heal_contacts_path(format: "xlsx") + "?" + request.query_string %></b>
   </p>
 
   <table>
