@@ -25,11 +25,12 @@ class Heal::ContactImport
   end
 
   def save(db_instance)
-    if imported_contacts(db_instance).map(&:valid?).all?
-      imported_contacts(db_instance).each(&:save!)
+    contacts = imported_contacts(db_instance)
+    if contacts.map{|contact| contact.errors.count == 0 && contact.valid? }.all?
+      contacts.each(&:save!)
       true
     else
-      imported_contacts(db_instance).each_with_index do |contact, index|
+      contacts.each_with_index do |contact, index|
         contact.errors.full_messages.each do |message|
           errors.add :base, "Row #{index+2}: #{message}"
         end
@@ -53,7 +54,8 @@ class Heal::ContactImport
 
       current_record = db_instance.contacts.find_by(first_name: contact.first_name, last_name: contact.last_name, organization_name: contact.organization_name)
       if current_record.present?
-        contact.errors.add :base, "There is already a contact in your database named #{contact.first_name} #{contact.last_name} who works for the organization #{contact.organization_name}"
+        #error
+        contact.errors[:base] << "There is already a contact in your database named '#{contact.first_name} #{contact.last_name}' who works for the organization ''#{contact.organization_name}''"
       end
 
       contact.interest_level = find_item_in_list(contact, row[:interest_level], db_instance.interest_levels)
@@ -71,7 +73,7 @@ class Heal::ContactImport
             # the 3rd to last character is a space,
             # and the last 2 characters are in the state abbreviations list.
             state = c[-2,2]
-            city_name = c.first
+            city_name = c[0...-3].strip
 
             city_matches = db_instance.cities.where(name: city_name, state: state)
           else
@@ -80,12 +82,12 @@ class Heal::ContactImport
 
           if city_matches.nil? or city_matches.count == 0
             if state == ""
-              contact.errors.add :base, "There are no cities in the database with the name '#{c}'."
+              contact.errors[:base] << "There are no cities in the database with the name '#{c}'."
             else
-              contact.errors.add :base, "There are no cities in the database with the name '#{city_name}' and state '#{state}'."
+              contact.errors[:base] << "There are no cities in the database with the name '#{city_name}' and state '#{state}'."
             end
           elsif city_matches.count > 1
-            contact.errors.add :base, "There were multiple cities with the name '#{c}' in the database."
+            contact.errors[:base] << "There were multiple cities with the name '#{c}' in the database."
           else
             #there's one and only one. add it to our list.
             cities_array << city_matches.first
@@ -93,7 +95,7 @@ class Heal::ContactImport
         end
 
         #add the cities to the contact object.
-        cities_array.each{ |c| contact.cities.add(c) }
+        cities_array.each{ |city_obj| contact.cities << city_obj }
       end
 
       contact
@@ -105,7 +107,7 @@ class Heal::ContactImport
       return nil if name.nil?
       item = item_type.find_by(name: name)
       if item.nil?
-        parent_object.errors.add :base, "Name '#{name}' was not recognized as a #{item_type.name}"
+        parent_object.errors[:base] << "Name '#{name}' was not recognized as a #{item_type.name}"
         return nil
       else
         #we did find an object by this name.
