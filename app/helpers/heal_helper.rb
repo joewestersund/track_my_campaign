@@ -62,11 +62,11 @@ module HealHelper
     elsif !show_all && array.count > max_to_show
       return "#{array.count} #{measure_word}"
     else
-      if conjunction == "" || array.count == 1
+      if conjunction == "" || array.length == 1
         return array.map{ |u| u.name }.join(", ")
       else
-        last_item = array.pop
-        return array.map{ |u| u.name }.join(", ") + " #{conjunction} #{last_item.name}"
+        last_item = array.last
+        return array[0,array.length-1].map{ |u| u.name }.join(", ") + " #{conjunction} #{last_item.name}"
       end
     end
   end
@@ -109,6 +109,32 @@ module HealHelper
   def truncate_text(text, options = {})
     max_length = options[:max_length] || 30
     truncate(text, length: max_length, separator: ' ')
+  end
+
+  def contact_fields_and_descriptions
+    field_names = []
+    field_names << {name: "honorific", data_type: show_comma_separated_list(@honorifics,"",{show_all: true, conjunction: "or"}) }
+    field_names << {name: "first_name", data_type: "text" }
+    field_names << {name: "last_name", data_type: "text" }
+    field_names << {name: "title", data_type: "text" }
+    field_names << {name: "organization_name", data_type: "text" }
+    field_names << {name: "organization_type", data_type: show_comma_separated_list(@organization_types,"",{show_all: true, conjunction: "or"}) }
+    field_names << {name: "cities", data_type: "Comma-separated list of zero or more cities, with state. Example: Portland OR, Sacramento CA" }
+    field_names << {name: "interest_level", data_type: show_comma_separated_list(@interest_levels,"",{show_all: true, conjunction: "or"}) }
+    field_names << {name: "position_type", data_type: show_comma_separated_list(@position_types,"",{show_all: true, conjunction: "or"}) }
+    field_names << {name: "office_phone_number", data_type: "text" }
+    field_names << {name: "email", data_type: "text" }
+    field_names << {name: "cell_phone_number", data_type: "text" }
+    field_names << {name: "fax", data_type: "text" }
+    field_names << {name: "website", data_type: "text" }
+    field_names << {name: "address_line_1", data_type: "text" }
+    field_names << {name: "address_line_2", data_type: "text" }
+    field_names << {name: "address_city", data_type: "text" }
+    field_names << {name: "address_state", data_type: "text" }
+    field_names << {name: "address_zip", data_type: "text" }
+    field_names << {name: "heal_champion", data_type: "TRUE or FALSE" }
+    field_names << {name: "heal_champion_notes", data_type: "text" }
+    field_names << {name: "notes", data_type: "text" }
   end
 
 end

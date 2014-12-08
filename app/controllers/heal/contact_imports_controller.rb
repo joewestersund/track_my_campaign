@@ -19,6 +19,10 @@ class Heal::ContactImportsController < ApplicationController
       if @contact_import.save(current_db)
         format.html { redirect_to heal_contacts_path, notice: 'Contacts were successfully imported.' }
       else
+        @interest_levels = current_db.interest_levels.order(:order_in_list)
+        @position_types = current_db.position_types.order(:order_in_list)
+        @honorifics = current_db.honorifics.order(:order_in_list)
+        @organization_types = current_db.organization_types.order(:order_in_list)
         format.html { render action: 'new' }
       end
     end

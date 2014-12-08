@@ -5,22 +5,15 @@
 
 <p>An Excel (.xls or .xlsx) file can be used to import contacts into the database.
   Make sure these contacts aren't already in the database, so you don't mistakenly get duplicates there.</p>
-<p>The first row should be the column name. The following columns are allowed.</p>
+
+<p>The first row of the spreadsheet contains the column names. The second row is explanatory only (ignored on upload) and contains descriptions of what values are allowed for that column.</p>
+
+<p>The following columns are included:</p>
 
 <ul>
-  <% Heal::Contact.columns.each do |column| %>
-    <% if column.name.in? Heal::ContactImport::FIELDS_TO_DIRECTLY_IMPORT.map {|field_name| field_name.to_s} %>
-      <li>
-        <strong><%= column.name %></strong> -
-        <%= column.type.to_s.titleize %> type
-      </li>
-    <% end %>
+  <% contact_fields_and_descriptions.each do |field| %>
+    <li><%=raw("<strong>#{field[:name]}</strong> #{field[:data_type]}")%></li>
   <% end %>
-  <li><strong>interest_level</strong> - <%= show_comma_separated_list(@interest_levels,"",{show_all: true, conjunction: "or"}) %></li>
-  <li><strong>position_type</strong> - <%= show_comma_separated_list(@position_types,"",{show_all: true, conjunction: "or"}) %></li>
-  <li><strong>honorific</strong> - <%= show_comma_separated_list(@honorifics,"",{show_all: true, conjunction: "or"}) %></li>
-  <li><strong>organization_type</strong> - <%= show_comma_separated_list(@organization_types,"",{show_all: true, conjunction: "or"}) %></li>
-  <li><strong>cities</strong> - String type, must be a comma-separated list of zero or more cities, with state. Example: Portland OR, Sacramento CA</li>
 </ul>
 
 <%= form_for @contact_import do |f| %>

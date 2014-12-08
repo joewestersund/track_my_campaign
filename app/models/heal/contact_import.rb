@@ -10,8 +10,6 @@ class Heal::ContactImport
                                :address_line_1, :address_line_2, :address_city, :address_state, :address_zip,
                                :heal_champion, :heal_champion_notes, :notes]
 
-  ALL_FIELDS_THAT_CAN_BE_IMPORTED = [:honorific] + FIELDS_TO_DIRECTLY_IMPORT[0,4] + [:organization_type, :cities, :interest_level, :position_type] + FIELDS_TO_DIRECTLY_IMPORT[4,FIELDS_TO_DIRECTLY_IMPORT.length - 4]
-
   STATE_ABBREVIATIONS = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
 
   def initialize(attributes = {})
@@ -44,7 +42,8 @@ class Heal::ContactImport
   def load_imported_contacts(db_instance)
     spreadsheet = open_spreadsheet
     header = spreadsheet.row(1).map{ |str| str.to_sym} #convert each element to a symbol
-    (2..spreadsheet.last_row).map do |i|
+    #field names on 1st row, descriptions on 2nd row, real data starts on 3rd row.
+    (3..spreadsheet.last_row).map do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       contact = Heal::Contact.new
       contact.database_instance = db_instance
