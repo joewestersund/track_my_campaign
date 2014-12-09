@@ -8,6 +8,8 @@
 #  order_in_list        :integer
 #  created_at           :datetime
 #  updated_at           :datetime
+#  category             :string(255)
+#  subcategory          :string(255)
 #
 
 class Heal::Policy < ActiveRecord::Base

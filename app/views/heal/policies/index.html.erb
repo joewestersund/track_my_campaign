@@ -3,6 +3,8 @@
 <table>
   <thead>
     <tr>
+      <th>Category</th>
+      <th>Subcategory</th>
       <th>Name</th>
       <th>Order in list</th>
       <th></th>
@@ -13,6 +15,8 @@
   <tbody>
     <% @policies.each do |policy| %>
       <tr>
+        <td><%= policy.category %></td>
+        <td><%= policy.subcategory %></td>
         <td><%= policy.name %></td>
         <td><%= policy.order_in_list %></td>
         <td><%= link_to 'Edit', edit_heal_policy_path(policy) %></td>

@@ -77,6 +77,6 @@ class Heal::PoliciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def policy_params
-      params.require(:heal_policy).permit(:name, :order_in_list)
+      params.require(:heal_policy).permit(:category, :subcategory, :name, :order_in_list)
     end
 end
