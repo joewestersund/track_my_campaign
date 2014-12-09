@@ -32,7 +32,7 @@ class Heal::FollowupTasksController < ApplicationController
 
     respond_to do |format|
       if @followup_task.save
-        send_email_notification(@followup_task)
+        send_email_notification(@followup_task, false)
         format.html { redirect_to @followup_task, notice: 'Followup task was successfully created.' }
         format.json { render action: 'show', status: :created, location: @followup_task }
       else
@@ -48,7 +48,7 @@ class Heal::FollowupTasksController < ApplicationController
   def update
     respond_to do |format|
       if @followup_task.update(followup_task_params)
-        send_email_notification(@followup_task)
+        send_email_notification(@followup_task, true)
         format.html { redirect_to @followup_task, notice: 'Followup task was successfully updated.' }
         format.json { head :no_content }
       else
@@ -76,11 +76,11 @@ class Heal::FollowupTasksController < ApplicationController
   end
 
   private
-    def send_email_notification(followup_task)
+    def send_email_notification(followup_task, update)
       if params[:send_notification] == Heal::FollowupTask::SEND_FOLLOWUP_TO_ASSIGNEE_ONLY[:value]
-        Heal::NotificationMailer.followup_task_email(followup_task,false).deliver
+        Heal::NotificationMailer.followup_task_email(followup_task,update,false).deliver
       elsif params[:send_notification] == Heal::FollowupTask::SEND_FOLLOWUP_TO_ASSIGNEE_CC_ASSIGNER[:value]
-        Heal::NotificationMailer.followup_task_email(followup_task,true).deliver
+        Heal::NotificationMailer.followup_task_email(followup_task,update,true).deliver
       end
 
     end

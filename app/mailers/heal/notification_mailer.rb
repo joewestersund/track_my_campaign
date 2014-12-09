@@ -3,7 +3,8 @@ class Heal::NotificationMailer < ActionMailer::Base
   helper HealHelper
   helper UsersHelper
 
-  def followup_task_email(followup_task, cc_assigner)
+  def followup_task_email(followup_task, update, cc_assigner)
+    @update = update #boolean, false if new record, true if old record updated
     @followup_task = followup_task
     @followup_task_url  = heal_followup_task_url(@followup_task)
     @communication_url  = heal_communication_url(@followup_task.prior_communication) if @followup_task.prior_communication.present?

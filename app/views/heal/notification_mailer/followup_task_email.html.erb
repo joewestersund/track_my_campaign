@@ -6,7 +6,11 @@
 <body>
   Dear <%= @followup_task.assigned_to.first_name %>,
   <p>
+  <% if @update %>
+  A <%= link_to "followup task", @followup_task_url%> assigned to you in the <%= @followup_task.database_instance.instance_name %> Heal Cities database has just been updated.
+  <% else %>
   A <%= link_to "followup task", @followup_task_url%> has just been assigned to you in the <%= @followup_task.database_instance.instance_name %> Heal Cities database.
+  <% end %>
 
   <div><strong>Due date:</strong> <%= @followup_task.due_date %></div>
   <div><strong>Description:</strong> <%= @followup_task.description %></div>
