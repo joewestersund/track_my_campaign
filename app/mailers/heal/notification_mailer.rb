@@ -1,11 +1,12 @@
 class Heal::NotificationMailer < ActionMailer::Base
   default from: "no-reply@trackmycampaign.herokuapp.com"
   helper HealHelper
+  helper UsersHelper
 
   def followup_task_email(followup_task, cc_assigner)
     @followup_task = followup_task
-    @followup_task_url  = "http://trackmycampaign.herokuapp.com/heal/followup_tasks/#{@followup_task.id}"
-    @communication_url  = "http://trackmycampaign.herokuapp.com/heal/communications/#{@followup_task.prior_communication.id}" if @followup_task.prior_communication.present?
+    @followup_task_url  = heal_followup_task_url(@followup_task)
+    @communication_url  = heal_communication_url(@followup_task.prior_communication) if @followup_task.prior_communication.present?
 
     if cc_assigner && (@followup_task.assigned_by.email != @followup_task.assigned_to.email)
       cc = @followup_task.assigned_by.email_address_with_name

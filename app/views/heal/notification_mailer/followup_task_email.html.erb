@@ -4,26 +4,23 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<p>
   Dear <%= @followup_task.assigned_to.first_name %>,
+  <p>
+  A <%= link_to "followup task", @followup_task_url%> has just been assigned to you in the <%= @followup_task.database_instance.instance_name %> Heal Cities database.
 
-  A <%= link_to @followup_task_url, "followup task"%> has just been assigned to you in the <%= @followup_task.database_instance.instance_name %> Heal Cities database.
-
-  Due date: <%= @followup_task.due_date %>
-  Description: <%= @followup_task.description %>
-  Assigned by: <%= mail_to @followup_task.assigned_by.email, "#{@followup_task.assigned_by.first_name} #{@followup_task.assigned_by.last_name}" %>
+  <div><strong>Due date:</strong> <%= @followup_task.due_date %></div>
+  <div><strong>Description:</strong> <%= @followup_task.description %></div>
+  <div><strong>Assigned by:</strong> <%= mail_to @followup_task.assigned_by.email, "#{@followup_task.assigned_by.first_name} #{@followup_task.assigned_by.last_name}" %></div>
+  <br><br>
   <% if @followup_task.prior_communication.present?
     com = @followup_task.prior_communication%>
 
-    This is a followup to a <%=link_to @communication_url, com.communication_type.name %> on <%= com.date%>:
-    <%= "Event name: #{com.event_name}" if com.event_name.present?%>
-    <%= "Contacts: #{show_contacts_list(com.contacts.all)}" if (com.contacts.count > 0)%>
-    <%= "Cities: #{show_cities_list(com.cities.all, {show_state: true})}" if (com.cities.count > 0)%>
-    <%= "Notes: #{com.notes}" if com.notes.present?%>
+    This is a followup to a <%=link_to com.communication_type.name, @communication_url %> on <%= com.date%>:
+    <%= raw("<div>Event name: #{com.event_name}</div>") if com.event_name.present?%></div>
+    <%= raw("<div>Contacts: #{show_contacts_list(com.contacts.all)}</div>") if (com.contacts.count > 0)%></div>
+    <%= raw("<div>Cities: #{show_cities_list(com.cities.all, {show_state: true})}</div>") if (com.cities.count > 0)%></div>
+    <%= raw("<div>Notes: #{com.notes}</div>") if com.notes.present?%>
   <% end %>
-</p>
-<p>
-  To login to the site, just follow this link: <%= @url %>.
 </p>
 </body>
 </html>
