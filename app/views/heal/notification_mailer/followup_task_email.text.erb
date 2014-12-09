@@ -1,0 +1,18 @@
+Dear <%= @assigned_to.first_name %>,
+
+A followup task has just been assigned to you in the <%= @database_name %> Heal Cities database.
+
+link: <%= @followup_task_url %>
+
+Due date: <%= @followup_task.due_date %>
+Description: <%= @followup_task.description %>
+Assigned by: <%= "#{@followup_task.assigned_by.first_name} #{@followup_task.assigned_by.last_name} <#{@followup_task.assigned_by.email}>" %>
+<% if @followup_task.prior_communication.present?
+     com = @followup_task.prior_communication%>
+
+  This is a followup to a <%= com.communication_type.name %> on <%= com.date%>:
+  <%= "Event name: #{com.event_name}" if com.event_name.present?%>
+  <%= "Contacts: #{show_contacts_list(com.contacts.all)}" if (com.contacts.count > 0)%>
+  <%= "Cities: #{show_cities_list(com.cities.all, {show_state: true})}" if (com.cities.count > 0)%>
+  <%= "Notes: #{com.notes}" if com.notes.present?%>
+<% end %>

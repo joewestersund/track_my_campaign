@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :policies_adopted %>
-    <%= f.collection_select :policy_ids, @policies, :id, :name, {}, {class: 'multiselect', multiple: true} %>
+    <%= f.collection_select :policy_ids, @policies, :id, :full_name, {}, {class: 'multiselect', multiple: true} %>
   </div>
   <div class="field">
     <%= f.label :prior_to_joining_campaign %>

@@ -20,4 +20,11 @@ class Heal::Policy < ActiveRecord::Base
   validates :name, presence: true, :uniqueness => {:scope => :database_instance}
   validates :order_in_list, presence: true, :uniqueness => {:scope => :database_instance}
 
+  def full_name
+    str = ""
+    str = "#{category} | " if category.present?
+    str += " #{subcategory} | " if subcategory.present?
+    str += name
+  end
+
 end

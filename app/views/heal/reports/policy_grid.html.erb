@@ -36,11 +36,11 @@
     </div>
     <div class="field">
       <%= label_tag "Resolutions" %>
-      <%= select_tag :resolution_policy_id, options_from_collection_for_select(@policies,:id,:name,params[:resolution_policy_id]), { :include_blank => true } %>
+      <%= select_tag :resolution_policy_id, options_from_collection_for_select(@policies,:id,:full_name,params[:resolution_policy_id]), { :include_blank => true } %>
     </div>
     <div class="field">
       <%= label_tag "Policy Adoptions" %>
-      <%= select_tag :policy_adoption_policy_id, options_from_collection_for_select(@policies,:id,:name,params[:policy_adoption_policy_id]), { :include_blank => true } %>
+      <%= select_tag :policy_adoption_policy_id, options_from_collection_for_select(@policies,:id,:full_name,params[:policy_adoption_policy_id]), { :include_blank => true } %>
     </div>
     <div class="field">
       <%= label_tag :policy_change_in_progress, "General Plan / Policy Change in Progress" %>
@@ -74,7 +74,7 @@
       <th>General Plan / Policy Change in Progress</th>
       <% @policies.each do |policy| %>
         <% policy_ids << policy.id %>
-        <th class="small-title"><span title="<%= policy.name %>"><%= truncate_text(policy.name) %></span></th>
+        <th class="small-title"><span title="<%= policy.full_name %>"><%= truncate_text(policy.name) %></span></th>
       <% end %>
     </tr>
     </thead>
