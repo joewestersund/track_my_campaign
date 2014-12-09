@@ -63,6 +63,7 @@ gem 'roo'
 group :development do
   gem 'rails_layout'  #gem to set up for bootstrap css and js http://railsapps.github.io/twitter-bootstrap-rails.html
   gem 'annotate'  #adds annotations to models, call bundle exec annotate to make it work
+  gem "letter_opener"
 end
 
 group :test do

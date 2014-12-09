@@ -5,9 +5,9 @@
 </head>
 <body>
 <p>
-  Dear <%= @assigned_to.first_name %>,
+  Dear <%= @followup_task.assigned_to.first_name %>,
 
-  A <%= link_to @followup_task_url, "followup task"%> has just been assigned to you in the <%= @database_name %> Heal Cities database.
+  A <%= link_to @followup_task_url, "followup task"%> has just been assigned to you in the <%= @followup_task.database_instance.instance_name %> Heal Cities database.
 
   Due date: <%= @followup_task.due_date %>
   Description: <%= @followup_task.description %>

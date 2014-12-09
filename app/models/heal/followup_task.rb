@@ -33,4 +33,8 @@ class Heal::FollowupTask < ActiveRecord::Base
   validates :assigned_to, presence: true
   validates :assigned_by, presence: true
 
+  SEND_FOLLOWUP_TO_ASSIGNEE_ONLY = {text: "Person assigned to", value: "1"}
+  SEND_FOLLOWUP_TO_ASSIGNEE_CC_ASSIGNER = {text: "Person assigned to, cc me",value: "2"}
+
+
 end

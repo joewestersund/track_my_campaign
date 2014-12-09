@@ -47,6 +47,15 @@
     <%= f.label :completion_notes %>
     <%= f.text_area :completion_notes %>
   </div>
+  <div class="field">
+    <%= label_tag "Send email notification to:" %>
+    <% options_array = []
+       options_array << ["", 0]
+       options_array << [ Heal::FollowupTask::SEND_FOLLOWUP_TO_ASSIGNEE_ONLY[:text] , Heal::FollowupTask::SEND_FOLLOWUP_TO_ASSIGNEE_ONLY[:value] ]
+       options_array << [ Heal::FollowupTask::SEND_FOLLOWUP_TO_ASSIGNEE_CC_ASSIGNER[:text] , Heal::FollowupTask::SEND_FOLLOWUP_TO_ASSIGNEE_CC_ASSIGNER[:value] ]
+    %>
+    <%= select_tag :send_notification, options_for_select(options_array), {class: 'multiselect', multiple: false} %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

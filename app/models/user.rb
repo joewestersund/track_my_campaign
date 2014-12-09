@@ -48,6 +48,11 @@ class User < ActiveRecord::Base
     "#{self.first_name} #{self.last_name}"
   end
 
+  def email_address_with_name
+    "#{self.first_name} #{self.last_name} <#{self.email}>"
+  end
+
+
   private
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)

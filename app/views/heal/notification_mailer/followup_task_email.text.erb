@@ -1,6 +1,6 @@
-Dear <%= @assigned_to.first_name %>,
+Dear <%= @followup_task.assigned_to.first_name %>,
 
-A followup task has just been assigned to you in the <%= @database_name %> Heal Cities database.
+A followup task has just been assigned to you in the <%= @followup_task.database_instance.instance_name %> Heal Cities database.
 
 link: <%= @followup_task_url %>
 
