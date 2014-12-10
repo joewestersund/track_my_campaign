@@ -43,7 +43,7 @@
       <% if has_write_permissions? %>
         <td><%= link_to 'Show', milestone %></td>
         <td><%= link_to 'Edit', edit_heal_milestone_path(milestone) %></td>
-        <td><%= link_to 'Destroy', milestone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', milestone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tr>
   <% end %>

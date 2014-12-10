@@ -28,7 +28,7 @@
       <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:name_type_state, params[:city_id]), { include_blank: true, class: 'multiselect', multiple: false} %>
     </div>
     <div class="actions">
-      <%= submit_tag "Search" %>
+      <%= submit_tag "Filter", class: "btn btn-large btn-primary" %>
     </div>
   <% end %>
 </div>

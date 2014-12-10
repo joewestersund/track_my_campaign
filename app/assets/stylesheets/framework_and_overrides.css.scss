@@ -34,11 +34,12 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
   padding-bottom: 80px;
-  width: 90%; // 960px; /* 100%;   */
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 100%; // 90%; // 960px; /* 100%;   */
   margin-top: 71px; //51px; // accommodate the navbar
-  border: 1px black solid
+  //border: 1px black solid
   }
 section {
   @extend .row;
@@ -49,7 +50,8 @@ section {
   width: 100%
 }
 .navbar {
-  width: 90%; //960px;
+  width: 100%; //90%; //960px;
+  padding-left: 10px;
   margin-left: auto;
   margin-right: auto;
   li a {

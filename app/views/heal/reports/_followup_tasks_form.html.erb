@@ -33,7 +33,7 @@
       <% if has_write_permissions? %>
         <td><%= link_to 'Show', followup_task %></td>
         <td><%= link_to 'Edit', edit_heal_followup_task_path(followup_task) %></td>
-        <td><%= link_to 'Destroy', followup_task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', followup_task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tr>
   <% end %>

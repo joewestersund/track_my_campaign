@@ -1,5 +1,5 @@
 body {
-  background-color: #fff;
+  background-color: #eee;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -28,18 +28,38 @@ a {
     background-color: #000;
     text-decoration: none; /* no underline */
   }
-  &.link-to-new {
+  &.link-to-new, &.link-to-new:visited,
+  &.link-to-download, &.link-to-download:visited{
     font-weight: bold;
+    color: #357ebd; //color to match buttons //mediumblue;
+    &:hover {
+      color: white;
+    }
   }
-  &.link-to-download, &.link-to-download:visited {
-    font-weight: bold;
-    color: blue;
+
+  &.username-link, &.username-link:visited {
+    color: #999999;
+  }
+  &.username-link:hover {
+    color: white;
+  }
+}
+
+tr a, tr a:visited {
+  //link inside a table
+  color: #357ebd; //mediumblue;
+  &:hover {
+    color: white;
   }
 }
 
 div {
   &.field, &.actions {
     margin-bottom: 10px;
+  }
+  &.filter {
+    background-color: lightgray;
+    margin-bottom: 15px;
   }
 }
 

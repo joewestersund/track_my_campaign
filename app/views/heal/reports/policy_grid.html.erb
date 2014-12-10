@@ -54,7 +54,7 @@
       <%= select_tag :policy_change_in_progress, options_for_select(get_yes_no_options_list,params[:policy_change_in_progress]), { :include_blank => true } %>
     </div>
     <div class="actions">
-      <%= submit_tag "Search" %>
+      <%= submit_tag "Filter", class: "btn btn-large btn-primary" %>
     </div>
   <% end %>
 </div>

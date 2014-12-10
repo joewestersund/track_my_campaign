@@ -20,7 +20,7 @@
     <% end %>
   </span>
   <% if current_user.present? %>
-    <span class="sub-title"> Logged in as: <%= link_to "#{current_user.first_name} #{current_user.last_name}", profile_edit_path %></span>
+    <span class="sub-title"> Logged in as: <%= link_to "#{current_user.first_name} #{current_user.last_name}", profile_edit_path, class:"username-link" %></span>
   <% end %>
   <div class="container">
     <div class="navbar-header">
