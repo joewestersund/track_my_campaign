@@ -8,5 +8,7 @@
   <%= @honorific.order_in_list %>
 </p>
 
-<%= link_to 'Edit', edit_heal_honorific_path(@honorific) %> |
+<% if has_write_permissions? %>
+  <%= link_to 'Edit', edit_heal_honorific_path(@honorific) %> |
+<% end %>
 <%= link_to 'Back to Index', heal_honorifics_path %>

@@ -1,5 +1,6 @@
 class Heal::StatusTypesController < ApplicationController
   before_action :check_current_db_exists
+  before_action :check_has_write_permissions, except: [:index, :show]
   before_action :set_status_type, only: [:show, :edit, :update, :destroy]
 
   # GET /status_types

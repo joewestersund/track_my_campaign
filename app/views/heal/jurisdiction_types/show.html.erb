@@ -8,5 +8,7 @@
   <%= @jurisdiction_type.order_in_list %>
 </p>
 
-<%= link_to 'Edit', edit_heal_jurisdiction_type_path(@jurisdiction_type) %> |
+<% if has_write_permissions? %>
+  <%= link_to 'Edit', edit_heal_jurisdiction_type_path(@jurisdiction_type) %> |
+<% end %>
 <%= link_to 'Back to Index', heal_jurisdiction_types_path %>

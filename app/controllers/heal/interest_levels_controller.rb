@@ -1,5 +1,6 @@
 class Heal::InterestLevelsController < ApplicationController
   before_action :check_current_db_exists
+  before_action :check_has_write_permissions, except: [:index, :show]
   before_action :set_interest_level, only: [:show, :edit, :update, :destroy]
 
   # GET /interest_levels

@@ -8,5 +8,7 @@
   <%= @league_division.order_in_list %>
 </p>
 
-<%= link_to 'Edit', edit_heal_league_division_path(@league_division) %> |
+<% if has_write_permissions? %>
+  <%= link_to 'Edit', edit_heal_league_division_path(@league_division) %> |
+<% end %>
 <%= link_to 'Back to Index', heal_league_divisions_path %>

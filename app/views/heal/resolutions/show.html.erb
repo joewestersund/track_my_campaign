@@ -23,5 +23,7 @@
   <%= @resolution.notes %>
 </p>
 
-<%= link_to 'Edit', edit_heal_resolution_path(@resolution) %> |
+<% if has_write_permissions? %>
+  <%= link_to 'Edit', edit_heal_resolution_path(@resolution) %> |
+<% end %>
 <%= link_to 'Back to Index', heal_resolutions_path %>

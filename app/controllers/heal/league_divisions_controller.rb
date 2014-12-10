@@ -1,5 +1,6 @@
 class Heal::LeagueDivisionsController < ApplicationController
   before_action :check_current_db_exists
+  before_action :check_has_write_permissions, except: [:index, :show]
   before_action :set_league_division, only: [:show, :edit, :update, :destroy]
 
   # GET /league_divisions

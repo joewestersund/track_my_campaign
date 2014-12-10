@@ -1,5 +1,8 @@
 <h1>Listing User Permissions</h1>
 
+<%= link_to 'New User Permission', new_user_permission_path, class: "link-to-new" %>
+<br><br>
+
 <table>
   <thead>
     <tr>
@@ -25,5 +28,3 @@
 </table>
 <%= will_paginate @user_permissions %>
 <br>
-
-<%= link_to 'New User Permission', new_user_permission_path %>

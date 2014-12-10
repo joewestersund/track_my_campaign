@@ -17,6 +17,10 @@
     <%= link_to "Add / Edit", new_heal_contact_path %>
   </div>
   <div class="field">
+    <%= f.label :others_involved %>
+    <%= f.text_field :others_involved %>
+  </div>
+  <div class="field">
     <%= f.label :cities %>
     <%= f.collection_select :city_ids, @cities, :id, :name_and_state, {}, {class: 'multiselect', multiple: true} %>
     <%= link_to "Add / Edit", new_heal_city_path %>
@@ -47,10 +51,6 @@
     <%= f.label :interest_level %>
     <%= f.collection_select :interest_level_id, @interest_levels, :id, :name, {}, {class: 'multiselect', multiple: false} %>
     <%= link_to "Add / Edit", new_heal_interest_level_path %>
-  </div>
-  <div class="field">
-    <%= f.label :others_involved %>
-    <%= f.text_field :others_involved %>
   </div>
   <div class="field">
     <%= f.label :staff_involved %>

@@ -1,5 +1,8 @@
 <h1>Users</h1>
 
+<%= link_to 'New User', new_user_path, class: "link-to-new" %>
+<br><br>
+
 <table>
   <thead>
     <tr>
@@ -27,5 +30,3 @@
 </table>
 <%= will_paginate @users %>
 <br>
-
-<%= link_to 'New User', new_user_path %>

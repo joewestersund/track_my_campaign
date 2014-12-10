@@ -8,5 +8,7 @@
   <%= @status_type.order_in_list %>
 </p>
 
-<%= link_to 'Edit', edit_heal_status_type_path(@status_type) %> |
+<% if has_write_permissions? %>
+  <%= link_to 'Edit', edit_heal_status_type_path(@status_type) %> |
+<% end %>
 <%= link_to 'Back to Index', heal_status_types_path %>

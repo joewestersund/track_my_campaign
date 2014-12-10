@@ -1,5 +1,6 @@
 class Heal::CommunicationTypesController < ApplicationController
   before_action :check_current_db_exists
+  before_action :check_has_write_permissions, except: [:index, :show]
   before_action :set_communication_type, only: [:show, :edit, :update, :destroy]
 
   # GET /communication_types

@@ -108,5 +108,7 @@
   <%= @contact.notes %>
 </p>
 
-<%= link_to 'Edit', edit_heal_contact_path(@contact) %> |
+<% if has_write_permissions? %>
+  <%= link_to 'Edit', edit_heal_contact_path(@contact) %> |
+<% end %>
 <%= link_to 'Back to Index', heal_contacts_path %>

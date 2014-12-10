@@ -1,6 +1,6 @@
 <h1>Followup Tasks</h1>
 
-<b><%= link_to 'New Followup Task', new_heal_followup_task_path %></b>
+<%= link_to 'New Followup Task', new_heal_followup_task_path, class: "link-to-new" if has_write_permissions? %>
 <br><br>
 
 <table>
@@ -15,8 +15,10 @@
       <th>Completed date</th>
       <th>Completed by</th>
       <th>Completion notes</th>
-      <th></th>
-      <th></th>
+      <% if has_write_permissions? %>
+        <th></th>
+        <th></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -32,8 +34,10 @@
         <td><%= followup_task.completed_date %></td>
         <td><%= followup_task.completed_by.first_and_last_name if followup_task.completed_by.present? %></td>
         <td><%= followup_task.completion_notes %></td>
-        <td><%= link_to 'Edit', edit_heal_followup_task_path(followup_task) %></td>
-        <td><%= link_to 'Delete', followup_task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if has_write_permissions? %>
+          <td><%= link_to 'Edit', edit_heal_followup_task_path(followup_task) %></td>
+          <td><%= link_to 'Delete', followup_task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

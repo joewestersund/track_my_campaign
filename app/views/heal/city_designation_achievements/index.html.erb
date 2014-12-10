@@ -1,6 +1,6 @@
 <h1>City Designation Achievements</h1>
 
-<%= link_to 'New City Designation Achievement', new_heal_city_designation_achievement_path %>
+<%= link_to 'New City Designation Achievement', new_heal_city_designation_achievement_path, class: "link-to-new" if has_write_permissions?%>
 <br><br>
 
 <div class="filter">
@@ -41,8 +41,10 @@
         <th>City</th>
         <th>City designation</th>
         <th>Notes</th>
-        <th></th>
-        <th></th>
+        <% if has_write_permissions? %>
+          <th></th>
+          <th></th>
+        <% end %>
       </tr>
     </thead>
 
@@ -53,8 +55,10 @@
           <td><%= city_designation_achievement.city.name_and_state if city_designation_achievement.city.present? %></td>
           <td><%= city_designation_achievement.city_designation.name if city_designation_achievement.city_designation.present? %></td>
           <td><%= city_designation_achievement.notes %></td>
-          <td><%= link_to 'Edit', edit_heal_city_designation_achievement_path(city_designation_achievement) %></td>
-          <td><%= link_to 'Delete', city_designation_achievement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if has_write_permissions? %>
+            <td><%= link_to 'Edit', edit_heal_city_designation_achievement_path(city_designation_achievement) %></td>
+            <td><%= link_to 'Delete', city_designation_achievement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

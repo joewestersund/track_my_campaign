@@ -1,5 +1,8 @@
 <h1>Database Instances</h1>
 
+<%= link_to 'New Database Instance', new_database_instance_path, class: "link-to-new" %>
+<br><br>
+
 <table>
   <thead>
     <tr>
@@ -27,5 +30,3 @@
 </table>
 <%= will_paginate @database_instances %>
 <br>
-
-<%= link_to 'New Database Instance', new_database_instance_path %>

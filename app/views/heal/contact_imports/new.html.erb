@@ -1,6 +1,6 @@
 <h1>Import Contacts from Excel</h1>
 
-<b><%= link_to 'Download Excel Template', heal_contact_imports_template_path(format: "xlsx") %></b>
+<%= link_to 'Download Excel Template', heal_contact_imports_template_path(format: "xlsx"), class:"link-to-download" %>
 <br><br>
 
 <p>Download the Excel template above and fill it out, one row per new contact you want added to your database.
@@ -16,21 +16,25 @@
   <% end %>
 </ul>
 
-<%= form_for @contact_import do |f| %>
-  <% if @contact_import.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@contact_import.errors.count, "error") %> prohibited this import from completing:</h2>
-      <ul>
-        <% @contact_import.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-      <h2>No data was uploaded. Please correct the data and then try again.</h2>
-    </div>
-  <% end %>
+<% if has_write_permissions? %>
+  <%= form_for @contact_import do |f| %>
+    <% if @contact_import.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@contact_import.errors.count, "error") %> prohibited this import from completing:</h2>
+        <ul>
+          <% @contact_import.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+        <h2>No data was uploaded. Please correct the data and then try again.</h2>
+      </div>
+    <% end %>
 
-  <div class="field">
-    <%= f.file_field :file %>
-  </div>
-  <div class="buttons"><%= f.submit "Import" %></div>
+    <div class="field">
+      <%= f.file_field :file %>
+    </div>
+    <div class="buttons"><%= f.submit "Import" %></div>
+  <% end %>
+<% else %>
+  <p> You currently do not have write permissions for this database. To upload data, contact the administrator.</p>
 <% end %>

@@ -1,5 +1,12 @@
 <h1>Policy Grid Report</h1>
 
+<% if has_write_permissions? %>
+  <%= link_to 'New Heal City Designation Achievement', new_heal_city_designation_achievement_path, class: "link-to-new" %> |
+  <%= link_to 'New Policy Adoption', new_heal_policy_adoption_path, class: "link-to-new" %> |
+  <%= link_to 'New Resolution', new_heal_resolution_path, class: "link-to-new" %>
+<% end %>
+<br><br>
+
 <div class="filter">
   <%= form_tag request.path, method: 'get' do %>
     <div class="field">
@@ -51,11 +58,6 @@
     </div>
   <% end %>
 </div>
-
-<%= link_to 'New Heal City Designation Achievement', new_heal_city_designation_achievement_path %> |
-<%= link_to 'New Policy Adoption', new_heal_policy_adoption_path %> |
-<%= link_to 'New Resolution', new_heal_resolution_path %>
-<br><br>
 
 <% policy_ids = [] %>
 <% if @cities.nil? || @cities.count == 0 %>

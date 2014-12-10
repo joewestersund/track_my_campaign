@@ -1,34 +1,4 @@
 <p>
-  <strong>Date:</strong>
-  <%= @communication.date %>
-</p>
-
-<p>
-  <strong>Duration (minutes):</strong>
-  <%= @communication.duration_minutes %>
-</p>
-
-<p>
-  <strong>Communication type:</strong>
-  <%= @communication.communication_type.name %>
-</p>
-
-<p>
-  <strong>Event name:</strong>
-  <%= @communication.event_name %>
-</p>
-
-<p>
-  <strong>Topics:</strong>
-  <%= show_comma_separated_list(@communication.topics,"topics",{show_all: true}) %>
-</p>
-
-<p>
-  <strong>Interest level:</strong>
-  <%= @communication.interest_level.name %>
-</p>
-
-<p>
   <strong>Contacts:</strong>
   <%= show_contacts_list(@communication.contacts, {show_all: true}) %>
 </p>
@@ -44,6 +14,36 @@
 </p>
 
 <p>
+  <strong>Event name:</strong>
+  <%= @communication.event_name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @communication.date %>
+</p>
+
+<p>
+  <strong>Duration (minutes):</strong>
+  <%= @communication.duration_minutes %>
+</p>
+
+<p>
+  <strong>Communication type:</strong>
+  <%= @communication.communication_type.name %>
+</p>
+
+<p>
+  <strong>Topics:</strong>
+  <%= show_comma_separated_list(@communication.topics,"topics",{show_all: true}) %>
+</p>
+
+<p>
+  <strong>Interest level:</strong>
+  <%= @communication.interest_level.name %>
+</p>
+
+<p>
   <strong>Staff Involved:</strong>
   <%= show_users_list(@communication.staff_involved,{show_all: true}) %>
 </p>
@@ -53,5 +53,7 @@
   <%= @communication.notes %>
 </p>
 
-<%= link_to 'Edit', edit_heal_communication_path(@communication) %> |
+<% if has_write_permissions? %>
+  <%= link_to 'Edit', edit_heal_communication_path(@communication) %> |
+<% end %>
 <%= link_to 'Back to Index', heal_communications_path %>

@@ -43,5 +43,7 @@
   <%= @followup_task.completion_notes %>
 </p>
 
-<%= link_to 'Edit', edit_heal_followup_task_path(@followup_task) %> |
+<% if has_write_permissions? %>
+  <%= link_to 'Edit', edit_heal_followup_task_path(@followup_task) %> |
+<% end %>
 <%= link_to 'Back to Index', heal_followup_tasks_path %>

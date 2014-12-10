@@ -1,7 +1,9 @@
 <h1>Contacts</h1>
 
-<b><%= link_to 'New Contact', new_heal_contact_path %> |
-<%= link_to 'Import Contacts from Excel', new_heal_contact_import_path %></b>
+<% if has_write_permissions? %>
+  <%= link_to 'New Contact', new_heal_contact_path, class: "link-to-new" %> |
+<% end %>
+<%= link_to 'Import Contacts from Excel', new_heal_contact_import_path, class: "link-to-new" %>
 <br><br>
 
 <div class="filter">
@@ -68,7 +70,7 @@
   <div class="no_data">No data has been entered, or no data matches the filter above.</div>
 <% else %>
   <p>
-    <b><%= link_to "Download to Excel", heal_contacts_path(format: "xlsx") + "?" + request.query_string %></b>
+    <%= link_to "Download to Excel", heal_contacts_path(format: "xlsx") + "?" + request.query_string, class:"link-to-download" %>
   </p>
 
   <table>
@@ -86,8 +88,10 @@
         <th>Interest Level</th>
         <th>Heal Champion</th>
         <th></th>
-        <th></th>
-        <th></th>
+        <% if has_write_permissions? %>
+          <th></th>
+          <th></th>
+        <% end %>
       </tr>
     </thead>
 
@@ -106,8 +110,10 @@
           <td><%= contact.interest_level.name if contact.interest_level.present? %></td>
           <td><%= show_boolean(contact.heal_champion) %></td>
           <td><%= link_to 'Show', contact %></td>
-          <td><%= link_to 'Edit', edit_heal_contact_path(contact) %></td>
-          <td><%= link_to 'Delete', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if has_write_permissions? %>
+            <td><%= link_to 'Edit', edit_heal_contact_path(contact) %></td>
+            <td><%= link_to 'Delete', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

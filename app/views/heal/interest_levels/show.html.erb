@@ -8,5 +8,7 @@
   <%= @interest_level.order_in_list %>
 </p>
 
-<%= link_to 'Edit', edit_heal_interest_level_path(@interest_level) %> |
+<% if has_write_permissions? %>
+  <%= link_to 'Edit', edit_heal_interest_level_path(@interest_level) %> |
+<% end %>
 <%= link_to 'Back to Index', heal_interest_levels_path %>

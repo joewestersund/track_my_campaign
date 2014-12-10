@@ -1,6 +1,6 @@
 <h1>Communications</h1>
 
-<b><%= link_to 'New Communication', new_heal_communication_path %></b>
+<%= link_to 'New Communication', new_heal_communication_path, class: "link-to-new" if has_write_permissions? %>
 <br><br>
 
 <div class="filter">
@@ -67,7 +67,7 @@
   <div class="no_data">No data has been entered, or no data matches the filter above.</div>
 <% else %>
   <p>
-    <b><%= link_to "Download to Excel", heal_communications_path(format: "xlsx") + "?" + request.query_string %></b>
+    <%= link_to "Download to Excel", heal_communications_path(format: "xlsx") + "?" + request.query_string, class:"link-to-download" %>
   </p>
 
   <table>
@@ -84,8 +84,10 @@
         <th>Cities</th>
         <th>Staff Involved</th>
         <th>Notes</th>
-        <th></th>
-        <th></th>
+        <% if has_write_permissions? %>
+          <th></th>
+          <th></th>
+        <% end %>
       </tr>
     </thead>
 
@@ -103,8 +105,10 @@
           <td><%= show_cities_list(communication.cities.all, {show_state: true}) %></td>
           <td><%= show_users_list(communication.staff_involved.all) %></td>
           <td><%= communication.notes %></td>
-          <td><%= link_to 'Edit', edit_heal_communication_path(communication) %></td>
-          <td><%= link_to 'Delete', communication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if has_write_permissions? %>
+            <td><%= link_to 'Edit', edit_heal_communication_path(communication) %></td>
+            <td><%= link_to 'Delete', communication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

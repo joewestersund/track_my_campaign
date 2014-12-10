@@ -29,12 +29,12 @@ module SessionsHelper
   end
 
   def check_has_write_permissions
-    redirect_to signin_path, notice: "This action requires admin permissions." unless has_write_permissions?
+    redirect_to signin_path, notice: "This action requires write permissions." unless has_write_permissions?
   end
 
   def has_write_permissions?
     if current_db.present?
-      p = current_db.user_permissions.where(user: current_user)
+      p = current_db.user_permissions.where(user: current_user, database_instance: current_db).first
       return true if p.present? && p.read_only == false
     end
     false

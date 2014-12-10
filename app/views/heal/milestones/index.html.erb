@@ -1,6 +1,6 @@
 <h1>Milestones Reached</h1>
 
-<%= link_to 'New Milestone', new_heal_milestone_path %>
+<%= link_to 'New Milestone', new_heal_milestone_path, class: "link-to-new" if has_write_permissions? %>
 <br><br>
 
 <table>
@@ -12,8 +12,10 @@
       <th>Assigned To</th>
       <th>Completion date</th>
       <th>Notes</th>
-      <th></th>
-      <th></th>
+      <% if has_write_permissions? %>
+        <th></th>
+        <th></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -26,8 +28,10 @@
         <td><%= milestone.assigned_to.first_and_last_name  if milestone.assigned_to.present?%></td>
         <td><%= milestone.completion_date %></td>
         <td><%= milestone.notes %></td>
-        <td><%= link_to 'Edit', edit_heal_milestone_path(milestone) %></td>
-        <td><%= link_to 'Delete', milestone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if has_write_permissions? %>
+          <td><%= link_to 'Edit', edit_heal_milestone_path(milestone) %></td>
+          <td><%= link_to 'Delete', milestone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

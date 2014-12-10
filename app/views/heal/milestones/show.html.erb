@@ -28,5 +28,7 @@
   <%= @milestone.notes %>
 </p>
 
-<%= link_to 'Edit', edit_heal_milestone_path(@milestone) %> |
+<% if has_write_permissions? %>
+  <%= link_to 'Edit', edit_heal_milestone_path(@milestone) %> |
+<% end %>
 <%= link_to 'Back to Index', heal_milestones_path %>

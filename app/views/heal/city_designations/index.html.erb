@@ -1,12 +1,17 @@
 <h1>City Designations</h1>
 
+<%= link_to 'New City Designation', new_heal_city_designation_path, class: "link-to-new" if has_write_permissions? %>
+<br><br>
+
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Order in list</th>
-      <th></th>
-      <th></th>
+      <% if has_write_permissions? %>
+        <th></th>
+        <th></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -15,13 +20,13 @@
       <tr>
         <td><%= city_designation.name %></td>
         <td><%= city_designation.order_in_list %></td>
-        <td><%= link_to 'Edit', edit_heal_city_designation_path(city_designation) %></td>
-        <td><%= link_to 'Delete', city_designation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if has_write_permissions? %>
+          <td><%= link_to 'Edit', edit_heal_city_designation_path(city_designation) %></td>
+          <td><%= link_to 'Delete', city_designation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 <%= will_paginate @city_designations %>
 <br>
-
-<%= link_to 'New City Designation', new_heal_city_designation_path %>

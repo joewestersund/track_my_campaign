@@ -1,5 +1,7 @@
 <h1>To Do: tasks and milestones that haven't been completed yet</h1>
-<%= link_to 'New Followup task', new_heal_followup_task_path %> | <%= link_to 'New Milestone', new_heal_milestone_path %>
+<% if has_write_permissions? %>
+  <%= link_to 'New Followup task', new_heal_followup_task_path, class: "link-to-new" %> | <%= link_to 'New Milestone', new_heal_milestone_path, class: "link-to-new" %>
+<% end %>
 
 <h4>Followup Tasks Assigned to You</h4>
 <%= render 'followup_tasks_form', followup_tasks: @tasks_assigned_to_me %>
@@ -21,9 +23,11 @@
     <th>Assigned To</th>
     <th>Completion date</th>
     <th>Notes</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <% if has_write_permissions? %>
+      <th></th>
+      <th></th>
+      <th></th>
+    <% end %>
   </tr>
   </thead>
 
@@ -36,9 +40,11 @@
       <td><%= milestone.assigned_to.first_and_last_name  if milestone.assigned_to.present?%></td>
       <td><%= milestone.completion_date %></td>
       <td><%= milestone.notes %></td>
-      <td><%= link_to 'Show', milestone %></td>
-      <td><%= link_to 'Edit', edit_heal_milestone_path(milestone) %></td>
-      <td><%= link_to 'Destroy', milestone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% if has_write_permissions? %>
+        <td><%= link_to 'Show', milestone %></td>
+        <td><%= link_to 'Edit', edit_heal_milestone_path(milestone) %></td>
+        <td><%= link_to 'Destroy', milestone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>

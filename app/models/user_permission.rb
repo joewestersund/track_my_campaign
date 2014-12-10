@@ -17,4 +17,12 @@ class UserPermission < ActiveRecord::Base
   validates :user, presence: true
   validates :database_instance, presence: true, :uniqueness => {:scope => :user}
 
+  validate :admin_cant_be_read_only
+
+  def admin_cant_be_read_only
+    if read_only && user.admin?
+      errors.add(:read_only, "an admin can't be assigned read-only permissions.")
+    end
+  end
+
 end
