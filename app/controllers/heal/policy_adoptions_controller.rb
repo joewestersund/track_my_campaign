@@ -2,12 +2,21 @@ class Heal::PolicyAdoptionsController < ApplicationController
   before_action :check_current_db_exists
   before_action :check_has_write_permissions, except: [:index, :show]
   before_action :set_policy_adoption, only: [:show, :edit, :update, :destroy]
-  before_action :set_select_options, only: [:new, :edit]
+  before_action :set_select_options, only: [:index, :new, :edit]
 
   # GET /policy_adoptions
   # GET /policy_adoptions.json
   def index
-    @policy_adoptions = current_db.policy_adoptions.order(date: :desc).page(params[:page]).per_page(page_size)
+    conditions_string, parameters_hash, join_tables = get_conditions
+    conditions = [conditions_string, parameters_hash]
+
+    if join_tables.nil?
+      @policy_adoptions = current_db.policy_adoptions.where(conditions)
+    else
+      @policy_adoptions = current_db.policy_adoptions.joins(join_tables).where(conditions)
+    end
+
+    @policy_adoptions = @policy_adoptions.order(date: :desc).page(params[:page]).per_page(page_size)
   end
 
   # GET /policy_adoptions/1
@@ -33,7 +42,7 @@ class Heal::PolicyAdoptionsController < ApplicationController
 
     respond_to do |format|
       if @policy_adoption.save
-        format.html { redirect_to @policy_adoption, notice: 'Policy adoption was successfully created.' }
+        format.html { redirect_to heal_policy_adoptions_path, notice: 'Policy adoption was successfully created.' }
         format.json { render action: 'show', status: :created, location: @policy_adoption }
       else
         set_select_options
@@ -48,7 +57,7 @@ class Heal::PolicyAdoptionsController < ApplicationController
   def update
     respond_to do |format|
       if @policy_adoption.update(policy_adoption_params)
-        format.html { redirect_to @policy_adoption, notice: 'Policy adoption was successfully updated.' }
+        format.html { redirect_to heal_policy_adoptions_path, notice: 'Policy adoption was successfully updated.' }
         format.json { head :no_content }
       else
         set_select_options
@@ -88,5 +97,18 @@ class Heal::PolicyAdoptionsController < ApplicationController
     def set_select_options
       @cities = current_db.cities.order(:name)
       @policies = current_db.policies.order(:order_in_list)
+    end
+
+    def get_conditions
+      sf = SearchFilter.new
+
+      sf.add_condition(:date,">=",:min_date,params)
+      sf.add_condition(:date,"<=",:max_date,params)
+      sf.add_condition(:city_id,"=",:city_id, params)
+      sf.add_condition(:policy_id,"=",:policy_id,params,{join_table: :policies, join_object_name: :policies_policy_adoptions})
+      sf.add_condition(:prior_to_joining_campaign,"=",:prior_to_joining_campaign,params)
+      sf.add_condition(:notes,"ILIKE",:notes,params)
+
+      sf.get_search_filter
     end
 end

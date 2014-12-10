@@ -2,12 +2,12 @@ class Heal::FollowupTasksController < ApplicationController
   before_action :check_current_db_exists
   before_action :check_has_write_permissions, except: [:index, :show]
   before_action :set_followup_task, only: [:show, :edit, :update, :destroy]
-  before_action :set_select_options, only: [:new, :edit]
+  before_action :set_select_options, only: [:index, :new, :edit]
 
   # GET /followup_tasks
   # GET /followup_tasks.json
   def index
-    @followup_tasks = current_db.followup_tasks.order(due_date: :desc).page(params[:page]).per_page(page_size)
+    @followup_tasks = current_db.followup_tasks.where(get_conditions).order(due_date: :desc).page(params[:page]).per_page(page_size)
   end
 
   # GET /followup_tasks/1
@@ -100,4 +100,22 @@ class Heal::FollowupTasksController < ApplicationController
       @users = current_db.users.order(:first_name, :last_name)
       @communications = current_db.communications.order(:date => :desc)
     end
+
+    def get_conditions
+      sf = SearchFilter.new
+
+      sf.add_condition(:due_date,">=",:min_due_date,params)
+      sf.add_condition(:due_date,"<=",:max_due_date,params)
+      sf.add_condition(:description,"ILIKE",:description,params)
+      sf.add_condition(:assigned_to_id,"=",:assigned_to_id,params)
+      sf.add_condition(:assigned_by_id,"=",:assigned_by_id,params)
+      sf.add_condition(:completed,"=",:completed,params)
+      sf.add_condition(:completed_date,">=",:min_completed_date,params)
+      sf.add_condition(:completed_date,"<=",:max_completed_date,params)
+      sf.add_condition(:completed_by_id,"=",:completed_by_id,params)
+      sf.add_condition(:completion_notes,"ILIKE",:completion_notes,params)
+
+      sf.get_search_filter
+    end
+
 end

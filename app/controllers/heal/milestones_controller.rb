@@ -2,12 +2,12 @@ class Heal::MilestonesController < ApplicationController
   before_action :check_current_db_exists
   before_action :check_has_write_permissions, except: [:index, :show]
   before_action :set_milestone, only: [:show, :edit, :update, :destroy]
-  before_action :set_select_options, only: [:new, :edit]
+  before_action :set_select_options, only: [:index, :new, :edit]
 
   # GET /milestones
   # GET /milestones.json
   def index
-    @milestones = current_db.milestones.order(completion_date: :desc).page(params[:page]).per_page(page_size)
+    @milestones = current_db.milestones.where(get_conditions).order(completion_date: :desc).page(params[:page]).per_page(page_size)
   end
 
   # GET /milestones/1
@@ -32,7 +32,7 @@ class Heal::MilestonesController < ApplicationController
 
     respond_to do |format|
       if @milestone.save
-        format.html { redirect_to @milestone, notice: 'Milestone was successfully created.' }
+        format.html { redirect_to heal_milestones_path, notice: 'Milestone was successfully created.' }
         format.json { render action: 'show', status: :created, location: @milestone }
       else
         set_select_options
@@ -47,7 +47,7 @@ class Heal::MilestonesController < ApplicationController
   def update
     respond_to do |format|
       if @milestone.update(milestone_params)
-        format.html { redirect_to @milestone, notice: 'Milestone was successfully updated.' }
+        format.html { redirect_to heal_milestones_path, notice: 'Milestone was successfully updated.' }
         format.json { head :no_content }
       else
         set_select_options
@@ -90,4 +90,19 @@ class Heal::MilestonesController < ApplicationController
       @status_types = current_db.status_types.order(:order_in_list)
       @users = current_db.users.order(:first_name, :last_name)
     end
+
+    def get_conditions
+      sf = SearchFilter.new
+
+      sf.add_condition(:milestone_type_id,"=",:milestone_type_id, params)
+      sf.add_condition(:city_id,"=",:city_id, params)
+      sf.add_condition(:status_type_id,"=",:status_type_id, params)
+      sf.add_condition(:assigned_to_id,"=",:assigned_to_id,params)
+      sf.add_condition(:completion_date,">=",:min_completed_date,params)
+      sf.add_condition(:completion_date,"<=",:max_completed_date,params)
+      sf.add_condition(:notes,"ILIKE",:notes,params)
+
+      sf.get_search_filter
+    end
+
 end

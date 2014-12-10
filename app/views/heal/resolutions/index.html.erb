@@ -3,6 +3,38 @@
 <%= link_to 'New Resolution', new_heal_resolution_path, class: "link-to-new" if has_write_permissions? %>
 <br><br>
 
+<div class="filter">
+  <%= form_tag request.path, method: 'get' do %>
+    <div class="field">
+      <%= label_tag :min_date %>
+      <%= text_field_tag :min_date, params[:min_date], {class: 'datepicker'} %>
+    </div>
+    <div class="field">
+      <%= label_tag :max_date %>
+      <%= text_field_tag :max_date, params[:max_date], {class: 'datepicker'} %>
+    </div>
+    <div class="field">
+      <%= label_tag :city %>
+      <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:name_type_state, params[:city_id]), { include_blank: true, class: 'multiselect', multiple: false} %>
+    </div>
+    <div class="field">
+      <%= label_tag :policy %>
+      <%= select_tag :policy_id, options_from_collection_for_select(@policies,:id,:full_name,params[:policy_id]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :prior_to_joining_campaign %>
+      <%= select_tag :prior_to_joining_campaign, options_for_select(get_yes_no_options_list,params[:prior_to_joining_campaign]), { :include_blank => true } %>
+    </div>
+    <div class="field">
+      <%= label_tag :notes %>
+      <%= text_field_tag :notes, params[:notes] %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Filter", class: "btn btn-large btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
 <table>
   <thead>
     <tr>

@@ -41,6 +41,13 @@ main {
   margin-top: 71px; //51px; // accommodate the navbar
   //border: 1px black solid
   }
+
+div.navbar-container {
+  margin-left: 0px;
+  margin-right: 0px;
+  width: auto;
+}
+
 section {
   @extend .row;
   margin-top: 20px;

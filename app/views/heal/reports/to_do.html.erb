@@ -1,4 +1,7 @@
-<h1>To Do: tasks and milestones that haven't been completed yet</h1>
+<h1>My Assignments</h1>
+<h4>Tasks and milestones that haven't been completed yet</h4>
+<br>
+
 <% if has_write_permissions? %>
   <%= link_to 'New Followup task', new_heal_followup_task_path, class: "link-to-new" %> | <%= link_to 'New Milestone', new_heal_milestone_path, class: "link-to-new" %>
 <% end %>
@@ -14,6 +17,7 @@
 <br>
 
 <h4>Milestones Assigned to You</h4>
+<p>(That don't have a completion date yet)</p>
 <table>
   <thead>
   <tr>
