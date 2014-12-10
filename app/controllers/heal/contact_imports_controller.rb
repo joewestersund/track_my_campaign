@@ -1,4 +1,5 @@
 class Heal::ContactImportsController < ApplicationController
+  before_action :check_current_db_exists
   before_action :set_select_options, only: [:new, :template]
 
   # GET /contact_imports/new

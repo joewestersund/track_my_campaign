@@ -1,6 +1,5 @@
 TrackMyCampaign::Application.routes.draw do
 
-
   resources :user_permissions
 
   namespace :heal do

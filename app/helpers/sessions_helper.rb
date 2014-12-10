@@ -1,5 +1,3 @@
-
-
 module SessionsHelper
   def sign_in(user)
     remember_token = User.new_remember_token
@@ -46,7 +44,15 @@ module SessionsHelper
     if current_db.nil?
       set_default_current_db
       #now, try again to see if current_db is set
-      redirect_to signin_path, notice: "Please choose a database instance." if current_db.nil?
+      if current_db.nil?
+        if !signed_in?
+          notice = "Please sign in"
+          session[:page_requested] = request.fullpath
+        else
+          notice = "Please choose a database instance."
+        end
+        redirect_to signin_path, notice: notice
+      end
     end
   end
 
