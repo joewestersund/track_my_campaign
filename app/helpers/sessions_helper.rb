@@ -34,8 +34,12 @@ module SessionsHelper
 
   def has_write_permissions?
     if current_db.present?
-      p = current_db.user_permissions.where(user: current_user, database_instance: current_db).first
-      return true if p.present? && p.read_only == false
+      if admin_user?
+        return true
+      else
+        p = current_db.user_permissions.where(user: current_user, database_instance: current_db).first
+        return true if p.present? && p.read_only == false
+      end
     end
     false
   end
