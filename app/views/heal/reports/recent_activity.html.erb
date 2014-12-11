@@ -1,0 +1,39 @@
+<h1>Recent Activity in the <%=current_db.instance_name %> database</h1>
+<h4>Note: this report shows records that have been created or updated but not records that have been deleted.</h4>
+
+<div class="filter">
+  <%= form_tag request.path, method: 'get' do %>
+    <div class="field">
+      <%= label_tag :days_to_go_back %>
+      <%= number_field_tag :days_to_show, params[:days_to_show] %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Filter", class: "btn btn-large btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
+<% if @recent_activity.nil? || @recent_activity.count == 0 %>
+  <div class="no_data">No records were created or updated within the last <%= @days_to_show %> days.</div>
+<% else %>
+  <table>
+    <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Date</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @recent_activity.each do |action| %>
+      <tr>
+        <td><%= action[:type].to_s.humanize %></td>
+        <td><%= action[:description] %></td>
+        <td><%= action[:date] %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+<% end %>

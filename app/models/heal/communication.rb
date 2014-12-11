@@ -80,4 +80,12 @@ class Heal::Communication < ActiveRecord::Base
     summary = "#{summary} #{self.date}"
   end
 
+  def create_update_description
+    if created_at == updated_at
+      {type: :communication, description: "Communication was created: #{summary}", date: created_at}
+    else
+      {type: :communication, description: "Communication was updated: #{summary}", date: updated_at}
+    end
+  end
+
 end

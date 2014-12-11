@@ -63,4 +63,12 @@ class Heal::City < ActiveRecord::Base
     self.city_designation_achievements.joins(:city_designation).order("city_designations.order_in_list desc")
   end
 
+  def create_update_description
+    if created_at == updated_at
+      {type: :city, description: "City #{name} was created", date: created_at}
+    else
+      {type: :city, description: "City #{name} was updated", date: updated_at}
+    end
+  end
+
 end

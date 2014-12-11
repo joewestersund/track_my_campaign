@@ -28,4 +28,12 @@ class Heal::PolicyAdoption < ActiveRecord::Base
     summary = "#{(self.date.to_s + ' ') if self.date.present?}#{policy_names.join(', ')}"
   end
 
+  def create_update_description
+    if created_at == updated_at
+      {type: :policy_adoption, description: "Policy adoption #{policy_summary} was created", date: created_at}
+    else
+      {type: :policy_adoption, description: "Policy adoption #{policy_summary} was updated", date: updated_at}
+    end
+  end
+
 end

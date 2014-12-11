@@ -36,5 +36,11 @@ class Heal::FollowupTask < ActiveRecord::Base
   SEND_FOLLOWUP_TO_ASSIGNEE_ONLY = {text: "'Assigned-to' person", value: "1"}
   SEND_FOLLOWUP_TO_ASSIGNEE_CC_ASSIGNER = {text: "'Assigned-to' person and 'assigned-by' person",value: "2"}
 
-
+  def create_update_description
+    if created_at == updated_at
+      {type: :followup_task, description: "Followup task #{description} was created and assigned to #{assigned_to.first_and_last_name}", date: created_at}
+    else
+      {type: :followup_task, description: "Followup task #{description} (assigned to #{assigned_to.first_and_last_name}) was updated", date: updated_at}
+    end
+  end
 end

@@ -24,4 +24,12 @@ class Heal::CityDesignationAchievement < ActiveRecord::Base
   # date not required.
   # notes not required.
 
+  def create_update_description
+    if created_at == updated_at
+      {type: :city_designation_achievement, description: "City #{city.name} achieved designation #{city_designation.name} on #{date}", date: created_at}
+    else
+      {type: :city_designation_achievement, description: "City designation achievement #{city_designation.name} for city #{city.name} was updated", date: updated_at}
+    end
+  end
+
 end

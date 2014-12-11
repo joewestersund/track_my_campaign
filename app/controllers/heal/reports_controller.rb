@@ -35,6 +35,39 @@ class Heal::ReportsController < ApplicationController
     else
       @contacts = current_db.contacts.joins(:communications).joins(join_tables).where(conditions).group('contacts.id').order('max(communications.date) desc, contacts.first_name, contacts.last_name').page(params[:page]).per_page(page_size)
     end
+  end
+
+  def recent_activity
+    @days_to_show = params[:days_to_show] || 7 #default to last 7 days
+    #min_date = DateTime.now - @days_to_show
+
+    conditions = "updated_at > current_date - #{@days_to_show}"
+    order_by = "updated_at DESC"
+
+    @recent_activity = []
+
+    @recent_activity += get_recent_activity(current_db.cities.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.city_designations.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.city_designation_achievements.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.communications.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.communication_types.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.contacts.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.followup_tasks.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.honorifics.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.interest_levels.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.jurisdiction_types.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.league_divisions.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.milestones.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.milestone_types.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.organization_types.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.policies.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.policy_adoptions.where(conditions).order(order_by))
+    @recent_activity += get_recent_activity(current_db.position_types.where(conditions).order(order_by))
+    #@ = current_db .where(conditions).order(order_by)
+
+    #@recent_activity.reject! { |item| item.empty? } #get rid of empty elements, added above if there were no records returned for a given data type
+
+    #@recent_activity = @recent_activity.page(params[:page]).per_page(page_size)
 
   end
 
@@ -91,7 +124,6 @@ class Heal::ReportsController < ApplicationController
 
     end
 
-
     def get_cities_conditions
       sf = SearchFilter.new
 
@@ -141,6 +173,10 @@ class Heal::ReportsController < ApplicationController
       sf.add_condition(:city_id,"=",:city_id, params,{join_table: :cities, join_object_name: :cities_contacts})
 
       sf.get_search_filter
+    end
+
+    def get_recent_activity(query_result)
+      query_result.map { |item| item.create_update_description}
     end
 
 end

@@ -18,4 +18,12 @@ class Heal::Topic < ActiveRecord::Base
   validates :name, presence: true, :uniqueness => {:scope => :database_instance}
   validates :order_in_list, presence: true, :uniqueness => {:scope => :database_instance}
 
+  def create_update_description
+    if created_at == updated_at
+      {type: :topic, description: "Topic #{name} was created", date: created_at}
+    else
+      {type: :topic, description: "Topic #{name} was updated", date: updated_at}
+    end
+  end
+
 end

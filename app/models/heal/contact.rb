@@ -88,4 +88,12 @@ class Heal::Contact < ActiveRecord::Base
     end
   end
 
+  def create_update_description
+    if created_at == updated_at
+      {type: :contact, description: "Contact #{first_and_last_name} was created", date: created_at}
+    else
+      {type: :contact, description: "Contact #{first_and_last_name} was updated", date: updated_at}
+    end
+  end
+
 end

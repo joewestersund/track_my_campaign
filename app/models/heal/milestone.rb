@@ -26,4 +26,12 @@ class Heal::Milestone < ActiveRecord::Base
   validates :city, presence: true
   validates :status_type, presence: true
 
+  def create_update_description
+    if created_at == updated_at
+      {type: :milestone, description: "Milestone #{milestone_type.name} for city #{city.name} was created", date: created_at}
+    else
+      {type: :milestone, type: :league_division, description: "Milestone #{milestone_type.name} for city #{city.name} was updated", date: updated_at}
+    end
+  end
+
 end

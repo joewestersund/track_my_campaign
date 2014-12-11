@@ -28,4 +28,13 @@ class Heal::Resolution < ActiveRecord::Base
     end
     summary = "#{(self.date.to_s + ' ') if self.date.present?}#{policy_names.join(', ')}"
   end
+
+  def create_update_description
+    if created_at == updated_at
+      {type: :resolution, description: "Resolution #{policy_summary} was created", date: created_at}
+    else
+      {type: :resolution, description: "Resolution #{policy_summary} was updated", date: updated_at}
+    end
+  end
+
 end
