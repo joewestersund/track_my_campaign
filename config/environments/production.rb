@@ -11,6 +11,10 @@ TrackMyCampaign::Application.configure do
       }
   }
 
+  # set host for action mailer emails- links in the email need to know the full path to the server.
+  config.action_mailer.default_url_options = {:host => "http://trackmycampaign.herokuapp.com"}
+
+
   # For paperclip access to S3 above, need to run these commands in command line interface:
   # per https://devcenter.heroku.com/articles/paperclip-s3#international-users-additional-configuration
   # $ heroku config:set S3_BUCKET_NAME=your_bucket_name
