@@ -1,12 +1,12 @@
 class UserPermissionsController < ApplicationController
   before_action :check_admin_user, except: [:select_database, :home]
   before_action :set_user_permission, only: [:show, :edit, :update, :destroy]
-  before_action :set_select_options, only: [:new, :edit]
+  before_action :set_select_options, only: [:index, :new, :edit]
 
   # GET /user_permissions
   # GET /user_permissions.json
   def index
-    @user_permissions = UserPermission.page(params[:page]).per_page(page_size)
+    @user_permissions = UserPermission.where(get_conditions).page(params[:page]).per_page(page_size)
   end
 
   # GET /user_permissions/1
@@ -85,5 +85,15 @@ class UserPermissionsController < ApplicationController
     def set_select_options
       @database_instances = DatabaseInstance.all
       @users = User.all
+    end
+
+    def get_conditions
+      sf = SearchFilter.new
+
+      sf.add_condition(:user_id,"=",:user_id,params)
+      sf.add_condition(:database_instance_id,"=",:database_instance_id,params)
+      sf.add_condition(:read_only,"=",:read_only,params)
+
+      sf.get_search_filter
     end
 end

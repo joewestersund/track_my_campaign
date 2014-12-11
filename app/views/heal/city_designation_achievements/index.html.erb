@@ -19,7 +19,7 @@
     </div>
     <div class="field">
       <%= label_tag :city_designation %>
-      <%= select_tag :city_designation_id, options_from_collection_for_select(@city_designations,:id,:name,params[:city_designation_id]), { :include_blank => true } %>
+      <%= select_tag :city_designation_id, options_from_collection_for_select(@city_designations,:id,:name,params[:city_designation_id]), { :include_blank => true, class: 'multiselect', multiple: false  } %>
     </div>
     <div class="field">
       <%= label_tag :notes %>

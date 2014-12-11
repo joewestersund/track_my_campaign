@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :edit_password, :update, :update_password, :destroy]
 
   def index
-    @users = User.page(params[:page]).per_page(page_size)
+    @users = User.where(get_conditions).page(params[:page]).per_page(page_size)
   end
 
   def new
@@ -89,6 +89,17 @@ class UsersController < ApplicationController
 
     def user_params_admin_can_set
       params.require(:user).permit(:first_name, :last_name, :email, :admin, :password, :password_confirmation)
+    end
+
+    def get_conditions
+      sf = SearchFilter.new
+
+      sf.add_condition(:first_name,"ILIKE",:first_name,params)
+      sf.add_condition(:last_name,"ILIKE",:last_name,params)
+      sf.add_condition(:email,"ILIKE",:email,params)
+      sf.add_condition(:admin,"=",:admin,params)
+
+      sf.get_search_filter
     end
 
 end

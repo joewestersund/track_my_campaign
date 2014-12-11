@@ -7,7 +7,7 @@
   <%= form_tag request.path, method: 'get' do %>
     <div class="field">
       <%= label_tag :milestone_type %>
-      <%= select_tag :milestone_type_id, options_from_collection_for_select(@milestone_types,:id,:name,params[:milestone_type_id]), { :include_blank => true } %>
+      <%= select_tag :milestone_type_id, options_from_collection_for_select(@milestone_types,:id,:name,params[:milestone_type_id]), { :include_blank => true, class: 'multiselect', multiple: false  } %>
     </div>
     <div class="field">
       <%= label_tag :city %>
@@ -15,11 +15,11 @@
     </div>
     <div class="field">
       <%= label_tag :status_type %>
-      <%= select_tag :status_type_id, options_from_collection_for_select(@status_types,:id,:name,params[:status_type_id]), { :include_blank => true } %>
+      <%= select_tag :status_type_id, options_from_collection_for_select(@status_types,:id,:name,params[:status_type_id]), { :include_blank => true, class: 'multiselect', multiple: false  } %>
     </div>
     <div class="field">
       <%= label_tag :assigned_to %>
-      <%= select_tag :assigned_to_id, options_from_collection_for_select(@users,:id,:first_and_last_name,params[:assigned_to_id]), { :include_blank => true } %>
+      <%= select_tag :assigned_to_id, options_from_collection_for_select(@users,:id,:first_and_last_name,params[:assigned_to_id]), { :include_blank => true, class: 'multiselect', multiple: false  } %>
     </div>
     <div class="field">
       <%= label_tag "Completed after" %>

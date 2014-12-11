@@ -17,11 +17,11 @@
     </div>
     <div class="field">
       <%= label_tag :interest_level %>
-      <%= select_tag :interest_level_id, options_from_collection_for_select(@interest_levels,:id,:name,params[:interest_level_id]), { :include_blank => true } %>
+      <%= select_tag :interest_level_id, options_from_collection_for_select(@interest_levels,:id,:name,params[:interest_level_id]), { :include_blank => true, class: 'multiselect', multiple: false  } %>
     </div>
     <div class="field">
       <%= label_tag :heal_champion %>
-      <%= select_tag :heal_champion, options_for_select(get_yes_no_options_list,params[:heal_champion]), { :include_blank => true } %>
+      <%= select_tag :heal_champion, options_for_select(get_yes_no_options_list,params[:heal_champion]), { :include_blank => true, class: 'multiselect', multiple: false  } %>
     </div>
     <div class="field">
       <%= label_tag :city %>

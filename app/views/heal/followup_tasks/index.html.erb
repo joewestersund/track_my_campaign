@@ -19,15 +19,15 @@
     </div>
     <div class="field">
       <%= label_tag :assigned_to %>
-      <%= select_tag :assigned_to_id, options_from_collection_for_select(@users,:id,:first_and_last_name,params[:assigned_to_id]), { :include_blank => true } %>
+      <%= select_tag :assigned_to_id, options_from_collection_for_select(@users,:id,:first_and_last_name,params[:assigned_to_id]), { :include_blank => true, class: 'multiselect', multiple: false  } %>
     </div>
     <div class="field">
       <%= label_tag :assigned_by %>
-      <%= select_tag :assigned_by_id, options_from_collection_for_select(@users,:id,:first_and_last_name,params[:assigned_by_id]), { :include_blank => true } %>
+      <%= select_tag :assigned_by_id, options_from_collection_for_select(@users,:id,:first_and_last_name,params[:assigned_by_id]), { :include_blank => true, class: 'multiselect', multiple: false  } %>
     </div>
     <div class="field">
       <%= label_tag :completed %>
-      <%= select_tag :completed, options_for_select(get_yes_no_options_list,params[:completed]), { :include_blank => true } %>
+      <%= select_tag :completed, options_for_select(get_yes_no_options_list,params[:completed]), { :include_blank => true, class: 'multiselect', multiple: false  } %>
     </div>
     <div class="field">
       <%= label_tag "Completed after" %>
@@ -39,7 +39,7 @@
     </div>
     <div class="field">
       <%= label_tag :completed_by %>
-      <%= select_tag :completed_by_id, options_from_collection_for_select(@users,:id,:first_and_last_name,params[:completed_by_id]), { :include_blank => true } %>
+      <%= select_tag :completed_by_id, options_from_collection_for_select(@users,:id,:first_and_last_name,params[:completed_by_id]), { :include_blank => true, class: 'multiselect', multiple: false  } %>
     </div>
     <div class="field">
       <%= label_tag :completion_notes %>
