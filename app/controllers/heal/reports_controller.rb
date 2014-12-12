@@ -63,7 +63,10 @@ class Heal::ReportsController < ApplicationController
     @recent_activity += get_recent_activity(current_db.policies.where(conditions).order(order_by))
     @recent_activity += get_recent_activity(current_db.policy_adoptions.where(conditions).order(order_by))
     @recent_activity += get_recent_activity(current_db.position_types.where(conditions).order(order_by))
-    #@ = current_db .where(conditions).order(order_by)
+
+    #need to add the other types here
+
+    @recent_activity.sort!{|a,b| b[:date] <=> a[:date]}  #descending order by datetime stamp
 
     #@recent_activity.reject! { |item| item.empty? } #get rid of empty elements, added above if there were no records returned for a given data type
 
