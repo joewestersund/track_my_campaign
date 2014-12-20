@@ -38,8 +38,8 @@ class Heal::ReportsController < ApplicationController
   end
 
   def recent_activity
-    @days_to_show = params[:days_to_show] || 7 #default to last 7 days
-    #min_date = DateTime.now - @days_to_show
+    params[:days_to_show] = 7 if params[:days_to_show].nil? #default to last 7 days
+    @days_to_show = params[:days_to_show]
 
     conditions = "updated_at > current_date - #{@days_to_show}"
     order_by = "updated_at DESC"
