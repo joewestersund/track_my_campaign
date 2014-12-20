@@ -38,9 +38,9 @@ class Heal::FollowupTask < ActiveRecord::Base
 
   def create_update_description
     if created_at == updated_at
-      {type: :followup_task, description: "Followup task #{description} was created and assigned to #{assigned_to.first_and_last_name}", date: created_at}
+      {type: :followup_task, description: "Followup task #{description} was created and assigned to #{assigned_to.first_and_last_name}", date: created_at, obj:self}
     else
-      {type: :followup_task, description: "Followup task #{description} (assigned to #{assigned_to.first_and_last_name}) was updated", date: updated_at}
+      {type: :followup_task, description: "Followup task #{description} (assigned to #{assigned_to.first_and_last_name}) was updated", date: updated_at, obj:self}
     end
   end
 end

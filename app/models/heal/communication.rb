@@ -82,9 +82,9 @@ class Heal::Communication < ActiveRecord::Base
 
   def create_update_description
     if created_at == updated_at
-      {type: :communication, description: "Communication was created: #{summary}", date: created_at}
+      {type: :communication, description: "Communication was created: #{summary}", date: created_at, obj:self}
     else
-      {type: :communication, description: "Communication was updated: #{summary}", date: updated_at}
+      {type: :communication, description: "Communication was updated: #{summary}", date: updated_at, obj:self}
     end
   end
 

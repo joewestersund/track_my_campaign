@@ -31,9 +31,9 @@ class Heal::Resolution < ActiveRecord::Base
 
   def create_update_description
     if created_at == updated_at
-      {type: :resolution, description: "Resolution #{policy_summary} was created", date: created_at}
+      {type: :resolution, description: "Resolution #{policy_summary} was created", date: created_at, obj:self}
     else
-      {type: :resolution, description: "Resolution #{policy_summary} was updated", date: updated_at}
+      {type: :resolution, description: "Resolution #{policy_summary} was updated", date: updated_at, obj:self}
     end
   end
 

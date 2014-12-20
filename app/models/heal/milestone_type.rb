@@ -20,9 +20,9 @@ class Heal::MilestoneType < ActiveRecord::Base
 
   def create_update_description
     if created_at == updated_at
-      {type: :milestone_type, description: "Milestone type #{name} was created", date: created_at}
+      {type: :milestone_type, description: "Milestone type #{name} was created", date: created_at, obj:self}
     else
-      {type: :milestone_type, description: "Milestone type #{name} was updated", date: updated_at}
+      {type: :milestone_type, description: "Milestone type #{name} was updated", date: updated_at, obj:self}
     end
   end
 end

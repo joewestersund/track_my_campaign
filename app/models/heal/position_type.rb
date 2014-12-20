@@ -20,9 +20,9 @@ class Heal::PositionType < ActiveRecord::Base
 
   def create_update_description
     if created_at == updated_at
-      {type: :position_type, description: "Position type #{name} was created", date: created_at}
+      {type: :position_type, description: "Position type #{name} was created", date: created_at, obj:self}
     else
-      {type: :position_type, description: "Position type #{name} was updated", date: updated_at}
+      {type: :position_type, description: "Position type #{name} was updated", date: updated_at, obj:self}
     end
   end
 

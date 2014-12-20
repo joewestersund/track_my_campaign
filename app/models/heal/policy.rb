@@ -29,9 +29,9 @@ class Heal::Policy < ActiveRecord::Base
 
   def create_update_description
     if created_at == updated_at
-      {type: :policy, description: "Policy #{full_name} was created", date: created_at}
+      {type: :policy, description: "Policy #{full_name} was created", date: created_at, obj:self}
     else
-      {type: :policy, description: "Policy #{full_name} was updated", date: updated_at}
+      {type: :policy, description: "Policy #{full_name} was updated", date: updated_at, obj:self}
     end
   end
 

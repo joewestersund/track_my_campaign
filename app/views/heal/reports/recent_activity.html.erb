@@ -29,11 +29,11 @@
     <% @recent_activity.each do |action| %>
       <tr>
         <td><%= action[:type].to_s.humanize %></td>
-        <td><%= action[:description] %></td>
+        <td><%= (link_to action[:description], action[:obj]) if action[:obj].present? %></td>
         <td><%= action[:date] %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
-
+  <%= will_paginate @recent_activity %>
 <% end %>

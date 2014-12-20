@@ -20,9 +20,9 @@ class Heal::Topic < ActiveRecord::Base
 
   def create_update_description
     if created_at == updated_at
-      {type: :topic, description: "Topic #{name} was created", date: created_at}
+      {type: :topic, description: "Topic #{name} was created", date: created_at, obj:self}
     else
-      {type: :topic, description: "Topic #{name} was updated", date: updated_at}
+      {type: :topic, description: "Topic #{name} was updated", date: updated_at, obj:self}
     end
   end
 

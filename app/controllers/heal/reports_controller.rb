@@ -44,34 +44,39 @@ class Heal::ReportsController < ApplicationController
     conditions = "updated_at > current_date - #{@days_to_show}"
     order_by = "updated_at DESC"
 
-    @recent_activity = []
+    recent_activity = []
 
-    @recent_activity += get_recent_activity(current_db.cities.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.city_designations.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.city_designation_achievements.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.communications.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.communication_types.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.contacts.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.followup_tasks.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.honorifics.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.interest_levels.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.jurisdiction_types.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.league_divisions.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.milestones.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.milestone_types.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.organization_types.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.policies.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.policy_adoptions.where(conditions).order(order_by))
-    @recent_activity += get_recent_activity(current_db.position_types.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.cities.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.city_designations.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.city_designation_achievements.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.communications.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.communication_types.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.contacts.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.followup_tasks.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.honorifics.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.interest_levels.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.jurisdiction_types.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.league_divisions.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.milestones.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.milestone_types.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.organization_types.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.policies.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.policy_adoptions.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.position_types.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.resolutions.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.status_types.where(conditions).order(order_by))
+    recent_activity += get_recent_activity(current_db.topics.where(conditions).order(order_by))
 
-    #need to add the other types here
+    recent_activity.sort!{|a,b| b[:date] <=> a[:date]}  #descending order by datetime stamp
 
-    @recent_activity.sort!{|a,b| b[:date] <=> a[:date]}  #descending order by datetime stamp
+    #paginate the array
+    current_page = (params[:page].present? ? params[:page] : 1)
+    activity_page_size = 15
+    page = recent_activity.paginate(page: current_page, per_page: activity_page_size)
 
-    #@recent_activity.reject! { |item| item.empty? } #get rid of empty elements, added above if there were no records returned for a given data type
-
-    #@recent_activity = @recent_activity.page(params[:page]).per_page(page_size)
-
+    @recent_activity = WillPaginate::Collection.create(current_page, activity_page_size, recent_activity.length) do |pager|
+      pager.replace page
+    end
   end
 
   private

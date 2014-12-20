@@ -26,9 +26,9 @@ class Heal::CityDesignationAchievement < ActiveRecord::Base
 
   def create_update_description
     if created_at == updated_at
-      {type: :city_designation_achievement, description: "City #{city.name} achieved designation #{city_designation.name} on #{date}", date: created_at}
+      {type: :city_designation_achievement, description: "City #{city.name} achieved designation #{city_designation.name} on #{date}", date: created_at, obj:self}
     else
-      {type: :city_designation_achievement, description: "City designation achievement #{city_designation.name} for city #{city.name} was updated", date: updated_at}
+      {type: :city_designation_achievement, description: "City designation achievement #{city_designation.name} for city #{city.name} was updated", date: updated_at, obj:self}
     end
   end
 

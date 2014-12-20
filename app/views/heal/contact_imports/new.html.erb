@@ -34,6 +34,9 @@
       <%= f.file_field :file %>
     </div>
     <div class="buttons"><%= f.submit "Import" %></div>
+
+    <br>
+    <%= link_to "Back", :back %>
   <% end %>
 <% else %>
   <p> You currently do not have write permissions for this database. To upload data, contact the administrator.</p>

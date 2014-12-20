@@ -21,9 +21,9 @@ class Heal::InterestLevel < ActiveRecord::Base
 
   def create_update_description
     if created_at == updated_at
-      {type: :interest_level, description: "Interest Level #{name} was created", date: created_at}
+      {type: :interest_level, description: "Interest Level #{name} was created", date: created_at, obj:self}
     else
-      {type: :interest_level, description: "Interest Level #{name} was updated", date: updated_at}
+      {type: :interest_level, description: "Interest Level #{name} was updated", date: updated_at, obj:self}
     end
   end
 
