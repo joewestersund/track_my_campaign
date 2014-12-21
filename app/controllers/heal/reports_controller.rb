@@ -200,9 +200,9 @@ class Heal::ReportsController < ApplicationController
         city_ids = current_db.cities.joins(:communications).select(:city_id).uniq
         city_id_array = city_ids.map{|c| c.city_id}
         if params[:has_been_communicated_with] == "0"   #no
-          cities = cities.where("id NOT IN (?)", city_id_array)
+          cities = cities.where("cities.id NOT IN (?)", city_id_array)
         else #yes
-          cities = cities.where(id: city_id_array)
+          cities = cities.where("cities.id IN (?)", city_id_array)
         end
       end
 
