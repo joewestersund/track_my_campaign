@@ -1,5 +1,6 @@
 <h1>Recent Activity in the <%=current_db.instance_name %> database</h1>
-<h4>Note: this report shows records that have been created or updated but not records that have been deleted.</h4>
+<p>Note: this report shows records that have been created or updated but not records that have been deleted.</p>
+<p>It also doesn't capture some kinds of updates, like adding a city to an existing contact or communication.</p>
 
 <div class="filter">
   <%= form_tag request.path, method: 'get' do %>

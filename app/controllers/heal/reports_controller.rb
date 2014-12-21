@@ -116,6 +116,10 @@ class Heal::ReportsController < ApplicationController
 
     recent_activity = []
 
+    #note: has_and_belongs_to_many join tables don't have an updated_at field
+    #so we can't use this technique to keep track of when a city has been added to a communication,
+    #for instance.
+
     recent_activity += get_recent_activity(current_db.cities.where(conditions).order(order_by))
     recent_activity += get_recent_activity(current_db.city_designations.where(conditions).order(order_by))
     recent_activity += get_recent_activity(current_db.city_designation_achievements.where(conditions).order(order_by))
