@@ -37,6 +37,76 @@ class Heal::ReportsController < ApplicationController
     end
   end
 
+  def progress_report
+    cities_by_achievement = []
+    city_ids = []
+
+    #add all cities
+    cities = current_db.cities
+    cities_by_achievement << { city_designation_name: "All cities in the database", number_of_cities: cities.count, total_population: cities.sum(:population), achievement_order_in_list: nil, city_designation_id: nil }
+
+    #cities can have more than one designation over time, but we'll assume they can only go up.
+    #so, we start from the highest designation and count down
+    #and ignore each city_id if we see it again after that
+    current_db.city_designations.order(order_in_list: :desc).each do |cd|
+      cities = current_db.cities.joins(:city_designation_achievements).where("city_designation_id = #{cd.id}")
+      if city_ids.count > 0
+        cities = cities.where("city_id NOT IN (?)",city_ids)
+      end
+
+      #add the current list of city ids to the array, so we don't count them again for the next designation.
+      city_ids = cities.map{ |c| c.id}
+      cities_by_achievement << { city_designation_name: cd.name, number_of_cities: cities.count, total_population: cities.sum(:population), achievement_order_in_list: cd.order_in_list, city_designation_id: cd.id }
+    end
+    #add the cities with no achievements yet
+    cities = current_db.cities.joins("LEFT JOIN city_designation_achievements cda ON cities.ID = cda.city_id").where("cda.id IS NULL")
+    cities_by_achievement << { city_designation_name: "None", number_of_cities: cities.count, total_population: cities.sum(:population), achievement_order_in_list: nil, city_designation_id: HealHelper::NONE_OF_THE_ABOVE_VALUE_IN_DROPDOWN }
+
+    #reverse the order, so "none" comes first.
+    @cities_by_achievement = cities_by_achievement.reverse
+
+
+    #only count resolutions and policies that happened after the campaign started
+    @cities_with_achievement = current_db.cities.joins("INNER JOIN (SELECT DISTINCT city_id FROM city_designation_achievements) AS cda ON cities.id = cda.city_id")
+    @cities_with_resolution = current_db.cities.joins("INNER JOIN (SELECT DISTINCT city_id FROM resolutions WHERE prior_to_joining_campaign = false) AS r ON cities.id = r.city_id")
+    @cities_with_policies = current_db.cities.joins("INNER JOIN (SELECT DISTINCT city_id FROM policy_adoptions WHERE prior_to_joining_campaign = false) AS pa ON cities.id = pa.city_id")
+
+    @cities_with_activity = current_db.cities.joins("LEFT JOIN (SELECT DISTINCT city_id FROM city_designation_achievements) AS cda ON cities.id = cda.city_id")
+    @cities_with_activity = @cities_with_activity.joins("LEFT JOIN (SELECT DISTINCT city_id FROM resolutions WHERE prior_to_joining_campaign = false) AS r ON cities.id = r.city_id")
+    @cities_with_activity = @cities_with_activity.joins("LEFT JOIN (SELECT DISTINCT city_id FROM policy_adoptions WHERE prior_to_joining_campaign = false) AS pa ON cities.id = pa.city_id")
+    @cities_with_activity = @cities_with_activity.where("cda.city_id IS NOT NULL OR r.city_id IS NOT NULL OR pa.city_id IS NOT NULL")
+
+    #list the cities that have resolved or adopted each policy
+    @cities_by_policy = []
+    current_db.policies.order(:order_in_list).each do |p|
+      city_ids = current_db.resolutions.joins(:policies).where("policies_resolutions.policy_id = (?) and prior_to_joining_campaign = false", p.id).select(:city_id).group(:city_id)
+      city_id_array = city_ids.map{|c| c.city_id}
+      cities_resolving = current_db.cities.where(id: city_id_array)
+      city_ids = current_db.policy_adoptions.joins(:policies).where("policies_policy_adoptions.policy_id = (?) and prior_to_joining_campaign = false", p.id).select(:city_id).group(:city_id)
+      city_id_array = city_ids.map{|c| c.city_id}
+      cities_adopting = current_db.cities.where(id: city_id_array)
+      @cities_by_policy << { policy_id: p.id, policy_name: p.full_name, cities_resolving: cities_resolving.count, cities_resolving_population: cities_resolving.sum(:population), cities_adopting: cities_adopting.count, cities_adopting_population: cities_adopting.sum(:population)}
+    end
+
+
+    communications_by_type = []
+    current_db.communication_types.order(:order_in_list).each do |ct|
+      communications = current_db.communications.where(communication_type_id: ct.id)
+      city_ids = current_db.cities.joins(:communications).where("communications.communication_type_id = (?)", ct.id).select(:city_id).uniq
+      contact_ids = current_db.contacts.joins(:communications).where("communications.communication_type_id = (?)", ct.id).select(:contact_id).uniq
+      communications_by_type << { communication_type_id: ct.id, communication_type_name: ct.name, num_communications: communications.count, cities_involved: city_ids.count, contacts_involved: contact_ids.count, total_minutes: communications.sum(:duration_minutes), }
+    end
+
+    #add a line for all communications
+    communications = current_db.communications
+    city_ids = current_db.cities.joins(:communications).select(:city_id).uniq
+    contact_ids = current_db.contacts.joins(:communications).select(:contact_id).uniq
+    communications_by_type << { communication_type_id: nil, communication_type_name: "All Communications", num_communications: communications.count, cities_involved: city_ids.count, contacts_involved: contact_ids.count, total_minutes: communications.sum(:duration_minutes), }
+
+    @communications_by_type = communications_by_type
+
+  end
+
   def recent_activity
     params[:days_to_show] = 7 if params[:days_to_show].nil? #default to last 7 days
     @days_to_show = params[:days_to_show]
@@ -119,6 +189,17 @@ class Heal::ReportsController < ApplicationController
         #otherwise we might have multiple rows for one city.
         cities = cities.joins(policy_adoptions: [:policies])
         do_id_subquery = true
+      end
+
+      if params[:has_been_communicated_with].present?
+        #the user only wants to see cities that either have a recorded communication, or don't.
+        city_ids = current_db.cities.joins(:communications).select(:city_id).uniq
+        city_id_array = city_ids.map{|c| c.city_id}
+        if params[:has_been_communicated_with] == "0"   #no
+          cities = cities.where("id NOT IN (?)", city_id_array)
+        else #yes
+          cities = cities.where(id: city_id_array)
+        end
       end
 
       if do_id_subquery

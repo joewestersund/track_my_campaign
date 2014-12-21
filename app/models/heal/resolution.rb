@@ -24,7 +24,7 @@ class Heal::Resolution < ActiveRecord::Base
   def policy_summary
     policy_names = []
     self.policies.order(:order_in_list).each do |p|
-      policy_names << p.name
+      policy_names << p.full_name
     end
     summary = "#{(self.date.to_s + ' ') if self.date.present?}#{policy_names.join(', ')}"
   end

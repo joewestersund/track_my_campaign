@@ -102,8 +102,12 @@ module HealHelper
     if cd.nil?
       return ""
     else
-      return "city-designation-#{cd.city_designation.order_in_list}"
+      return get_city_designation_class_by_number(cd.city_designation.order_in_list)
     end
+  end
+
+  def get_city_designation_class_by_number(order_in_list)
+    return "city-designation-#{order_in_list}"
   end
 
   def truncate_text(text, options = {})

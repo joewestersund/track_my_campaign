@@ -29,6 +29,7 @@ TrackMyCampaign::Application.routes.draw do
     get '/reports/cities_summary'
     get '/reports/contacts_summary'
     get '/reports/policy_grid'
+    get '/reports/progress_report'
     get '/reports/recent_activity'
   end
 

@@ -1,0 +1,109 @@
+<h1>HEAL Progress Report</h1>
+<br>
+
+<h3>Cities by Achievement Level</h3>
+<table>
+  <thead>
+  <tr>
+    <th>Achievement Level</th>
+    <th># of Cities</th>
+    <th>Total Population</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @cities_by_achievement.each do |c| %>
+    <tr>
+      <td class="black <%= get_city_designation_class_by_number(c[:achievement_order_in_list]) if c[:achievement_order_in_list].present? %>"><%= c[:city_designation_name] %></td>
+      <td><%= c[:number_of_cities] == 0 ? 0 : (link_to c[:number_of_cities], heal_reports_cities_summary_path + "?city_designation_id=#{c[:city_designation_id]}") %></td>
+      <td><%= number_with_delimiter(c[:total_population]) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+
+<h3>Cities that have Taken Action</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Cities that have</th>
+      <th># of Cities</th>
+      <th>Total Population</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+    <td>Reached a HEAL achievement</td>
+    <td><%= @cities_with_achievement.count %></td>
+    <td><%= number_with_delimiter(@cities_with_achievement.sum(:population)) %></td>
+  </tr>
+  <tr>
+    <td>Adopted a HEAL resolution (after joining the campaign)</td>
+    <td><%= @cities_with_resolution.count %></td>
+    <td><%= number_with_delimiter(@cities_with_resolution.sum(:population)) %></td>
+  </tr>
+  <tr>
+    <td>Adopted a HEAL policy (after joining the campaign)</td>
+    <td><%= @cities_with_policies.count %></td>
+    <td><%= number_with_delimiter(@cities_with_policies.sum(:population)) %></td>
+  </tr>
+  </tbody>
+</table>
+<br>
+
+<h3>Resolutions and Policy Adoptions</h3>
+<table>
+  <thead>
+  <tr>
+    <th rowspan="2">Policy</th>
+    <th colspan="2">Resolutions<br>(after joining the campaign)</th>
+    <th colspan="2">Policy Adoptions<br>(after joining the campaign)</th>
+  </tr>
+  <tr>
+    <th># of Cities</th>
+    <th>Total Population</th>
+    <th># of Cities</th>
+    <th>Total Population</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @cities_by_policy.each do |c| %>
+    <tr>
+      <td><%= c[:policy_name] %></td>
+      <td><%= c[:cities_resolving] == 0 ? 0 : (link_to c[:cities_resolving], heal_reports_cities_summary_path + "?resolution_policy_id=#{c[:policy_id]}") %></td>
+      <td><%= number_with_delimiter(c[:cities_resolving_population]) %></td>
+      <td><%= c[:cities_adopting] == 0 ? 0: (link_to c[:cities_adopting], heal_reports_cities_summary_path + "?policy_adoption_policy_id=#{c[:policy_id]}") %></td>
+      <td><%= number_with_delimiter(c[:cities_adopting_population]) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+
+<h3>Communications by Type</h3>
+<table>
+  <thead>
+  <tr>
+    <th>Communication Type</th>
+    <th># of Communications</th>
+    <th>Cities Involved</th>
+    <th>Contacts Involved</th>
+    <th>Total Duration (minutes)</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @communications_by_type.each do |ct| %>
+    <tr>
+      <td><%= ct[:communication_type_name] %></td>
+      <td><%= ct[:num_communications] == 0 ? 0 : (link_to number_with_delimiter(ct[:num_communications]), heal_communications_path + "?communication_type_id=#{ct[:communication_type_id]}") %></td>
+      <td><%= number_with_delimiter(ct[:cities_involved]) %></td>
+      <td><%= number_with_delimiter(ct[:contacts_involved]) %></td>
+      <td><%= number_with_delimiter(ct[:total_minutes]) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

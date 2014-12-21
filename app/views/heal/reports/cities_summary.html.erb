@@ -54,6 +54,10 @@
       <%= label_tag "Policy Adoptions" %>
       <%= select_tag :policy_adoption_policy_id, options_from_collection_for_select(@policies,:id,:full_name,params[:policy_adoption_policy_id]), { :include_blank => true, class: 'multiselect', multiple: false  } %>
     </div>
+    <div class="field">
+      <%= label_tag "Has been communicated with" %>
+      <%= select_tag :has_been_communicated_with, options_for_select(get_yes_no_options_list,params[:has_been_communicated_with]), { :include_blank => true, class: 'multiselect', multiple: false  } %>
+    </div>
     <div class="actions">
       <%= submit_tag "Filter", class: "btn btn-large btn-primary" %>
     </div>
@@ -88,7 +92,7 @@
         <td><%= city.state %></td>
         <td><%= city.county %></td>
         <td><%= link_to city.name, edit_heal_city_path(city)%></td>
-        <td><%= city.population %></td>
+        <td><%= number_with_delimiter(city.population) %></td>
         <td><%= show_percentage(city.percent_obesity) %></td>
         <td><%= show_boolean(city.kp_service_area) %></td>
         <td><%= show_boolean(city.under_resourced_or_disease_burden) %></td>
@@ -105,20 +109,21 @@
           <% end %>
         </td>
         <td>
-          <div>
-            <% link_text = "#{city.communications.count} #{"communication".pluralize(city.communications.count)}, #{city.communications.sum(:duration_minutes)} minutes" %>
-            <%= link_to link_text, heal_communications_path + "?city_id=" + city.id.to_s %>
-          </div>
-          <% communication_count = 0
-           max_communications_to_show = 4%>
-          <% city.communications.order(date: :desc).each do |com|
-            communication_count += 1
-            break if communication_count > max_communications_to_show%>
+          <% if city.communications.count > 0 %>
             <div>
-              <%= link_to com.summary_date_first, heal_communication_path(com) %>
+              <% link_text = "#{city.communications.count} #{"communication".pluralize(city.communications.count)}, #{city.communications.sum(:duration_minutes)} minutes" %>
+              <%= link_to link_text, heal_communications_path + "?city_id=" + city.id.to_s %>
             </div>
+            <% communication_count = 0
+             max_communications_to_show = 4%>
+            <% city.communications.order(date: :desc).each do |com|
+              communication_count += 1
+              break if communication_count > max_communications_to_show%>
+              <div>
+                <%= link_to com.summary_date_first, heal_communication_path(com) %>
+              </div>
+            <% end %>
           <% end %>
-
         </td>
         <td>
           <% city.contacts.order(:first_name, :last_name).each do |contact| %>
