@@ -2,29 +2,37 @@
 #
 # Table name: cities
 #
-#  id                                :integer          not null, primary key
-#  database_instance_id              :integer
-#  name                              :string(255)
-#  county                            :string(255)
-#  state                             :string(255)
-#  jurisdiction_type_id              :integer
-#  league_division_id                :integer
-#  population                        :integer
-#  kp_service_area                   :boolean
-#  under_resourced_or_disease_burden :boolean
-#  state_median_income               :decimal(, )
-#  city_median_income                :decimal(, )
-#  created_at                        :datetime
-#  updated_at                        :datetime
-#  policy_change_in_progress         :boolean          default(FALSE)
-#  percent_obesity                   :decimal(5, 2)
+#  id                                   :integer          not null, primary key
+#  database_instance_id                 :integer
+#  name                                 :string(255)
+#  county                               :string(255)
+#  state                                :string(255)
+#  jurisdiction_type_id                 :integer
+#  league_division_id                   :integer
+#  population                           :integer
+#  kp_service_area                      :boolean
+#  under_resourced_or_disease_burden    :boolean
+#  state_median_income                  :decimal(, )
+#  city_median_income                   :decimal(, )
+#  created_at                           :datetime
+#  updated_at                           :datetime
+#  policy_change_in_progress            :boolean          default(FALSE)
+#  percent_obesity                      :decimal(5, 2)
+#  minorities_more_than_fifteen_percent :boolean
+#  percent_white_alone                  :decimal(5, 2)
+#  percent_not_white_alone              :decimal(5, 2)
+#  percent_african_american_alone       :decimal(5, 2)
+#  percent_native_american_alone        :decimal(5, 2)
+#  percent_asian_alone                  :decimal(5, 2)
+#  percent_pacific_islander_alone       :decimal(5, 2)
+#  percent_other_race_alone             :decimal(5, 2)
+#  percent_two_or_more_races            :decimal(5, 2)
 #
 
 class Heal::City < ActiveRecord::Base
   belongs_to :database_instance
   belongs_to :jurisdiction_type
   belongs_to :league_division
-  belongs_to :city_designation
 
   has_many :milestones, dependent: :restrict_with_exception
   has_many :policy_adoptions, dependent: :restrict_with_exception
@@ -40,7 +48,6 @@ class Heal::City < ActiveRecord::Base
   validates :state, presence: true
   validates :jurisdiction_type, presence: true
   #league division not required.      validates :league_division, presence: true
-  # city_designation not required.
 
   def name_and_state
     "#{self.name} #{self.state}"

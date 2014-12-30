@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209032816) do
+ActiveRecord::Schema.define(version: 20141230051243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,17 @@ ActiveRecord::Schema.define(version: 20141209032816) do
     t.decimal  "city_median_income"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "policy_change_in_progress",                                 default: false
-    t.decimal  "percent_obesity",                   precision: 5, scale: 2
+    t.boolean  "policy_change_in_progress",                                    default: false
+    t.decimal  "percent_obesity",                      precision: 5, scale: 2
+    t.boolean  "minorities_more_than_fifteen_percent"
+    t.decimal  "percent_white_alone",                  precision: 5, scale: 2
+    t.decimal  "percent_not_white_alone",              precision: 5, scale: 2
+    t.decimal  "percent_african_american_alone",       precision: 5, scale: 2
+    t.decimal  "percent_native_american_alone",        precision: 5, scale: 2
+    t.decimal  "percent_asian_alone",                  precision: 5, scale: 2
+    t.decimal  "percent_pacific_islander_alone",       precision: 5, scale: 2
+    t.decimal  "percent_other_race_alone",             precision: 5, scale: 2
+    t.decimal  "percent_two_or_more_races",            precision: 5, scale: 2
   end
 
   create_table "cities_communications", id: false, force: true do |t|
