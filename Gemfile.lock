@@ -276,6 +276,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   letter_opener
+  nokogiri
   paperclip
   pg (= 0.17.1)
   rails (= 4.0.0)
