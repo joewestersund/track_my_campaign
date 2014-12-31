@@ -1,6 +1,6 @@
 require 'nokogiri'
 
-namespace :heal_ophi_2 do
+namespace :heal_ophi_cities_notes do
 
   desc "upload OPHI cities notes"
   task ophi_upload_cities_notes: :environment do
