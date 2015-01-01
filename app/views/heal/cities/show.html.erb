@@ -1,3 +1,5 @@
+<h1>View City</h1>
+
 <p>
   <strong>Name:</strong>
   <%= @city.name %>
@@ -29,7 +31,7 @@
 </p>
 
 <p>
-  <strong>Kp service area:</strong>
+  <strong>KP service area:</strong>
   <%= show_boolean(@city.kp_service_area) %>
 </p>
 
@@ -47,6 +49,47 @@
   <strong>City median income:</strong>
   <%= number_to_currency(@city.city_median_income,precision: 0) %>
 </p>
+
+<p>
+  <strong>Minorities_more_than_fifteen_percent:</strong>
+  <%= show_boolean(@city.minorities_more_than_fifteen_percent) %>
+</p>
+<p>
+  <strong>% White alone:</strong>
+  <%= number_to_percentage(@city.percent_white_alone, precision:2)  %>
+</p>
+<p>
+  <strong>% Not "White Alone":</strong>
+  <%= number_to_percentage(@city.percent_not_white_alone, precision:2) %>
+</p>
+<p>
+  <strong>% African American alone:</strong>
+  <%= number_to_percentage(@city.percent_african_american_alone, precision:2) %>
+</p>
+<p>
+  <strong>% American Indian and Alaska Native alone:</strong>
+  <%= number_to_percentage(@city.percent_native_american_alone, precision:2) %>
+</p>
+<p>
+  <strong>% Asian alone:</strong>
+  <%= number_to_percentage(@city.percent_asian_alone, precision:2) %>
+</p>
+<p>
+  <strong>% Native Hawaiian and Other Pacific Islander alone:</strong>
+  <%= number_to_percentage(@city.percent_pacific_islander_alone, precision:2) %>
+</p>
+<p>
+  <strong>% Some Other Race alone:</strong>
+  <%= number_to_percentage(@city.percent_other_race_alone, precision:2) %>
+</p>
+<p>
+  <strong>% Two or More Races:</strong>
+  <%= number_to_percentage(@city.percent_two_or_more_races, precision:2) %>
+</p>
+
+
+
+
 
 <p>
   <strong>General Plan / Policy Change in Progress:</strong>

@@ -6,16 +6,16 @@
 <div class="filter">
   <%= form_tag request.path, method: 'get' do %>
     <div class="field">
+      <%= label_tag :name %>
+      <%= text_field_tag :name, params[:name] %>
+    </div>
+    <div class="field">
       <%= label_tag :state %>
       <%= text_field_tag :state, params[:state] %>
     </div>
     <div class="field">
       <%= label_tag :county %>
       <%= text_field_tag :county, params[:county] %>
-    </div>
-    <div class="field">
-      <%= label_tag :name %>
-      <%= text_field_tag :name, params[:name] %>
     </div>
     <div class="field">
       <%= label_tag :jurisdiction_type %>
@@ -89,9 +89,9 @@
   <table>
     <thead>
       <tr>
+        <th>Name</th>
         <th>State</th>
         <th>County</th>
-        <th>Name</th>
         <th>Jurisdiction Type</th>
         <th>League Division</th>
         <th>Population</th>
@@ -112,9 +112,9 @@
     <tbody>
       <% @cities.each do |city| %>
         <tr>
+          <td><%= city.name %></td>
           <td><%= city.state %></td>
           <td><%= city.county %></td>
-          <td><%= city.name %></td>
           <td><%= city.jurisdiction_type.name if city.jurisdiction_type.present?%></td>
           <td><%= city.league_division.name if city.league_division.present?%></td>
           <td><%= number_with_delimiter(city.population) %></td>

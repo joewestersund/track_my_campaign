@@ -2,8 +2,7 @@ require 'nokogiri'
 
 namespace :heal_ophi_cities_notes do
 
-  desc "upload OPHI cities notes"
-  task ophi_upload_cities_notes: :environment do
+  def upload_cities_notes
     dbi_ophi = Heal::DatabaseInstance.find_by(instance_name: OPHI_DATABASE_INSTANCE_NAME)
 
     cities = []
@@ -1293,14 +1292,16 @@ THE_END
 THE_END
     }
 
+    city_not_found_error_count = 0
     city_designations_updated = 0
     city_designation_error_count = 0
     error_messages = []
 
     cities.each do |city|
-      saved_city = dbi_ophi.cities.find_by(name: city[:name], county: city[:county], state: city[:state])
+      county = city[:county] != "UNKNOWN" ? city[:county] : nil
+      saved_city = dbi_ophi.cities.find_by(name: city[:name], county: county, state: city[:state])
       if saved_city.nil?
-        add_error_count += 1
+        city_not_found_error_count += 1
         error_messages << "City #{city[:name]} not found"
         break
       end
@@ -1329,7 +1330,7 @@ THE_END
     end
 
     puts error_messages
-    puts "City designation achievement notes updated: #{city_designations_updated}/ errors:#{city_designation_error_count}."
+    puts "City designation achievement notes updated: #{city_designations_updated}/ errors:#{city_designation_error_count}/ cities not found errors: #{city_not_found_error_count}."
 
   end
 

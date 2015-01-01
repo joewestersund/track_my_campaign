@@ -116,7 +116,7 @@ class Heal::CitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_params
-      params.require(:heal_city).permit(:name, :county, :state, :jurisdiction_type_id, :league_division_id, :population, :kp_service_area, :under_resourced_or_disease_burden, :percent_obesity, :state_median_income, :city_median_income, :policy_change_in_progress)
+      params.require(:heal_city).permit(:name, :county, :state, :jurisdiction_type_id, :league_division_id, :population, :kp_service_area, :under_resourced_or_disease_burden, :percent_obesity, :state_median_income, :city_median_income, :policy_change_in_progress, :minorities_more_than_fifteen_percent, :percent_white_alone, :percent_not_white_alone, :percent_african_american_alone, :percent_native_american_alone, :percent_asian_alone, :percent_pacific_islander_alone, :percent_other_race_alone, :percent_two_or_more_races)
     end
 
     def set_select_options

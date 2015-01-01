@@ -58,6 +58,44 @@
     <%= f.text_field :city_median_income %>
   </div>
   <div class="field">
+    <%= f.label :minorities_more_than_fifteen_percent %>
+    <%= f.check_box :minorities_more_than_fifteen_percent %>
+  </div>
+  <div class="field">
+    <%= f.label "% White alone" %>
+    <%= f.number_field :percent_white_alone, in: 0..100, step: 0.01 %>
+  </div>
+  <div class="field">
+    <%= f.label '% Not "White alone"' %>
+    <%= f.number_field :percent_not_white_alone, in: 0..100, step: 0.01 %>
+  </div>
+  <div class="field">
+    <%= f.label "% African American alone" %>
+    <%= f.number_field :percent_african_american_alone, in: 0..100, step: 0.01 %>
+  </div>
+  <div class="field">
+    <%= f.label "% American Indian and Alaska Native alone" %>
+    <%= f.number_field :percent_native_american_alone, in: 0..100, step: 0.01 %>
+  </div>
+  <div class="field">
+    <%= f.label "% Asian Alone" %>
+    <%= f.number_field :percent_asian_alone, in: 0..100, step: 0.01 %>
+  </div>
+  <div class="field">
+    <%= f.label "% Native Hawaiian and Other Pacific Islander alone" %>
+    <%= f.number_field :percent_pacific_islander_alone, in: 0..100, step: 0.01 %>
+  </div>
+  <div class="field">
+    <%= f.label "% Some Other Race alone" %>
+    <%= f.number_field :percent_other_race_alone, in: 0..100, step: 0.01 %>
+  </div>
+  <div class="field">
+    <%= f.label "% Two or More Races" %>
+    <%= f.number_field :percent_two_or_more_races, in: 0..100, step: 0.01 %>
+  </div>
+
+
+  <div class="field">
     <%= f.label "General Plan / Policy Change in Progress" %>
     <%= f.check_box :policy_change_in_progress %>
   </div>

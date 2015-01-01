@@ -1,10 +1,38 @@
 namespace :heal_ophi do
 
+  desc "set up all"
+  task set_up_all: :environment do
+    set_up_db
+    upload_cities
+    upload_cities_notes
+    upload_contacts
+  end
+
   desc "set up OPHI database"
-  task ophi_set_up_db: :environment do
+  task set_up_db: :environment do
+    set_up_db
+  end
+
+  desc "upload OPHI cities data"
+  task upload_cities: :environment do
+    upload_cities
+  end
+
+  desc "upload OPHI cities notes"
+  task upload_cities_notes: :environment do
+    upload_cities_notes
+  end
+
+  desc "upload OPHI contacts"
+  task upload_contacts: :environment do
+    upload_contacts
+  end
+
+  def set_up_db
     dbi_ophi = Heal::DatabaseInstance.find_by(instance_name: OPHI_DATABASE_INSTANCE_NAME)
 
     dbi_ophi.city_designation_achievements.delete_all
+    dbi_ophi.contacts.delete_all
     dbi_ophi.cities.delete_all
 
     dbi_ophi.league_divisions.delete_all
@@ -37,10 +65,49 @@ namespace :heal_ophi do
     jt.database_instance = dbi_ophi
     jt.save
 
+    dbi_ophi.position_types.delete_all
+
+    position_types = []
+    position_types << "Academic"
+    position_types << "State agency staff"
+    position_types << "Parks & Rec District staff"
+    position_types << "Parks & Rec District Director"
+    position_types << "Extension Service"
+    position_types << "Tribal staff"
+    position_types << "Regional Elected Official"
+    position_types << "WA (state) Dept of Health staff"
+    position_types << "County staff (not HD)"
+    position_types << "community leader"
+    position_types << "Director of Public Agency"
+    position_types << "Consultant (private)"
+    position_types << "Hospital system staff"
+    position_types << "Federal agency staff"
+    position_types << "Oregon Health Authority (state) staff"
+    position_types << "County Health Dept Staff"
+    position_types << "KP Staff"
+    position_types << "Regional Govt Staff"
+    position_types << "City Manager"
+    position_types << "Mayor"
+    position_types << "NGO Staff"
+    position_types << "NGO Director"
+    position_types << "City Resident"
+    position_types << "City Staff"
+    position_types << "Elected City Official"
+
+    order_in_list = 1
+    position_types.each do |pt_name|
+      pt = Heal::PositionType.new
+      pt.name = pt_name
+      pt.order_in_list = order_in_list
+      pt.database_instance = dbi_ophi
+      order_in_list += 1
+      pt.save
+    end
+
   end
 
-  desc "upload OPHI cities data"
-  task ophi_upload_cities: :environment do
+  # "upload OPHI cities data"
+  def upload_cities
     dbi_ophi = Heal::DatabaseInstance.find_by(instance_name: OPHI_DATABASE_INSTANCE_NAME)
 
     cities = []
@@ -723,7 +790,7 @@ namespace :heal_ophi do
         saved_city = Heal::City.new
         saved_city.database_instance = dbi_ophi
         saved_city.name = city[:name]
-        saved_city.county = city[:county]
+        saved_city.county = city[:county] if (city[:county] != "UNKNOWN")
         saved_city.state = city[:state]
 
         jt = dbi_ophi.jurisdiction_types.where("lower(name) = ?", city[:entity_type].downcase).first

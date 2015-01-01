@@ -1,7 +1,6 @@
 namespace :heal_ophi_contacts do
 
-  desc "upload OPHI contacts"
-  task upload_contacts: :environment do
+  def upload_contacts
     dbi_ophi = Heal::DatabaseInstance.find_by(instance_name: OPHI_DATABASE_INSTANCE_NAME)
 
     contacts = []
@@ -731,7 +730,7 @@ mattickm@co.curry.or.us
     contacts << { first_name: "Marilyn", last_name: "Carter", title: "Health promotion", organization: "Douglas County HD", heal_city: '', phone: '541.440.3563', cell: '', fax: '', email: '', address_line_1: "", address_line_2: "", address_city: '', address_state: '', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: 'County Health Dept Staff', notes: "Wanted info re HEAL Cities for a grant.&nbsp;" }
     contacts << { first_name: "Seth", last_name: "Atkinson", title: "Assistant to the City Manager", organization: "City of Sandy", heal_city: 'Sandy, OR', phone: '', cell: '', fax: '', email: '', address_line_1: "", address_line_2: "", address_city: '', address_state: '', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: 'City Staff', notes: "attended HEAL Cities Campaign presentation at 2012 OCCMA Summer Conference" }
     contacts << { first_name: "Jeffrey", last_name: "Aprati", title: "City Manager", organization: "City of Wheeler", heal_city: 'Wheeler, OR', phone: '', cell: '', fax: '', email: '', address_line_1: "", address_line_2: "", address_city: '', address_state: '', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: 'City Manager', notes: "attended HEAL Cities Campaign presentation at 2012 OCCMA Summer Conference" }
-    contacts << { first_name: "Harold "Andy"", last_name: "Anderson", title: "", organization: "Oregon CIty", heal_city: 'Oregon City, OR', phone: '', cell: '', fax: '', email: '', address_line_1: "", address_line_2: "", address_city: 'Oregon City', address_state: 'OR', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: '', notes: "attended HEAL Cities Campaign presentation at 2012 OCCMA Summer Conference" }
+    contacts << { first_name: 'Harold "Andy"', last_name: "Anderson", title: "", organization: "Oregon CIty", heal_city: 'Oregon City, OR', phone: '', cell: '', fax: '', email: '', address_line_1: "", address_line_2: "", address_city: 'Oregon City', address_state: 'OR', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: '', notes: "attended HEAL Cities Campaign presentation at 2012 OCCMA Summer Conference" }
     contacts << { first_name: "Teri", last_name: "Cummings", title: "Councillor", organization: "West Linn City COuncil", heal_city: 'West Linn, OR', phone: '', cell: '', fax: '', email: '', address_line_1: "", address_line_2: "", address_city: 'West Linn', address_state: 'OR', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: 'Elected City Official', notes: "may not be on Council any longer (2013)<div>came to LOC (2012)&nbsp;</div>" }
     contacts << { first_name: "Rod", last_name: "Hardin", title: "Councillor", organization: "City of Hermiston", heal_city: 'Hermiston, OR', phone: '503 567 5521', cell: '', fax: '', email: 'rhardin@machmedia.net; rhardin@hermiston.or.us', address_line_1: "180 NE 2nd Street", address_line_2: "", address_city: 'Hermiston', address_state: 'OR', address_zip: '97838', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: 'Elected City Official', notes: "attended LOC Conf (2012)" }
     contacts << { first_name: "Tamie", last_name: "Kaufman", title: "City Councillor", organization: "City of Gold Beach", heal_city: 'Gold Beach, OR', phone: '541.247.7029', cell: '', fax: '', email: 'tkaufman@goldbeachoregon.gov', address_line_1: "", address_line_2: "", address_city: 'Gold Beach', address_state: 'OR', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: 'Elected City Official', notes: "is also a property manager" }
@@ -971,8 +970,8 @@ Corps Regional Coordinator, <b>Region X</b> (AK, ID, OR, WA)<o:p></o:p></span></
     <br /></div></div>" }
     contacts << { first_name: "Joe", last_name: "Westersund", title: "Consultant", organization: "Free lance", heal_city: '', phone: '', cell: '', fax: '', email: 'joe.westersund@gmail.com', address_line_1: "", address_line_2: "", address_city: '', address_state: '', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: '', notes: "Created database.&nbsp;" }
     contacts << { first_name: "Michael", last_name: "Kuehner", title: "", organization: "Linfield College", heal_city: '', phone: '', cell: '', fax: '', email: '', address_line_1: "", address_line_2: "", address_city: '', address_state: '', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "Working with Yamhill County HD on a project for Linfield College", position_type: 'County Health Dept Staff', notes: "" }
-    contacts << { first_name: "Virginia", last_name: "Chambers", title: "Teaches in Medical Assistantsvprogram", organization: "Portland Community College", heal_city: '', phone: '503 515 5246', cell: '', fax: '', email: '', address_line_1: "", address_line_2: "", address_city: '', address_state: '', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "Met at KP "An Ounce of Prevention" conference", position_type: '', notes: "" }
-    contacts << { first_name: "Gigi", last_name: "Sims", title: "", organization: "Corvallis School District", heal_city: 'Corvallis, OR', phone: '', cell: '', fax: '', email: 'Gigi.sims@corvallis.k12.or.us', address_line_1: "", address_line_2: "", address_city: '', address_state: '', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: '', notes: "Met at KP "An Ounce of Prevention" conference" }
+    contacts << { first_name: "Virginia", last_name: "Chambers", title: "Teaches in Medical Assistants program", organization: "Portland Community College", heal_city: '', phone: '503 515 5246', cell: '', fax: '', email: '', address_line_1: "", address_line_2: "", address_city: '', address_state: '', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: 'Met at KP "An Ounce of Prevention" conference', position_type: '', notes: "" }
+    contacts << { first_name: "Gigi", last_name: "Sims", title: "", organization: "Corvallis School District", heal_city: 'Corvallis, OR', phone: '', cell: '', fax: '', email: 'Gigi.sims@corvallis.k12.or.us', address_line_1: "", address_line_2: "", address_city: '', address_state: '', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: '', notes: 'Met at KP "An Ounce of Prevention" conference' }
     contacts << { first_name: "Ken", last_name: "Rosenberg", title: "", organization: "Oregon Health Authority, Maternal & Child Health", heal_city: '', phone: '', cell: '', fax: '', email: '', address_line_1: "", address_line_2: "", address_city: 'Portland', address_state: 'OR', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: 'Oregon Health Authority (state) staff', notes: "suggested I work with Jennifer Young to minimize duplication and facilitate collaboration" }
     contacts << { first_name: "Tanya", last_name: "Silva", title: "Nurse", organization: "Polk County Health Dept", heal_city: 'Dallas, OR, Falls City, OR, Grand Ronde, OR, Independence, OR, Monmouth, OR', phone: '5036238175 x2302', cell: '', fax: '', email: '', address_line_1: "", address_line_2: "", address_city: '', address_state: '', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: 'County Health Dept Staff', notes: "Coordinates tobacco prevention program<div>Attends Polk County service integration meetings</div>" }
     contacts << { first_name: "Lindsey", last_name: "Kuipers", title: "Planner", organization: "City of Beaverton", heal_city: 'Beaverton, OR', phone: '', cell: '', fax: '', email: '', address_line_1: "", address_line_2: "", address_city: '', address_state: '', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: 'City Staff', notes: "" }
@@ -1001,7 +1000,7 @@ Tualatin, OR 97062-7092
 <div>
   <br /></div>
 <div>politically constrained due to makeup of Marion County Commission&nbsp;</div>" }
-    contacts << { first_name: "Megan", last_name: " Newell-Ching", title: "Community Resource Developer", organization: "Oregon Food Bank", heal_city: '', phone: '1-800-777-7427 or 503-282-0555 ext. 2270', cell: '503-702-7579', fax: ' 503-282-0922', email: 'mnewellching@oregonfoodbank.org', address_line_1: "NW 33rd Drive", address_line_2: "", address_city: 'Portland', address_state: 'OR', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: 'NGO Staff', notes: "<span style="font-family: Arial, sans-serif; line-height: 150%;">met at Convergence meeting November 2012</span>" }
+    contacts << { first_name: "Megan", last_name: " Newell-Ching", title: "Community Resource Developer", organization: "Oregon Food Bank", heal_city: '', phone: '1-800-777-7427 or 503-282-0555 ext. 2270', cell: '503-702-7579', fax: ' 503-282-0922', email: 'mnewellching@oregonfoodbank.org', address_line_1: "NW 33rd Drive", address_line_2: "", address_city: 'Portland', address_state: 'OR', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: 'NGO Staff', notes: "met at Convergence meeting November 2012" }
     contacts << { first_name: "Morgan", last_name: "Cowling", title: "Executive Director", organization: "Coalition of Local Health Organizations", heal_city: '', phone: '', cell: '', fax: '', email: 'morgan@oregonclho.org', address_line_1: "", address_line_2: "", address_city: '', address_state: '', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "Married to Daniel Morris.
 On PHAW", position_type: 'NGO Director', notes: "" }
     contacts << { first_name: "Sheree", last_name: "Smith", title: "Public Health Director", organization: "Morrow County Health Department", heal_city: 'Irrigon, OR', phone: '(541) 676-5421', cell: '', fax: '(541) 676-5652 fax', email: 'ssmith@co.morrow.or.us', address_line_1: "120 S. Main Street", address_line_2: "PO Box 799", address_city: 'Heppner', address_state: 'OR', address_zip: '97836', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "Morrow County Health Department
@@ -1055,44 +1054,126 @@ Falls City, Oregon
 contacts << { first_name: "Amy", last_name: "Houghtailing", title: "Mayor", organization: "City of Falls City, OR", heal_city: 'Falls City, OR', phone: '', cell: '', fax: '', email: '', address_line_1: "", address_line_2: "", address_city: 'Falls City', address_state: 'OR', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: '', notes: "friend of Tonya Silva, Polk County Health Department nurse" }
 contacts << { first_name: "Leah", last_name: "Rodgers", title: "", organization: "Friends of Family Farmers", heal_city: 'Falls City, OR', phone: '', cell: '', fax: '', email: 'leah@friendsoffamilyfarmers.org', address_line_1: "", address_line_2: "", address_city: 'Molalla', address_state: 'OR', address_zip: '', heal_champion: 'NO', heal_champion_notes: "", other_contact_info: "", position_type: '', notes: "advocate for family farms; was contacted by Akha Farm re denial of permit; contacted Amy Gilroy; referred to me by Amy Giroy; Amy wants to remain involved" }
 
-    return if true #debug
-
     contacts_added = 0
     contacts_added_errors = 0
     contacts_updated = 0
     contacts_updated_errors = 0
+    contact_cities_added = 0
+    contact_cities_errors = 0
     error_messages = []
 
-    contacts.each do |city|
-      saved_contact = dbi_ophi.contacts.find_by(first_name: contact[:first_name], last_name: contact[:last_name], organization: contact[:organization])
+    contacts.each do |contact|
+      saved_contact = dbi_ophi.contacts.find_by(first_name: contact[:first_name], last_name: contact[:last_name], organization_name: contact[:organization])
       if saved_contact.nil?
         saved_contact = Heal::Contact.new
         saved_contact.database_instance = dbi_ophi
         saved_contact.first_name = contact[:first_name]
         saved_contact.last_name = contact[:last_name]
-        saved_contact.organization = contact[:organization]
+        saved_contact.organization_name = contact[:organization]
 
         if saved_contact.save
           contacts_added += 1
         else
-          contact_add_errors += 1
+          contacts_added_errors += 1
           error_messages << saved_contact.errors.inspect
           break
         end
       end
 
-      if contact[:heal_city].present?
+      saved_contact.title = contact[:title] if contact[:title].present?
+      saved_contact.organization_name = contact[:organization]
+      saved_contact.office_phone_number = contact[:phone] if contact[:phone].present?
+      saved_contact.cell_phone_number = contact[:cell] if contact[:cell].present?
+      saved_contact.fax = contact[:fax] if contact[:fax].present?
 
-        saved_contact.cities << ???
+      saved_contact.email = contact[:email] if contact[:email].present?
+      saved_contact.address_line_1 = contact[:address_line_1] if contact[:address_line_1].present?
+      saved_contact.address_line_2 = contact[:address_line_2] if contact[:address_line_2].present?
+      saved_contact.address_city = contact[:address_city] if contact[:address_city].present?
+      saved_contact.address_state = contact[:address_state] if contact[:address_state].present?
+      saved_contact.address_zip = contact[:address_zip] if contact[:address_zip].present?
+      saved_contact.notes = contact[:notes] if contact[:notes].present?
+      saved_contact.heal_champion = handle_yes_no(contact[:heal_champion])
+      saved_contact.heal_champion_notes = contact[:heal_champion_notes] if contact[:heal_champion_notes].present?
+
+      if contact[:notes].present? && contact[:other_contact_info].present?
+        saved_contact.notes = "Other contact info:\n#{ render_to_ascii(contact[:other_contact_info]) }\n\nNotes:\n#{ render_to_ascii(contact[:notes]) }"
+      elsif contact[:other_contact_info].present?
+        saved_contact.notes = render_to_ascii(contact[:other_contact_info])
+      elsif contact[:notes].present?
+        saved_contact.notes = render_to_ascii(contact[:notes])
       end
-    end
 
+      if contact[:position_type].present?
+        position_type = dbi_ophi.position_types.find_by(name: contact[:position_type])
+        if position_type.nil?
+          contacts_updated_errors += 1
+          error_messages << "Position type '#{contact[:position_type]}' was not found."
+          break
+        else
+          saved_contact.position_type_id = position_type.id
+        end
+      end
+
+      saved_contact.cities.delete_all #clear out any existing cities associated with this contact.
+
+      if contact[:heal_city].present?
+        cities_array = contact[:heal_city].split(",")
+        Range.new(0, cities_array.length - 1).step(2) do |index|
+          city_name = cities_array[index].strip
+          state_name = cities_array[index+1].strip
+          matches = dbi_ophi.cities.where(name: city_name, state: state_name)
+          if matches.count > 1
+            contact_cities_errors += 1
+            error_messages << "Error: more than one city matches #{city_name}, #{state_name}."
+            break
+          elsif matches.count == 0
+            contact_cities_errors += 1
+            error_messages << "Error: no city matches #{city_name}, #{state_name}."
+            break
+          else
+            saved_city = matches.first
+            saved_contact.cities << saved_city #associate this city with this contact.
+            contact_cities_added += 1
+          end
+        end
+      end
+
+      if saved_contact.save
+        contacts_updated += 1
+      else
+        contacts_updated_errors += 1
+        error_messages << saved_contact.errors.inspect
+        break
+      end
+
+    end
 
     puts error_messages
     puts "Contacts added: #{contacts_added} / errors: #{contacts_added_errors}. Updated: #{contacts_updated}/ errors:#{contacts_updated_errors}."
 
-
   end
 
+  private
+
+    def render_to_ascii(node)
+      nokogiri_fragment = Nokogiri::HTML.fragment(node)
+
+      blocks = %w[p div address]                      # els to put newlines after
+      swaps  = { "br"=>"\n\n", "hr"=>"\n#{'-'*70}\n" }  # content to swap out
+      dup = nokogiri_fragment.dup                                  # don't munge the original
+
+      # Get rid of superfluous whitespace in the source
+      dup.xpath('.//text()').each{ |t| t.content = t.text.gsub(/\s+/,' ') }
+
+      # Swap out the swaps
+      dup.css(swaps.keys.join(',')).each{ |n| n.replace( swaps[n.name] ) }
+
+      # Slap a newline before and after each block level element
+      dup.css(blocks.join(',')).each{ |n| n.before("\n").after("\n") }
+
+      # Return the modified text content
+      dup.text
+    end
 end
 
