@@ -2,10 +2,15 @@ namespace :heal_ophi do
 
   desc "set up all"
   task set_up_all: :environment do
-    set_up_db
-    upload_cities
-    upload_cities_notes
-    upload_contacts
+    status_strings = []
+
+    status_strings << set_up_db
+    status_strings << upload_cities
+    status_strings << upload_cities_notes
+    status_strings << upload_contacts
+
+    status_strings.each { |s| puts s}
+
   end
 
   desc "set up OPHI database"
@@ -104,6 +109,9 @@ namespace :heal_ophi do
       pt.save
     end
 
+    status_string = "database set up successfully."
+    puts status_string
+    return status_string
   end
 
   # "upload OPHI cities data"
@@ -883,7 +891,11 @@ namespace :heal_ophi do
     end
 
     puts error_messages
-    puts "Cities added: #{cities_added}/ errors:#{add_error_count}, updated: #{cities_updated}/ errors:#{update_error_count}. City designations added: #{city_designations_added}/ errors: #{city_designation_error_count}/ skipped: #{city_designation_additions_skipped}. League division errors: #{league_division_error_count}. Jurisdiction type errors: #{jurisdiction_type_error_count}."
+    status_string = "Cities added: #{cities_added}/ errors:#{add_error_count}, updated: #{cities_updated}/ errors:#{update_error_count}. City designations added: #{city_designations_added}/ errors: #{city_designation_error_count}/ skipped: #{city_designation_additions_skipped}. League division errors: #{league_division_error_count}. Jurisdiction type errors: #{jurisdiction_type_error_count}."
+    puts status_string
+
+    return status_string
+
   end
 
   private

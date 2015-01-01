@@ -1330,8 +1330,10 @@ THE_END
     end
 
     puts error_messages
-    puts "City designation achievement notes updated: #{city_designations_updated}/ errors:#{city_designation_error_count}/ cities not found errors: #{city_not_found_error_count}."
+    status_string =  "City designation achievement notes updated: #{city_designations_updated}/ errors:#{city_designation_error_count}/ cities not found errors: #{city_not_found_error_count}."
+    puts status_string
 
+    return status_string
   end
 
   private

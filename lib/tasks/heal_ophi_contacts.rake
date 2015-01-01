@@ -1150,8 +1150,10 @@ contacts << { first_name: "Leah", last_name: "Rodgers", title: "", organization:
     end
 
     puts error_messages
-    puts "Contacts added: #{contacts_added} / errors: #{contacts_added_errors}. Updated: #{contacts_updated}/ errors:#{contacts_updated_errors}."
+    status_string = "Contacts added: #{contacts_added} / errors: #{contacts_added_errors}. Updated: #{contacts_updated}/ errors:#{contacts_updated_errors}."
+    puts status_string
 
+    return status_string
   end
 
   private
