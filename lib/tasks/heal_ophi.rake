@@ -8,6 +8,7 @@ namespace :heal_ophi do
     status_strings << upload_cities
     status_strings << upload_cities_notes
     status_strings << upload_contacts
+    status_strings << upload_communications
 
     status_strings.each { |s| puts s}
 
@@ -31,6 +32,11 @@ namespace :heal_ophi do
   desc "upload OPHI contacts"
   task upload_contacts: :environment do
     upload_contacts
+  end
+
+  desc "upload OPHI communications"
+  task upload_communications: :environment do
+    upload_communications
   end
 
   def set_up_db
@@ -107,6 +113,47 @@ namespace :heal_ophi do
       pt.database_instance = dbi_ophi
       order_in_list += 1
       pt.save
+    end
+
+    dbi_ophi.communication_types.delete_all
+
+    communication_types = []
+    communication_types << "Webinar"
+    communication_types << "Attended public hearing"
+    communication_types << "Distributed Resources"
+    communication_types << "Site Visit"
+    communication_types << "In-person Meeting"
+    communication_types << "E-mail Exchange"
+    communication_types << "Telephone Call"
+    communication_types << "General Presentation"
+
+    order_in_list = 1
+    communication_types.each do |pt_name|
+      ct = Heal::CommunicationType.new
+      ct.name = pt_name
+      ct.order_in_list = order_in_list
+      ct.database_instance = dbi_ophi
+      order_in_list += 1
+      ct.save
+    end
+
+    dbi_ophi.interest_levels.delete_all
+
+    interest_levels = []
+    interest_levels << "Unknown"
+    interest_levels << "Hot"
+    interest_levels << "Warm"
+    interest_levels << "Cool"
+    interest_levels << "Cold"
+
+    order_in_list = 1
+    interest_levels.each do |it_name|
+      it = Heal::InterestLevel.new
+      it.name = it_name
+      it.order_in_list = order_in_list
+      it.database_instance = dbi_ophi
+      order_in_list += 1
+      it.save
     end
 
     status_string = "database set up successfully."

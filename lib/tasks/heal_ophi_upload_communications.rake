@@ -1,6 +1,6 @@
-namespace :heal_ophi_contacts do
+namespace :heal_ophi_communications do
 
-  def upload_contacts
+  def upload_communications
     dbi_ophi = Heal::DatabaseInstance.find_by(instance_name: OPHI_DATABASE_INSTANCE_NAME)
 
     dbi_ophi.communications.delete_all
@@ -3620,37 +3620,40 @@ END_TEXT
       saved_communication.database_instance = dbi_ophi
 
       date_number = communication[:date]
-      saved_communication.date = cda.date = DateTime.new(1899,12,30) + date_number.to_i.days if date_number.present?
+      saved_communication.date = DateTime.new(1899,12,30) + date_number.to_i.days if date_number.present?
 
-      saved_communication.duration = communication[:duration]
+      saved_communication.duration_minutes = communication[:duration]
       ct = dbi_ophi.communication_types.find_by(name: communication[:contact_type])
       if ct.nil?
         com_added_errors += 1
-        error_messages << "Contact type #{communication[:contact_type]} was not found."
+        error_messages << "Communication type #{communication[:contact_type]} was not found."
         break
       else
         saved_communication.communication_type = ct
       end
 
       if communication[:contacts].present?
-        contact_array = communication[:cities].split(",")
+        contact_array = communication[:contacts].split(",")
         contact_array.each do |contact|
-          contact_parts_array = contact.split(" at ")
-          contact_name = contact_parts_array[0].strip
-          contact_organization_name = contact_parts_array[1].strip
-          matches = dbi_ophi.contacts.where("first_name + ' ' + last_name = ? AND organization_name = ?", contact_name, contact_organization_name)
-          if matches.count > 1
-            com_contacts_added_errors += 1
-            error_messages << "Error: more than one city matches #{city_name}, #{state_name}."
-            break
-          elsif matches.count == 0
-            com_contacts_added_errors += 1
-            error_messages << "Error: no city matches #{city_name}, #{state_name}."
-            break
-          else
-            saved_contact = matches.first
-            saved_communication.contacts << saved_contact #associate this city with this contact.
-            com_contacts_added += 1
+          contact_string = contact.strip
+          if contact_string != ""
+            contact_parts_array = contact.split(" at ")
+            contact_name = contact_parts_array[0].nil? ? "" : contact_parts_array[0].strip
+            contact_organization_name = contact_parts_array[1].nil? ? "" : contact_parts_array[1].strip
+            matches = dbi_ophi.contacts.where("first_name || ' ' || last_name = ? AND organization_name = ?", contact_name, contact_organization_name)
+            if matches.count > 1
+              com_contacts_added_errors += 1
+              error_messages << "Error: more than one contact matches #{contact_name} at #{contact_organization_name}."
+              break
+            elsif matches.count == 0
+              com_contacts_added_errors += 1
+              error_messages << "Error: no contact matches #{contact_name} at #{contact_organization_name}."
+              break
+            else
+              saved_contact = matches.first
+              saved_communication.contacts << saved_contact #associate this city with this contact.
+              com_contacts_added += 1
+            end
           end
         end
       end
@@ -3683,6 +3686,15 @@ END_TEXT
         saved_communication.notes = render_to_ascii(communication[:organization_type])
       elsif communication[:notes].present?
         saved_communication.notes = render_to_ascii(communication[:notes])
+      end
+
+      default_interest_level = "Unknown"
+      il = dbi_ophi.interest_levels.find_by(name: default_interest_level)
+      if il.nil?
+        com_added_errors += 1
+        error_messages << "Interest level  #{default_interest_level} was not found."
+      else
+        saved_communication.interest_level = il
       end
 
       if saved_communication.save
