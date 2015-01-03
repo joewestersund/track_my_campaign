@@ -1,114 +1,117 @@
-<h1>View Contact</h1>
+<br />
+<h1><%= "#{@contact.first_name} #{@contact.last_name}" %></h1>
 
-<p>
-  <strong>Honorific:</strong>
-  <%= @contact.honorific.name if @contact.honorific.present? %>
-</p>
+<div class="show_contacts">
+  <p>
+    <span class="field_name">Honorific:</span>
+    <%= @contact.honorific.name if @contact.honorific.present? %>
+  </p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @contact.first_name %>
-</p>
+  <p>
+    <span class="field_name">First name:</span>
+    <%= @contact.first_name %>
+  </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @contact.last_name %>
-</p>
+  <p>
+    <span class="field_name">Last name:</span>
+    <%= @contact.last_name %>
+  </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @contact.title %>
-</p>
+  <p>
+    <span class="field_name">Title:</span>
+    <%= @contact.title %>
+  </p>
 
-<p>
-  <strong>Position type:</strong>
-  <%= @contact.position_type.name if @contact.position_type.present?%>
-</p>
+  <p>
+    <span class="field_name">Position type:</span>
+    <%= @contact.position_type.name if @contact.position_type.present?%>
+  </p>
 
-<p>
-  <strong>Cities:</strong>
-  <%= show_cities_list(@contact.cities, {show_state: true, show_all:true}) %>
-</p>
+  <p>
+    <span class="field_name">Cities:</span>
+    <%= show_cities_list(@contact.cities, {show_state: true, show_all:true}) %>
+  </p>
 
-<p>
-  <strong>Organization name:</strong>
-  <%= @contact.organization_name %>
-</p>
+  <p>
+    <span class="field_name">Organization name:</span>
+    <%= @contact.organization_name %>
+  </p>
 
-<p>
-  <strong>Organization type:</strong>
-  <%= @contact.organization_type.name if @contact.organization_type.present?%>
-</p>
+  <p>
+    <span class="field_name">Organization type:</span>
+    <%= @contact.organization_type.name if @contact.organization_type.present?%>
+  </p>
 
-<p>
-  <strong>Office Phone Number:</strong>
-  <%= @contact.office_phone_number %>
-</p>
+  <p>
+    <span class="field_name">Office Phone Number:</span>
+    <%= @contact.office_phone_number %>
+  </p>
 
-<p>
-  <strong>Cell Phone Number:</strong>
-  <%= @contact.cell_phone_number %>
-</p>
+  <p>
+    <span class="field_name">Cell Phone Number:</span>
+    <%= @contact.cell_phone_number %>
+  </p>
 
-<p>
-  <strong>Fax:</strong>
-  <%= @contact.fax %>
-</p>
+  <p>
+    <span class="field_name">Fax:</span>
+    <%= @contact.fax %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= mail_to @contact.email_address_with_name, @contact.email if @contact.email.present? %>
-</p>
+  <p>
+    <span class="field_name">Email:</span>
+    <%= mail_to @contact.email_address_with_name, @contact.email if @contact.email.present? %>
+  </p>
 
-<p>
-  <strong>Address line 1:</strong>
-  <%= @contact.address_line_1 %>
-</p>
+  <p>
+    <span class="field_name">Address line 1:</span>
+    <%= @contact.address_line_1 %>
+  </p>
 
-<p>
-  <strong>Address line 2:</strong>
-  <%= @contact.address_line_2 %>
-</p>
+  <p>
+    <span class="field_name">Address line 2:</span>
+    <%= @contact.address_line_2 %>
+  </p>
 
-<p>
-  <strong>Address city:</strong>
-  <%= @contact.address_city %>
-</p>
+  <p>
+    <span class="field_name">Address city:</span>
+    <%= @contact.address_city %>
+  </p>
 
-<p>
-  <strong>Address state:</strong>
-  <%= @contact.address_state %>
-</p>
+  <p>
+    <span class="field_name">Address state:</span>
+    <%= @contact.address_state %>
+  </p>
 
-<p>
-  <strong>Address zip:</strong>
-  <%= @contact.address_zip %>
-</p>
+  <p>
+    <span class="field_name">Address zip:</span>
+    <%= @contact.address_zip %>
+  </p>
 
-<p>
-  <strong>Interest level:</strong>
-  <%= @contact.interest_level.name if @contact.interest_level.present? %>
-</p>
+  <p>
+    <span class="field_name">Interest level:</span>
+    <%= @contact.interest_level.name if @contact.interest_level.present? %>
+  </p>
 
-<p>
-  <strong>Heal champion:</strong>
-  <%= show_boolean(@contact.heal_champion) %>
-</p>
+  <p>
+    <span class="field_name">Heal champion:</span>
+    <%= show_boolean(@contact.heal_champion) %>
+  </p>
 
-<p>
-  <strong>Heal champion notes:</strong>
-  <%= @contact.heal_champion_notes %>
-</p>
+  <p>
+    <span class="field_name">Heal champion notes:</span>
+    <%= @contact.heal_champion_notes %>
+  </p>
 
-<p>
-  <strong>Website:</strong>
-  <%= link_to @contact.website, @contact.website_with_prefix if @contact.website.present?%>
-</p>
+  <p>
+    <span class="field_name">Website:</span>
+    <%= link_to @contact.website, @contact.website_with_prefix if @contact.website.present?%>
+  </p>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @contact.notes %>
-</p>
+  <p>
+    <span class="field_name">Notes:</span>
+    <%= @contact.notes %>
+  </p>
+</div>
 
 <% if has_write_permissions? %>
   <%= link_to 'Edit', edit_heal_contact_path(@contact) %> |

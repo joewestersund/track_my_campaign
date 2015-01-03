@@ -98,13 +98,13 @@
           <td><%= communication.duration_minutes %></td>
           <td><%= communication.communication_type.name %></td>
           <td><%= communication.event_name %></td>
-          <td><%= show_comma_separated_list(communication.topics.all, "topics") %></td>
+          <td><%= show_comma_separated_list(communication.topics.all, "topics", {show_all: true}) %></td>
           <td><%= communication.interest_level.name %></td>
           <td><%= show_contacts_list(communication.contacts.all) %></td>
           <td><%= communication.others_involved %></td>
           <td><%= show_cities_list(communication.cities.all, {show_state: true}) %></td>
           <td><%= show_users_list(communication.staff_involved.all) %></td>
-          <td><%= communication.notes %></td>
+          <td><%= replace_newline_with_breaks(communication.notes) %></td>
           <% if has_write_permissions? %>
             <td><%= link_to 'Edit', edit_heal_communication_path(communication) %></td>
             <td><%= link_to 'Delete', communication, method: :delete, data: { confirm: 'Are you sure?' } %></td>

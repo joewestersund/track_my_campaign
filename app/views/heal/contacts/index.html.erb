@@ -87,7 +87,6 @@
         <th>Email</th>
         <th>Interest Level</th>
         <th>Heal Champion</th>
-        <th></th>
         <% if has_write_permissions? %>
           <th></th>
           <th></th>
@@ -98,7 +97,7 @@
     <tbody>
       <% @contacts.each do |contact| %>
         <tr>
-          <td><%= contact.first_name %></td>
+          <td><%= link_to contact.first_name, contact %></td>
           <td><%= contact.last_name %></td>
           <td><%= contact.title %></td>
           <td><%= contact.position_type.name if contact.position_type.present?%></td>
@@ -109,7 +108,6 @@
           <td><%= mail_to contact.email_address_with_name, contact.email if contact.email.present? %></td>
           <td><%= contact.interest_level.name if contact.interest_level.present? %></td>
           <td><%= show_boolean(contact.heal_champion) %></td>
-          <td><%= link_to 'Show', contact %></td>
           <% if has_write_permissions? %>
             <td><%= link_to 'Edit', edit_heal_contact_path(contact) %></td>
             <td><%= link_to 'Delete', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>

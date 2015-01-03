@@ -414,7 +414,7 @@ Beth reviewed the process for submitting new policies in order for a
 HEAL City to receive the FIT or FABULOUS designation. &nbsp;HEAL Cities
 is a policy promotion campaign, and only considers existing policies
 when determining if a city enters the Campaign with a EAGER or ACTIVE
-designation. &nbsp;<div>
+designation.<div>
   <br /></div>
 <div>Cities may apply for Small Grants to implement an existing policy,
   although applications tied to a new policy may be viewed as stronger.</div>
@@ -3691,13 +3691,24 @@ END_TEXT
           end
         end
       end
-      
-      if communication[:organization_type].present? && communication[:notes].present?
-        saved_communication.notes = "Organization type:\n#{ render_to_ascii(communication[:organization_type]) }\n\nNotes:\n#{ render_to_ascii(communication[:notes]) }"
+
+      if communication[:notes].present?
+        notes_html = communication[:notes]
+        notes_html = notes_html.lines.map {|l| l.strip}.join("\n") #strip extra whitespace out of each line
+        notes_html.gsub!(/\n/," ") #replace newlines with a space
+        notes_text = render_to_ascii(notes_html) #strip the html, if any
+
+        notes_text = notes_text.lines.map {|l| l.strip}.join("\n") #strip extra whitespace out of each line
+        notes_text.gsub!(/\n+/,"\n\n") #replace multiple newlines with two newlines
+      end
+
+
+      if communication[:organization_type].present? && notes_text.present?
+        saved_communication.notes = "Organization type:\n#{ render_to_ascii(communication[:organization_type]) }\n\nNotes:\n#{ notes_text }"
       elsif communication[:organization_type].present?
         saved_communication.notes = render_to_ascii(communication[:organization_type])
       elsif communication[:notes].present?
-        saved_communication.notes = render_to_ascii(communication[:notes])
+        saved_communication.notes = notes_text
       end
 
       default_interest_level = "Unknown"

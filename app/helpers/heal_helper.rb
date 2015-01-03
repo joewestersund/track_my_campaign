@@ -26,7 +26,7 @@ module HealHelper
   def show_city_designation_achievement(cda)
     if cda.present?
       if cda.date.present?
-        return link_to "#{cda.city_designation.name} #{cda.date.year}", edit_heal_city_designation_achievement_path(cda), title: cda.notes
+        return link_to "#{cda.city_designation.name} #{cda.date.year}", edit_heal_city_designation_achievement_path(cda), title: "#{cda.date}\n#{cda.notes}"
       else
         return link_to "#{cda.city_designation.name}", edit_heal_city_designation_achievement_path(cda), title: cda.notes
       end
@@ -141,4 +141,7 @@ module HealHelper
     field_names << {name: "notes", data_type: "text" }
   end
 
+  def replace_newline_with_breaks(text)
+    raw(text.gsub("\n","<br>"))
+  end
 end

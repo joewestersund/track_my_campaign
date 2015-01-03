@@ -1,59 +1,63 @@
-<h1>View Communication</h1>
+<br />
+<h1><%="#{@communication.communication_type.name} on #{@communication.date}"%></h1>
 
-<p>
-  <strong>Contacts:</strong>
-  <%= show_contacts_list(@communication.contacts, {show_all: true}) %>
-</p>
+<div class="show_communications">
+  <p>
+    <span class="field_name">Contacts:</span>
+    <%= show_contacts_list(@communication.contacts, {show_all: true}) %>
+  </p>
 
-<p>
-  <strong>Others Involved:</strong>
-  <%= @communication.others_involved %>
-</p>
+  <p>
+    <span class="field_name">Others Involved:</span>
+    <%= @communication.others_involved %>
+  </p>
 
-<p>
-  <strong>Cities:</strong>
-  <%= show_cities_list(@communication.cities,{show_state: true, show_jurisdiction_type: true, show_all: true}) %>
-</p>
+  <p>
+    <span class="field_name">Cities:</span>
+    <%= show_cities_list(@communication.cities,{show_state: true, show_jurisdiction_type: true, show_all: true}) %>
+  </p>
 
-<p>
-  <strong>Event name:</strong>
-  <%= @communication.event_name %>
-</p>
+  <p>
+    <span class="field_name">Event name:</span>
+    <%= @communication.event_name %>
+  </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @communication.date %>
-</p>
+  <p>
+    <span class="field_name">Date:</span>
+    <%= @communication.date %>
+  </p>
 
-<p>
-  <strong>Duration (minutes):</strong>
-  <%= @communication.duration_minutes %>
-</p>
+  <p>
+    <span class="field_name">Duration (minutes):</span>
+    <%= @communication.duration_minutes %>
+  </p>
 
-<p>
-  <strong>Communication type:</strong>
-  <%= @communication.communication_type.name %>
-</p>
+  <p>
+    <span class="field_name">Communication type:</span>
+    <%= @communication.communication_type.name %>
+  </p>
 
-<p>
-  <strong>Topics:</strong>
-  <%= show_comma_separated_list(@communication.topics,"topics",{show_all: true}) %>
-</p>
+  <p>
+    <span class="field_name">Topics:</span>
+    <%= show_comma_separated_list(@communication.topics,"topics",{show_all: true}) %>
+  </p>
 
-<p>
-  <strong>Interest level:</strong>
-  <%= @communication.interest_level.name %>
-</p>
+  <p>
+    <span class="field_name">Interest level:</span>
+    <%= @communication.interest_level.name %>
+  </p>
 
-<p>
-  <strong>Staff Involved:</strong>
-  <%= show_users_list(@communication.staff_involved,{show_all: true}) %>
-</p>
+  <p>
+    <span class="field_name">Staff Involved:</span>
+    <%= show_users_list(@communication.staff_involved,{show_all: true}) %>
+  </p>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @communication.notes %>
-</p>
+  <p>
+    <span class="field_name">Notes:</span>
+    <br />
+    <%= replace_newline_with_breaks(@communication.notes) %>
+  </p>
+</div>
 
 <% if has_write_permissions? %>
   <%= link_to 'Edit', edit_heal_communication_path(@communication) %> |

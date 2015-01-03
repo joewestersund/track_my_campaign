@@ -112,7 +112,7 @@
     <tbody>
       <% @cities.each do |city| %>
         <tr>
-          <td><%= city.name %></td>
+          <td><%= link_to city.name, city %></td>
           <td><%= city.state %></td>
           <td><%= city.county %></td>
           <td><%= city.jurisdiction_type.name if city.jurisdiction_type.present?%></td>
