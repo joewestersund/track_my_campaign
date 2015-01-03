@@ -7,7 +7,7 @@ namespace :heal_ophi_communications do
 
     communications = []
 
-    communications << { date: '41864', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Paula Rose at City of Hillsboro, , Lori Mason at City of Hillsboro, ", cities: "Hillsboro, OR", staff: "Beth Kaye", topics: "Other, Site visit", notes: <<END_TEXT
+    communications << { date: '41864', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Paula Rose at City of Hillsboro, Lori Mason at City of Hillsboro", cities: "Hillsboro, OR", staff: "Beth Kaye", topics: "Other, Site visit", notes: <<END_TEXT
 Sent e-mail to follow up on initial meeting.<div>
   <br /></div>
 <div>
@@ -43,7 +43,7 @@ Sent e-mail to follow up on initial meeting.<div>
     the context for any policy work. &nbsp;</div></div>
 END_TEXT
 }
-    communications << { date: '41863', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Paula Rose at City of Hillsboro, , Lori Mason at City of Hillsboro, ", cities: "Hillsboro, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other, Hunger and Obesity, Parks & Rec", notes: <<END_TEXT
+    communications << { date: '41863', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Paula Rose at City of Hillsboro, Lori Mason at City of Hillsboro", cities: "Hillsboro, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other, Hunger and Obesity, Parks & Rec", notes: <<END_TEXT
 <div
   style=""color: rgb(34,34,34);font-family: arial , sans-serif;background-color: rgb(255,255,255);"">Met
   at Aquatics Center. &nbsp;Paula and Lori had prepared for meeting by
@@ -92,7 +92,7 @@ END_TEXT
   <br /></div>
 END_TEXT
 }
-    communications << { date: '41949', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'County Health Department', contacts: "Rebecca Stavenjord at Multnomah County HD, ", cities: "Gresham, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41949', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'County Health Department', contacts: "Rebecca Stavenjord at Multnomah County HD", cities: "Gresham, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments", notes: <<END_TEXT
 Beth attended meeting re Rockwood application to become a Federal
 Promise Zone. &nbsp;<div>Discussion reolved around infrstructureL
   &nbsp;housing, transportation, parks, sidewalks for connectivity</div>
@@ -115,7 +115,7 @@ Promise Zone. &nbsp;<div>Discussion reolved around infrstructureL
   <br /></div>
 END_TEXT
 }
-    communications << { date: '41974', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Kayla Warner at Clatsop County HD, Dec 09 2014", cities: "Astoria, OR, Seaside, OR, Warrenton, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Other, Coordination with County Health Departments, Evaluation", notes: <<END_TEXT
+    communications << { date: '41974', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Kayla Warner at Clatsop County HD", cities: "Astoria, OR, Seaside, OR, Warrenton, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Other, Coordination with County Health Departments, Evaluation", notes: <<END_TEXT
 Warrenton is interested in joining HEAL Cities<div>Kayla met with Debbie
   Morrow, who is on the school Board, &nbsp;very involved in Way to
   Wellville, and has close ties with the City Manager. &nbsp;Kayla
@@ -148,7 +148,7 @@ Warrenton is interested in joining HEAL Cities<div>Kayla met with Debbie
   <br /></div>
 END_TEXT
 }
-    communications << { date: '41946', duration: '90', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Steven  Blakesley at Clatsop County Public Health, ", cities: "Astoria, OR", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41946', duration: '90', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Steven  Blakesley at Clatsop County Public Health", cities: "Astoria, OR", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments", notes: <<END_TEXT
 Steven Blakesley is the Clatsop County HD point person for Way to
 Wellville, a 5 year program sponsored by financier Esther Dyson (with
 participation from RWJF , IBM, and other heavy hitters) where 5
@@ -258,7 +258,7 @@ prize. &nbsp;<div>
   <br /></div>
 END_TEXT
 }
-    communications << { date: '41943', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Rebecca Stavenjord at Multnomah County HD, , Jake Warr at TriMet, ", cities: "Gresham, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41943', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Rebecca Stavenjord at Multnomah County HD, Jake Warr at TriMet", cities: "Gresham, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments, Hunger and Obesity", notes: <<END_TEXT
 The Rockwood neighborhood of Gresham is one of only 3 in the NW eligible
 to qualify for federal Promise Zone designation because of more than 30%
 of the population lives in poverty and its population e &nbsp;I
@@ -279,7 +279,7 @@ used, over time, to improve conditions in Rockwood.&nbsp;<div>
   <div>Kari Lyons-Eubanks - Mult Co HD - housing &nbsp;(lyonsk@multco.us)</div></div>
 END_TEXT
 }
-    communications << { date: '41941', duration: '15', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Mia Cariaga at City of Eugene, ", cities: "Eugene, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41941', duration: '15', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Mia Cariaga at City of Eugene", cities: "Eugene, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Talked strategy for getting HEAL Resolution before the Eugene City
 Council. &nbsp; She will check with Mayor to see if a worksession is
 required. Council is currently scheduled into March 2015.
@@ -288,7 +288,7 @@ required. Council is currently scheduled into March 2015.
 <div>Suggested that Beth meet iwht John Ruiz, City Manager. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41936', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Jenny Holmes at , ", cities: "Gresham, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Coordination with County Health Departments, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41936', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Jenny Holmes at ", cities: "Gresham, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Coordination with County Health Departments, Hunger and Obesity", notes: <<END_TEXT
 Check-in in anticipation of Rockwood Promise Zone
   meetings.&nbsp;<div>EMO has been working with a NWHF HEALTHY
   BEGINNINGS grant since Jan 2014</div>
@@ -325,7 +325,7 @@ Check-in in anticipation of Rockwood Promise Zone
   planning meetings.&nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41919', duration: '120', contact_type: 'Site Visit',  organization_type: 'Participating City', contacts: "Kenny Asher at City of TIgard, ", cities: "Tigard, OR", staff: "Beth Kaye, Steve White", topics: "Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '41919', duration: '120', contact_type: 'Site Visit',  organization_type: 'Participating City', contacts: "Kenny Asher at City of TIgard", cities: "Tigard, OR", staff: "Beth Kaye, Steve White", topics: "Land Use & Transportation", notes: <<END_TEXT
 Attended Healthy Communities Lecture presented by CGM and Oregon APA,
 featuring Jim Sallis (&quot;obesity warrior&quot;).<div>Vision:
   everybody in Tigard enjoys healthy and inter-connectedlives.
@@ -338,7 +338,7 @@ featuring Jim Sallis (&quot;obesity warrior&quot;).<div>Vision:
 <div>Took tour of Tigard redevelopment along trail and into downtown. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41919', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Mike McCauley at League of Oregon Cities, , Katie McClure at Oregon Healthiest State, ", cities: "", staff: "Beth Kaye, Liz Baxter", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41919', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Mike McCauley at League of Oregon Cities, Katie McClure at Oregon Healthiest State", cities: "", staff: "Beth Kaye, Liz Baxter", topics: "Other", notes: <<END_TEXT
 High level discussion about relationship between LOC, HEAL Cities
 Campaign, and Oregon Healthiest State. &nbsp;<div>Mike&#39;s concern is
   that there are a &quot;multitude of entities that want to have their
@@ -368,7 +368,7 @@ Campaign, and Oregon Healthiest State. &nbsp;<div>Mike&#39;s concern is
     &nbsp;Range of items in the toolbox.</span></div>
 END_TEXT
 }
-    communications << { date: '41926', duration: '75', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Rudy Owens at City of Tigard, ", cities: "Tigard, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Workplace Wellness, Other", notes: <<END_TEXT
+    communications << { date: '41926', duration: '75', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Rudy Owens at City of Tigard", cities: "Tigard, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Workplace Wellness, Other", notes: <<END_TEXT
 Rudy was hired in Fall 2014 by Kenny Asher (Tigard&#39;s visionary CD
 manager) and Marty Wine (Tigard City Manager). &nbsp; They are trying to
 build a culture of wellness in the city. &nbsp;Specifically,&nbsp;<span
@@ -409,7 +409,7 @@ community support for the goal, and how to tell the story:<div>What are
     a HEAL City. &nbsp;&nbsp;</span></div>
 END_TEXT
 }
-    communications << { date: '41982', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'County Health Department', contacts: "Kayla Warner at Clatsop County HD, Dec 09 2014", cities: "Astoria, OR, Gearhart, OR, Seaside, OR, Warrenton, OR", staff: "Beth Kaye, Dawn Robbins", topics: "Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Small Grants for HEAL Cities, Parks & Rec", notes: <<END_TEXT
+    communications << { date: '41982', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'County Health Department', contacts: "Kayla Warner at Clatsop County HD", cities: "Astoria, OR, Gearhart, OR, Seaside, OR, Warrenton, OR", staff: "Beth Kaye, Dawn Robbins", topics: "Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Small Grants for HEAL Cities, Parks & Rec", notes: <<END_TEXT
 Beth reviewed the process for submitting new policies in order for a
 HEAL City to receive the FIT or FABULOUS designation. &nbsp;HEAL Cities
 is a policy promotion campaign, and only considers existing policies
@@ -444,14 +444,14 @@ designation. &nbsp;<div>
 <div>Dawn then talked with Kayla about school district wellness policies.</div>
 END_TEXT
 }
-    communications << { date: '41981', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Kayla Warner at Clatsop County HD, Dec 09 2014", cities: "Astoria, OR, Seaside, OR, Warrenton, OR", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41981', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Kayla Warner at Clatsop County HD", cities: "Astoria, OR, Seaside, OR, Warrenton, OR", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments", notes: <<END_TEXT
 Arranged to meet to discuss:<div>1. Warrenton joining HCC</div>
 <div>2. &nbsp;How to get retailers to display signage re availabliity of
   fruits and vegetables</div>
 <div>3. Process to earn Fit or Fabulous City designation</div>
 END_TEXT
 }
-    communications << { date: '41962', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Shawn Irvine at City of Independence, , John  Camacho at Farmworker Housing Development Corporation, ", cities: "Independence, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41962', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Shawn Irvine at City of Independence, John  Camacho at Farmworker Housing Development Corporation", cities: "Independence, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
 John Camacho is working on recruitment of students (with Resident
 Manager of housing complex at Colonia Amistad) and contacts with school.
 &nbsp; John had origfinally focused on recruiting high school kids, but
@@ -487,7 +487,7 @@ parents. &nbsp;Resident Manager is calling it a club. &nbsp;<div>
     <br /></div></div>
 END_TEXT
 }
-    communications << { date: '41961', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Petra Scheutz at City of Coburg, ", cities: "Coburg, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41961', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Petra Scheutz at City of Coburg", cities: "Coburg, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
 <span
   style=""color: rgb(31,73,125);font-family: Calibri , sans-serif;font-size: 15.0px;background-color: rgb(255,255,255);"">According
   to Petra, on 11/12, Coburg CIty Council &quot;decided to move forward
@@ -512,7 +512,7 @@ END_TEXT
       resolution, and photos for the website. &nbsp;</span></font></div>
 END_TEXT
 }
-    communications << { date: '41961', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Other', contacts: "John  Camacho at Farmworker Housing Development Corporation, ", cities: "Independence, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41961', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Other', contacts: "John  Camacho at Farmworker Housing Development Corporation", cities: "Independence, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
 John Camacho of the Farmworker Housing Development Corp got in touch to
 ask about an extension through June for the Mi Tierra small grant
 awarded to the City of Independence in Sept, 2014. &nbsp;I explained
@@ -538,13 +538,13 @@ report on the Small Grants due to KP on 3/31/15. &nbsp;<div>
         modifications to the proposal &nbsp;&nbsp;</span></div></div></div>
 END_TEXT
 }
-    communications << { date: '41933', duration: '15', contact_type: 'General Presentation',  organization_type: 'KP', contacts: "Tracy Wiedt at National League of Cities, ", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
+    communications << { date: '41933', duration: '15', contact_type: 'General Presentation',  organization_type: 'KP', contacts: "Tracy Wiedt at National League of Cities", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
 <b
   style=""color: rgb(102,102,102);font-family: &#39;Helvetica Neue&#39; , Helvetica , Arial , san-serif;font-size: 14.0px;line-height: 16.0px;background-color: rgb(245,245,245);"">2nd
   Annual HEAL Cities &amp; Towns Campaign Summit, presented by Kaiser Permanente</b>
 END_TEXT
 }
-    communications << { date: '41858', duration: '15', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Ric Ingham at City of Veneta, , Katie Babits at City of Veneta, Aug 07 2014", cities: "Veneta, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41858', duration: '15', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Ric Ingham at City of Veneta, Katie Babits at City of Veneta", cities: "Veneta, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Small Grants for HEAL Cities", notes: <<END_TEXT
 Two projects:<div>
   <br /></div>
 <div>Shared use at Veneta Elementary &nbsp;(would also mean that Veneta
@@ -559,14 +559,14 @@ Two projects:<div>
     rather than the HD</div></div>
 END_TEXT
 }
-    communications << { date: '41858', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Candy Cronberger at City of Gold Beach, ", cities: "Gold Beach, OR", staff: "Beth Kaye", topics: "Other, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41858', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Candy Cronberger at City of Gold Beach", cities: "Gold Beach, OR", staff: "Beth Kaye", topics: "Other, Small Grants for HEAL Cities", notes: <<END_TEXT
 Gold Beach did not make the 7/31/14 &nbsp;deadline for becoming a HEAL
 City in order to apply for a Small Grant. &nbsp;I explained to Candy why
 GB should join the Campaign now, and the possibility of future Small
 Grant RFPs if the project is refunded.&nbsp;
 END_TEXT
 }
-    communications << { date: '41858', duration: '20', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Katie Babits at City of Veneta, Aug 07 2014", cities: "Veneta, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41858', duration: '20', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Katie Babits at City of Veneta", cities: "Veneta, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Small Grants for HEAL Cities", notes: <<END_TEXT
 Council supported three proposals: &nbsp;shared use with a local school
   district,<span
   style=""color: rgb(31,73,125);font-family: arial , sans-serif;font-size: 14.4px;background-color: rgb(255,255,255);"">Ric
@@ -598,7 +598,7 @@ Council supported three proposals: &nbsp;shared use with a local school
     also passed along contact info for Constance Beaumont at TGM. &nbsp;</span></div>
 END_TEXT
 }
-    communications << { date: '41858', duration: '20', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Katie Babits at City of Veneta, Aug 07 2014", cities: "Veneta, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41858', duration: '20', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Katie Babits at City of Veneta", cities: "Veneta, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Small Grants for HEAL Cities", notes: <<END_TEXT
 Council supported three proposals: &nbsp;shared use with a local school
   district,<span
   style=""color: rgb(31,73,125);font-family: arial , sans-serif;font-size: 14.4px;background-color: rgb(255,255,255);"">Ric
@@ -630,30 +630,30 @@ Council supported three proposals: &nbsp;shared use with a local school
     also passed along contact info for Constance Beaumont at TGM. &nbsp;</span></div>
 END_TEXT
 }
-    communications << { date: '41305', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Site visit", notes: <<END_TEXT
+    communications << { date: '41305', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Site visit", notes: <<END_TEXT
 Discussed when Resolution could appear on the Council Agenda.
 END_TEXT
 }
-    communications << { date: '41316', duration: '30', contact_type: 'General Presentation',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41316', duration: '30', contact_type: 'General Presentation',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 Made presentation to Tualatin City Council re HEAL Cities Campaign.
 &nbsp;Tualatin passes resolution to join Campaign as an Active City
 END_TEXT
 }
-    communications << { date: '41591', duration: '90', contact_type: 'General Presentation',  organization_type: 'Participating City', contacts: "Dana P. Hlavac at City of Lebanon, , Paul Aziz at City of Lebanon, ", cities: "Lebanon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41591', duration: '90', contact_type: 'General Presentation',  organization_type: 'Participating City', contacts: "Dana P. Hlavac at City of Lebanon, Paul Aziz at City of Lebanon", cities: "Lebanon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 Presentation to Lebaonon City Council prior to adoption of HEAL Resolution
 END_TEXT
 }
-    communications << { date: '41555', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Deb Fell-Carlson at SAIF, ", cities: "Lebanon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41555', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Deb Fell-Carlson at SAIF", cities: "Lebanon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
 Excellent debrief and strategy session with Deb.&nbsp;<div>Very
   conservative political environment. &nbsp;Very relationship based.</div>
 END_TEXT
 }
-    communications << { date: '41555', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Dana P. Hlavac at City of Lebanon, , Paul Aziz at City of Lebanon, , Deb Fell-Carlson at SAIF, ", cities: "Lebanon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Other, Coordination with County Health Departments, Parks & Rec", notes: <<END_TEXT
+    communications << { date: '41555', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Dana P. Hlavac at City of Lebanon, Paul Aziz at City of Lebanon, Deb Fell-Carlson at SAIF", cities: "Lebanon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Other, Coordination with County Health Departments, Parks & Rec", notes: <<END_TEXT
 Initial meeting to discuss feasibility of Lebanon joining the HEAL
 Cities Campaign
 END_TEXT
 }
-    communications << { date: '41269', duration: '90', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41269', duration: '90', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Extended telephone conversation<div>
   <span style=""font-size: 10.0pt;"">distinguished HEAL and LMCTC</span></div>
 <div>
@@ -667,7 +667,7 @@ Extended telephone conversation<div>
     bullying, green things, NOT OBESITY</div></div>
 END_TEXT
 }
-    communications << { date: '41628', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, , Paul Hennon Hennon at City of Tualatin Community Services, , Sherilyn Lombos at City of Tualatin, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41628', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, Paul Hennon Hennon at City of Tualatin Community Services, Sherilyn Lombos at City of Tualatin", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments", notes: <<END_TEXT
 What is Washington County doing that the Mayor can leverage in Tualitin?
 &nbsp;In the Region?<div>
   <br /></div>
@@ -702,18 +702,18 @@ What is Washington County doing that the Mayor can leverage in Tualitin?
 <div>Beaverton and Tigard both have active youth advisory councils</div>
 END_TEXT
 }
-    communications << { date: '41159', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41159', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Initial meeting with Mayor Lou Ogden. &nbsp;Very involved with NLC and
 passionate about youth issues. &nbsp;Long time Mayor of Tualatin.
 &nbsp;Very positive start.
 END_TEXT
 }
-    communications << { date: '41284', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services, , Tracy Wiedt at National League of Cities, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41284', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services, Tracy Wiedt at National League of Cities", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Introduced Paul and Tracy. &nbsp;Tualatin interested in devoting a
 Counil session to health and would l ike LMCTC to participate. &nbsp;
 END_TEXT
 }
-    communications << { date: '41270', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Parks & Rec", notes: <<END_TEXT
+    communications << { date: '41270', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Parks & Rec", notes: <<END_TEXT
 Follow up e-mails re:<div>Introduction to Julie Ludeman to involve the
   Tualiatin Youth Advisory Council in recommending policy to Council</div>
 <div>
@@ -745,27 +745,27 @@ Follow up e-mails re:<div>Introduction to Julie Ludeman to involve the
     <br /></p></div>
 END_TEXT
 }
-    communications << { date: '41362', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41362', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Coordinating April 8 presentation on HEAL to Tualtin City Council
 END_TEXT
 }
-    communications << { date: '41417', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Julie Ludemann at City of Tualatin, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41417', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Julie Ludemann at City of Tualatin", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Hunger and Obesity", notes: <<END_TEXT
 Involve Tualatin Youth Advisory Committee in making recommendations to
 Council for policy change. &nbsp;<div>
   <br /></div>
 <div>Used worksheets and other materials I created for the purpose.</div>
 END_TEXT
 }
-    communications << { date: '41410', duration: '90', contact_type: 'General Presentation',  organization_type: 'Participating City', contacts: "Julie Ludemann at City of Tualatin, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity, Land Use & Transportation, Access to Healthy Food Options, Other, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41410', duration: '90', contact_type: 'General Presentation',  organization_type: 'Participating City', contacts: "Julie Ludemann at City of Tualatin", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity, Land Use & Transportation, Access to Healthy Food Options, Other, Hunger and Obesity", notes: <<END_TEXT
 Second session working with the Tualatin Youth Advisory Commmittee
 END_TEXT
 }
-    communications << { date: '41380', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41380', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Working on article for Local Focus featuring Tualatin's participation in
 HEAL Cities
 END_TEXT
 }
-    communications << { date: '41533', duration: '90', contact_type: 'General Presentation',  organization_type: 'Statewide Organization', contacts: "Patty Brescia at City of Wilsonville, , Justin Cutler at Sunset Empire Parks & Rec, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Parks & Rec", notes: <<END_TEXT
+    communications << { date: '41533', duration: '90', contact_type: 'General Presentation',  organization_type: 'Statewide Organization', contacts: "Patty Brescia at City of Wilsonville, Justin Cutler at Sunset Empire Parks & Rec", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Parks & Rec", notes: <<END_TEXT
 <span
   style=""color: rgb(34,34,34);font-family: arial , sans-serif;font-size: 12.8px;background-color: rgb(255,255,255);"">ORPA
   conference 2013</span>
@@ -827,7 +827,7 @@ END_TEXT
   <span style=""color: rgb(34,34,34);font-family: arial , sans-serif;font-size: 12.8px;background-color: rgb(255,255,255);"">lunch.&nbsp;</span></div>
 END_TEXT
 }
-    communications << { date: '41852', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Shanti Platt at , , Sam Sasaki at City of Gervais, ", cities: "Gervais, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Workplace Wellness", notes: <<END_TEXT
+    communications << { date: '41852', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Shanti Platt at , Sam Sasaki at City of Gervais", cities: "Gervais, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Workplace Wellness", notes: <<END_TEXT
 May issues:<div>Consolidating schools</div>
 <div>Huge diversity of students: Latino, Sudanese</div>
 <div>Some joint use with school: &nbsp;open Thursday nights for
@@ -848,7 +848,7 @@ May issues:<div>Consolidating schools</div>
   <br /></div>
 END_TEXT
 }
-    communications << { date: '74317', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '74317', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments, Hunger and Obesity", notes: <<END_TEXT
 Tamie: &quot;We don't have a commitment to children exercising on a
 regular basis.&quot;<div>
   <br /></div>
@@ -887,11 +887,11 @@ regular basis.&quot;<div>
     peple together, &nbsp;</div></div>
 END_TEXT
 }
-    communications << { date: '41401', duration: '90', contact_type: 'General Presentation',  organization_type: 'County Health Department', contacts: "Amy Houghtailing at City of Falls City, OR, , Misha Peel at Polk  County Health Department, ", cities: "Dallas, OR, Falls City, OR, Independence, OR, Monmouth, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options", notes: <<END_TEXT
+    communications << { date: '41401', duration: '90', contact_type: 'General Presentation',  organization_type: 'County Health Department', contacts: "Amy Houghtailing at City of Falls City, OR, Misha Peel at Polk  County Health Department", cities: "Dallas, OR, Falls City, OR, Independence, OR, Monmouth, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options", notes: <<END_TEXT
 
 END_TEXT
 }
-    communications << { date: '41505', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Samantha Nelson at City of Fairview, , Mike Weatherby at City of Fairview, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41505', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Samantha Nelson at City of Fairview, Mike Weatherby at City of Fairview", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Connected City with STEM organizing effort<div>
   <br /></div>
 <div>
@@ -928,27 +928,27 @@ Connected City with STEM organizing effort<div>
     were involved.</span></div>
 END_TEXT
 }
-    communications << { date: '41390', duration: '45', contact_type: 'Telephone Call',  organization_type: 'Federal agency', contacts: "Molly Reece, MPH at U.S. Department of Health & Human Services, , Tracy Wiedt at National League of Cities, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41390', duration: '45', contact_type: 'Telephone Call',  organization_type: 'Federal agency', contacts: "Molly Reece, MPH at U.S. Department of Health & Human Services, Tracy Wiedt at National League of Cities", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Talked about status of Tualatin on 5 LMCTC goals, and strategized about
 how to promote further policy change
 END_TEXT
 }
-    communications << { date: '41747', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41747', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Discussed slow pace of change.&nbsp;<div>
   <br /></div>
 <div>Strategiezed re moving policy in Fairview, and brining other cities
   in East Multnomah County on board.&nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41396', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lindsey Kuipers at City of Beaverton, , Amanda Garcia-Snell at Washington County DHHS, ", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41396', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lindsey Kuipers at City of Beaverton, Amanda Garcia-Snell at Washington County DHHS", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Coordination with County Health Departments", notes: <<END_TEXT
 Community Health Advisory Committee (CHAC) meeting
 END_TEXT
 }
-    communications << { date: '41386', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Other', contacts: "Theonie Gilmore at Wilsonville Arts & Culture Council, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other, Parks & Rec", notes: <<END_TEXT
+    communications << { date: '41386', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Other', contacts: "Theonie Gilmore at Wilsonville Arts & Culture Council", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other, Parks & Rec", notes: <<END_TEXT
 Wilsonville has no swimming pool or performing arts center. &nbsp;Needs both.&nbsp;
 END_TEXT
 }
-    communications << { date: '41383', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, , Lindsey Nesbit at City of Gresham, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Parks & Rec", notes: <<END_TEXT
+    communications << { date: '41383', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, Lindsey Nesbit at City of Gresham", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Parks & Rec", notes: <<END_TEXT
 Last Recreation Master Plan was in 2002<div>Nature in the Neighborhood
   $$ came from METRO in 2006 - Lindsey speculates that focus switched to
   NinN at that time</div>
@@ -972,30 +972,30 @@ Last Recreation Master Plan was in 2002<div>Nature in the Neighborhood
   for a fast food outlet, this would be considered positive economic development.&nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41396', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lindsey Kuipers at City of Beaverton, ", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41396', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lindsey Kuipers at City of Beaverton", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Joint meeting with Beaverton's VolunteerAdvisory Council to discuss Comp
 Plan process and public oureach/engagement challenges. &nbsp;
 END_TEXT
 }
-    communications << { date: '41381', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lindsey Kuipers at City of Beaverton, ", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '41381', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lindsey Kuipers at City of Beaverton", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
 first meeting of the Community Health Advisory Committee that will be
 guiding Staff work on the Health Element of the Beaverton Comprehensive
 Plan. &nbsp;Review of comp plan is on-going
 END_TEXT
 }
-    communications << { date: '41355', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, , Allan Berry at City of Fairview, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '41355', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, Allan Berry at City of Fairview", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
 Began review of policy menu to assess Fairview policy needs/gaps.<div>
   <br /></div>
 <div>Potential contacts: &nbsp; Mark Clark in Wood Village, and Glenn
   WHite in Troutdale.&nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41348', duration: '90', contact_type: 'General Presentation',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Mark C. Ottenad at City of Wilsonville, , Tim Knapp at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Welcome to HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41348', duration: '90', contact_type: 'General Presentation',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Mark C. Ottenad at City of Wilsonville, Tim Knapp at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Welcome to HEAL Cities", notes: <<END_TEXT
 Brief presentation to Wilsonville City Council. &nbsp;Mayor reads
 Proclamation. &nbsp;
 END_TEXT
 }
-    communications << { date: '41341', duration: '120', contact_type: 'Site Visit',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, , Allan Berry at City of Fairview, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Coordination with County Health Departments, Site visit, Parks & Rec", notes: <<END_TEXT
+    communications << { date: '41341', duration: '120', contact_type: 'Site Visit',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, Allan Berry at City of Fairview", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Coordination with County Health Departments, Site visit, Parks & Rec", notes: <<END_TEXT
 Tour of Salish Ponds Park<div>Woodland ELementary - no school garden at
   present; previous garden destroyed for lack of support - it had become
   an eyesore</div>
@@ -1022,7 +1022,7 @@ Tour of Salish Ponds Park<div>Woodland ELementary - no school garden at
   its own property owners association (Fairview Lake Prop. Owners Assn)</div>
 END_TEXT
 }
-    communications << { date: '41334', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, , Allan Berry at City of Fairview, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41334', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, Allan Berry at City of Fairview", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Discussed lack of connectivity, safety issue for cyclists and
 pedestirans, safety issues for students attending Reynolds High School.<div>
   <br /></div>
@@ -1052,23 +1052,23 @@ pedestirans, safety issues for students attending Reynolds High School.<div>
 <div>Tamie took me on a tour and we took photos.&nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41347', duration: '90', contact_type: 'General Presentation',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, , Mike Weatherby at City of Fairview, ", cities: "Fairview, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41347', duration: '90', contact_type: 'General Presentation',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, Mike Weatherby at City of Fairview", cities: "Fairview, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 Made brief presentation with Tamie Arnold on HEAL Cities Campaign to try
 to get regional participation
 END_TEXT
 }
-    communications << { date: '41407', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Mike Weatherby at City of Fairview, ", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Other", notes: <<END_TEXT
+    communications << { date: '41407', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Mike Weatherby at City of Fairview", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Other", notes: <<END_TEXT
 Warm conversation. &nbsp;Offered to convene East County cities to talk
 about HEAL Cities.
 END_TEXT
 }
-    communications << { date: '41382', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Mike Weatherby at City of Fairview, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41382', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Mike Weatherby at City of Fairview", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 Attended Mayor Weatherby's Business Roundtable. &nbsp;Joanne Valencia ,
 Senior Transportation Planner for Multnomah County, spoke about MultCo
 transportation projects
 END_TEXT
 }
-    communications << { date: '41621', duration: '90', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, , Allan Berry at City of Fairview, , Samantha Nelson at City of Fairview, ", cities: "Fairview, OR", staff: "Beth Kaye, Amy Gilroy", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41621', duration: '90', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, Allan Berry at City of Fairview, Samantha Nelson at City of Fairview", cities: "Fairview, OR", staff: "Beth Kaye, Amy Gilroy", topics: "Other", notes: <<END_TEXT
 Gave Fairview the opportunity to receive assistance from a PSU MURP
 class &nbsp;on Healthy Food Access. Opportunity was furnished by Bob
 Wise at Cogen Owens Cogen. &nbsp; Samantha Nelson declined because City
@@ -1076,11 +1076,11 @@ does not have capacity or budget to supervise MURPS. &nbsp;Try again
 next year
 END_TEXT
 }
-    communications << { date: '41851', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, , Allan Berry at City of Fairview, , Samantha Nelson at City of Fairview, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options", notes: <<END_TEXT
+    communications << { date: '41851', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, Allan Berry at City of Fairview, Samantha Nelson at City of Fairview", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options", notes: <<END_TEXT
 Following up to see if Fairview adopted a Community Gardens &nbsp;policy?
 END_TEXT
 }
-    communications << { date: '41792', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41792', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
 Fairview wants to move towards becoming a FIT City<div>Also wants to do
   some regional work<br />
   <div>
@@ -1103,33 +1103,33 @@ Fairview wants to move towards becoming a FIT City<div>Also wants to do
     schools engaged in this conversation as well as METRO.&nbsp;</span></div>
 END_TEXT
 }
-    communications << { date: '41810', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, , Allan Berry at City of Fairview, , Samantha Nelson at City of Fairview, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Hunger and Obesity, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41810', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, Allan Berry at City of Fairview, Samantha Nelson at City of Fairview", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Hunger and Obesity, Small Grants for HEAL Cities", notes: <<END_TEXT
 Discussed various policy initiatives Fairview is considering, and
 reviewed potential projects for Small Grants for HEAL Cities application
 END_TEXT
 }
-    communications << { date: '41816', duration: '90', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Allan Berry at City of Fairview, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41816', duration: '90', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Allan Berry at City of Fairview", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Small Grants for HEAL Cities", notes: <<END_TEXT
 TA on ordinance establishing community garden intiative
 END_TEXT
 }
-    communications << { date: '41827', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Heidi Blaine at City of Donald, Oct 23 2013", cities: "Donald, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41827', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Heidi Blaine at City of Donald", cities: "Donald, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Small Grants for HEAL Cities", notes: <<END_TEXT
 Had good chance to talk with Heidi at OCCMA. &nbsp;Person from Aurora
 wants to organize Farm Stand. &nbsp;Heidi had concerns. &nbsp;Talked
 about CSA. &nbsp;
 END_TEXT
 }
-    communications << { date: '41826', duration: '45', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Eileen Stein at City of Mount Angel, ", cities: "Mount Angel, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Hunger and Obesity, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41826', duration: '45', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Eileen Stein at City of Mount Angel", cities: "Mount Angel, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Hunger and Obesity, Small Grants for HEAL Cities", notes: <<END_TEXT
 Eileen was very receptive to info about HEAL Cities. &nbsp;City of Mount
 Angel wants to be Oktoberfest year round. &nbsp; Discussed follow up and
 site visit later in 2014. &nbsp;
 END_TEXT
 }
-    communications << { date: '41737', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Shanti Platt at , , Kathy Figley at City of Woodburn, ", cities: "Woodburn, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41737', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Shanti Platt at , Kathy Figley at City of Woodburn", cities: "Woodburn, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 Following up on introduction from Shanti Pladd (Mayor of Gervais),
 intriduced Campaign to Mayor FIgley and offered meeting. &nbsp;
 END_TEXT
 }
-    communications << { date: '41213', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis, ", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41213', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Julie asked for update; alerted Campaign that&nbsp;<span
   style=""color: rgb(34,34,34);font-family: arial , sans-serif;font-size: 12.8px;background-color: rgb(255,255,255);"">&nbsp;new
   City Council would be seated n January and that group will go through
@@ -1142,7 +1142,7 @@ Julie asked for update; alerted Campaign that&nbsp;<span
     <br /></span></div>
 END_TEXT
 }
-    communications << { date: '369948', duration: '120', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, , Kyle Awesome at City of Banks, , Wes Hare at City of Albany, , Julie Manning at City of Corvallis, , Kitty Piercy at , , Ralph Grutzmacher at , , Larry Davis at , , Jim Fairchild at , , Shanti Platt at , , Virginia Carnes at , , Jacque Betz at , , John Oberst at City of Monmouth, , Crystal  Shoji at City of Coos Bay, ", cities: "Banks, OR, Beaverton, OR, Corvallis, OR, Dallas, OR, Gervais, OR, Monmouth, OR, Pilot Rock, OR, Toledo, OR, Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '369948', duration: '120', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, Kyle Awesome at City of Banks, Wes Hare at City of Albany, Julie Manning at City of Corvallis, Kitty Piercy at , Ralph Grutzmacher at , Larry Davis at , Jim Fairchild at , Shanti Platt at , Virginia Carnes at , Jacque Betz at , John Oberst at City of Monmouth, Crystal  Shoji at City of Coos Bay", cities: "Banks, OR, Beaverton, OR, Corvallis, OR, Dallas, OR, Gervais, OR, Monmouth, OR, Pilot Rock, OR, Toledo, OR, Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
 Colloquy among Advisory Committee &nbsp;members and HEAL Staff about
 &nbsp;how to recruit cities for the Campaign. &nbsp;Kitty Piercy backs
 written invitation from LOC on LOC lettterhead. &nbsp; Lou &nbsp;Ogden
@@ -1153,7 +1153,7 @@ appearances, articles in Local Focus, etc. &nbsp;<div>
 <div>Lou suggest joint letter from several AC members. &nbsp;. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41326', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis, ", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41326', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 1) enclosed 11/12/12 letter explaining of how Advisory Committee
 feedback was incorporated into HEAL policies and other documents
 &nbsp;(for some reason, it had not reached her) &nbsp;Apologized for
@@ -1166,19 +1166,19 @@ communication glitch<div>
   come in as an ACTIVE city</div>
 END_TEXT
 }
-    communications << { date: '41337', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis, , Anna M. Peterson at City of Salem, ", cities: "Corvallis, OR, Salem, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41337', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis, Anna M. Peterson at City of Salem", cities: "Corvallis, OR, Salem, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
 In response to Mayor Manning's request, Mayor Peterson agrees to put me
 /HEAL Cities on agenda for Oregon Mayor's Conference 2013
 END_TEXT
 }
-    communications << { date: '41337', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis, , Anna M. Peterson at City of Salem, ", cities: "Corvallis, OR, Salem, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Other, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41337', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis, Anna M. Peterson at City of Salem", cities: "Corvallis, OR, Salem, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Other, Hunger and Obesity", notes: <<END_TEXT
 At my request, Julie Manning (host of the 2013 Oregon Maypr's
 Conference) introduces me to Mayor Anna Peterson of Salem, with info
 about the HEAL Cities Campaign and a suggestion that I be invited to
 participate int he food-related sessions. &nbsp;
 END_TEXT
 }
-    communications << { date: '41337', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis, ", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41337', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Julie tells me that she will be bringing the HEAL resolution to the
   City's&nbsp;<span
   style=""color: rgb(34,34,34);font-family: arial , sans-serif;font-size: 12.8px;background-color: rgb(255,255,255);"">March
@@ -1187,16 +1187,16 @@ Julie tells me that she will be bringing the HEAL resolution to the
   and Policy Menu will suffice. &nbsp;</span>
 END_TEXT
 }
-    communications << { date: '41670', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis, ", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "General Information About Obesity, Other", notes: <<END_TEXT
+    communications << { date: '41670', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "General Information About Obesity, Other", notes: <<END_TEXT
 Invited Julie to be on my panel at the Childhood Obesity Summit.&nbsp;
 END_TEXT
 }
-    communications << { date: '41675', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Dan Field at Kaiser Permanente NW, , Julie Manning at City of Corvallis, , Anna M. Peterson at City of Salem, ", cities: "Corvallis, OR, Salem, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options", notes: <<END_TEXT
+    communications << { date: '41675', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Dan Field at Kaiser Permanente NW, Julie Manning at City of Corvallis, Anna M. Peterson at City of Salem", cities: "Corvallis, OR, Salem, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options", notes: <<END_TEXT
 Dan suggested Molly Haynes as a speaker on healthy food at LOC Mayor's
 Conference in Summer 2014
 END_TEXT
 }
-    communications << { date: '41366', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, , Sherilyn Lombos at City of Tualatin, , Tamera Tlustos-Arnold at KP, , Jim Fairchild at , , Shanti Platt at , , Stu Rasmussen at City of Silverton, , Samantha Nelson at City of Fairview, , Jennifer Spurgeon at Weston City COuncil, Oct 17 2013, Ruth Mattox at City of Silverton, , Paul Aziz at City of Lebanon, , Scott Burge at City of Scappoose, , John McArdle at City of  Independence, , David Clyne at City of Independence, , Brian  Dalton at City of Dallas, ", cities: "Cornelius, OR, Dallas, OR, Donald, OR, Fairview, OR, Gervais, OR, Independence, OR, Lebanon, OR, Scappoose, OR, Silverton, OR, Tualatin, OR, Weston, OR, Wilsonville, OR", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41366', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, Sherilyn Lombos at City of Tualatin, Tamera Tlustos-Arnold at KP, Jim Fairchild at , Shanti Platt at , Stu Rasmussen at City of Silverton, Samantha Nelson at City of Fairview, Jennifer Spurgeon at Weston City COuncil, Ruth Mattox at City of Silverton, Paul Aziz at City of Lebanon, Scott Burge at City of Scappoose, John McArdle at City of  Independence, David Clyne at City of Independence, Brian  Dalton at City of Dallas", cities: "Cornelius, OR, Dallas, OR, Donald, OR, Fairview, OR, Gervais, OR, Independence, OR, Lebanon, OR, Scappoose, OR, Silverton, OR, Tualatin, OR, Weston, OR, Wilsonville, OR", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments", notes: <<END_TEXT
 <div>Asked for elected officials to consider writing   an Op Ed or
   Letter to the Editor re HEAL Cities<div>     <div
       style=""color: rgb(34,34,34);font-family: arial , sans-serif;font-size: 12.8px;background-color: rgb(255,255,255);"">
@@ -1220,12 +1220,12 @@ END_TEXT
           celebrate and promote public health. &nbsp;&nbsp;</li></ul></div></div></div>
 END_TEXT
 }
-    communications << { date: '41673', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis, , Stephen DeGhetto at Corvallis Parks & Rec, ", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Parks & Rec", notes: <<END_TEXT
+    communications << { date: '41673', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis, Stephen DeGhetto at Corvallis Parks & Rec", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Parks & Rec", notes: <<END_TEXT
 Julie Manning backs out of panel for Samaritan Childhood Obesity
 conference; Steve DeGhetto will take her place
 END_TEXT
 }
-    communications << { date: '41674', duration: '120', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Stephen DeGhetto at Corvallis Parks & Rec, ", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Other, Parks & Rec", notes: <<END_TEXT
+    communications << { date: '41674', duration: '120', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Stephen DeGhetto at Corvallis Parks & Rec", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Other, Parks & Rec", notes: <<END_TEXT
 E-mail exchange and telephone calls. &nbsp;Steve sent the slides for his
 presentation at the Samaritan Childhood Obesity Conference. &nbsp;<div>
   <br /></div>
@@ -1251,18 +1251,18 @@ presentation at the Samaritan Childhood Obesity Conference. &nbsp;<div>
       beyond grants. Let me know, Steve</span></p></div>
 END_TEXT
 }
-    communications << { date: '41813', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis, , Lisa Scherf at Corvallis Dept of Public Works, , Stephen DeGhetto at Corvallis Parks & Rec, , Karen Emery at Corvallis  Parks & Rec, ", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41813', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis, Lisa Scherf at Corvallis Dept of Public Works, Stephen DeGhetto at Corvallis Parks & Rec, Karen Emery at Corvallis  Parks & Rec", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Contacted Corvallis to see if it would be interested in putting in an
 LOI for the CDC PICH grant. &nbsp;They decided that the timeline was too
 short and they lacked the capacity to participate at this time.
   &nbsp;<div>(summarizes senies of e-mails)</div>
 END_TEXT
 }
-    communications << { date: '41803', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis, , Lisa Scherf at Corvallis Dept of Public Works, , Stephen DeGhetto at Corvallis Parks & Rec, , Karen Emery at Corvallis  Parks & Rec, ", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Evaluation", notes: <<END_TEXT
+    communications << { date: '41803', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis, Lisa Scherf at Corvallis Dept of Public Works, Stephen DeGhetto at Corvallis Parks & Rec, Karen Emery at Corvallis  Parks & Rec", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Evaluation", notes: <<END_TEXT
 Invitation to participate in telephone interview for Eval.&nbsp;
 END_TEXT
 }
-    communications << { date: '41750', duration: '30', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lisa Scherf at Corvallis Dept of Public Works, ", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '41750', duration: '30', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lisa Scherf at Corvallis Dept of Public Works", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation", notes: <<END_TEXT
 Met Lisa at the Oregon Active Transportation Conference. &nbsp;She was
 not aware that Corvallis was a HEAL City. &nbsp; Julie Manning is
 outgoing Mayor, and Lisa is concerned that new Mayor, new Council,
@@ -1273,12 +1273,12 @@ more involved. &nbsp;<div>
 <div>Agreed to follow up with her.&nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41754', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lisa Scherf at Corvallis Dept of Public Works, ", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Other", notes: <<END_TEXT
+    communications << { date: '41754', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lisa Scherf at Corvallis Dept of Public Works", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Other", notes: <<END_TEXT
 Followed up on meeting at OATS with an invitation to join HEAL, an offer
 of a site visit, and a proffer of HEAL materials. &nbsp;
 END_TEXT
 }
-    communications << { date: '41241', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41241', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Met with Mayor Ogden and Peter Brandom, Sustainability Manager, as well
 as many others, to discuss LMCTC and HEAL Cities alignment<div>
   <br /></div>
@@ -1286,7 +1286,7 @@ as many others, to discuss LMCTC and HEAL Cities alignment<div>
   <br /></div>
 END_TEXT
 }
-    communications << { date: '41233', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, , Julie Ludemann at City of Tualatin, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41233', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, Julie Ludemann at City of Tualatin", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Met with the Mayor, Julie Ludeman who runs the YAC, and Mark Fryberg of
 PGE (underwrites YAC)&nbsp;<div>
   <br /></div>
@@ -1294,7 +1294,7 @@ PGE (underwrites YAC)&nbsp;<div>
   opportunities to netowrk</div>
 END_TEXT
 }
-    communications << { date: '41230', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity, Other", notes: <<END_TEXT
+    communications << { date: '41230', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity, Other", notes: <<END_TEXT
 Lou is a champion and leader.&nbsp;<div>
   <br /></div>
 <div>Very involved with NLC and Institue on Children and Families.</div>
@@ -1321,7 +1321,7 @@ Lou is a champion and leader.&nbsp;<div>
   Ludeman. &nbsp;PGE is a funder. &nbsp;Would I be willing to work with YAC?</div>
 END_TEXT
 }
-    communications << { date: '41594', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Amber Mathiesen, CFC at , ", cities: "Falls City, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41594', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Amber Mathiesen, CFC at ", cities: "Falls City, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Other, Coordination with County Health Departments", notes: <<END_TEXT
 We began by discussing the Akha Farms situation, but shifted quickly to
 a more general conversation about Falls City. &nbsp;<div>
   <br /></div>
@@ -1367,7 +1367,7 @@ a more general conversation about Falls City. &nbsp;<div>
 <div>Could possible use a Food Corps intern</div>
 END_TEXT
 }
-    communications << { date: '41218', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Taryn Lust, MBA CCRC at Legacy Health Systems, Legacy Park Medical Center, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41218', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Taryn Lust, MBA CCRC at Legacy Health Systems, Legacy Park Medical Center", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Attended meeting of FIT CITY Tualatin at suggestion of &nbsp;Mayor Lou
 Ogden. &nbsp;Man health care and wellness industry professionals, plus
 Chamber of Commerce rep. &nbsp;<div>
@@ -1375,7 +1375,7 @@ Chamber of Commerce rep. &nbsp;<div>
 <div>Not much interest in policy change</div>
 END_TEXT
 }
-    communications << { date: '41206', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Rob Drake at City of Cornelius, , Brad Choi, P.E. at City of Hillsboro, , Martha DeBry at City of North Plains, , Kyle Awesome at City of Banks, ", cities: "Banks, OR, Cornelius, OR, Forest Grove, OR, Hillsboro, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '41206', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Rob Drake at City of Cornelius, Brad Choi, P.E. at City of Hillsboro, Martha DeBry at City of North Plains, Kyle Awesome at City of Banks", cities: "Banks, OR, Cornelius, OR, Forest Grove, OR, Hillsboro, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
 Consortium of five cities would like to become Bike Friendly Cities as
 recommended by Bruce Buffington, President of the NW Bicycle Safety
 Council. &nbsp;<div>
@@ -1387,7 +1387,7 @@ Council. &nbsp;<div>
   end is the FOrest Grove School District</div>
 END_TEXT
 }
-    communications << { date: '41201', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lindsey Kuipers at City of Beaverton, ", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41201', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lindsey Kuipers at City of Beaverton", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments", notes: <<END_TEXT
 Lindsey reports to Don Mazziotti, the Community Economic Development Director.<div>
   <br /></div>
 <div>Beaverton has a Community Transformation Grant. &nbsp;Dr. Tina
@@ -1410,7 +1410,7 @@ Lindsey reports to Don Mazziotti, the Community Economic Development Director.<d
   Plan? &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41192', duration: '45', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Denny Doyle at , ", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41192', duration: '45', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Denny Doyle at ", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
 Msyor Doyle was generally positive about HEAL Cities. &nbsp;He described
 all the things Beaverton is already doing to promote a healthy
 community. &nbsp;He mentioned the planning work that Lindsay Kuipers is
@@ -1427,7 +1427,7 @@ of Councilor Stanton. &nbsp;<div>
 <div>He left meeting in a hurry to make his next appointment. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41163', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Crystal  Shoji at City of Coos Bay, ", cities: "Coos Bay, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '41163', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Crystal  Shoji at City of Coos Bay", cities: "Coos Bay, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
 Sidewalks run along major highways that are under jurisdiction of ODOT
 of the Federal DOT. &nbsp;<div>
   <br /></div>
@@ -1460,7 +1460,7 @@ of the Federal DOT. &nbsp;<div>
 <div>Will see me at LOC conference</div>
 END_TEXT
 }
-    communications << { date: '41152', duration: '60', contact_type: 'Telephone Call',  organization_type: 'Regional Organization', contacts: "Melissa Taylor at Cowlitz-Wahkiakum Council of Governments, ", cities: "", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options", notes: <<END_TEXT
+    communications << { date: '41152', duration: '60', contact_type: 'Telephone Call',  organization_type: 'Regional Organization', contacts: "Melissa Taylor at Cowlitz-Wahkiakum Council of Governments", cities: "", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options", notes: <<END_TEXT
 Let Health Dept do behavior change: health ed and awareness<div>
   <br /></div>
 <div>regional Planning Council serves at the pleasure of its members
@@ -1475,7 +1475,7 @@ Let Health Dept do behavior change: health ed and awareness<div>
 <div>Worked on creating a community food system.&nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41143', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Crystal  Shoji at City of Coos Bay, ", cities: "Coos Bay, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '41143', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Crystal  Shoji at City of Coos Bay", cities: "Coos Bay, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation", notes: <<END_TEXT
 Mayor would like to do an initiative with the Coos County Health
 Department. &nbsp;Knows there is an obesity problem. &nbsp;However, it
 is a challenge to get people excited. &nbsp;The topography of Coos Bay
@@ -1483,7 +1483,7 @@ makes it hard for people to walk or cycle. &nbsp;Safe Routes to School
 unlikely to take off because of hilly topography. &nbsp;
 END_TEXT
 }
-    communications << { date: '40977', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Stacy Humphrey at City of Gresham, ", cities: "Gresham, OR", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '40977', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Stacy Humphrey at City of Gresham", cities: "Gresham, OR", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
 Stacy graciously met with BK on her day off to describe her experience
 moving HEAL-type policies in the City of Gresham. &nbsp;<div>
   <br /></div>
@@ -1530,7 +1530,7 @@ moving HEAL-type policies in the City of Gresham. &nbsp;<div>
     address obesity.</div></div>
 END_TEXT
 }
-    communications << { date: '40974', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Jen Massa Smith at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Land Use & Transportation, Other", notes: <<END_TEXT
+    communications << { date: '40974', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Jen Massa Smith at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Land Use & Transportation, Other", notes: <<END_TEXT
 This was an exploratory meeting, during BK's first &nbsp;month on the
 &nbsp;job. &nbsp; Noelle had a relationship with &nbsp;Jen Massa Smith.
 &nbsp;We discussed Wilsonville's work on Active Transportation (SMART
@@ -1550,7 +1550,7 @@ planners and other materials for Wilsonville residents). &nbsp;<div>   <br /></d
  <div>Should HEAL include Mentor Cities?</div>
 END_TEXT
 }
-    communications << { date: '40967', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jen Massa Smith at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '40967', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jen Massa Smith at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Land Use & Transportation", notes: <<END_TEXT
 Noelle introduced BK to Jen Massa Smith. &nbsp;Noelle and Beth
 subsequently went to Wilsonville and met with Jen. &nbsp; Jen alerted
 &nbsp;Patty Brescia , who was the City;s ACHIEVE grant coordinator, to
@@ -1563,7 +1563,7 @@ the new HEAL Cities Campaign. &nbsp;Jen thought &quot;t<span
   get at the same goals and outcomes&quot;</span>
 END_TEXT
 }
-    communications << { date: '41312', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Fitzgerald at City of Wilsonville, , Patty Brescia at City of Wilsonville, , Mark C. Ottenad at City of Wilsonville, , Tim Knapp at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
+    communications << { date: '41312', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Fitzgerald at City of Wilsonville, Patty Brescia at City of Wilsonville, Mark C. Ottenad at City of Wilsonville, Tim Knapp at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
 Mark contacted me on February 7th. &nbsp;He had heard my presentation at
 LOC in September 2012. &nbsp;Wilsonville had been an ACHIEVE grantee,
 and was potentially interested in joining the Campaign. &nbsp; Mark
@@ -1574,34 +1574,34 @@ asked me to call Patty Brescia. &nbsp;<div>
   Julie Fitzgerals and Sue Stevens. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41339', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Mark C. Ottenad at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41339', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Mark C. Ottenad at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 E-mails re PowerPoint and packet for BK presentation at 3/18/13 City
 Council meeting&nbsp;
 END_TEXT
 }
-    communications << { date: '41379', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Mark C. Ottenad at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41379', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Mark C. Ottenad at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 E-mails re article about Wilsonville joining the HEAL Cities Campaign
 that ran in the Boones Ferry Messenger. &nbsp;
 END_TEXT
 }
-    communications << { date: '41379', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Mark C. Ottenad at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41379', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Mark C. Ottenad at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Worked with Mark on Wilsonville references in an article for the LOC
 magazine, Local Focus. &nbsp;
 END_TEXT
 }
-    communications << { date: '41850', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, , Wes Hare at City of Albany, , Julie Manning at City of Corvallis, , Kitty Piercy at , , Ralph Grutzmacher at , , Shanti Platt at , , Virginia Carnes at , , Jacque Betz at , , John Oberst at City of Monmouth, , Crystal  Shoji at City of Coos Bay, ", cities: "", staff: "Beth Kaye, Karli Thorstenson, Dawn Powell", topics: "Workplace Wellness", notes: <<END_TEXT
+    communications << { date: '41850', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, Wes Hare at City of Albany, Julie Manning at City of Corvallis, Kitty Piercy at , Ralph Grutzmacher at , Shanti Platt at , Virginia Carnes at , Jacque Betz at , John Oberst at City of Monmouth, Crystal  Shoji at City of Coos Bay", cities: "", staff: "Beth Kaye, Karli Thorstenson, Dawn Powell", topics: "Workplace Wellness", notes: <<END_TEXT
 Invivted all Advisory Committee members to participate in first HEAL
 National webinar, 6/6/13, on Creating a Culture of Wellness in the
 Municpal Workplace
 END_TEXT
 }
-    communications << { date: '41429', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Sherilyn Lombos at City of Tualatin, , Patty Brescia at City of Wilsonville, , Mark C. Ottenad at City of Wilsonville, , Samantha Nelson at City of Fairview, , Villagrana Andrea at City of Wilsonville, ", cities: "Fairview, OR, Tualatin, OR, Wilsonville, OR", staff: "Beth Kaye", topics: "Workplace Wellness", notes: <<END_TEXT
+    communications << { date: '41429', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Sherilyn Lombos at City of Tualatin, Patty Brescia at City of Wilsonville, Mark C. Ottenad at City of Wilsonville, Samantha Nelson at City of Fairview, Villagrana Andrea at City of Wilsonville", cities: "Fairview, OR, Tualatin, OR, Wilsonville, OR", staff: "Beth Kaye", topics: "Workplace Wellness", notes: <<END_TEXT
 Invited Wilsonville, Fairview, and Tualatin, as HEAL Cities, &nbsp; to
 participate in first HEAL Nation webinar on Creating a CUlture of
 Wellness in the Municipal Workplace. &nbsp;
 END_TEXT
 }
-    communications << { date: '41438', duration: '90', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other, Welcome to HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41438', duration: '90', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other, Welcome to HEAL Cities", notes: <<END_TEXT
 Drafted a letter for Assistant City Manager Jeanna Troha to execute,
 affirming City's committment to work with Campaign, per Proclamation of
 the Mayor on March 18, 2013. &nbsp;Letter assigns staff (Patty Brescia)
@@ -1609,13 +1609,13 @@ to be liaison with Campaign, and sets timeline for Staff to report back
 to the Council by September 9. &nbsp;
 END_TEXT
 }
-    communications << { date: '41810', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Laura LaJoie at , ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41810', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Laura LaJoie at ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 Laura was newest member of Wilsonville Community Coalition, and
 requested background on the HEAL Cities Campaign, and info on how HEAL
 Cities Campaign could help Wilsonville reach its healthy community goals.
 END_TEXT
 }
-    communications << { date: '41473', duration: '90', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Villagrana Andrea at City of Wilsonville, , Scott France at Clackamas County Health Dept, , Craig Mosbaek at , ", cities: "Wilsonville, OR", staff: "Beth Kaye, Dawn Powell", topics: "", notes: <<END_TEXT
+    communications << { date: '41473', duration: '90', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Villagrana Andrea at City of Wilsonville, Scott France at Clackamas County Health Dept, Craig Mosbaek at ", cities: "Wilsonville, OR", staff: "Beth Kaye, Dawn Powell", topics: "", notes: <<END_TEXT
 Series of e-mails and telephone calls to set up a meeting with Andrea
 Villagrana to discuss (1) smoke-free campuses, at behest of Scott
 France; and (2) how to increase uptake of smoking cessation benefits
@@ -1625,29 +1625,29 @@ suggestions from her experience with Wellness@Work.<div>   <br /></div>
   to AV unavailablity/lack of interest.&nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41499', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41499', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Met to discuss presentation for ORPA about HEAL CIties Campaign and
 Wilsonville's participation in same.&nbsp;
 END_TEXT
 }
-    communications << { date: '41867', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41867', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Coordination with County Health Departments", notes: <<END_TEXT
 Attending meeting of Wilsonville HEAL Coalition.
 END_TEXT
 }
-    communications << { date: '41503', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, , Paul Hennon Hennon at City of Tualatin Community Services, , Sherilyn Lombos at City of Tualatin, , Molly Reece, MPH at U.S. Department of Health & Human Services, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41503', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, Paul Hennon Hennon at City of Tualatin Community Services, Sherilyn Lombos at City of Tualatin, Molly Reece, MPH at U.S. Department of Health & Human Services", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Arranged site visit for 8/29-30 for Molly Reece, HHS re Let's Move.&nbsp;
 END_TEXT
 }
-    communications << { date: '41499', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, , Allan Berry at City of Fairview, , Samantha Nelson at City of Fairview, , Molly Reece, MPH at U.S. Department of Health & Human Services, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Let's Move Cities Towns & Counties, Site visit", notes: <<END_TEXT
+    communications << { date: '41499', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, Allan Berry at City of Fairview, Samantha Nelson at City of Fairview, Molly Reece, MPH at U.S. Department of Health & Human Services", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Let's Move Cities Towns & Counties, Site visit", notes: <<END_TEXT
 Through calls and e-mails, arranged site visit for 8/29-8?30 to Fairview.
 END_TEXT
 }
-    communications << { date: '41499', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Molly Reece, MPH at U.S. Department of Health & Human Services, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Let's Move Cities Towns & Counties, Site visit", notes: <<END_TEXT
+    communications << { date: '41499', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Molly Reece, MPH at U.S. Department of Health & Human Services", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Let's Move Cities Towns & Counties, Site visit", notes: <<END_TEXT
 Made arrangements for Molly Reece to conduct site visit to Wilsonville
 on Aug 30, 2013 re Let's Move. &nbsp;
 END_TEXT
 }
-    communications << { date: '41506', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Heidi Blaine at City of Donald, Oct 23 2013", cities: "Aurora, OR, Donald, OR, Mount Angel, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '41506', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Heidi Blaine at City of Donald", cities: "Aurora, OR, Donald, OR, Mount Angel, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
 Passed on this info from Wilsonville's contacts re bike routes and
 mapping resources:<div>
   <br /></div>
@@ -1678,7 +1678,7 @@ mapping resources:<div>
   <br style=""color: rgb(34,34,34);font-family: arial , sans-serif;font-size: 12.8px;background-color: rgb(255,255,255);"" /></div>
 END_TEXT
 }
-    communications << { date: '41506', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Aurora, OR, Donald, OR, Mount Angel, OR, Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '41506', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Aurora, OR, Donald, OR, Mount Angel, OR, Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
 Networked with Patty to get info about bike routes and bike maps for
 three communities (Aurora, Mount Angel, and DOnald) that are interested
 in a joint project.&nbsp;<div>
@@ -1713,61 +1713,61 @@ in a joint project.&nbsp;<div>
   <br style=""color: rgb(34,34,34);font-family: arial , sans-serif;font-size: 12.8px;background-color: rgb(255,255,255);"" /></div>
 END_TEXT
 }
-    communications << { date: '41513', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Mark C. Ottenad at City of Wilsonville, , Greg Leo at French Prairie Forum, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41513', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Mark C. Ottenad at City of Wilsonville, Greg Leo at French Prairie Forum", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 Mark Ottenad introduced me to Greg Leo, who invited me to rpesent about
 HEAL Cities to the French Prairie Forum on 9/19/13. &nbsp;The French
 Prairie Forum includes cities from Clackamas County and Marion County. &nbsp;
 END_TEXT
 }
-    communications << { date: '41513', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Villagrana Andrea at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Workplace Wellness, Other", notes: <<END_TEXT
+    communications << { date: '41513', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Villagrana Andrea at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Workplace Wellness, Other", notes: <<END_TEXT
 Furhter efforts to engage Wilsonville HR Director Andrea Willagrana.&nbsp;<div>
   <br /></div>
 <div>Working with Patty on ORPA presentation.</div>
 END_TEXT
 }
-    communications << { date: '41514', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41514', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Discussion re report to Council in October 21
 END_TEXT
 }
-    communications << { date: '41526', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Patty Brescia at City of Wilsonville, , Stephanie Redman at Oregon Recreation & Park Association, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41526', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Patty Brescia at City of Wilsonville, Stephanie Redman at Oregon Recreation & Park Association", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Discussion about outreach to Oregon Parks &amp; Rec Association members.
 END_TEXT
 }
-    communications << { date: '41529', duration: '90', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41529', duration: '90', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments", notes: <<END_TEXT
 Drafted letter in support of Wilsonville application to Clackamas County
 for a HEAL Grant.<div>
   <br /></div>
 <div>Asked for a quite from the Mayor for HEAL publicity.</div>
 END_TEXT
 }
-    communications << { date: '41899', duration: '90', contact_type: 'General Presentation',  organization_type: 'Statewide Organization', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Seaside, OR, Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41899', duration: '90', contact_type: 'General Presentation',  organization_type: 'Statewide Organization', contacts: "Patty Brescia at City of Wilsonville", cities: "Seaside, OR, Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 Presentation at Oregon Parks and Rec Association Conference&nbsp;
 END_TEXT
 }
-    communications << { date: '41894', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41894', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Planning for presentation at the ORPA conference
 END_TEXT
 }
-    communications << { date: '41540', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41540', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
 Discussed Press Release for new Healthy Food Checkout aisle at Lamb's
 Thriftway. &nbsp;
 END_TEXT
 }
-    communications << { date: '41542', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41542', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Prep for League of Oregon Cities conference. &nbsp;Wilsonville is
 highlighting HEAL Cities in its hospitality suite. &nbsp;&nbsp;
 END_TEXT
 }
-    communications << { date: '41542', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Villagrana Andrea at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Workplace Wellness", notes: <<END_TEXT
+    communications << { date: '41542', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Villagrana Andrea at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Workplace Wellness", notes: <<END_TEXT
 one in a stsrong of efforts to set up an appointment with Andrea
 Villagrana, Wilsonville's HR manager, to talk about worksite wellness
 END_TEXT
 }
-    communications << { date: '41552', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Katie Mangle at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '41552', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Katie Mangle at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
 Discussed Wilsonville TSP and current projects
 END_TEXT
 }
-    communications << { date: '41849', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Katie Mangle at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41849', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Katie Mangle at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
 <span
   style=""color: rgb(34,34,34);font-family: arial , sans-serif;font-size: 12.8px;background-color: rgb(255,255,255);"">BK
   provided feedback (IN CAPS) on Wilsonville's list of New policies last
@@ -1848,7 +1848,7 @@ END_TEXT
 <br style=""color: rgb(34,34,34);font-family: arial , sans-serif;font-size: 12.8px;background-color: rgb(255,255,255);"" />
 END_TEXT
 }
-    communications << { date: '41551', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Mark C. Ottenad at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41551', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Mark C. Ottenad at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
 <p class=""MsoNormal"" style=""margin: 0.0px;color: rgb(34,34,34);font-family: arial , sans-serif;font-size: 12.8px;background-color: rgb(255,255,255);"">
   <b>In response to a request, Patty sent the following &nbsp;list of
     New policies last 6 months<u></u>
@@ -1895,21 +1895,21 @@ END_TEXT
   <br /></div>
 END_TEXT
 }
-    communications << { date: '41557', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41557', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments", notes: <<END_TEXT
 Shared information re Clackamas County HEAL Grants (administered by
 Kirsten Ingersoll at Clackamas County HD
 END_TEXT
 }
-    communications << { date: '41565', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options", notes: <<END_TEXT
+    communications << { date: '41565', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options", notes: <<END_TEXT
 Attended meeting of WIlsonville HEAL Coalition
 END_TEXT
 }
-    communications << { date: '41565', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Other", notes: <<END_TEXT
+    communications << { date: '41565', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Other", notes: <<END_TEXT
 Preparing for City Council Presentation re progress of HEAL Cities
 CAmpaign in Wilsonville; new designation as FIT City
 END_TEXT
 }
-    communications << { date: '41614', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Pam Hutchinson at Marion COunty Health Department, , Misha Peel at Polk County HD, , Ashley Baggett at The Public Health Foundation of Columbia County, ", cities: "Dallas, OR, Donald, OR, Falls City, OR, Independence, OR, Monmouth, OR, St. Helens, OR, Salem, OR, Scappoose, OR, Woodburn, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options", notes: <<END_TEXT
+    communications << { date: '41614', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Pam Hutchinson at Marion COunty Health Department, Misha Peel at Polk County HD, Ashley Baggett at The Public Health Foundation of Columbia County", cities: "Dallas, OR, Donald, OR, Falls City, OR, Independence, OR, Monmouth, OR, St. Helens, OR, Salem, OR, Scappoose, OR, Woodburn, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options", notes: <<END_TEXT
 Alerted them to upcoming webinar on Healthy Eating Out: Raising the Bar
 for Nutrition at Restaurants.&nbsp;<div>
   <br /></div>
@@ -1926,7 +1926,7 @@ for Nutrition at Restaurants.&nbsp;<div>
     <br /></span></div>
 END_TEXT
 }
-    communications << { date: '41614', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, , Julie Manning at City of Corvallis, , Patty Brescia at City of Wilsonville, ", cities: "Corvallis, OR, Fairview, OR, Wilsonville, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41614', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, Julie Manning at City of Corvallis, Patty Brescia at City of Wilsonville", cities: "Corvallis, OR, Fairview, OR, Wilsonville, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Coordination with County Health Departments", notes: <<END_TEXT
 Alerted them to upcoming webinar on Healthy Eating Out: Raising the Bar
 for Nutrition at Restaurants.&nbsp;<div>
   <br /></div>
@@ -1943,29 +1943,29 @@ for Nutrition at Restaurants.&nbsp;<div>
     <br /></span></div>
 END_TEXT
 }
-    communications << { date: '41618', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Mark C. Ottenad at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41618', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Mark C. Ottenad at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Discussion re value for Wilsonville of Coalition for a Livable Future
 training on the Regional Equity Atlas 2.0.&nbsp;
 END_TEXT
 }
-    communications << { date: '41632', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "John Oberst at , ", cities: "Monmouth, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41632', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "John Oberst at ", cities: "Monmouth, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
 Provided input on design of Proposal to KP for SMall Grants for HEAL Cities&nbsp;
 END_TEXT
 }
-    communications << { date: '41633', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Shanti Platt at , ", cities: "Gervais, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41633', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Shanti Platt at ", cities: "Gervais, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
 Provided input on proposal to KP for Small Grants for HEAL Cities
 END_TEXT
 }
-    communications << { date: '41633', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Ralph Grutzmacher at , ", cities: "Toledo, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41633', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Ralph Grutzmacher at ", cities: "Toledo, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
 Provided input on proposal to &nbsp;KP for design of Small Grants program&nbsp;
 END_TEXT
 }
-    communications << { date: '41632', duration: '120', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, , Daniel S. Morris, MS, PhD at Oregon Health Authority, , Tamera Tlustos-Arnold at KP, , Dan Field at Kaiser Permanente NW, , Mike McCauley at League of Oregon Cities, , Wes Hare at City of Albany, , Julie Manning at City of Corvallis, , Kitty Piercy at , , Ralph Grutzmacher at , , John Oberst at , , Jim Fairchild at , , Shanti Platt at , , Virginia Carnes at , , Kevin Toon at League of Oregon Cities, , Jacque Betz at , , Patty Brescia at City of Wilsonville, , Crystal  Shoji at City of Coos Bay, ", cities: "", staff: "Beth Kaye, Noelle Dobson", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41632', duration: '120', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, Daniel S. Morris, MS, PhD at Oregon Health Authority, Tamera Tlustos-Arnold at KP, Dan Field at Kaiser Permanente NW, Mike McCauley at League of Oregon Cities, Wes Hare at City of Albany, Julie Manning at City of Corvallis, Kitty Piercy at , Ralph Grutzmacher at , John Oberst at , Jim Fairchild at , Shanti Platt at , Virginia Carnes at , Kevin Toon at League of Oregon Cities, Jacque Betz at , Patty Brescia at City of Wilsonville, Crystal  Shoji at City of Coos Bay", cities: "", staff: "Beth Kaye, Noelle Dobson", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
 Sought advice from Advisory Committee members re proposal to KP for
 Small Grant program
 END_TEXT
 }
-    communications << { date: '41634', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jim Fairchild at , ", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41634', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jim Fairchild at ", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
 Jim commented on concepts for Small Grants for HEAL Cities RFP proposal
 to KP. &nbsp;<div>
   <br /></div>
@@ -1975,12 +1975,12 @@ to KP. &nbsp;<div>
   season. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41642', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, , Sherilyn Lombos at City of Tualatin, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41642', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, Sherilyn Lombos at City of Tualatin", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
 Lou sent in his comments and comments of CM Sherilyn Lombos on the Small
 Grants concept shared with the Advisory Committee. &nbsp;
 END_TEXT
 }
-    communications << { date: '41678', duration: '40', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41678', duration: '40', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
 Asked if I could put Coquille Indian Tribe in touch with Wilsonville
 &nbsp;Lamb's Thiftway store manager re Healthy Check Out Lanes<div>
   <br /></div>
@@ -1993,7 +1993,7 @@ Asked if I could put Coquille Indian Tribe in touch with Wilsonville
   <br /></div>
 END_TEXT
 }
-    communications << { date: '41654', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye, Dawn Powell, Steve White", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41654', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye, Dawn Powell, Steve White", topics: "Other", notes: <<END_TEXT
 In response to an earlier e-mail request from Patty, BK presented
 suggestions re keynote speakers for ORPA 2014:<div>James Sallis with
   Active Living Research at San Diego State &nbsp;(Steve) or&nbsp;</div>
@@ -2011,22 +2011,22 @@ suggestions re keynote speakers for ORPA 2014:<div>James Sallis with
   <br /></div>
 END_TEXT
 }
-    communications << { date: '41703', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41703', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Conversation re HEAL presentation at ORPA 2014 (to do it or &nbsp;not to
 do it, and about what exactly?)
 END_TEXT
 }
-    communications << { date: '41682', duration: '25', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Mark C. Ottenad at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye, Steve White", topics: "Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '41682', duration: '25', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Mark C. Ottenad at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye, Steve White", topics: "Land Use & Transportation", notes: <<END_TEXT
 Approached Wilsonville re interest in being part of a panel presentation
 at OATS 2014
 END_TEXT
 }
-    communications << { date: '41711', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41711', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments", notes: <<END_TEXT
 Patty solicits help to prepare for &nbsp;presentation to Clackamas
 County Public Health Advisory Committee
 END_TEXT
 }
-    communications << { date: '41715', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41715', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments", notes: <<END_TEXT
 E-mail and VM. &nbsp;Patty was preparing presentation to Clackamas
 County Public Health Advisory Committee. &nbsp; Discussed materials
 &nbsp;to include re HEAL Cities Campaign. &nbsp;Coached re themes. &nbsp;<div>
@@ -2037,11 +2037,11 @@ County Public Health Advisory Committee. &nbsp; Discussed materials
   <br /></div>
 END_TEXT
 }
-    communications << { date: '41738', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Patty Brescia at City of Wilsonville, , Stephanie Redman at Oregon Recreation & Park Association, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41738', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Patty Brescia at City of Wilsonville, Stephanie Redman at Oregon Recreation & Park Association", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Discussion about whether to have a HEAL Panel at 2014 ORPA conference. &nbsp;
 END_TEXT
 }
-    communications << { date: '41747', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41747', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Series of calls and e-mails culminated in meeting to decide whether we
 coud come up with a good HEAL Cities presentation for 2014 ORPA
 conference. &nbsp; We decided that we could not. &nbsp;&nbsp;<div>
@@ -2057,25 +2057,25 @@ conference. &nbsp; We decided that we could not. &nbsp;&nbsp;<div>
   Patty's new responsibilities at Wilsonville Parks &amp; Rec. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41803', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Mark C. Ottenad at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye, Noelle Dobson", topics: "Evaluation", notes: <<END_TEXT
+    communications << { date: '41803', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Mark C. Ottenad at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye, Noelle Dobson", topics: "Evaluation", notes: <<END_TEXT
 Sent Interview guide
 END_TEXT
 }
-    communications << { date: '41792', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41792', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
 E-mail followed by telephone call re use of Small Grant for outdoor
 exercise equipment for seniors.&nbsp;<div>
   <br /></div>
 <div>Discussed equity, sustainability, &nbsp;match. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41789', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Mark C. Ottenad at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41789', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Mark C. Ottenad at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Approached Wilsonville re interest in applying for a CDC PICH grant. &nbsp;<div>
   <br /></div>
 <div>Ultimately, received negative response. &nbsp;Too much going on,
   with planning for new Aquatic Center, and other Parks proposals&nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41789', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments, Evaluation, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41789', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments, Evaluation, Small Grants for HEAL Cities", notes: <<END_TEXT
 For HEAL Wilsonville agenda, I proposed:<div>
   <ul>
     <li>
@@ -2089,7 +2089,7 @@ For HEAL Wilsonville agenda, I proposed:<div>
   Evaluation Interview.</div>
 END_TEXT
 }
-    communications << { date: '41765', duration: '90', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41765', duration: '90', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other, Hunger and Obesity", notes: <<END_TEXT
 Drafted TA e-mail re what it would take for Wilsonville to run a summer
 food program. &nbsp;<div>
   <br /></div>
@@ -2204,27 +2204,27 @@ food program. &nbsp;<div>
     would be a lift, but I think it would feel really good. &nbsp;</div></div>
 END_TEXT
 }
-    communications << { date: '41764', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Shared Use, Other, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41764', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Shared Use, Other, Hunger and Obesity", notes: <<END_TEXT
 Discussion re potential for Wilsonville summer food program&nbsp;
 END_TEXT
 }
-    communications << { date: '41682', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'State Agency', contacts: "Constance Beaumont at Oregon Dept of Land Conservation and Development, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Other", notes: <<END_TEXT
+    communications << { date: '41682', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'State Agency', contacts: "Constance Beaumont at Oregon Dept of Land Conservation and Development", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Other", notes: <<END_TEXT
 BK is working with CB to get a panel at OATS that will feature HEAL
 Cities that have made policy change on Active Transportation, such as Wilsonville
 END_TEXT
 }
-    communications << { date: '41682', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jen Massa Smith at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '41682', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jen Massa Smith at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation", notes: <<END_TEXT
 Discussed featuring Wilsonville on panel at Oregon Active Transportation
 Conference. &nbsp; (One in a series of VMs and e-mail exchanges.)
 END_TEXT
 }
-    communications << { date: '41761', duration: '90', contact_type: 'Telephone Call',  organization_type: 'Statewide Organization', contacts: "Lesley Nelson at Partners for a Hunger Free Oregon, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Shared Use, Other, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41761', duration: '90', contact_type: 'Telephone Call',  organization_type: 'Statewide Organization', contacts: "Lesley Nelson at Partners for a Hunger Free Oregon", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Shared Use, Other, Hunger and Obesity", notes: <<END_TEXT
 Extended conversation with Lesley Nelson about potential for a summer
 lunch program in Wilsonville. &nbsp; Reviewed federal and state
 regulations, potential partners, potential locations, political considerations.
 END_TEXT
 }
-    communications << { date: '41764', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Lesley Nelson at Partners for a Hunger Free Oregon, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41764', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Lesley Nelson at Partners for a Hunger Free Oregon", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other, Hunger and Obesity", notes: <<END_TEXT
 Lesley passed on these contacts for a potential Wilsonville summer meas program:<div>
   <br /></div>
 <div>
@@ -2271,7 +2271,7 @@ Lesley passed on these contacts for a potential Wilsonville summer meas program:
           src=""https://ssl.gstatic.com/ui/v1/icons/mail/images/cleardot.gif"" style=""height: 8.0px;width: 20.0px;background: url(https://ssl.gstatic.com/ui/v1/icons/mail/ellipsis.png) no-repeat;"" /></div></div></div></div>
 END_TEXT
 }
-    communications << { date: '41795', duration: '25', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41795', duration: '25', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Hunger and Obesity", notes: <<END_TEXT
 BK proposed putting summer meals program on the Agenda for today's HEAL
 Wilsonville meeting.&nbsp;<div>
   <br /></div>
@@ -2294,46 +2294,46 @@ Wilsonville meeting.&nbsp;<div>
       meeting. &nbsp;</span></font></div>
 END_TEXT
 }
-    communications << { date: '41848', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Patricia Parsons at Benton County Health Department, Jul 28 2014", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41848', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Patricia Parsons at Benton County Health Department", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
 Corvallis may be interested in applying for a Small Grant. &nbsp;I
 confirmed deadline and directed her to website. &nbsp;
 END_TEXT
 }
-    communications << { date: '41838', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Candy Cronberger at City of Gold Beach, ", cities: "Gold Beach, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41838', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Candy Cronberger at City of Gold Beach", cities: "Gold Beach, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Small Grants for HEAL Cities", notes: <<END_TEXT
 Interested in purchasing circuit training exercise equipment for parks
 for use by Seniors
 END_TEXT
 }
-    communications << { date: '41799', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Candy Cronberger at City of Gold Beach, ", cities: "Gold Beach, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41799', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Candy Cronberger at City of Gold Beach", cities: "Gold Beach, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Small Grants for HEAL Cities", notes: <<END_TEXT
 Candy reached out because of the Small Grants RFP. &nbsp;Arranged
 telephone appointment.&nbsp;
 END_TEXT
 }
-    communications << { date: '41848', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "candy Cronberger at City of Gold Beach, ", cities: "Gold Beach, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41848', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "candy Cronberger at City of Gold Beach", cities: "Gold Beach, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
 Reminder that, to apply for a Small Grant, Gold Beach must join the
 Campaign by 7/31/14
 END_TEXT
 }
-    communications << { date: '41848', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Barbara Fryer AICP at City of Beaverton Community Development Dept, Jul 28 2014", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41848', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Barbara Fryer AICP at City of Beaverton Community Development Dept", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Preparing Barbara to presnt HEAL Campaign to Beaverton's new CD
 Director, Barbara Twete, who succeeded Don Mazziotti in the position.
 Still working on getting Beaverton to joi the Campaign. &nbsp;
 END_TEXT
 }
-    communications << { date: '41848', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Denny Egner at City of Milwaukie, ", cities: "Milwaukie, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities, Site visit", notes: <<END_TEXT
+    communications << { date: '41848', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Denny Egner at City of Milwaukie", cities: "Milwaukie, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities, Site visit", notes: <<END_TEXT
 Arranged site visit.&nbsp;
 END_TEXT
 }
-    communications << { date: '41830', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Parks & Recreation District', contacts: "Renee Wells at Sunset Empire Parks & Rec, ", cities: "Seaside, OR", staff: "Beth Kaye", topics: "Welcome to HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41830', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Parks & Recreation District', contacts: "Renee Wells at Sunset Empire Parks & Rec", cities: "Seaside, OR", staff: "Beth Kaye", topics: "Welcome to HEAL Cities", notes: <<END_TEXT
 Renee told BK that City of Seaside had adopted HEAL Resolution on Jun3
 23, 2014
 END_TEXT
 }
-    communications << { date: '41836', duration: '35', contact_type: 'Telephone Call',  organization_type: 'Parks & Recreation District', contacts: "Renee Wells at Sunset Empire Parks & Rec, ", cities: "Seaside, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41836', duration: '35', contact_type: 'Telephone Call',  organization_type: 'Parks & Recreation District', contacts: "Renee Wells at Sunset Empire Parks & Rec", cities: "Seaside, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
 Discussed grant possibilities.&nbsp;
 END_TEXT
 }
-    communications << { date: '41801', duration: '90', contact_type: 'Site Visit',  organization_type: 'Participating City', contacts: "Don Larson at City  of Seaside, , Justin Cutler at Sunset Empire Parks & Rec, , Renee Wells at Sunset Empire Parks & Rec, , Mark W. Stanley at City of Seaside, , Steven  Blakesley at Clatsop County Public Health, ", cities: "Seaside, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Coordination with County Health Departments, Let's Move Cities Towns & Counties, Small Grants for HEAL Cities, Site visit", notes: <<END_TEXT
+    communications << { date: '41801', duration: '90', contact_type: 'Site Visit',  organization_type: 'Participating City', contacts: "Don Larson at City  of Seaside, Justin Cutler at Sunset Empire Parks & Rec, Renee Wells at Sunset Empire Parks & Rec, Mark W. Stanley at City of Seaside, Steven  Blakesley at Clatsop County Public Health", cities: "Seaside, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Coordination with County Health Departments, Let's Move Cities Towns & Counties, Small Grants for HEAL Cities, Site visit", notes: <<END_TEXT
 Mayor very enthusiastic about idea of a connected city with safe
 bike/ped access.<div>
   <br /></div>
@@ -2353,38 +2353,38 @@ bike/ped access.<div>
     have me there. &nbsp;</div></div>
 END_TEXT
 }
-    communications << { date: '41745', duration: '180', contact_type: 'Site Visit',  organization_type: 'Parks & Recreation District', contacts: "Renee Wells at Sunset Empire Parks & Rec, ", cities: "Seaside, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Coordination with County Health Departments, Site visit", notes: <<END_TEXT
+    communications << { date: '41745', duration: '180', contact_type: 'Site Visit',  organization_type: 'Parks & Recreation District', contacts: "Renee Wells at Sunset Empire Parks & Rec", cities: "Seaside, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Coordination with County Health Departments, Site visit", notes: <<END_TEXT
 Very interesting tour of Seaside, with emphasis on low-income housing,
 schools, bike and ped path of travel.
 END_TEXT
 }
-    communications << { date: '41745', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'County Health Department', contacts: "Renee Wells at Sunset Empire Parks & Rec, , Steven  Blakesley at Clatsop County Public Health, ", cities: "Astoria, OR, Seaside, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Coordination with County Health Departments, Hunger and Obesity, Site visit", notes: <<END_TEXT
+    communications << { date: '41745', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'County Health Department', contacts: "Renee Wells at Sunset Empire Parks & Rec, Steven  Blakesley at Clatsop County Public Health", cities: "Astoria, OR, Seaside, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Coordination with County Health Departments, Hunger and Obesity, Site visit", notes: <<END_TEXT
 Renee Wells of Sunset Empire Parks &amp; Rec was also there.&nbsp;
 END_TEXT
 }
-    communications << { date: '41534', duration: '10', contact_type: 'In-person Meeting',  organization_type: 'Parks & Recreation District', contacts: "Justin Cutler at Sunset Empire Parks & Rec, ", cities: "Seaside, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41534', duration: '10', contact_type: 'In-person Meeting',  organization_type: 'Parks & Recreation District', contacts: "Justin Cutler at Sunset Empire Parks & Rec", cities: "Seaside, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 Patti Brescia (Wilsonville) introduced us.&nbsp;
 END_TEXT
 }
-    communications << { date: '41844', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Kelly Clarke at City of Gresham, Jul 21 2014", cities: "Gresham, OR", staff: "Beth Kaye", topics: "Welcome to HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41844', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Kelly Clarke at City of Gresham", cities: "Gresham, OR", staff: "Beth Kaye", topics: "Welcome to HEAL Cities", notes: <<END_TEXT
 Kelly wanted to know what the Local Focus ad featuring Mayor Bemis would
 look like. &nbsp;Confirmed that there was no interview involved.&nbsp;
 END_TEXT
 }
-    communications << { date: '41843', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Bill Monahan at City of Milwaukie, ", cities: "Milwaukie, OR", staff: "Beth Kaye", topics: "Other, Small Grants for HEAL Cities, Welcome to HEAL Cities, Site visit", notes: <<END_TEXT
+    communications << { date: '41843', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Bill Monahan at City of Milwaukie", cities: "Milwaukie, OR", staff: "Beth Kaye", topics: "Other, Small Grants for HEAL Cities, Welcome to HEAL Cities, Site visit", notes: <<END_TEXT
 Edited and personalized welcome letter.&nbsp;
 END_TEXT
 }
-    communications << { date: '41822', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Bill Monahan at City of Milwaukie, ", cities: "Milwaukie, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41822', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Bill Monahan at City of Milwaukie", cities: "Milwaukie, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Provided him with a draft HEAL Resolution and materials for the Council packet
 END_TEXT
 }
-    communications << { date: '41835', duration: '150', contact_type: 'Attended public hearing',  organization_type: 'Participating City', contacts: "Jeremy Ferguson at City of Mikwaukie, , Mark Gamba at City of Mikwaukie, , Bill Monahan at City of Milwaukie, ", cities: "Milwaukie, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41835', duration: '150', contact_type: 'Attended public hearing',  organization_type: 'Participating City', contacts: "Jeremy Ferguson at City of Mikwaukie, Mark Gamba at City of Mikwaukie, Bill Monahan at City of Milwaukie", cities: "Milwaukie, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Small Grants for HEAL Cities", notes: <<END_TEXT
 Presentation at City Council worksession. &nbsp;Council subsequently
 adopted a HEAL resolution on consent agenda. &nbsp;
 END_TEXT
 }
-    communications << { date: '41820', duration: '75', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Kirstens Ingersoll at Clackamas County PHD, , Mark Gamba at City of Mikwaukie, ", cities: "Milwaukie, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Coordination with County Health Departments, Hunger and Obesity, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41820', duration: '75', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Kirstens Ingersoll at Clackamas County PHD, Mark Gamba at City of Mikwaukie", cities: "Milwaukie, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Coordination with County Health Departments, Hunger and Obesity, Small Grants for HEAL Cities", notes: <<END_TEXT
 Mark was very interested in HEAL Campaign, particularly because of
 opportunity to participate in Small Grants RFP.&nbsp;<div>
   <br /></div>
@@ -2401,14 +2401,14 @@ opportunity to participate in Small Grants RFP.&nbsp;<div>
   County's HEAL Grant program. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41759', duration: '10', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Jeremy Ferguson at City of Mikwaukie, , Mark Gamba at City of Mikwaukie, , Karianne Schlosshauer at Safe Routes to School National Partnership, ", cities: "Milwaukie, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '41759', duration: '10', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Jeremy Ferguson at City of Mikwaukie, Mark Gamba at City of Mikwaukie, Karianne Schlosshauer at Safe Routes to School National Partnership", cities: "Milwaukie, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation", notes: <<END_TEXT
 While at Safe Routes to Schools event in Mikwaukie presented by Kari
 Schlosshauer, met Mayor Ferguson and Councilor Gamba. &nbsp;Introduced
 HEAL Cities. &nbsp;Mayor was off to China; we agreed to reconnect on his
 return. &nbsp;
 END_TEXT
 }
-    communications << { date: '41843', duration: '50', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Roberta Vanderwall at City of Nyssa, , Lurelle  Robbins at , , Susan Barton at Nyssa in Action, ", cities: "Nyssa, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41843', duration: '50', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Roberta Vanderwall at City of Nyssa, Lurelle  Robbins at , Susan Barton at Nyssa in Action", cities: "Nyssa, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Small Grants for HEAL Cities", notes: <<END_TEXT
 Lurelle Robbins, a friend of Liz Baxter's, sought info on HEAL Small
 Grants, and mentioned that he had had discussions with Susan Barton of
 Nyssa in Action and the City Manager, Roberta Vanderwall. &nbsp;<div>
@@ -2417,7 +2417,7 @@ Nyssa in Action and the City Manager, Roberta Vanderwall. &nbsp;<div>
   Grants program. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41844', duration: '15', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Angela Cosby at City of Astoria, Jul 25 2014", cities: "Astoria, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41844', duration: '15', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Angela Cosby at City of Astoria", cities: "Astoria, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Small Grants for HEAL Cities", notes: <<END_TEXT
 Farmer's market:<div>Thursday evening SNAP</div>
 <div>Sunday - no SNAP</div>
 <div>
@@ -2436,26 +2436,26 @@ Farmer's market:<div>Thursday evening SNAP</div>
   &nbsp;purchase of equipment (table, awning) for Little Sprouts. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41844', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Benjamin Marchant at City of Coquille, ", cities: "Coquille, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities, Welcome to HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41844', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Benjamin Marchant at City of Coquille", cities: "Coquille, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities, Welcome to HEAL Cities", notes: <<END_TEXT
 Ben let us know that the Coquille City Council had voted to join the
 HEAL Campaign, and would be submitting a Small Grant proposal. &nbsp;
 END_TEXT
 }
-    communications << { date: '41844', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Angela Cosby at City of Astoria, Jul 25 2014", cities: "Astoria, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities, Welcome to HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41844', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Angela Cosby at City of Astoria", cities: "Astoria, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities, Welcome to HEAL Cities", notes: <<END_TEXT
 Set up a phone call re Small Grant proposal. &nbsp;
 END_TEXT
 }
-    communications << { date: '41841', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Brian Latta at City of Harrisburg, ", cities: "Harrisburg, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41841', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Brian Latta at City of Harrisburg", cities: "Harrisburg, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Small Grants for HEAL Cities", notes: <<END_TEXT
 Acknowledged that BK had received call re Harrisburg's intention to join
 the Campaign. &nbsp; Invited him to call me for info re Small Grants.&nbsp;
 END_TEXT
 }
-    communications << { date: '41836', duration: '5', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Brian Latta at City of Harrisburg, ", cities: "Harrisburg, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41836', duration: '5', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Brian Latta at City of Harrisburg", cities: "Harrisburg, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Small Grants for HEAL Cities", notes: <<END_TEXT
 Mr. Latta left BK a FYI VM that Harrisburg would be joining the Campaign
 on 7/25. &nbsp;Already had Resolution drafted. &nbsp;&nbsp;
 END_TEXT
 }
-    communications << { date: '41841', duration: '20', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Paula Rose at City of Hillsboro, ", cities: "Hillsboro, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41841', duration: '20', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Paula Rose at City of Hillsboro", cities: "Hillsboro, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Small Grants for HEAL Cities", notes: <<END_TEXT
 BK made appointment for initial visit in August. &nbsp;After meeting me
 and learning more about the program, Paula will assemble a team from
 different City departments. &nbsp;<div>
@@ -2464,7 +2464,7 @@ different City departments. &nbsp;<div>
   interested because of HEAL Cities Small Grants. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41841', duration: '60', contact_type: 'Telephone Call',  organization_type: 'University', contacts: "Jim Hough at Portland State University, ", cities: "Banks, OR, Cornelius, OR, Forest Grove, OR, Monmouth, OR, Salem, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41841', duration: '60', contact_type: 'Telephone Call',  organization_type: 'University', contacts: "Jim Hough at Portland State University", cities: "Banks, OR, Cornelius, OR, Forest Grove, OR, Monmouth, OR, Salem, OR", staff: "Beth Kaye", topics: "Small Grants for HEAL Cities", notes: <<END_TEXT
 Jim is former CM of Banks. &nbsp;Now retired. &nbsp;Connected with Beth
 at OCCMA.&nbsp;<div>
   <br /></div>
@@ -2527,7 +2527,7 @@ at OCCMA.&nbsp;<div>
     <br /></div></div>
 END_TEXT
 }
-    communications << { date: '41841', duration: '50', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Kelly Clarke at City of Gresham, Jul 21 2014", cities: "Gresham, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Small Grants for HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41841', duration: '50', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Kelly Clarke at City of Gresham", cities: "Gresham, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Small Grants for HEAL Cities", notes: <<END_TEXT
 Gresham joined the Campaign on 7/15/2014, &nbsp;<div>Kelly Clarke worked
   with Ron Paster, the Governmnet Relations Manager, and Stacy Humphrey
   to put the Resolution before Council. &nbsp;</div>
@@ -2562,61 +2562,61 @@ Gresham joined the Campaign on 7/15/2014, &nbsp;<div>Kelly Clarke worked
   &nbsp; Gresham might match with cash.</div>
 END_TEXT
 }
-    communications << { date: '41505', duration: '30', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Patty Whitney-Wise at Partners for a Hunger Free Oregon, ", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
+    communications << { date: '41505', duration: '30', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Patty Whitney-Wise at Partners for a Hunger Free Oregon", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
 Met with her as part of research for presentation at Food and Ag panel
 at Oregon Mayor's Association.
 END_TEXT
 }
-    communications << { date: '41505', duration: '30', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Rick Gaupo at Marion-Polk Food Share, ", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
+    communications << { date: '41505', duration: '30', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Rick Gaupo at Marion-Polk Food Share", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
 Part of research for presentation at the Food and Ag Panel at the Oregon
 Mayor's association.
 END_TEXT
 }
-    communications << { date: '41794', duration: '90', contact_type: 'Webinar',  organization_type: 'Statewide Organization', contacts: "Rebecca Pawlak at State of Oregon/Oregon Health Authority, ", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
+    communications << { date: '41794', duration: '90', contact_type: 'Webinar',  organization_type: 'Statewide Organization', contacts: "Rebecca Pawlak at State of Oregon/Oregon Health Authority", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
 Attended webinar, Healthy Meetings and Vending to Improve Workplace
 Wellness, June 4, 2014, 10:30am - 12pm.
 END_TEXT
 }
-    communications << { date: '41794', duration: '90', contact_type: 'Webinar',  organization_type: 'Other', contacts: "Allison Abell at , ", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
+    communications << { date: '41794', duration: '90', contact_type: 'Webinar',  organization_type: 'Other', contacts: "Allison Abell at ", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
 Attended webinar, Healthy Meetings and Vending to Improve Workplace
 Wellness, June 4, 2014, 10:30am - 12pm
 END_TEXT
 }
-    communications << { date: '41794', duration: '90', contact_type: 'Webinar',  organization_type: 'Other', contacts: "Abraham Moland at , ", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
+    communications << { date: '41794', duration: '90', contact_type: 'Webinar',  organization_type: 'Other', contacts: "Abraham Moland at ", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
 Attended webinar: Healthy Meetings and Vending to Improve Workplace
 Wellness, June 4, 2014, 10:30am - 12pm.
 END_TEXT
 }
-    communications << { date: '41794', duration: '90', contact_type: 'Webinar',  organization_type: 'Participating City', contacts: "Mary Puddy at City of Prineville, ", cities: "Prineville, OR", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
+    communications << { date: '41794', duration: '90', contact_type: 'Webinar',  organization_type: 'Participating City', contacts: "Mary Puddy at City of Prineville", cities: "Prineville, OR", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
 Attended webinar: Healthy Meetings and Vending to Improve Workplace
 Wellness, June 4, 2014, 10:30am - 12pm
 END_TEXT
 }
-    communications << { date: '41794', duration: '90', contact_type: 'Webinar',  organization_type: 'Participating City', contacts: "Katie Babits at City of Veneta, Aug 07 2014", cities: "Veneta, OR", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
+    communications << { date: '41794', duration: '90', contact_type: 'Webinar',  organization_type: 'Participating City', contacts: "Katie Babits at City of Veneta", cities: "Veneta, OR", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
 Attended Healthy Meetings and Vending to Improve Workplace Wellness,
 June 4, 2014, 10:30am - 12pm.
 END_TEXT
 }
-    communications << { date: '41794', duration: '90', contact_type: 'Webinar',  organization_type: 'Statewide Organization', contacts: "Inge Aldersebaes at OEA Choice Trust, ", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
+    communications << { date: '41794', duration: '90', contact_type: 'Webinar',  organization_type: 'Statewide Organization', contacts: "Inge Aldersebaes at OEA Choice Trust", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
 Webinar title: Healthy Meetings and Vending to Improve Workplace
 Wellness. June 4, 2014, 10:30am - 12pm
 END_TEXT
 }
-    communications << { date: '41794', duration: '90', contact_type: 'Webinar',  organization_type: 'Participating City', contacts: "Jim Loeffler at City of Oregon City, ", cities: "Oregon City, OR", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
+    communications << { date: '41794', duration: '90', contact_type: 'Webinar',  organization_type: 'Participating City', contacts: "Jim Loeffler at City of Oregon City", cities: "Oregon City, OR", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
 Webinar title: Healthy Meetings and Vending to Improve Workplace
 Wellness. June 4, 2014, 10:30am - 12pm
 END_TEXT
 }
-    communications << { date: '41722', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Other', contacts: "Bob Crocker at City of Beaverton, Mar 31 2014", cities: "Beaverton, OR", staff: "Beth Kaye, Karli Thorstenson", topics: "", notes: <<END_TEXT
+    communications << { date: '41722', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Other', contacts: "Bob Crocker at City of Beaverton", cities: "Beaverton, OR", staff: "Beth Kaye, Karli Thorstenson", topics: "", notes: <<END_TEXT
 I provided Bob with W@W policy documents in Word format.
 END_TEXT
 }
-    communications << { date: '41694', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Robert Crocker at City of Beaverton, Mar 20 2014", cities: "Beaverton, OR", staff: "Beth Kaye, Dawn Powell", topics: "Introduction To HEAL Cities, Workplace Wellness", notes: <<END_TEXT
+    communications << { date: '41694', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Robert Crocker at City of Beaverton", cities: "Beaverton, OR", staff: "Beth Kaye, Dawn Powell", topics: "Introduction To HEAL Cities, Workplace Wellness", notes: <<END_TEXT
 Researched and sent Bob info re Instant Recess. &nbsp;Also sent Bob info
 about use of HEAL Cities logo and process to be designated a HEAL City. &nbsp;
 END_TEXT
 }
-    communications << { date: '41690', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Robert Crocker at City of Beaverton, Mar 20 2014", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Workplace Wellness", notes: <<END_TEXT
+    communications << { date: '41690', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Robert Crocker at City of Beaverton", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Workplace Wellness", notes: <<END_TEXT
 Met with Bob Crocker at Beaverton City Hall, went over the basics of the
 HEAL Cities program with him and gave him a full packet. &nbsp;<div>
   <br /></div>
@@ -2644,7 +2644,7 @@ HEAL Cities program with him and gave him a full packet. &nbsp;<div>
   Beaverton might adopt.&nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41718', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Robert Crocker at City of Beaverton, Mar 20 2014", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Workplace Wellness, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41718', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Robert Crocker at City of Beaverton", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Workplace Wellness, Coordination with County Health Departments", notes: <<END_TEXT
 This was my second meeting with Bob Crocker. &nbsp;At the first meeting,
 we reviewed the Wellness@Work assessment on the wellnessatworkoregon.org
 website. &nbsp;This time, we reviewed the results of the assessment. &nbsp;<div>
@@ -2668,13 +2668,13 @@ website. &nbsp;This time, we reviewed the results of the assessment. &nbsp;<div>
   staff. &nbsp;Offered to return to talk with Wellness Committee. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41709', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Megan Kemple at National Farm to School Network, ", cities: "Athena, OR, Weston, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41709', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Megan Kemple at National Farm to School Network", cities: "Athena, OR, Weston, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
 I asked Megan for resources for Athena-Weston as they explore initiating
 a F2S program. &nbsp;I specifically asked about other NE Oregon cities
 that have F2S.&nbsp;
 END_TEXT
 }
-    communications << { date: '41709', duration: '15', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Jennifer Spurgeon at Weston City COuncil, Oct 17 2013", cities: "Weston, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41709', duration: '15', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Jennifer Spurgeon at Weston City COuncil", cities: "Weston, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
 Jennifer was able to listen in on the F2S webinar and found it helpful.
 &nbsp;She will coordinate with rest of Athena/Weston team and keep me posted.&nbsp;<div>
   <br /></div>
@@ -2688,11 +2688,11 @@ Jennifer was able to listen in on the F2S webinar and found it helpful.
   <br /></div>
 END_TEXT
 }
-    communications << { date: '41698', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "John Walsh at City of St. Helens, ", cities: "St. Helens, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41698', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "John Walsh at City of St. Helens", cities: "St. Helens, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 requested meeting in March 2014
 END_TEXT
 }
-    communications << { date: '41670', duration: '90', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jennifer Dimsho at City of St. Helens/RARE AMericorps, Feb 28 2014", cities: "St. Helens, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41670', duration: '90', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jennifer Dimsho at City of St. Helens/RARE AMericorps", cities: "St. Helens, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Coordination with County Health Departments", notes: <<END_TEXT
 <span
   style=""color: rgb(31,73,125);font-family: Calibri , sans-serif;font-size: 15.0px;background-color: rgb(255,255,255);"">We
   focused on Parks Plan now underway</span>
@@ -2721,17 +2721,17 @@ END_TEXT
       works for John Walsh and with City Planner, Jacob Graichen,</span></div></div>
 END_TEXT
 }
-    communications << { date: '41698', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jennifer Spurgeon at Weston City COuncil, Oct 17 2013", cities: "Athena, OR, Weston, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41698', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jennifer Spurgeon at Weston City COuncil", cities: "Athena, OR, Weston, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
 Let JMS know about Friends of Family Farmers listeining sessions coming
 to NE Oregon, because Family Farmers potentially would make good F2S partners.
 END_TEXT
 }
-    communications << { date: '41698', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jennifer Spurgeon at Weston City COuncil, Oct 17 2013", cities: "Athena, OR, Weston, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41698', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jennifer Spurgeon at Weston City COuncil", cities: "Athena, OR, Weston, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
 Let JMS know about Friends of Family Farmers listeining sessions coming
 to NE Oregon, because Family Farmers potentially would make good F2S partners.
 END_TEXT
 }
-    communications << { date: '41698', duration: '35', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Jennifer Spurgeon at Weston City COuncil, Oct 17 2013", cities: "Athena, OR, Weston, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Coordination with County Health Departments, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41698', duration: '35', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Jennifer Spurgeon at Weston City COuncil", cities: "Athena, OR, Weston, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Coordination with County Health Departments, Hunger and Obesity", notes: <<END_TEXT
 Will meet at 4 at Weston Memorial Hall, Basement, just up the hill from
 the Post Office. &nbsp;<div>
   <br /></div>
@@ -2905,476 +2905,476 @@ the Post Office. &nbsp;<div>
   <br /></div>
 END_TEXT
 }
-    communications << { date: '41666', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Linda Norris at City of Salem, , Julie DuChars at City of Salem, ", cities: "Salem, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41666', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Linda Norris at City of Salem, Julie DuChars at City of Salem", cities: "Salem, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Left VM following up on e-mail of 1/13/14
 END_TEXT
 }
-    communications << { date: '41666', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Scott Burge at City of Scappoose, ", cities: "Scappoose, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41666', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Scott Burge at City of Scappoose", cities: "Scappoose, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Contacted Scott to arrange a site visit. &nbsp;He referred me to Don
 Otterman, the new Interim City Manager. &nbsp;
 END_TEXT
 }
-    communications << { date: '41666', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Don Otterman at City of Scappoose, ", cities: "Scappoose, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41666', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Don Otterman at City of Scappoose", cities: "Scappoose, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Discussed arranging a tour of Scappoose. &nbsp;Don O is new to City
 (less than 30 days). &nbsp;Very involved now with local politics.
 &nbsp;Will get back to me. &nbsp;
 END_TEXT
 }
-    communications << { date: '41666', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'University', contacts: "Beret Halverson, MPA at OSU Extension Family & Community Health Clackamas, ", cities: "Estacada, OR, Molalla, OR, Oregon City, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41666', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'University', contacts: "Beret Halverson, MPA at OSU Extension Family & Community Health Clackamas", cities: "Estacada, OR, Molalla, OR, Oregon City, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Other", notes: <<END_TEXT
 Arranged a meeting for February 3rd with Beret, Erin (the GROW reserach
 assistant) and Deborah John. &nbsp;
 END_TEXT
 }
-    communications << { date: '41648', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Hospital', contacts: "Marilyn Kennelly at Samaritan Health Foundation, ", cities: "Corvallis, OR, Lebanon, OR, Tangent, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41648', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Hospital', contacts: "Marilyn Kennelly at Samaritan Health Foundation", cities: "Corvallis, OR, Lebanon, OR, Tangent, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Coordination for 2/5 Samaritan Summit
 END_TEXT
 }
-    communications << { date: '41648', duration: '10', contact_type: 'Telephone Call',  organization_type: 'KP', contacts: "Rachel E Burdon at Kaiser Permanente Community Benefit, ", cities: "Falls City, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41648', duration: '10', contact_type: 'Telephone Call',  organization_type: 'KP', contacts: "Rachel E Burdon at Kaiser Permanente Community Benefit", cities: "Falls City, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Coordination of pick up of donated dental supplies for Falls City Residents
 END_TEXT
 }
-    communications << { date: '41648', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Amber Mathiesen, CFC at , ", cities: "Falls City, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41648', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Amber Mathiesen, CFC at ", cities: "Falls City, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Coordinating deliver of donated dental supplies from KP
 END_TEXT
 }
-    communications << { date: '41648', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Tonya Johnson at OSU Extension Service, ", cities: "", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41648', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Tonya Johnson at OSU Extension Service", cities: "", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Scheduled meeting to coordinate with Extension
 END_TEXT
 }
-    communications << { date: '41646', duration: '99', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Janice Naimy at YMCA of Marion & Polk County, , Jessica Ickes at Family YMCA of Marion & Polk Counties, , Arturo Vargas at United Way of the mid-Willamette Valley, ", cities: "", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41646', duration: '99', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Janice Naimy at YMCA of Marion & Polk County, Jessica Ickes at Family YMCA of Marion & Polk Counties, Arturo Vargas at United Way of the mid-Willamette Valley", cities: "", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments", notes: <<END_TEXT
 Joint meeting of Pioneering Healthy Communities -policy &amp; environmental changes &nbsp;and CTG team&nbsp;<div><br></div><div>New CTG grant also covers Marion &amp; Polk counties</div><div><br></div><div>After school</div><div>Early childhood</div><div>Community</div><div>Neighborhoods&nbsp;</div><div>Schools</div><div>Worksites</div><div>Clinic to community</div><div><br></div><div>IAN Dixon-macDonald at Marion-Polk Food Share</div><div>Tonya Johnson@ OSU Extension</div><div>Jeanine Steiss - works with local Head Start&nbsp;</div><div>Kim Abraham -community member</div><div>Rhoda Jansey - Woodburn Pediatric Clinic</div><div>Mary Beth ??? - funded by KP</div>
 END_TEXT
 }
-    communications << { date: '41590', duration: '45', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Pam Hutchinson at Marion COunty Health Department, , Jennifer Eskridge at Marion County HD, ", cities: "Aurora, OR, Donald, OR, Gervais, OR, Hubbard, OR, Mount Angel, OR, Salem, OR, Silverton, OR, Woodburn, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41590', duration: '45', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Pam Hutchinson at Marion COunty Health Department, Jennifer Eskridge at Marion County HD", cities: "Aurora, OR, Donald, OR, Gervais, OR, Hubbard, OR, Mount Angel, OR, Salem, OR, Silverton, OR, Woodburn, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments", notes: <<END_TEXT
 Silverton went for HEAL Designation. &nbsp;&nbsp;<div><br></div><div>Emily from Marion County HD is rep to PHC meetings; Pam sits on the PHC Board. &nbsp; I suggested that Pam ask about inclusivity, and geographic scope.</div><div><br></div><div><br></div><div>FOr info about Corner Store Program, go to Marion County HD home page, click on programs and services/prevention services/corner stores</div><div><br></div><div>Hubbard &nbsp;- site of healthy corner store project</div><div>4 in Woodburn</div><div>1 in Mt. Angel</div><div><br></div><div>Big story about corner stores on the front page of the statesman journal - picked up for n atonal distribution</div><div><br></div><div>Salem has a TF Saturday Market on State Property</div><div>Has also TF policy applied&nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41590', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Evaluator', contacts: "Ronda Zakocs at Insight Evaluation, ", cities: "", staff: "Beth Kaye", topics: "Evaluation", notes: <<END_TEXT
+    communications << { date: '41590', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Evaluator', contacts: "Ronda Zakocs at Insight Evaluation", cities: "", staff: "Beth Kaye", topics: "Evaluation", notes: <<END_TEXT
 <div>Abandon original concept:we learned from HEAL Cities gathering that e-surveys have low response rate, and that data furnished was often inaccurate</div><div><br></div>New concept: &nbsp;Interviewing designated cities.<div><br></div><div>Download Excel tracking spreadsheet</div><div><br></div><div>In each city we need a knowledgeable informant</div><div><br></div><div>Who should do interviews? &nbsp;Amy or another city planner type- open ended and close-ended questions</div><div><br></div><div>Most important fifteen policies: behave it, in process, contemplating, nope</div><div><br></div><div>Any other questions</div><div><br></div><div>Where should we keep the data? &nbsp;</div><div><br></div><div>Qs for Noelle</div><div><br></div><div>Who should do policy achievement interviews? &nbsp;Want to use first 5 to generate model interview</div><div><br></div><div>Sooner rather than later</div><div>Refine questions about the policy</div><div>Input on top 15 policies</div><div><br></div><div>Ronda will look at VA and CA instruments, develop interview template</div><div>Ronda will also Zoho for fitness for entering interview application</div>
 END_TEXT
 }
-    communications << { date: '41583', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jim Hough at Portland State University, , Jim Fairchild at , , Ron Foggin at City of Dallas, , Emily Gagner at City of Dallas, ", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Shared Use, Workplace Wellness, Other", notes: <<END_TEXT
+    communications << { date: '41583', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jim Hough at Portland State University, Jim Fairchild at , Ron Foggin at City of Dallas, Emily Gagner at City of Dallas", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Shared Use, Workplace Wellness, Other", notes: <<END_TEXT
 Follow up with Jim, Emily, and Ron on meeting 11/4 re 12/18 public meeting to join campaign. &nbsp; Sent draft Resolution, Nutrition policy, and W@w one pager. &nbsp;
 END_TEXT
 }
-    communications << { date: '41583', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Karin Johnson at City of Independence, , David Clyne at City of Independence, , Michael Danko at City of Independence, , Gloria Butsch at City of Independence, , Shawn Irvine at City of Independence, ", cities: "Independence, OR", staff: "Beth Kaye, Dawn Powell, Steve White", topics: "Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Other", notes: <<END_TEXT
+    communications << { date: '41583', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Karin Johnson at City of Independence, David Clyne at City of Independence, Michael Danko at City of Independence, Gloria Butsch at City of Independence, Shawn Irvine at City of Independence", cities: "Independence, OR", staff: "Beth Kaye, Dawn Powell, Steve White", topics: "Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Other", notes: <<END_TEXT
 Sent follow up to 10/28 meeting. &nbsp;Invited Gloria to call Dawn Robbins. &nbsp;Invited Michael Danko to call Steve White re walk/bike connectivity. &nbsp;Suggested that David look at Putnam, Missouri community effort. &nbsp;Attached draft Resolution for Karin and forwarded Healthy Food Guidelines to Karin and Gloria. &nbsp;
 END_TEXT
 }
-    communications << { date: '41431', duration: '60', contact_type: 'Webinar',  organization_type: 'Other', contacts: "Misha Peel at Polk County HD, , Marilyn Carter at Douglas County HD, , Molly Mattick at Curry Community  Health Department, , Jessica Connor at Coquille Indian Tribe, , Robb Hutson at Rede Group, , Katherine Carlson at , , Shelley Wight at Morrow County Health Department, , Susanne Eleson at NWSDS, , Kirstens Ingersoll at Clackamas County PHD, , Carly Rochocki at , , Ashley Baggett at The Public Health Foundation of Columbia County, , Kathy Payne at City of St Helens, , Dawn Bennett at , , Sarah Ballin-Ross at Linn County Public Health, , Carla Bennett at Washington County, , Jan Noland at City County Insurance Services, , Stephanie Young-Peterson at Rede Group, , Janet Newport at City of Tualatin, , James Becraft at , , Mac Gillespie at Benton County, , Meghan Haggard at Yamhill County Public Health, , Jim Loeffler at City of Oregon City, , Johanna Peerenboon at Benton County Health Department, , Diana Moffat at Local Government Personnel Institute, , Jenica Palmer-Phillips at OHA, , Ann Steward at City of Florence, , Mary Meyer at CIS, , Zachary Fund at VISTA AmeriCorps, , Belinda Ballah at Hood River Commission on Children and Families, , Erin Sedlacek at Linn County, , Kim La Croix at Oregon Health Authority, , Beth Hadley at Lake County Public Health, , Molly Jesperson at Klamath County, , Merritt Driscoll at Klamath Tribal Health, , Jennifer Jordan at Lane County, , Laura Stiltanen at Douglas county Public Health, , Lynne Conrads at City of Sisters, , Therese Madrigal at Deschutes County, , Leahnette Rivers at City of Columbia City, , Claire Syrett at Lane Coalition of Healthy Active Youth, ", cities: "", staff: "Beth Kaye, Dawn Powell", topics: "Workplace Wellness", notes: <<END_TEXT
+    communications << { date: '41431', duration: '60', contact_type: 'Webinar',  organization_type: 'Other', contacts: "Misha Peel at Polk County HD, Marilyn Carter at Douglas County HD, Molly Mattick at Curry Community  Health Department, Jessica Connor at Coquille Indian Tribe, Robb Hutson at Rede Group, Katherine Carlson at , Shelley Wight at Morrow County Health Department, Susanne Eleson at NWSDS, Kirstens Ingersoll at Clackamas County PHD, Carly Rochocki at , Ashley Baggett at The Public Health Foundation of Columbia County, Kathy Payne at City of St Helens, Dawn Bennett at , Sarah Ballin-Ross at Linn County Public Health, Carla Bennett at Washington County, Jan Noland at City County Insurance Services, Stephanie Young-Peterson at Rede Group, Janet Newport at City of Tualatin, James Becraft at , Mac Gillespie at Benton County, Meghan Haggard at Yamhill County Public Health, Jim Loeffler at City of Oregon City, Johanna Peerenboon at Benton County Health Department, Diana Moffat at Local Government Personnel Institute, Jenica Palmer-Phillips at OHA, Ann Steward at City of Florence, Mary Meyer at CIS, Zachary Fund at VISTA AmeriCorps, Belinda Ballah at Hood River Commission on Children and Families, Erin Sedlacek at Linn County, Kim La Croix at Oregon Health Authority, Beth Hadley at Lake County Public Health, Molly Jesperson at Klamath County, Merritt Driscoll at Klamath Tribal Health, Jennifer Jordan at Lane County, Laura Stiltanen at Douglas county Public Health, Lynne Conrads at City of Sisters, Therese Madrigal at Deschutes County, Leahnette Rivers at City of Columbia City, Claire Syrett at Lane Coalition of Healthy Active Youth", cities: "", staff: "Beth Kaye, Dawn Powell", topics: "Workplace Wellness", notes: <<END_TEXT
 
 END_TEXT
 }
-    communications << { date: '41582', duration: '35', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Jim Fairchild at , , Ron Foggin at City of Dallas, , Emily Gagner at City of Dallas, ", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41582', duration: '35', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Jim Fairchild at , Ron Foggin at City of Dallas, Emily Gagner at City of Dallas", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Coordination with County Health Departments", notes: <<END_TEXT
 Jim made intros, described support among council.<div><br></div><div>CM Foggin has been in the position about a year. &nbsp;He supports joining HCO - bigger platform for what they are already doing.Emily Gagner interested in W@W. &nbsp;Recently assumed ZhR role due to budget cuts. &nbsp;<span style=""font-size: 10.0pt;"">&nbsp;Just made Safety Team into W@W team. &nbsp;No assessment yet. &nbsp;Interested in assessment and healthy meetings&nbsp;</span><div><span style=""font-size: 10.0pt;""><br></span></div><div><span style=""font-size: 10.0pt;"">Working on connecting schools to trails so kids will not have to cross so many busy intersections.</span></div><div><span style=""font-size: 10.0pt;""><br></span></div><div><span style=""font-size: 10.0pt;"">Food access not an issue. &nbsp;</span></div></div><div><span style=""font-size: 10.0pt;""><br></span></div><div><span style=""font-size: 10.0pt;"">City Hall vending machine (SSBs) brings in $$ for the volunteer fire dept. &nbsp;No interest in tinkering with offerings. &nbsp;</span></div><div><span style=""font-size: 10.0pt;""><br></span></div>
 END_TEXT
 }
-    communications << { date: '41543', duration: '30', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Olga Gerberg at City of Sandy, ", cities: "Sandy, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41543', duration: '30', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Olga Gerberg at City of Sandy", cities: "Sandy, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other, Hunger and Obesity", notes: <<END_TEXT
 Very interested.
 END_TEXT
 }
-    communications << { date: '41544', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Jason Horton at City of Woodburn, ", cities: "Woodburn, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Coordination with County Health Departments, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41544', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Jason Horton at City of Woodburn", cities: "Woodburn, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Coordination with County Health Departments, Hunger and Obesity", notes: <<END_TEXT
 Seemed enthusiastic about concept.&nbsp;
 END_TEXT
 }
-    communications << { date: '41544', duration: '20', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Scott Burge at City of Scappoose, , Barbara Hayden at City of Scappoose, ", cities: "Scappoose, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41544', duration: '20', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Scott Burge at City of Scappoose, Barbara Hayden at City of Scappoose", cities: "Scappoose, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 The Mayor requested 10 copies of each of the handouts for his City Council.
 END_TEXT
 }
-    communications << { date: '41544', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Ginny Carlson at City of St. Helens, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41544', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Ginny Carlson at City of St. Helens", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 
 END_TEXT
 }
-    communications << { date: '41561', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'County Health Department', contacts: "Arielle LeVeaux at Polk County Public Health, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41561', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'County Health Department', contacts: "Arielle LeVeaux at Polk County Public Health", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Coordination with County Health Departments", notes: <<END_TEXT
 Met at OPHA Exhibit fair.
 END_TEXT
 }
-    communications << { date: '41544', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Sean Drinkwine at City of Estacada, ", cities: "Estacada, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41544', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Sean Drinkwine at City of Estacada", cities: "Estacada, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 
 END_TEXT
 }
-    communications << { date: '41543', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Tim Clark at City of Wood Village, ", cities: "Wood Village, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41543', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Tim Clark at City of Wood Village", cities: "Wood Village, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 See if Tamie Arnold knows him.
 END_TEXT
 }
-    communications << { date: '41577', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jim Fairchild at , ", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41577', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jim Fairchild at ", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Sent follow-up e-mail to arrange a visit. &nbsp;Noted that I had met with three other City Councillors at LOC and all seemed open to joining the HEAL Cities Campaign. &nbsp;
 END_TEXT
 }
-    communications << { date: '41543', duration: '50', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Ron Foggin at City of Dallas, , Murray Stewart at City of Dallas, , Kevin G. Marshall at City of Dallas, , Jim Brown at City of Dallas, ", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41543', duration: '50', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Ron Foggin at City of Dallas, Murray Stewart at City of Dallas, Kevin G. Marshall at City of Dallas, Jim Brown at City of Dallas", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 Pull together a meeting with Jim Fairchild?<div><br></div><div>Time is aggregate for conversations with all three COuncilors</div>
 END_TEXT
 }
-    communications << { date: '41575', duration: '100', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Karin Johnson at City of Independence, , David Clyne at City of Independence, , Shawn Irvine at City of Independence, , Gloria Butsch at City of Independence, , Michael Danko at City of Independence, ", cities: "Independence, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity, Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Other, Coordination with County Health Departments, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41575', duration: '100', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Karin Johnson at City of Independence, David Clyne at City of Independence, Shawn Irvine at City of Independence, Gloria Butsch at City of Independence, Michael Danko at City of Independence", cities: "Independence, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity, Land Use & Transportation, Access to Healthy Food Options, Workplace Wellness, Other, Coordination with County Health Departments, Hunger and Obesity", notes: <<END_TEXT
 Karin Johnson gave me a tour of Independence. &nbsp;We noticed a lack of connectivity: &nbsp;bike paths to nowhere. &nbsp;There is some lovely riverside park development, and the start of a trail project. &nbsp;New higher-end multi-family housing development coming in from developer who built something similar in Molalla. &nbsp;Some Farmworker housing, some housing authority housing. &nbsp;<div><br></div><div>Many Latino families who used to be migrant labor when area was major producer of hops have settled in Independence. &nbsp;There is one Latina on City Council, a couple of Latino police officers.<br><div><br></div><div>Shawn Irvine participated in the meeting by phone.&nbsp;</div><div><br></div><div>I did a big picture overview, and described policies other HEAL Cities are pursuing. &nbsp;I talked about focusing investment in areas with high BMI/high poverty. &nbsp;</div><div><br></div><div>Mike Danko proud of Land Use and&nbsp;</div><div><br></div><div>No F2S program, no school gardens.&nbsp;</div><div><br></div><div>Very interested in creating a Food Hub. &nbsp;Interested in how to change Monmouth-Independence School District procurement policies. &nbsp;I suggested that they contact Michelle Markesteyn Ratcliffe at ODA. City will be presenting Food Hub proposal in Woodburn to Regional Solutions Advisory Committee on Friday. &nbsp;(I have conflict, but maybe Amy can cover.).&nbsp;</div><div><br></div><div>Shawn is working on a Local Food Connection conference. &nbsp;(Connect Amy?)&nbsp;</div><div><br></div><div>Two May-Nov Farmers Markets. &nbsp;This year, one market will move indoors for Nov &amp; Dec. &nbsp;</div><div><br></div><div>Community gardens have failed twice. &nbsp;CM thinks there were leadership issues, but during drive-through I did not see much garden<span style=""font-size: 10.0pt;"">ing activity anywhere.&nbsp;</span></div><div><span style=""font-size: 10.0pt;""><br></span></div><div><span style=""font-size: 10.0pt;"">Working class and agricultural area - &nbsp;residents of more high end areas (including one Air District where all homes have hangars and there are &nbsp;runway alleys behind each street of homes) , may work for local industry, local gov't, or commute to Salem. &nbsp;</span></div><div><span style=""font-size: 10.0pt;""><br></span></div><div><span style=""font-size: 10.0pt;"">One well-located Roth's IGA, but surrounding community considers it too expensive. &nbsp;There may be interest in mobile Harvest Truck with staple items. Generally, quality of food is not as good as community wants- perceived as &nbsp;a larger Ec Dev issue.&nbsp;</span></div><div><span style=""font-size: 10.0pt;""><br></span></div><div><span style=""font-size: 10.0pt;"">City is working on grant (?) with Marion-Polk Food Share.</span></div></div><div><span style=""font-size: 10.0pt;""><br></span></div><div><span style=""font-size: 10.0pt;"">City Manager would like to do another meeting on HEAL with multi-sectoral group: &nbsp;Council, folks from the School District, the Downtown Merchants Association (not the Chamber), the food bank, the Y, the Faith Community. &nbsp;Wants to get Council buy-in. &nbsp;Thinks there is interest.</span></div><div><span style=""font-size: 10.0pt;""><br></span></div><div><span style=""font-size: 10.0pt;"">Gloria interested in Wellness@Work. &nbsp;(Connect with Dawn Robbins and Wellnessatworkoregon.org &nbsp;website). May want staff group to work on community garden or marked walking path projects.</span></div>
 END_TEXT
 }
-    communications << { date: '41557', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Deb Fell-Carlson at SAIF, ", cities: "Lebanon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41557', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Deb Fell-Carlson at SAIF", cities: "Lebanon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other, Coordination with County Health Departments", notes: <<END_TEXT
 Deb and I went for coffee after the meeting with Lebanon Mayor Aziz and City Manager Hlavec to debrief. &nbsp;We talked about the conservative and libertarian political climate in Lebanon, and the strong degree of community cooperation and unity that has helped the City's economic recovery. &nbsp;
 END_TEXT
 }
-    communications << { date: '41558', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Dana P. Hlavac at City of Lebanon, , Paul Aziz at City of Lebanon, , Deb Fell-Carlson at SAIF, ", cities: "Lebanon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41558', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Dana P. Hlavac at City of Lebanon, Paul Aziz at City of Lebanon, Deb Fell-Carlson at SAIF", cities: "Lebanon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 I thanked the &nbsp;Mayor and City Manager for meeting with me earlier in the week, and expressed my enthusiasm for working with the City of Lebanon. &nbsp;I initiatied a discussion about next steps. &nbsp;
 END_TEXT
 }
-    communications << { date: '41570', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Dana P. Hlavac at City of Lebanon, , Paul Aziz at City of Lebanon, , Deb Fell-Carlson at SAIF, ", cities: "Lebanon, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41570', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Dana P. Hlavac at City of Lebanon, Paul Aziz at City of Lebanon, Deb Fell-Carlson at SAIF", cities: "Lebanon, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
 I sent a follow-up e-mail, since I had not received a response to the e-mail I sent following our initial meeting on 10/10/13.<div><br></div><div>I asked for a date to bring the HEAL Resolution to Lebanon City COuncil. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41569', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Heidi Blaine at City of Donald, Oct 23 2013, Rick Olmstead at City of Donald, ", cities: "Donald, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41569', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Heidi Blaine at City of Donald, Rick Olmstead at City of Donald", cities: "Donald, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Hunger and Obesity", notes: <<END_TEXT
 At the invitation of the City &nbsp;Manager, Heidi Blaine, I attended a special Town Meeting on the idea of forming a Farmers &nbsp;Market in Donald. &nbsp;(A number of residents had mentioned their interest in having a Farmers Market on a recent city survey.) &nbsp;<div><br></div><div>There were about a dozen residents present. &nbsp;The reasons they gave for wanting a Farmers Market included a desire to attract more people to Donald (the Hazelnut Festival has been a real magnet), to increase economic vitality, to increase access to fresh, local produce (the farm stand up the road closed a couple of years ago; everyone now must drive to Wilsonville or Portland or Newberg to shop for produce, and that gets expensive). &nbsp;There was also some interest in providing a venue where local artisans could sell their creations, and exposing children to a broader variety of fruits and vegetables.<div><br></div><div>Councilor Olmstead's wife indicated that she was extremely price sensitive, and wanted to make sure that the market was competitively priced. &nbsp;</div><div><br></div><div>I distributed materials (A City's Role; Obesity: the Preventable Epidemic; Increasing Access to Health Food Options - overview; and Increasing Access to Healthy Food Options: Farmer's &nbsp;Markets).</div><div><br></div><div>Based on my conversations with Laura Conroy of the Hillsboro Farmers Markets and Jackie Hammon-Williams of the &nbsp;Oregon City Farmers Markets, I suggested that the community start slow and small, to give the townspeople a chance to get used to buying fresh produce locally on a regular basis and to ensure that the vendors received enough custom to make it worth their while. &nbsp;The two models I presented were the Employer-Sponsored Pop Up Market, and the Farm Stand (or extremely small, 1-2 vendor farmer's market). &nbsp; I made a pitch for accepting SNAP and providing a SNAP &nbsp;match to meet the nutrition needs of low-income families. &nbsp;(There was not a lot of visible interest.)</div><div><br></div><div>In response to questions, I described CSAs and bartering arrangements.</div><div><br></div><div>Heidi Blaine facilitated the group by dividing up the next steps into small, discrete actions. &nbsp;One person volunteered to put together an e-mail list and another volunteered to set up a web page. &nbsp;The group agreed to seek more volunteers at a broader planning charette scheduled for mid-November. &nbsp;</div><div><br></div><div>We also talked briefly about asking the local convenience stores to carry some produce. &nbsp;We did not talk specifically about incentives.</div></div><div><br></div><div>I agreed to provide resources to the city residents about drafting a charter, model rules, etc. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41570', duration: '25', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Heidi Blaine at City of Donald, Oct 23 2013", cities: "Donald, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41570', duration: '25', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Heidi Blaine at City of Donald", cities: "Donald, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Hunger and Obesity", notes: <<END_TEXT
 Followed up on 10/22 Town meeting about the prospect of starting a Donald Farmers Market by thanking the City Manager for convening the meeting, providing her with resources about Farmers Markets.<div><br></div><div>Because Heidi has also &nbsp;mentioned her interest in marking and mapping a walking trail through town, &nbsp;I also highlighted a national best practice from New Orleans published in a new Compendium of Proven Community-Based Prevention Programs: &nbsp;People for an Active City Environment marked and mapped a walking trail through the city, increasing the number of people walking and the distance they walked. &nbsp;Because the idea is supported by research, I suggested that Heidi &nbsp;may be able to secure a grant to pay for something similar in Donald.&nbsp;<div><br></div><div>I also pressed for Heidi to give a date when the HEAL Resolution would come before Council. &nbsp;&nbsp;</div></div>
 END_TEXT
 }
-    communications << { date: '41557', duration: '75', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Dana P. Hlavac at City of Lebanon, , Paul Aziz at City of Lebanon, , Deb Fell-Carlson at SAIF, ", cities: "Lebanon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Workplace Wellness, Other, Coordination with County Health Departments, Let's Move Cities Towns & Counties, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41557', duration: '75', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Dana P. Hlavac at City of Lebanon, Paul Aziz at City of Lebanon, Deb Fell-Carlson at SAIF", cities: "Lebanon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Workplace Wellness, Other, Coordination with County Health Departments, Let's Move Cities Towns & Counties, Hunger and Obesity", notes: <<END_TEXT
 Lebanon has a politically conservative COuncil. &nbsp;CM was interested in making changes by administrative order, e.g. re breastfeeding accommodation. &nbsp;Mayor and CM liked the idea of a recognition campaign to recognize private businesses that have made contributions to the health of the community, e.g. by sponsoring a fun run. &nbsp;
 END_TEXT
 }
-    communications << { date: '41544', duration: '15', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Ralph Grutzmacher at , ", cities: "Toledo, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options", notes: <<END_TEXT
+    communications << { date: '41544', duration: '15', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Ralph Grutzmacher at ", cities: "Toledo, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options", notes: <<END_TEXT
 Discussed lemonade stand kit for farmers' markets; &nbsp;funds raised can fund SNAP match program. &nbsp;Must follow instructions<div><br></div><div>Katie Anderson (?) (person who developed lemonade stand concept?)</div>
 END_TEXT
 }
-    communications << { date: '41544', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Ric Ingham at City of Veneta, ", cities: "Veneta, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41544', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Ric Ingham at City of Veneta", cities: "Veneta, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Hunger and Obesity", notes: <<END_TEXT
 Met at 2013 LOC; several folks from Veneta attended Panel at LOC
 END_TEXT
 }
-    communications << { date: '41545', duration: '90', contact_type: 'General Presentation',  organization_type: 'Participating City', contacts: "Julie Fitzgerald at City of Wilsonville, , Ralph Grutzmacher at , , Shanti Platt at , , Jennifer Spurgeon at Weston City COuncil, Oct 17 2013, David Clyne at City of Independence, , Lesley Woodruff at City of Newberg, , Norma Alley at City of Newberg, , Shannon Poole at City of Culver, , Sandra Larson at City of Veneta, , Brittany Boothe at City of Veneta, , Aron Carleson at City of Hillsboro, , Olga Acuna at City of Hillsboro, , Christy Greagor at City of Banks, , Marcy Skinner at City of Ontario, , Mike Vaughan at City of Coos Bay, , Julie Fitzgerald at City of Wilsonville, , Justin D. Cobb at City of Drain, , Carl Jacobson at City of Cave Junction, , Olga Gerberg at City of Sandy, , Micky Wagner at City of Gervais, ", cities: "Banks, OR, Coos Bay, OR, Culver, OR, Drain, OR, Gervais, OR, Independence, OR, Newberg, OR, Ontario, OR, Springfield, OR, Toledo, OR, Veneta, OR, Weston, OR, Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options", notes: <<END_TEXT
+    communications << { date: '41545', duration: '90', contact_type: 'General Presentation',  organization_type: 'Participating City', contacts: "Julie Fitzgerald at City of Wilsonville, Ralph Grutzmacher at , Shanti Platt at , Jennifer Spurgeon at Weston City COuncil, David Clyne at City of Independence, Lesley Woodruff at City of Newberg, Norma Alley at City of Newberg, Shannon Poole at City of Culver, Sandra Larson at City of Veneta, Brittany Boothe at City of Veneta, Aron Carleson at City of Hillsboro, Olga Acuna at City of Hillsboro, Christy Greagor at City of Banks, Marcy Skinner at City of Ontario, Mike Vaughan at City of Coos Bay, Julie Fitzgerald at City of Wilsonville, Justin D. Cobb at City of Drain, Carl Jacobson at City of Cave Junction, Olga Gerberg at City of Sandy, Micky Wagner at City of Gervais", cities: "Banks, OR, Coos Bay, OR, Culver, OR, Drain, OR, Gervais, OR, Independence, OR, Newberg, OR, Ontario, OR, Springfield, OR, Toledo, OR, Veneta, OR, Weston, OR, Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options", notes: <<END_TEXT
 All attended panel presentation on Increasing Access to Healthy Food Options at 2013 LOC Annual meeting.<div><br></div><div>Copresenters were Michelle Markesteyn Ratcliffe of Oregon Dept of Ag on Farm to School and</div><div>Laura Conroy on Farmer's Markets (formerly of Hillsboro Farmer's Markets)</div>
 END_TEXT
 }
-    communications << { date: '41543', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Mary Schamehorn at City of Bandon, ", cities: "Bandon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Let's Move Cities Towns & Counties, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41543', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Mary Schamehorn at City of Bandon", cities: "Bandon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Let's Move Cities Towns & Counties, Hunger and Obesity", notes: <<END_TEXT
 LOC 2013
 END_TEXT
 }
-    communications << { date: '41543', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Sharon Harrison at City of Winston, ", cities: "Winston, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41543', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Sharon Harrison at City of Winston", cities: "Winston, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Hunger and Obesity", notes: <<END_TEXT
 LOC 2013
 END_TEXT
 }
-    communications << { date: '41543', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Edward Smith at City of Estacada, ", cities: "Estacada, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41543', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Edward Smith at City of Estacada", cities: "Estacada, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Hunger and Obesity", notes: <<END_TEXT
 Met at 2013 LOC
 END_TEXT
 }
-    communications << { date: '41543', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Suzanne Weber at City of Tillamook, ", cities: "Tillamook, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41543', duration: '10', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Suzanne Weber at City of Tillamook", cities: "Tillamook, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Hunger and Obesity", notes: <<END_TEXT
 met at 2013 LOC Conference
 END_TEXT
 }
-    communications << { date: '41491', duration: '180', contact_type: 'Attended public hearing',  organization_type: 'Participating City', contacts: "Bob Willoughby at City of Silverton, , Stu Rasmussen at City of Silverton, , Ruth Mattox at City of Silverton, , Jason Gottgetreu at City of Silverton, ", cities: "Silverton, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41491', duration: '180', contact_type: 'Attended public hearing',  organization_type: 'Participating City', contacts: "Bob Willoughby at City of Silverton, Stu Rasmussen at City of Silverton, Ruth Mattox at City of Silverton, Jason Gottgetreu at City of Silverton", cities: "Silverton, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Silverton's Mayor read a Proclamation at the Council Meeting announcing the city would join the HEAL Cities Campaign and an ACTIVE City.
 END_TEXT
 }
-    communications << { date: '41554', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "David Clyne at City of Independence, ", cities: "Independence, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41554', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "David Clyne at City of Independence", cities: "Independence, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Would like to invite me to meet with his staff.&nbsp;
 END_TEXT
 }
-    communications << { date: '41564', duration: '5', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Karin Johnson at City of Independence, ", cities: "Independence, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41564', duration: '5', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Karin Johnson at City of Independence", cities: "Independence, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Exchange of calls re scheduling a meeting with City Staff.<div><br></div><div>Left my mobile number.</div>
 END_TEXT
 }
-    communications << { date: '41564', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jennifer Spurgeon at Weston City COuncil, Oct 17 2013", cities: "Weston, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41564', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jennifer Spurgeon at Weston City COuncil", cities: "Weston, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 I sent Jennifer a link to the Community Commons piece about&nbsp;<span style=""color: rgb(34,34,34);font-family: arial , sans-serif;background-color: rgb(255,255,255);"">how another rural community approached the challenge of making good change happen. &nbsp;This community, Putnam, Missouri, used a cross-sectoral coalition and a planning process to address a range of local concerns. &nbsp;They promoted healthy food and physical activity, and discouraged smoking and drug use. &nbsp;&nbsp;</span><br style=""color: rgb(34,34,34);font-family: arial , sans-serif;background-color: rgb(255,255,255);""><div style=""color: rgb(34,34,34);font-family: arial , sans-serif;background-color: rgb(255,255,255);""><br></div><div style=""color: rgb(34,34,34);font-family: arial , sans-serif;background-color: rgb(255,255,255);""><a href=""http://www.communitycommons.org/2013/07/6-steps-to-community-change/"" style=""color: rgb(17,85,204);"">http://www.communitycommons.org/2013/07/6-steps-to-community-change/</a><br><br><br>Key elements:<br>1. &nbsp;Get Organized: &nbsp;develop cross-sectoral collaboration, incorporating<br>several existing colaitions<br>2. &nbsp;Find Funding: &nbsp;used funding to hold an Action Institute and create a<br>prioritized action plan<br>3. &nbsp;Create community buy-in through community involvement,<br>&nbsp; - they used a deliberate branding strategy with a strong message:<br>Putnam County Good Life: healthy eating, physical activity, drug-free<br>living, smoke-free air<br>4. &nbsp;Leverage Assets - leverage the work you have done to apply for<br>additional funds<br>5. &nbsp;Make Long-Term Policy Changes (joint use agreements, Livable Streets<br>policy)<br>6. &nbsp;Celebrate Success</div>
 END_TEXT
 }
-    communications << { date: '41562', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Jennifer Spurgeon at Weston City COuncil, Oct 17 2013", cities: "Weston, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41562', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Jennifer Spurgeon at Weston City COuncil", cities: "Weston, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Hunger and Obesity", notes: <<END_TEXT
 We discussed a site visit in the 2nd week of November, or after the holidays. &nbsp;The Weston Council meets Wednesday and Athena meets Thursday.<div><br></div><div>Jennifer would like to convene a meeting with the local Food Bank that is run out of the Athena Christian Church, the Athena and Weston School District, the CEO from Smith Foods, a rep from Pendleton Flour Mill. There is also a local Ag teacher who is interested in helping to start a community garden. &nbsp;The Ag teacher may have land. &nbsp;Jennifer thinks this would make a great senior project.&nbsp;</div><div><br></div><div>Jennifer is particularly interested in a Farm to School program since so much is grown locally. &nbsp;</div><div><br></div><div>If the effort takes off, she would like to expand to Union County. &nbsp;</div><div><br></div><div>She was willing to entertain the idea of a Small Cities Meeting to include Pendleton, Milton-Freewater, Athena (maybe not an incorporated city?), and Weston.&nbsp;</div><div><br></div><div>THe community had a FSA program but it died on the vine. &nbsp;</div><div>The Planning Commission just redid its ordinances. &nbsp;The community received a Transportation Growth Management Grant. of $125 K to develop a scope of work for future grants for work on Highway 11 into town (SRTS)</div><div><br></div><div>We talked generally about whether to convene a multi-sectoral group and &nbsp;launch a planning process, or to start small with one project that she is passionate about. &nbsp; I offered to send her information about a small city that had conducted a planning process. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41568', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Evaluator', contacts: "Ronda Zakocs at Insight Evaluation, ", cities: "", staff: "Beth Kaye, Karli Thorstenson", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41568', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Evaluator', contacts: "Ronda Zakocs at Insight Evaluation", cities: "", staff: "Beth Kaye, Karli Thorstenson", topics: "Other", notes: <<END_TEXT
 Eval letter must go out by 11/12 or roll to January<div><br></div>
 END_TEXT
 }
-    communications << { date: '41298', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Jackie Hammond-Williams at Oregon City Farmers Market, ", cities: "Oregon City, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41298', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Jackie Hammond-Williams at Oregon City Farmers Market", cities: "Oregon City, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Other", notes: <<END_TEXT
 I learned about the history of the Oregon City Farmers Market and it's function as a community hub. &nbsp;We talked about the local food culture and the community's pride in locally-grown food and local products.&nbsp;<div><br></div><div>We discussed bringing the Campaign to Oregon City.&nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41564', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41564', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Patty asked me to review information about Wilsonville's adoption and implementation of its Transportation System Plan update. I did, and determined that Wilsonville would qualify as a FIT CITY as a result of its policy adoption and &nbsp;implementation efforts.&nbsp;
 END_TEXT
 }
-    communications << { date: '41564', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, ", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41564', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Discussed researching obesity data for East Multnomah County. &nbsp;I referred her to CLF Regional Equity Atlas and various Multnomah County HD Reports.&nbsp;
 END_TEXT
 }
-    communications << { date: '41530', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Heidi Blaine at City of Donald, Oct 23 2013", cities: "Donald, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Other", notes: <<END_TEXT
+    communications << { date: '41530', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Heidi Blaine at City of Donald", cities: "Donald, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Other", notes: <<END_TEXT
 Closed loop re contacts in state park system with an eye to developing and mapping local and regional bike paths. &nbsp; Sent info re Putnam County, MO community change strategy. &nbsp;Discussed attendance at French Prairie presentation on 9/18. &nbsp;
 END_TEXT
 }
-    communications << { date: '41529', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Karen Ayers at Oregon Child Development Center, ", cities: "Milton-Freewater, OR", staff: "Beth Kaye", topics: "Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41529', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Karen Ayers at Oregon Child Development Center", cities: "Milton-Freewater, OR", staff: "Beth Kaye", topics: "Hunger and Obesity", notes: <<END_TEXT
 Attended presentation to HeadStart directors about hunger, healthy food access. &nbsp;<div><br></div><div>Heard about community garden OCDC started in Milton-Freewater with donated land and supplies. &nbsp;Ocdc turned garden over to Head Start parents to run. &nbsp;City involvement unknown.</div>
 END_TEXT
 }
-    communications << { date: '41516', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Molly Reece, MPH at U.S. Department of Health & Human Services, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41516', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Molly Reece, MPH at U.S. Department of Health & Human Services", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Huge turnout from HEAL Wilsonville team. &nbsp;
 END_TEXT
 }
-    communications << { date: '41516', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Sherilyn Lombos at City of Tualatin, , Lou Ogden at , , Molly Reece, MPH at U.S. Department of Health & Human Services, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41516', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Sherilyn Lombos at City of Tualatin, Lou Ogden at , Molly Reece, MPH at U.S. Department of Health & Human Services", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Send Lou e-mail re LOC conference<div><br></div><div>In favor of LMCTC but has not intentionally implemented it</div><div><br></div><div>Wants to invest in outreach &amp; awareness</div><div>Better access to healthy food options&nbsp;</div><div>Gives environmental awareness example, peach vs Snickers</div><div>They turned plain yogurt into rat poison&nbsp;</div><div>Bike to school - not on-going and systemic</div><div>Constraints on staff capacity</div><div><br></div><div>SL: &nbsp;interested in private partnerships</div><div>A lot of organic activity</div><div>Health care providers talking about limiting screen-time and being active</div><div>SD: &nbsp;school garden, free salad bar</div><div><br></div><div>(Recognition)&nbsp;</div><div><br></div><div>Recommend pulling major players together to the table</div><div>Society Leadership - local businesses sponsor ""stations"".&nbsp;</div><div><br></div>
 END_TEXT
 }
-    communications << { date: '41516', duration: '45', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, , Allan Berry at City of Fairview, , Molly Reece, MPH at U.S. Department of Health & Human Services, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41516', duration: '45', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, Allan Berry at City of Fairview, Molly Reece, MPH at U.S. Department of Health & Human Services", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Tamie would like LMCTC website to have a log-in<div>Webinars are under ""News"" tab</div><div>- First round focused on 5 goals</div><div>- Second round is by city size</div><div><br></div><div>Rachel Hopper at Reynolds SD is Alan's suggested contact<div>Tamie talked with Sup Linda Florence early in 2013,- she was not interested- focused on academics</div><div><br></div><div>Are there materials that show link between nutrition and physical activity and school success that we can give to Sup?</div><div><br></div><div>Molly's Suggestions:&nbsp;</div><div>Develop an inter-agency &nbsp;task force</div><div>Brainstorm barriers</div><div>Look at member agency work plans to see what activities are already happening and where interest is</div><div>Do not need to work on all 5 goals at once</div><div>Region-wide strategy sharing conference call for PNW</div><div>No formal mentor ship program yet</div><div><br></div><div><br></div><div>City does biz licensing</div><div>Can we find out from State who in Fairview is a licensed CC provider</div><div>What about daycare at HS?</div><div>How to reach FFNs?&nbsp;</div><div><br></div><div>What is role of MESD?</div><div><br></div><div>Hard to choose your battles among important issues. &nbsp;</div><div><br></div><div>LMCTC first launched in 2/2010' relaunched in 2012</div><div><br></div><div>Seattle signed up in 2/2010; when it was &nbsp;relaunched in 2012, did not assume that cities would want to re-up. &nbsp;Sea has not yet signed up. &nbsp;It is an election year so HHS is not pushing. &nbsp;</div><div><br></div><div>Theme of culture change. &nbsp;&nbsp;</div><div><br></div><div><br></div><div><br></div></div>
 END_TEXT
 }
-    communications << { date: '41498', duration: '60', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Lindsey Kuipers at City of Beaverton, ", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41498', duration: '60', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Lindsey Kuipers at City of Beaverton", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Lindsey has felt some opposition to the concept of a separate Health chapter to the Comprehensive Plan, as a result of personnel changes at the City. Some regard it as unnecessary and would prefer to see Health policies included in the sustainability chapter or woven in throughout the Plan. &nbsp;The Development Director, Don Mazziotti, would be comfortable with either approach. &nbsp;Lindsey has conferred with Amanda Garcia-Snell and Jeff, and all three agree that some of the policies would not fit readily into other chapters, although it could be done.&nbsp;<div><br></div><div>After some discussion, we came up with this list of reasons to maintain a stand-alone chapter:</div><div>1. It is becoming a national best practice for city planning documents to frame and describe the City'r role in creating healthy communities. &nbsp;(Give examples from the APA matrix.)</div><div>2. It could influence the state to require a h</div><div>Healthy Communities chapter in ALL Comprehensive Plans statewide.</div><div>3. It dovetails nicely with the current health care transformation process, and the emphasis it places on upstream actions to protect health and achieve &nbsp;wellness. &nbsp;</div><div><br></div><div>Lindsey will present the issue to the CHAC on Thursday. &nbsp;She hopes to be able to present it to the official citizen review bodies with a recommendation from the CHAC.&nbsp;</div><div><br></div><div>We also discussed the opportunity for Beaverton to join the HEAL Cities Campaign. &nbsp;Lindsey thinks this would help to align Beaverton's policies. &nbsp;She will bing it up again with Don when he returns from&nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41491', duration: '60', contact_type: 'General Presentation',  organization_type: 'Participating City', contacts: "Bob Willoughby at City of Silverton, , Stu Rasmussen at City of Silverton, , Ruth Maddox at City of Silverton, ", cities: "Silverton, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity", notes: <<END_TEXT
+    communications << { date: '41491', duration: '60', contact_type: 'General Presentation',  organization_type: 'Participating City', contacts: "Bob Willoughby at City of Silverton, Stu Rasmussen at City of Silverton, Ruth Maddox at City of Silverton", cities: "Silverton, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity", notes: <<END_TEXT
 Mayor issues proclamation to join Campaign.&nbsp;
 END_TEXT
 }
-    communications << { date: '41444', duration: '75', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Brandon Carey at OSU public health student (undergrad), ", cities: "Falls City, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41444', duration: '75', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Brandon Carey at OSU public health student (undergrad)", cities: "Falls City, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
 
 END_TEXT
 }
-    communications << { date: '41443', duration: '60', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Molly Mattick at Curry Community  Health Department, ", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
+    communications << { date: '41443', duration: '60', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Molly Mattick at Curry Community  Health Department", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
 Recently started a Wellness Committee at the Curry Community Health. &nbsp;There are 42 employees of the non-profit CCH and another 30 County employees. More autonomy. &nbsp;Still in the same offices. &nbsp;County too poor.<div><br></div><div>BA in International Relations and Philosophy, then went into Peace Corps and got interested in public health. &nbsp;Returned to country at the end of Sept. and started in Curry Community Health in Dec. &nbsp;</div><div><br></div><div>On Prevention team -- HEALTHY COMMUNITIES TEAM, W@W and tobacco prevention. &nbsp;&nbsp;<div><br></div><div>What else can she do on chronic disease prevention?&nbsp;</div><div><br></div><div>Working on getting a new tobacco free policy for campus. &nbsp;Will have a walking group and potluck lunch. &nbsp;Trying to get vending machines switched out for healthier options. &nbsp;<div><br></div></div></div><div><br></div><div>Three cities - &nbsp;Port Orford, Gold Beach, Brookings</div><div><br></div><div>Had a FEAST event to build momentum. &nbsp;Megan Kempel from OSU F2S helping with it. &nbsp;</div><div><br></div><div>Very interested in having me come out to meet with her team and to work with local jurisdictions. &nbsp; Will talk with her supervisor tomorrow and call me back.</div>
 END_TEXT
 }
-    communications << { date: '41437', duration: '75', contact_type: 'In-person Meeting',  organization_type: 'KP', contacts: "Kay Zimmerli at KP, ", cities: "", staff: "Beth Kaye, Dawn Powell", topics: "Workplace Wellness", notes: <<END_TEXT
+    communications << { date: '41437', duration: '75', contact_type: 'In-person Meeting',  organization_type: 'KP', contacts: "Kay Zimmerli at KP", cities: "", staff: "Beth Kaye, Dawn Powell", topics: "Workplace Wellness", notes: <<END_TEXT
 Interested in working on worksite wellness with HEAL Cities, e.g. Tualatin<div><br></div>
 END_TEXT
 }
-    communications << { date: '41437', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Molly Mattick at Curry Community  Health Department, ", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
+    communications << { date: '41437', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Molly Mattick at Curry Community  Health Department", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
 Rescheduled for afternoon of 6/18/13
 END_TEXT
 }
-    communications << { date: '41428', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Martha DeBry at City of North Plains, ", cities: "", staff: "Beth Kaye", topics: "Land Use & Transportation, Workplace Wellness", notes: <<END_TEXT
+    communications << { date: '41428', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Martha DeBry at City of North Plains", cities: "", staff: "Beth Kaye", topics: "Land Use & Transportation, Workplace Wellness", notes: <<END_TEXT
 Martha is still interested in the Bike-Friendly City designation. &nbsp;I also told her about the 1st HEAL Nation webinar, on W@W.&nbsp;
 END_TEXT
 }
-    communications << { date: '41376', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Stacey Sobell at Ecotrust, ", cities: "", staff: "Monica Cuneo", topics: "Access to Healthy Food Options", notes: <<END_TEXT
+    communications << { date: '41376', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Stacey Sobell at Ecotrust", cities: "", staff: "Monica Cuneo", topics: "Access to Healthy Food Options", notes: <<END_TEXT
 Emailed to arrange a time to discuss integrating farm to school policies with the HEAL cities campaign.
 END_TEXT
 }
-    communications << { date: '41376', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Katy Pellesier at Ecotrust, ", cities: "", staff: "Monica Cuneo", topics: "", notes: <<END_TEXT
+    communications << { date: '41376', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Katy Pellesier at Ecotrust", cities: "", staff: "Monica Cuneo", topics: "", notes: <<END_TEXT
 Emailed to arrange a time to discuss how best to integrate F2S related policies with HEAL cities campaign.
 END_TEXT
 }
-    communications << { date: '41376', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Michelle Markestyn - Ratdcliffe at Oregon Department of Agriculture, ", cities: "", staff: "Monica Cuneo", topics: "Access to Healthy Food Options", notes: <<END_TEXT
+    communications << { date: '41376', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Michelle Markestyn - Ratdcliffe at Oregon Department of Agriculture", cities: "", staff: "Monica Cuneo", topics: "Access to Healthy Food Options", notes: <<END_TEXT
 Contacted Michelle to set up a time to talk about F2S policies and HEAL.
 END_TEXT
 }
-    communications << { date: '41376', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Laura Conroy at Hillsboro Farmers' Market, ", cities: "Hillsboro, OR", staff: "Monica Cuneo", topics: "Access to Healthy Food Options", notes: <<END_TEXT
+    communications << { date: '41376', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Laura Conroy at Hillsboro Farmers' Market", cities: "Hillsboro, OR", staff: "Monica Cuneo", topics: "Access to Healthy Food Options", notes: <<END_TEXT
 Sent email to arrange a time to discuss integration of Farm to school and school garden related policies / programs / projects with city of Hillsboro. &nbsp;Laura contacted 2 people from w/i the city to arrange a time for all of us to discuss the opportunities together.
 END_TEXT
 }
-    communications << { date: '41374', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "TIa Henderson at Upstream Public Health, ", cities: "", staff: "Beth Kaye, Monica Cuneo", topics: "Access to Healthy Food Options", notes: <<END_TEXT
+    communications << { date: '41374', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "TIa Henderson at Upstream Public Health", cities: "", staff: "Beth Kaye, Monica Cuneo", topics: "Access to Healthy Food Options", notes: <<END_TEXT
 HB 2649 Farm to School bill; how cities can be involved / encourage in Farm to School and School Garden projects and programs; how best to integrate policies related to F2S into HEAL cities policy menu.
 END_TEXT
 }
-    communications << { date: '41374', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Kasandra Griffin at Upstream Public Health, ", cities: "", staff: "Beth Kaye, Monica Cuneo", topics: "Access to Healthy Food Options", notes: <<END_TEXT
+    communications << { date: '41374', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Kasandra Griffin at Upstream Public Health", cities: "", staff: "Beth Kaye, Monica Cuneo", topics: "Access to Healthy Food Options", notes: <<END_TEXT
 We discussed HB 2649 Farm to School bill and the role(s) city could play in farm to school and school gardens projects and programs.
 END_TEXT
 }
-    communications << { date: '41373', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Regional Organization', contacts: "Megan Kemple at National Farm to School Network, ", cities: "Eugene, OR", staff: "Monica Cuneo", topics: "Access to Healthy Food Options", notes: <<END_TEXT
+    communications << { date: '41373', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Regional Organization', contacts: "Megan Kemple at National Farm to School Network", cities: "Eugene, OR", staff: "Monica Cuneo", topics: "Access to Healthy Food Options", notes: <<END_TEXT
 
 END_TEXT
 }
-    communications << { date: '41368', duration: '5', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Marilyn Carter at Douglas county Wellness/Live Well Douglas, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41368', duration: '5', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Marilyn Carter at Douglas county Wellness/Live Well Douglas", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 Left VMs.&nbsp;
 END_TEXT
 }
-    communications << { date: '41367', duration: '5', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Marilyn Carter at Douglas county Wellness/Live Well Douglas, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41367', duration: '5', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Marilyn Carter at Douglas county Wellness/Live Well Douglas", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 Exchange of VMs
 END_TEXT
 }
-    communications << { date: '41365', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Jolynn Becker at City of Banks, ", cities: "Banks, OR, Cornelius, OR, Forest Grove, OR, Hillsboro, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity, Land Use & Transportation, Other", notes: <<END_TEXT
+    communications << { date: '41365', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Jolynn Becker at City of Banks", cities: "Banks, OR, Cornelius, OR, Forest Grove, OR, Hillsboro, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity, Land Use & Transportation, Other", notes: <<END_TEXT
 banks is getting a bike path with neighboring districts funded by the State. &nbsp;JoLynn overwhelmed by Application to become a certified Bike Friendly City. &nbsp;might be willing to participate in future if another Wash. linty city will assume leadership responsibilities. &nbsp;ow ever, she was enthusiastic about HEAL Cities. &nbsp;she may be able to move it in May/June time frame. &nbsp;banks has applied for grants From ODOT. &nbsp; Explained that we are working wi th ODOT and that joining HeAL Cities Campaign and considering adoption of active transit policy. Sy help position Banks for implementation grant. &nbsp;&nbsp;
 END_TEXT
 }
-    communications << { date: '41348', duration: '30', contact_type: 'In-person Meeting',  organization_type: 'County Health Department', contacts: "Kelly Volkmann at Benton County HD, ", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41348', duration: '30', contact_type: 'In-person Meeting',  organization_type: 'County Health Department', contacts: "Kelly Volkmann at Benton County HD", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Coordination with County Health Departments", notes: <<END_TEXT
 Discussed BK presentation at upcoming Benton County health promotion team meeting
 END_TEXT
 }
-    communications << { date: '41348', duration: '10', contact_type: 'In-person Meeting',  organization_type: 'County Health Department', contacts: "Misha Peel at Polk County HD, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41348', duration: '10', contact_type: 'In-person Meeting',  organization_type: 'County Health Department', contacts: "Misha Peel at Polk County HD", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Ran in to Misha Peel at NW Environmental Health Conference. &nbsp;Talked about HEAL Cities Campaign and agreed to schedule an appointment next week.&nbsp;
 END_TEXT
 }
-    communications << { date: '41345', duration: '65', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41345', duration: '65', contact_type: 'Distributed Resources',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Developed PowerPoint presentation for Tamie to use at 3/14 Three Cities meeting.
 END_TEXT
 }
-    communications << { date: '41347', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options", notes: <<END_TEXT
+    communications << { date: '41347', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options", notes: <<END_TEXT
 Attended meeting with Dr. Dave and Karen of Achieve Coalition, to prepare presentation to 3/21/13 Cities of Clackamas County meeting and review materials. &nbsp;Introduced Dr. Dave and Karen to HEAL Cities Campaign. &nbsp;HEAL will help Health &amp; Wellness Coalition that formed around Achieve to continue to improve environment for HEAL in Wilsonville.&nbsp;
 END_TEXT
 }
-    communications << { date: '41347', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Tamera Tlustos-Arnold at KP, , Shirley Craddick at Metro, ", cities: "Fairview, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Coordination with County Health Departments, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41347', duration: '120', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Tamera Tlustos-Arnold at KP, Shirley Craddick at Metro", cities: "Fairview, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Coordination with County Health Departments, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 City councillors, mayors, and city managers<div><br></div><div>Tamie made presentation</div>
 END_TEXT
 }
-    communications << { date: '40984', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Kris Smock at Coalition for a Livable Future, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity, Other", notes: <<END_TEXT
+    communications << { date: '40984', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Kris Smock at Coalition for a Livable Future", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity, Other", notes: <<END_TEXT
 Discussed data points for CLF Equity Atlas 2.0<br>KS not sure that there will be any data on asthma rates (childhood/adult)<br>Clint Chiavarini at Metro has given CLF access to seven fields''<br>KS is trying to map data at the smallest available geography.<br>Once the search tool is developed, researcher will be able choose the geography for analysis. <br>KS is rating data 1-5, to normalize data.&nbsp; Could be a natural break or a quintile.&nbsp; 'Not clear if we will be able to pull out actual data quickly. The rankign will be a composite measure.&nbsp; Searcher will also be able to pull up a spider graph that shows the elements that compose the composite.&nbsp; <br>The mapping tool could be done by June.&nbsp; The formal release is set for October.&nbsp;&nbsp; Then, CLF will reach out to key partners for development of an analysis/white paper. <br>there will be an urban living index.<br>Clark COunty PH has done a series of reports with the goal of creating accessible summaries of research.&nbsp; Each summary will answer question: why should we care?&nbsp; Each will also have an analysis of what they found, with salient points set out in an understandable fashion.&nbsp; <br><br>Keep an eye on the margins of error, and the dates of the data sests.&nbsp; <br>
 END_TEXT
 }
-    communications << { date: '40984', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'County Health Department', contacts: "Jen Moore at Multnomah County HD, , Olivia Queros at Multnomah County HD, ", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '40984', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'County Health Department', contacts: "Jen Moore at Multnomah County HD, Olivia Queros at Multnomah County HD", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
 Chair Cogen is very supportive of healthy communities work.<br>Communities Putting Prevention to Work (CPPW) grantees for Healthy Communities By Design.&nbsp;&nbsp; Worked with Portland, Gresham, and Metro.<br><br>Important to consider who has the opportunity, and where is the opportunity.&nbsp; Define the geography and the people, and focus on civic engagement.&nbsp; <br><br>Keep an eye on the East Metro Connections Plan developed by 4 E. County cities to improve economic development by making it easier for freight to move product.&nbsp; As part of the plan, will be developing a project prioritization framework.&nbsp; Ultimately, the recommendation will go for decision to elected officials.&nbsp; <br><br>Make sure zoning codes allow FOOD PRODUCTION &amp; DISTRIBUTION, HEALTHY RETAIL e.g. market gardens, food distribution coops, farm stands, and Community-supported agriculture (CSAs)<br><br>Suggested I connect with the following on equity issues:<br><ul><li>Rey Espana at NAYA</li><li>Midge Purcell at Urban League</li><li>IRCO</li><li>African American Health Coalition</li><li>El Programa (Rachel Banks)</li><li>Emily Hicks (Pdx Parks, Community Gardens)<br></li><li>OPAL</li><li>microenterprise re healthy retail:&nbsp; Hacienda CDC, PDC</li><li>Coalition to End Hunger</li><li>Pastor Hardy at Highland Baptist Church</li><li>Eugin Rachid -&nbsp; faith leader <br></li></ul>Sarah Schooley, TSP, may be a resource for other cities on Project Prioritization Criteria<br>
 END_TEXT
 }
-    communications << { date: '40982', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Anita Yap at , ", cities: "", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '40982', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Anita Yap at ", cities: "", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
 Anita was formerly the Planning Director at the City of Damascus.&nbsp; <br><br>Invited Anita to sit on the Kitchen Cabinet for HEAL Cities<br><br>She suggested that I follow up with the Oregon County Planning Directors Association - meet monthly, to talk about the APA and land conservation and development- chaired by rick Sneed of Madras, Oregon, and Kris Bentley of Benton County.&nbsp; OCPDA might public an issue devoted to Planning and Health<br><br>Recommended that we provide an incentive or carrot:&nbsp; if you have these policies in your Comp Plan, you will be well-positioned to receive the following benefits: X, Y, Z<br><br>Suggested netowrking gthrough the faith community and the schools<br><br>Cities adopt strategic plans that prioritize staff allocation, implementation of projects for the year<br><br>Suggested contacting the Oregon Planning Institute - Rick Stevens<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - the group was started by the Lane Council of Governments<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - we could offer to do a HEAL panel<br><br>Suggested posting in the Oregon Planners' Journals&nbsp; --&nbsp; Betsy Sheckler, ed.&nbsp; <br><br>Recommended using the LOC publication: Spot Light<br><br>bend has a fledgling Food Policy COuncil.<br><br>Suggests talking about Damascus and Keizer through stories/case studies<br>
 END_TEXT
 }
-    communications << { date: '40984', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Stacy Humphrey at City of Gresham, ", cities: "Gresham, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '40984', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Stacy Humphrey at City of Gresham", cities: "Gresham, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
 Stacy had recently shepherded a set of code changes that included many HEAL-type policies through the Gresham City Council.&nbsp;&nbsp; She was very generous with her materials and her strategy. <br><br>Mayor Bemis is a self-made man, a restaurant owner with a GED.&nbsp; he does not believe that obesity is an issue for government.&nbsp; Champion was Councilor Widmark.&nbsp; <br><br>At an early worksession, SH made these points:<br>1. Obesity is an issue in the US, in OR, and in Gresham<br>2. The built environment plays a role<br>3. Disparities in a built environment will reinforce and maintain existing inequitable health disparities<br><br>Shied away from words ""choice;healthy, obesity"" used ""options, continuum"" quite a bit<br><br>Did not bring statistics, or a scary height/weight report.&nbsp; No numbers at all in the high level meeting.&nbsp; She had a technical advisory group, and a stakeholder group (Human SOlutions, Sno Cap, Gresham-Barlow School District, Rockwood CATeam, El Program).&nbsp; <br><br>Used 'best practices' frame. What would it take for Gresham to reflect the national best practice?&nbsp; Conducted survey of policies adopted by peer cities.&nbsp; Built on what government was already doing, so that new investment is not an additional line item.&nbsp; <br><br>two main hurdles:&nbsp; financial realities, and would changes move the City into an inappropriate role<br><br>She received some help from the Urban Planning Director of Linn County.&nbsp; Looked at Land use, transportation, Parks, food, and community health.&nbsp; <br><br>Gresham is part of Metro.&nbsp; Amendments will also Gresham to meet land use and active transit goals. <br><br>Gresham staff were not in a position to do advocacy work.&nbsp; Used community leaders to say the most robust messages, e.g. Heidi Guinan from and Hector Asuna (?) of El Programa (?) and Catherine Potter<br><br>She suggested I contact Elise Skolnick at the City of Damascus, and Kia Selley, an urban planning director from ???<br><br>Council very interested; wanted to know where cooking classes would be held.&nbsp; Fortunately, there were grant dollars available.&nbsp; The Mayor probably would have rejected spending government funds.<br><br>
 END_TEXT
 }
-    communications << { date: '40977', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Other', contacts: "Gregoire Vion at , ", cities: "", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '40977', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Other', contacts: "Gregoire Vion at ", cities: "", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Ararnged to purchase design for CCPHA HEAL Cities CA Campaign website.<br>
 END_TEXT
 }
-    communications << { date: '40976', duration: '420', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Charlotte Dickson at California Center for Public Health Advocacy, ", cities: "", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, General Information About Obesity, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other", notes: <<END_TEXT
+    communications << { date: '40976', duration: '420', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Charlotte Dickson at California Center for Public Health Advocacy", cities: "", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, General Information About Obesity, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other", notes: <<END_TEXT
 CD just did a webinar with Kelly Brownell of the Rudd Center at Yale.&nbsp; Her research confirmed that the use of the word ""obesity""is problematic.&nbsp; HEAL CC is not about weight.&nbsp; It is about health, and the suffering people experience from chronic disease. <br><br>Focus messages on kids and seniors.&nbsp; I don't want our kids to be the first generation in this country's history to have shorter lives than their parents.&nbsp; <br><br>If you have a&nbsp; lot of overweight kids in a community, that's a sign that something is missing.&nbsp;&nbsp; What do we have to bring in to the community so that kids will be fit and healthy?&nbsp; We are making choices all the time.&nbsp; However, in order to make a choice, you have to have an option.&nbsp; <br><br>Discussed website, sections, site map, search function, design, programming.&nbsp; Charlotte offered to put us in contact with her web designer, Gregoire Vion, and her logo designer, Linda ****.<br><br>CD talked with Mike Miller of Brown Miller communications, CCPHA's communications consultant.&nbsp; He sugggested that the HEAL Campaigns have a family of brands and logos.&nbsp;&nbsp; We are welcome to use CCPHA's content.&nbsp; <br><br>Danielle DeReuyter Williams on her staff handles social media (Twitter, Facebook).&nbsp; <br>
 END_TEXT
 }
-    communications << { date: '40975', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Luci Longoria at Oregon Health Authority, ", cities: "", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '40975', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Luci Longoria at Oregon Health Authority", cities: "", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
 Luci described herself as a community organizer who likes to bring people power to important issues, and to educate policy makers.&nbsp; <br>Luci agreed to forward the result of OHA's healthy communities message testing to me for use in HEAL materials<br><ul><li>People want to be healthier.&nbsp; They need access to healthier options.</li><li>Make Healthy Opportunities accessible to more people. </li></ul><br>OHA has an Office of Equity &amp; Inclusion.&nbsp; It has formally partnered with PEI to support three regional Health Equity Coalitions:&nbsp; <br><ol><li>the HOPE Coalition (includes Marion, Multnomah, Washington, &amp; Clackamas Counties)</li><li>Linn-Benton Health Equity Coalition</li><li>Let's talk Diversity in Jefferson County/Central OR</li></ol>The coalaitions are reviewing existing assessment data - the best available data.&nbsp; We can assume disparities in health outcomes; the coalitions are tasked with finding and evaluating potential solutions<br><br>There are 12 County Health Departments.&nbsp; Each is performing a fairly broad Health Assessment.&nbsp; 9 have Vista volunteers coordinating worksite wellness committees. <br><br>the Tribes are pretty diverse. <br><br>Discussed doing city specific or county-specific fact sheets, or population-specific factsheets.&nbsp; Data is available through the Public Health Division.&nbsp; <br><br>Would be willing to serve on a review panel/kitchen cabinet for HEAL Oregon materials.&nbsp; <br><br>OHA will be making new funding available for Healthy Communities Grants. <br><br>OHA expects to be contracting with OPHI re Worksite Wellness.<br><br>In the next month or so, OHA Public Health Division will be talking about its strategic framework.&nbsp; <br><br>OHA is part of the Healthy Kids Learn Better coalition (HKLB).&nbsp; This is a statewide group that promotes worksite wellness within schools.&nbsp; It has to influence the policy of each school district.&nbsp; It wants to affect the school benefit system.&nbsp; <br><br>Luci suggested that I contact the office of Equity &amp; Inclusion, become familiar with the Healthy Community Programs, and do a policy scan/culture scan.&nbsp; She also suggested that I speak with someone at Metro, and with the Oregon Sustainable Transportation Initiative.&nbsp; <br><br>
 END_TEXT
 }
-    communications << { date: '40980', duration: '15', contact_type: 'Telephone Call',  organization_type: 'Regional Organization', contacts: "Mara Gross at Coalition for a Livable Future, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Other", notes: <<END_TEXT
+    communications << { date: '40980', duration: '15', contact_type: 'Telephone Call',  organization_type: 'Regional Organization', contacts: "Mara Gross at Coalition for a Livable Future", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Other", notes: <<END_TEXT
 BK knew Mara and CLF from her previous work.&nbsp; Mara suggested that BK contact Kris Smock re data inputs to Equity Atlas 2.0 data<br>
 END_TEXT
 }
-    communications << { date: '40973', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, , Jen Massa Smith at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '40973', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, Jen Massa Smith at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Coordination with County Health Departments", notes: <<END_TEXT
 
 END_TEXT
 }
-    communications << { date: '41344', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Melissa Peterson at Latino Health Alliance, ", cities: "Salem, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41344', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Melissa Peterson at Latino Health Alliance", cities: "Salem, OR", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
 Follow up re setting a time to meet. &nbsp;Mayor Peterson is&nbsp;<span style=""font-size: 11.0pt;"">chairing the development of the food-related
 sessions at the Oregon Mayors' Association conference this summer. &nbsp;Linda Cate makes her appointments. &nbsp;</span>
 END_TEXT
 }
-    communications << { date: '41344', duration: '15', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, ", cities: "Fairview, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41344', duration: '15', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP", cities: "Fairview, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Discussed Presentation to 3 Counties meeting<div>Directed me to send PowerPoints to nursetamie@comcast.net</div>
 END_TEXT
 }
-    communications << { date: '41345', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Linda Cate at City of Salem, ", cities: "Salem, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41345', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Linda Cate at City of Salem", cities: "Salem, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Made lunch appointment wtih the Mayor for Thursday, 4/4/13
 END_TEXT
 }
-    communications << { date: '41341', duration: '45', contact_type: 'Telephone Call',  organization_type: 'Statewide Organization', contacts: "JoAnn Ghelfi at League of Oregon Cities, ", cities: "", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41341', duration: '45', contact_type: 'Telephone Call',  organization_type: 'Statewide Organization', contacts: "JoAnn Ghelfi at League of Oregon Cities", cities: "", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other", notes: <<END_TEXT
 Discussed participation in LOC 2013 conferences.<div><br><div>OCCMA conference is full - bringing in experts on ethics, finance, and programming for young leaders cohort</div><div><br></div><div>Mayors conference will have track on agriculture/food. &nbsp;Suggested that presentation @ Mayor's conference could be expanded for LOC Annual conference. &nbsp;I told her of my connection with Salem Mayor.&nbsp;</div><div><br></div><div>Discussed concurrent workshop slot for Roundtable discussions.</div><div>Discussed sustainability issue raised by Albany CM Hare- requires expanded &nbsp;public involvement/unconventional partnerships.</div><div>Discussed recognition events for participating cities: JoAnne suggested that I alert Mike immediately and consider &nbsp;holding event at Mayors Conference</div><div>Discussed display featuring participating cities</div></div><div><br></div><div>Next steps:</div><div><ul><li>Beth contact Mike McCauley re recognition events</li><li>Beth talk to Karli and designer re ordering display with map to show participating cities</li><li>Beth follow up with Salem mayor</li></ul></div>
 END_TEXT
 }
-    communications << { date: '41341', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41341', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Paul will draft resolution for my review, using Oregon model.<div>BK unavailable 3/25. Next Tualatin City Council date is 4/8. Tentatively set that as date for resolution, if Lou Ogden is in town.</div><div><br></div><div>Paul and Tracy Weidt (NLC) have been trading VM. &nbsp;If Tracy is not available, BK will present on LMCTC. &nbsp;</div><div><br></div><div><br></div>
 END_TEXT
 }
-    communications << { date: '41341', duration: '165', contact_type: 'Site Visit',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, , Allan Berry at City of Fairview, ", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Other", notes: <<END_TEXT
+    communications << { date: '41341', duration: '165', contact_type: 'Site Visit',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, Allan Berry at City of Fairview", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Other", notes: <<END_TEXT
 Toured Fairview (Gresham boundary), Troutdale, and Wood Village to Marine Drive. &nbsp; Saw property Yoshida intends to develop. &nbsp;<div><br></div><div>Tamie says Fairview was well-planned 15 years ago but stopped developing while its neighbors continued to grow<br><div>&nbsp;</div><div>Some ideas: &nbsp;</div><div><ul><li>Fairview Days at Metro's Blue Lake Park, including disc golf tournament</li><li>Addressing breaks in bike paths</li><ul><li>issues re airfield, RR bridge, narrowing streets</li><li>Goal is to expand connectivity- cold connect Salish Lakes park to Springwater Trail</li></ul><li>Better park signage</li><li>Community garden on two plots outside the back of City Hall</li><li>Learning Garden at former garden site by elementary school</li><li>Fairview would like KP to partner on Salish Park to obtain a Metro Education grant</li></ul></div><div><br></div><div>Next steps:</div><div><ul><li>Tour part 2 on the 21st, part 3 on 28th</li><li>Tamie to contact beth re 3 cities meeting on 3/14 evening</li><li>Allen to make detailed maps available</li><li>Allen and Tamie to draft resolution</li><li>Beth to check with KP, ID other possible partners for Salish Park Metro Ed grant</li><li>Beth to ID potential partner/curriculum for school garden project</li></ul></div><div><br></div><div><br></div><div><br></div></div>
 END_TEXT
 }
-    communications << { date: '41340', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Pam Hutchinson at Marion COunty Health Department, ", cities: "Salem, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41340', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Pam Hutchinson at Marion COunty Health Department", cities: "Salem, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments", notes: <<END_TEXT
 Checking in on progress with Marion County Cities, upcoming CHiP meeting
 END_TEXT
 }
-    communications << { date: '41340', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Misha Peel at Polk County HD, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41340', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Misha Peel at Polk County HD", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Coordination with County Health Departments", notes: <<END_TEXT
 
 END_TEXT
 }
-    communications << { date: '41338', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Statewide Organization', contacts: "Mike McCauley at League of Oregon Cities, ", cities: "", staff: "Beth Kaye", topics: "Shared Use, Workplace Wellness, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41338', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Statewide Organization', contacts: "Mike McCauley at League of Oregon Cities", cities: "", staff: "Beth Kaye", topics: "Shared Use, Workplace Wellness, Other, Coordination with County Health Departments", notes: <<END_TEXT
 I spoke with Mike re our meeting with CIS, getting on the program for the various conferences, the Advisory Committee, running the KaBOOM! grant opportunity by the Advisory Committee, webinar subjects (he suggested joint use and how to get school districts to the table), and FEAST. &nbsp;He thought FEAST would make a good topic for an article in the LOC magazine. &nbsp;
 END_TEXT
 }
-    communications << { date: '41338', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Patty Brescia at City of Wilsonville, , Stephanie Redman at Oregon Recreation & Park Association, ", cities: "", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41338', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Patty Brescia at City of Wilsonville, Stephanie Redman at Oregon Recreation & Park Association", cities: "", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Patty will submit a proposal to Stephanie Redman to present on HEAL at the ORPA September conference.
 END_TEXT
 }
-    communications << { date: '41334', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41334', duration: '20', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Planning for presentation to Clackamas County Mayors (3/21)
 END_TEXT
 }
-    communications << { date: '41334', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Joseph Santos-Lyons at APANO (Asian Pacific American Network of Oregon), ", cities: "", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41334', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Joseph Santos-Lyons at APANO (Asian Pacific American Network of Oregon)", cities: "", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 HOPE (regional health equity) Coalition is beginning project to videotape real people describing their experience re health care. &nbsp;OPHI will join as a sponsor. &nbsp;Wants to develop a library of authentic voices. &nbsp;Perhaps HEAL Cities should also be a sponsor?&nbsp;
 END_TEXT
 }
-    communications << { date: '41334', duration: '75', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, , Allan Berry at City of Fairview, ", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41334', duration: '75', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, Allan Berry at City of Fairview", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 2nd meeting with Tamie, 1st meeting with Allan (from Manchester England). &nbsp;Tamie has already signed Fairview up for LMCTC. &nbsp;I told her I could provide technical assistance and connect her with HHS.&nbsp;<div><br></div><div>Tamie told AB her motivation for this work from working with overweight kids. ExplainedFairf Molly Haynes referral to BK</div><div><br></div><div>Went over HEAL materials with both for the first time. &nbsp;AB very interested because Fairview's applications for ODOT and Metro funding hurt by inability to demonstrate activities to improve healthy food access or active transit options. &nbsp;AB wants those points! &nbsp;</div><div><br></div><div>Fairview is working on its Transportation System Plan. &nbsp;Has received extension. &nbsp;Wants to get a TGM grant.</div><div><br></div><div>AB asked many questions about availability of implementation funds. &nbsp;Example: Fairview recently spent $200k on Salish Ponds park. &nbsp;Would like to get grant from Metro - needs an Education partner. &nbsp;Would KP do this? &nbsp;</div><div><br></div><div>If KP had funding pot &nbsp;for Fabulous Cities, it would be a real incentive for Fairview to make more HEAL changes.&nbsp;</div><div><br></div><div>City has had one community garden- now moribund. &nbsp;Tami and Allan discussed possible relocation of garden, or addition of new garden. &nbsp;BK suggested that city explore community partnerships to improve sustainability of project. &nbsp;</div><div><br></div><div>Discussion re need for bike path to Reynolds HS. &nbsp;Founders prioritize safe routes to elementary schools. &nbsp;BK proposed touching base with local bike community to lead caravan.</div><div><br></div><div>Big demand for park facilities, e.g. Soccer pitch. &nbsp;Funding? &nbsp;Explained that we would highlight potential grants on HEAL website.&nbsp;</div><div><br></div><div>Farmer's market goes only part of year. &nbsp;Has moved from public to private land- now coming back to public land. &nbsp;No code language establishing the FM is allowed use. &nbsp;</div><div><br></div><div>Fairview will be undertaking Code Review. &nbsp;</div><div><br></div><div>Tamie want to connect with Judy Shiprack at METRO re LMCTC. &nbsp;</div><div><br></div><div>Discussed how to involve community in prioritization. &nbsp;Parks Committee and other committees not representative of neighborhoods or populations. &nbsp;Members not recruited- application process. &nbsp;Tamie will bring reform ideas to Council. &nbsp;BK proposed reaching out to community-based orgs, e.g. El Programa Hispano. &nbsp;Allan surprised at concept. &nbsp;</div><div><br></div><div>Next steps:&nbsp;</div><div><ul><li>Alllan to review materials.</li><li>Allan to take Tamie and BK on tour on Friday morning in March (3/8?)</li><li>Tamie to follow up re getting HEAL on 3 City meeting agenda (Troutdale, Wood Village)</li><li>Tamie thinks Gresham is already a HEAL City</li><li>Tamie wants Resolution on the agenda 3/20 or 3/4/3. &nbsp;Allan unable to ID likely opponents</li><li>BK advised theme of healthy community for our kids</li></ul></div><div><br></div><div><br></div>
 END_TEXT
 }
-    communications << { date: '41334', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jim Fairchild at , ", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41334', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jim Fairchild at ", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Discussed strategy for bringing HEAL resolution to Dallas City Council: materials to distribute, policies to highlight, who should be in attendance. Will need follow up call to,discuss participation by Polk County HD, arrive at decision about policy list, set dates, and est. whether BK should attend.
 END_TEXT
 }
-    communications << { date: '41332', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Heather Matthews at CIS, , Jan Noland at CIS, ", cities: "", staff: "Beth Kaye, Dawn Powell", topics: "Workplace Wellness, Other", notes: <<END_TEXT
+    communications << { date: '41332', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Heather Matthews at CIS, Jan Noland at CIS", cities: "", staff: "Beth Kaye, Dawn Powell", topics: "Workplace Wellness, Other", notes: <<END_TEXT
 Coordinating tomorrow's meeting.
 END_TEXT
 }
-    communications << { date: '41332', duration: '5', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Jolynn Becker at City of Banks, ", cities: "Banks, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41332', duration: '5', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Jolynn Becker at City of Banks", cities: "Banks, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Scheduling
 END_TEXT
 }
-    communications << { date: '41332', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Barbara Prowe at Oregon Coalition of Health Care Purchasers (OCHCP), ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41332', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Barbara Prowe at Oregon Coalition of Health Care Purchasers (OCHCP)", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
 
 END_TEXT
 }
-    communications << { date: '41332', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41332', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Editing text of proclamation per Assistant City Manager's request<div><br></div>
 END_TEXT
 }
-    communications << { date: '41332', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, , Allan Berry at City of Fairview, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41332', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, Allan Berry at City of Fairview", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Set up meeting with Allan Berry for 3/1
 END_TEXT
 }
-    communications << { date: '41331', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Ludemann at City of Tualatin, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41331', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Julie Ludemann at City of Tualatin", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 ReScheduling class&nbsp;
 END_TEXT
 }
-    communications << { date: '41331', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Stephanie Kennedy at Oregon chapter of the American Planning Association, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41331', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Stephanie Kennedy at Oregon chapter of the American Planning Association", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Contacted re having an info table at the Oregon APA Conference, May 30-31.
 END_TEXT
 }
-    communications << { date: '41326', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41326', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Confirmed my participation in program at Clackamas County Cities Association &nbsp;dinner on 3/21; discussed other presenters and what info re HEAL Cities would be relevant
 END_TEXT
 }
-    communications << { date: '41319', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41319', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Invited me to present at Clackamas Cities Association dinner on 3/21.
 END_TEXT
 }
-    communications << { date: '41330', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41330', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Wording of Draft Resolution - Patty sent me a draft to review
 END_TEXT
 }
-    communications << { date: '41316', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41316', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Patty Brescia at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Explained timeline for joining campaign. &nbsp;Also left VM.&nbsp;
 END_TEXT
 }
-    communications << { date: '41313', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Mark C. Ottenad at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41313', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Mark C. Ottenad at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Reviewed HC Campaign and described way to join. &nbsp;Took contact info for Patty Brescia.&nbsp;
 END_TEXT
 }
-    communications << { date: '41312', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Mark C. Ottenad at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41312', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Mark C. Ottenad at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Wilsonville is interested in becoming a HEAL City in order to improve its chances to receive a grant.<div>Mark remembered my presentation on HEAL Cities at NLC conference<br><div><br></div><div>Main contact will be Patty Brescia who leads Ec Dev</div></div>
 END_TEXT
 }
-    communications << { date: '41330', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Kathryn M Clift at Kaiser Foundation Health Plan, Program Offices, , Dawn Hanson at Cowlitz-Wahkiakum Council of Governments, , Rachel E Burdon at Kaiser Permanente Community Benefit, ", cities: "Kelso, WA, Longview, WA", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41330', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Kathryn M Clift at Kaiser Foundation Health Plan, Program Offices, Dawn Hanson at Cowlitz-Wahkiakum Council of Governments, Rachel E Burdon at Kaiser Permanente Community Benefit", cities: "Kelso, WA, Longview, WA", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Dawn Hanson spoke to a consultant who suggested that she contact Cathy Wasserman at the State of Wa DOH for Cowlitz County data. &nbsp;&nbsp;<div>I let our KP associates know. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41330', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis, ", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41330', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Julie Manning at City of Corvallis", cities: "Corvallis, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Called City Hall. &nbsp;Left VM with her assistant at hospital to troubleshoot apparent communication difficulties. &nbsp;(I am not sure my e-mails are reaching her.) &nbsp;
 END_TEXT
 }
-    communications << { date: '41330', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jim Fairchild at , ", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41330', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Jim Fairchild at ", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments", notes: <<END_TEXT
 Asked what help he needed to bring Dallas into the Campaign. &nbsp;Said that I wanted to include Dallas in article for the LOC magazine. &nbsp;Mentioned new HC coordinator hiring at Polk COunty HD.&nbsp;
 END_TEXT
 }
-    communications << { date: '41330', duration: '10', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Randi Philips, MS at Polk County Health Department, ", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41330', duration: '10', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Randi Philips, MS at Polk County Health Department", cities: "Dallas, OR", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments", notes: <<END_TEXT
 New Polk County Healthy COmmunities Coordinator, Misha Peel, will start on Wednesday, 2/27/13. &nbsp;Randi suggested that I email her then to set up a meeting re HEAL Cities. &nbsp;
 END_TEXT
 }
-    communications << { date: '41324', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, ", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41324', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other, Coordination with County Health Departments", notes: <<END_TEXT
 Follow up to today's meeting; summarize next steps re setting up a meeting with Fairview Planning Director, getting a sense of the community's priorities, etc.&nbsp;<div><br></div>
 END_TEXT
 }
-    communications << { date: '41324', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP, ", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41324', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Tamera Tlustos-Arnold at KP", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Had a very positive first meeting with Tamie, who is a pediatric nurse at KP in Rockwood. &nbsp;She runs the juvenile obesity clinic and is interested in changing some of the environmental factors that contribute to obesity. &nbsp;<div><br></div><div>She was elected recently to the Fairview City Council. &nbsp;She began to ask around to find out how to make the changes she wants to make. &nbsp;She signed Fairview up for LMCTC, and then Molly Haynes referred her to me.</div><div><br></div><div>Tamie was dismayed to discover that Fairview had an 11 year old Parks &amp; Rec plan that had never been implemented or reviewed, even though it should have been reviewed every 5 years. &nbsp;Both the Development Director and the City Planner are new hires and unfamiliar with the local political history. &nbsp;</div><div><br></div><div>The Fairview Mayor has convened a Vision 2020 citizen committee. Tamie is not on the committee (all citizens) but plans to sit in. &nbsp;This committee will make some recommendations for the City's future.</div><div><br></div><div>Tamie wants to make many changes. &nbsp;A challenge will be to prioritize among them. &nbsp;</div><div><br></div><div>We looked at the HEAL Cities NW website and reviewed Is Your City A HEAL City? and the Policy menu. &nbsp;</div><div><br></div><div>next steps: &nbsp;meet (Friday morning 3/1?) with the Fairview Development Director.</div><div>Prepare to make a presentation to the Tri-City Meeting in 3-4 months. &nbsp;(Includes Wood Village and Troutdale, as well as Gresham.)&nbsp;</div><div><br></div><div>I promised to send her the name of Gresham's planner.&nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41319', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'KP', contacts: "Tamera Tlustos-Arnold at KP, ", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41319', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'KP', contacts: "Tamera Tlustos-Arnold at KP", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Set up meeting in East County for the week of 2/18/13
 END_TEXT
 }
@@ -3382,11 +3382,11 @@ END_TEXT
 Cathy offered to introduce me to her network of Parks and Recreation staff across Oregon. &nbsp;
 END_TEXT
 }
-    communications << { date: '41113', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Steve Rudman at Home Forward (formerly, the Housing Authority of  Portland), ", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
+    communications << { date: '41113', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Steve Rudman at Home Forward (formerly, the Housing Authority of  Portland)", cities: "Fairview, OR, Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
 Suggested I contact:<div>&nbsp;Jeff Kennel re impact of community garden on neighborhood,&nbsp;</div><div>&nbsp;Mr. Sang Ahn @ McDonald Jacobs (?)</div>
 END_TEXT
 }
-    communications << { date: '41113', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Heidi Guenin at Upstream Public Health, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Other", notes: <<END_TEXT
+    communications << { date: '41113', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Heidi Guenin at Upstream Public Health", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Other", notes: <<END_TEXT
 Suggested I contact Will VanLieu with the Westside Transportation Alliance in Tigard<div>CAC</div><div>BTA</div>
 END_TEXT
 }
@@ -3394,99 +3394,99 @@ END_TEXT
 Discussed HEAL Cities Campaign table at trade show<div>Opportunity to get on program at League Conference</div><div>Article about HEAL Cities Campaign for Local Focus Magazine: &nbsp;shoot for September issue</div><div>Audience for Local Focus is Mayors and Councillors</div>
 END_TEXT
 }
-    communications << { date: '41100', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Emily Wong at Oregon Health Authority Office of Equity and Incusion, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41100', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Emily Wong at Oregon Health Authority Office of Equity and Incusion", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
 Discussed work that OHA Office of Equity and Inclusion has been doing<div>OE&amp;I holding policy forums: what does ""healthy"" mean to you and your community</div><div><br></div><div>each district has strengths and challenges</div><div><br></div><div>NACHO-certified storytelling: &nbsp;tell us about a time that your family was healthy and everything was right</div><div><br></div><div>top 6:</div><div>family based health</div><div>physical health</div><div>mental/spiritual/social health</div><div>risk of isolation</div><div>intergenerational&nbsp;</div><div><br></div><div>suggested I contact:</div><div>Claudia Maria Vargas&nbsp;</div><div>Marie (Hood River)</div><div><br></div><div>Other equity coalitions in Linn-Benton and Jefferson counties</div>
 END_TEXT
 }
-    communications << { date: '41095', duration: '90', contact_type: 'Telephone Call',  organization_type: 'Other', contacts: "Charlotte Dickson at California Center for Public Health Advocacy, ", cities: "", staff: "Beth Kaye", topics: "Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41095', duration: '90', contact_type: 'Telephone Call',  organization_type: 'Other', contacts: "Charlotte Dickson at California Center for Public Health Advocacy", cities: "", staff: "Beth Kaye", topics: "Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Bi-weekly conference call with HEAL teams
 END_TEXT
 }
-    communications << { date: '41089', duration: '360', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Charlotte Dickson at California Center for Public Health Advocacy, ", cities: "", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, General Information About Obesity, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41089', duration: '360', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Charlotte Dickson at California Center for Public Health Advocacy", cities: "", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, General Information About Obesity, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other, Coordination with County Health Departments", notes: <<END_TEXT
 intensive worksession<div>significant focus on equity challenges<br><div>Planning for August 9 HCC Conclave in Oakland</div></div>
 END_TEXT
 }
-    communications << { date: '41117', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Other', contacts: "Charlotte Dickson at California Center for Public Health Advocacy, ", cities: "", staff: "Beth Kaye, Noelle Dobson", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41117', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Other', contacts: "Charlotte Dickson at California Center for Public Health Advocacy", cities: "", staff: "Beth Kaye, Noelle Dobson", topics: "Other", notes: <<END_TEXT
 Discussed how to speak the language of jobs, economic development<div><br></div><div>Discussed coordination with League of Oregon Cities</div><div><br></div><div>If we do nothing, 1 in 3 kids will develop diabetes. 1 in 2 African American, Native American and Latino kids</div>
 END_TEXT
 }
-    communications << { date: '41085', duration: '20', contact_type: 'Telephone Call',  organization_type: 'Statewide Organization', contacts: "Joseph Santos-Lyons at APANO (Asian Pacific American Network of Oregon), ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41085', duration: '20', contact_type: 'Telephone Call',  organization_type: 'Statewide Organization', contacts: "Joseph Santos-Lyons at APANO (Asian Pacific American Network of Oregon)", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Follow-up:<div>E-mailed JSL materials about HEAL Cities</div><div><br></div><div>JSL is coordination of the HOPE Coalition for Multnomah, Washington, Clackamas, and Marion Counties (confirm scope?), one of 4 Health Equity coalitions set up by OHA to represent communities of color in health care reform discussions and other health advocacy</div><div><br><div>Discussed equity challenges with HEAL Cities Campaign</div><div><br></div><div>JSL agreed to introduce me to the other three health equity coalitions in the state</div></div>
 END_TEXT
 }
-    communications << { date: '41082', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Wendy Willis at National Policy Consensus Center, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41082', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Wendy Willis at National Policy Consensus Center", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Wendy suggested I contact:<div>the former mayor of Lincoln City who rejuvenated its Farmers Market</div><div>Hermiston</div><div>Crystal Swann at LOC</div><div>Larry Wallack/Linda Netterkoven re messaging and contacts</div><div>Joe Cortwright</div><div><br></div><div>She works with the Institute for Sustainable Solutions</div><div>Data overlays: &nbsp;rapid growth, rapidly changing environment</div>
 END_TEXT
 }
-    communications << { date: '41081', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Deborah Stein at CofP Bureau of Planning & Sustainability, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41081', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Deborah Stein at CofP Bureau of Planning & Sustainability", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Bev suggested I contact:<div>Mike McArthur, AOC</div><div>Karin Kellley-Torregroza, Vision Action Network in Washington County</div><div>Virginia Garcia Clinic</div><div>Rob Drake, City Manager in Cornelius</div><div>Betty Bode in Beaverton (just lost in run for City Council, former nun, interested in health)</div><div>Gail Shibley</div><div><br></div><div>Bev wondered if, as Stage 2, some cities might want to approach the Oregon Solutions Consensus Center and Regional Solutions (Governor's website) to work towards a Declaration of Collaboration -- cities would need to fund part of the project; good way to bring multiple stakeholders to the table</div><div>Model of collaborative decision making&nbsp;</div><div><br></div><div><br></div>
 END_TEXT
 }
-    communications << { date: '41081', duration: '45', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Leslie Carlson at Brink Communications, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41081', duration: '45', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Leslie Carlson at Brink Communications", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Suggested The Campaign develop ""Top Ten Policy Changes"" that will give most bang for the buck<div><br></div><div>Connect transit and health care</div><div><br></div><div>Suggested I contact:</div><div>Mia Burke, Alta Planning, developed CoP BikeShare program and is now consulting internationally</div><div>Wendy Willis, National Policy Consensus Center @ PSU</div><div>Steve Novick, OHA</div><div><br></div><div>E-mailed intro to Wendy Willis<br><div><br></div><div><br></div></div>
 END_TEXT
 }
-    communications << { date: '41079', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Claudia Arana at Upstream Public Health, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41079', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Regional Organization', contacts: "Claudia Arana at Upstream Public Health", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
 We discussed the best way to partner on healthy community environment work; specific cities that would benefit from HEAL interventions; specific elected officials; health equity challenges; community coalition building
 END_TEXT
 }
-    communications << { date: '41067', duration: '45', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Melissa Peterson at Latino Health Alliance, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41067', duration: '45', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Melissa Peterson at Latino Health Alliance", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Discussed how HCC might work with health equity advocates across Oregon.<div>Referred me to Francisco Lopez at CAUSA, Claudia Arana at Upstream, Midge at Urban League, Alberto Moreno at the Latino Health Alliance, and Joseph Santos-Lyons at APANO</div>
 END_TEXT
 }
-    communications << { date: '41066', duration: '10', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Kathie Dello at Oregon Climate Change Research Institute, ", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
+    communications << { date: '41066', duration: '10', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Kathie Dello at Oregon Climate Change Research Institute", cities: "", staff: "Beth Kaye", topics: "", notes: <<END_TEXT
 
 END_TEXT
 }
-    communications << { date: '41065', duration: '10', contact_type: 'Site Visit',  organization_type: 'County Health Department', contacts: "Ben Duncan at Multnomah County Health Department, ", cities: "Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41065', duration: '10', contact_type: 'Site Visit',  organization_type: 'County Health Department', contacts: "Ben Duncan at Multnomah County Health Department", cities: "Gresham, OR, Troutdale, OR, Wood Village, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Coordination with County Health Departments", notes: <<END_TEXT
 
 END_TEXT
 }
-    communications << { date: '41318', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Anita Yap at , ", cities: "", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Other", notes: <<END_TEXT
+    communications << { date: '41318', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Other', contacts: "Anita Yap at ", cities: "", staff: "Beth Kaye, Noelle Dobson", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Shared Use, Other", notes: <<END_TEXT
 Making the business case for health<div><br></div><div>Why Johnny Can't Walk to School</div><div><br></div><div>Local food shed</div><div><br></div><div><br></div><div><br></div>
 END_TEXT
 }
-    communications << { date: '41060', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Dawn Robbins at Oregon Health Authority, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Workplace Wellness, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41060', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Dawn Robbins at Oregon Health Authority", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Workplace Wellness, Coordination with County Health Departments", notes: <<END_TEXT
 We discussed potential collaboration.<div><br></div><div>With respect to the W@W movement:</div><div><ul><li>Where are we now?</li><li>Where are we going?</li><li>How do we get there?</li></ul></div><div><div>Nine communities have Vista-Americorps volunteers whose sole responsibility is to do W@W in counties- inform them about HCC?&nbsp;</div></div>
 END_TEXT
 }
-    communications << { date: '41060', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Curtis Cude at Oregon Health Authority-Environmental Health, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41060', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Curtis Cude at Oregon Health Authority-Environmental Health", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
 Discussed OHA plans to create a data portal with data sets that can be combined to map environmental, &nbsp;demographic and health data. &nbsp;Discussed potential for collaboration between OHA and HEAL Cities Campaign. &nbsp;He is under pressure to show that the Environmental Health Section's work contributes to positive public health outcomes. &nbsp;HEAL Cities might be able to help him do that.<div><br></div><div>Suggested I talk to Pdx Parks &amp; Rec about classes</div><div><br></div><div>Discussed potential of calculating obesity rate by Congressional district to influence OR delegation</div>
 END_TEXT
 }
-    communications << { date: '41317', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Daniel S. Morris, MS, PhD at Oregon Health Authority, ", cities: "McMinnville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41317', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Daniel S. Morris, MS, PhD at Oregon Health Authority", cities: "McMinnville, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments", notes: <<END_TEXT
 Discussed mapping of demographic, health, BMI, and environmental data for Yamhill County. &nbsp;
 END_TEXT
 }
-    communications << { date: '41317', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Bonnie J. Corns, BS CHES at Yamill County Health Department, ", cities: "McMinnville, OR", staff: "Beth Kaye, Karli Thorstenson", topics: "Other, Coordination with County Health Departments, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41317', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Bonnie J. Corns, BS CHES at Yamill County Health Department", cities: "McMinnville, OR", staff: "Beth Kaye, Karli Thorstenson", topics: "Other, Coordination with County Health Departments, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Sent email confirming tomorrow's meeting, and reviewing agenda. &nbsp;Also suggested that we discuss working with Daniel Morris at OHA to get maps. &nbsp;
 END_TEXT
 }
-    communications << { date: '41316', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Melissa Taylor at Cowlitz-Wahkiakum Council of Governments, , Kathryn M Clift at Kaiser Foundation Health Plan, Program Offices, , Dawn Hanson at Cowlitz-Wahkiakum Council of Governments, ", cities: "Kelso, WA, Longview, WA", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41316', duration: '45', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Melissa Taylor at Cowlitz-Wahkiakum Council of Governments, Kathryn M Clift at Kaiser Foundation Health Plan, Program Offices, Dawn Hanson at Cowlitz-Wahkiakum Council of Governments", cities: "Kelso, WA, Longview, WA", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Dawn Hanson, the CIS person at CWCOG, had some issues with the KP data. &nbsp;In a series of emails, I tried to clarify the issues, to confer with KP staff (Rachel E. Burdon, Molly J. Haynes, Kathryn M. Clift) about the content of the issues and the process for resolving them, and to schedule a conference call.
 END_TEXT
 }
-    communications << { date: '41316', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Michael Sykes at Forest Grove, OR, , Jolynn Becker at City of Banks, , Rob Drake at City of Cornelius, , Brad Choi, P.E. at City of Hillsboro, , Martha DeBry at City of North Plains, ", cities: "Banks, OR, Cornelius, OR, Forest Grove, OR, Hillsboro, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Other", notes: <<END_TEXT
+    communications << { date: '41316', duration: '60', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Michael Sykes at Forest Grove, OR, Jolynn Becker at City of Banks, Rob Drake at City of Cornelius, Brad Choi, P.E. at City of Hillsboro, Martha DeBry at City of North Plains", cities: "Banks, OR, Cornelius, OR, Forest Grove, OR, Hillsboro, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Other", notes: <<END_TEXT
 Recapped progress thus farm including derailing of process occasioned by disappearance/resignation of Banks City Manager Kyle Awesome. &nbsp;Attached copy of draft HEAL Cities resolution. &nbsp;Proposed meeting or teleconference. &nbsp;
 END_TEXT
 }
-    communications << { date: '41316', duration: '5', contact_type: 'Telephone Call',  organization_type: 'Other', contacts: "Taryn Lust, MBA CCRC at Legacy Health Systems, Legacy Park Medical Center, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41316', duration: '5', contact_type: 'Telephone Call',  organization_type: 'Other', contacts: "Taryn Lust, MBA CCRC at Legacy Health Systems, Legacy Park Medical Center", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Left VM re coordinating between FIt Cities Tualatin and Tualatin Council.&nbsp;
 END_TEXT
 }
-    communications << { date: '41312', duration: '10', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Julie Fitzgerald at City of Wilsonville, ", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41312', duration: '10', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Julie Fitzgerald at City of Wilsonville", cities: "Wilsonville, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 smart Growth Conference in KC<div>heard story of her election; recruited to run by Charlotte Lehan</div><div>Lives in Villebois</div><div>Ran with Susie (?) from Charbonneau</div>
 END_TEXT
 }
-    communications << { date: '41309', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services, ", cities: "", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41309', duration: '30', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services", cities: "", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 We discussed a Resolution for Tualatin to join the Campaign as an Active City, including recitations of past accomplishments. &nbsp;We also discussed coordination with a Potential LMCTC site visit (desirable, but not necessary). &nbsp;Paul would like Tualatin to be the first HEAL City. &nbsp;
 END_TEXT
 }
-    communications << { date: '41309', duration: '5', contact_type: 'Telephone Call',  organization_type: 'Other', contacts: "Taryn Lust, MBA CCRC at Legacy Health Systems, Legacy Park Medical Center, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41309', duration: '5', contact_type: 'Telephone Call',  organization_type: 'Other', contacts: "Taryn Lust, MBA CCRC at Legacy Health Systems, Legacy Park Medical Center", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Left VM re check-in on Fit City Tualatin, FIT Kids Tualatin, and HCC.
 END_TEXT
 }
-    communications << { date: '41309', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Pam Hutchinson at Marion COunty Health Department, ", cities: "Salem, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41309', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Pam Hutchinson at Marion COunty Health Department", cities: "Salem, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Pam Heilman will be appearing before the Marion County Commission this evening. &nbsp;I suggested two more responses if the County expresses interest in joining HCC:<div><p class=""MsoListParagraph"" style=""text-indent: -0.25in;""><span style=""text-indent: -0.25in;font-size: 12.0pt;"">1.<span style=""font-size: 7.0pt;"">&nbsp;&nbsp;&nbsp; </span></span><span style=""text-indent: -0.25in;font-size: 12.0pt;"">&nbsp;1. Counties
 can receive recognition for their efforts through LMCTC.</span><br><span style=""text-indent: -0.25in;font-size: 12.0pt;"">2.<span style=""font-size: 7.0pt;"">&nbsp;&nbsp;&nbsp; </span></span><span style=""text-indent: -0.25in;font-size: 12.0pt;"">HEAL is
 directed to cities because it is trying to create healthy environments where
@@ -3506,7 +3506,7 @@ feel comfortable proceeding without the assistance of county counsel.</span></p>
 </div>
 END_TEXT
 }
-    communications << { date: '41306', duration: '60', contact_type: 'Telephone Call',  organization_type: 'Federal agency', contacts: "Akiko Saito at Oregon Health Authority, Office of the Director, , Moji Obiako at U. S. Department of Health and Human Services Region X, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Coordination with County Health Departments, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41306', duration: '60', contact_type: 'Telephone Call',  organization_type: 'Federal agency', contacts: "Akiko Saito at Oregon Health Authority, Office of the Director, Moji Obiako at U. S. Department of Health and Human Services Region X", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Coordination with County Health Departments, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Moji arranged this call to introduce me to Akiko Berkman, who works for the OHA in the Director's Office. &nbsp;She is the state coordinator for the Medical Reserve Corps, and the project director for the Americorps/Vista teams across Oregon.<div><br></div><div>I gave a brief presentation on HEAL Cities Campaign. I described how some school districts have closed parks and playgrounds because of dangerous conditions and asked if there might be federal resources available. &nbsp;</div><div><br></div><div>Moji and Akiko believe that some of the Medical Reserve Corps volunteers may be interested in working on environmental health initiatives, such as HEAL Cities. &nbsp; Akiko also things that Americorps/Vistas may be helpful at building community connections for the HEAL Cities Campaign.&nbsp;</div><div><br></div><div>RE HEAL Cities:&nbsp;</div><font color=""#222222""><span style=""font-family: Calibri , sans-serif;font-size: 15.0px;""><ul><li>Akiko to email Luci Longoria/Karen Girard to see if Beth could get connected to TPEP liaison group</li><li>Akiko to get Beth list of VISTA members and contact info.</li><li>Akiko to get Beth time of next VISTA call (Feb 22) and if she is avail. have her briefly talk about making connections in rural areas.&nbsp;</li></ul></span><span style=""font-size: 11.0pt;font-family: Calibri , sans-serif;""><br></span></font><div><font color=""#222222""><br></font></div><div><span style=""font-size: 11.0pt;font-family: Calibri , sans-serif;""><font color=""#222222"">RE HEAL CITIES &amp; LMCTC</font></span></div><div><ul><li><span style=""font-family: Calibri , sans-serif;font-size: 11.0pt;""><font color=""#222222"">In response to Beth's question, Moji confirmed that LMCTC does not have resources for renovation of playgrounds that are too dangerous for public use.</font></span></li><li><span style=""font-family: Calibri , sans-serif;font-size: 11.0pt;""><font color=""#222222"">Beth, Moji and Akiko meet again soon to discuss bringing partners together to
 leverage resources and go after funders to improve playgrounds and develop
 VISTA position to work on building resources for grant opptys for playgrounds</font></span></li><li><span style=""font-family: Calibri , sans-serif;font-size: 11.0pt;""><font color=""#222222"">Moji to look at Let's Move partner (playground company) and see what resources
@@ -3515,55 +3515,55 @@ maybe available</font></span></li></ul></div><div><span style=""font-family: Cal
 </font></span><div><font color=""#222222"">&nbsp;</font></div></div>
 END_TEXT
 }
-    communications << { date: '41309', duration: '10', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Randi Philips, MS at Polk County Health Department, ", cities: "Falls City, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41309', duration: '10', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Randi Philips, MS at Polk County Health Department", cities: "Falls City, OR", staff: "Beth Kaye", topics: "Coordination with County Health Departments", notes: <<END_TEXT
 Randi Philips has not yet completed hiring of staff to work on environmental health issues. &nbsp;Please call back in 2-3 weeks.<div><br></div><div>Reiterated my enthusiasm about working in Polk County. &nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41306', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41306', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Re: &nbsp;Scheduling telephone call to discuss timing of bringing resolution on HEAL Cities to Tualatin City Council.
 END_TEXT
 }
-    communications << { date: '41309', duration: '5', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41309', duration: '5', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 VM re Timing of bringing HEAL Resolution to Tualatin.
 END_TEXT
 }
-    communications << { date: '41197', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lindsey Kuipers at City of Beaverton, ", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41197', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "Lindsey Kuipers at City of Beaverton", cities: "Beaverton, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments", notes: <<END_TEXT
 <div style=""text-align: right;"">Lead on $1.58 million federal Beaverton Community Transformation grant. &nbsp;Core parties have been meeting for two years</div><div>LK reports to Development head, Don Maziotti.</div><div>CDC Community Transformation Grant core team, led by Dr. Tina Castanares. &nbsp;</div><div>Washington County Public&nbsp;</div><div>Nn</div><div><br></div><div>Beaverton may be interested in planning for a food distribution center</div>
 END_TEXT
 }
-    communications << { date: '41193', duration: '30', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Tanya Silva at Polk County Health Dept, ", cities: "Falls City, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41193', duration: '30', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Tanya Silva at Polk County Health Dept", cities: "Falls City, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, General Information About Obesity, Coordination with County Health Departments", notes: <<END_TEXT
 Talked generally about Falls City Farm Stand situation
 END_TEXT
 }
-    communications << { date: '41193', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Leah Rodgers at Friends of Family Farmers, ", cities: "Falls City, OR", staff: "Beth Kaye, Amy Gilroy", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41193', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Leah Rodgers at Friends of Family Farmers", cities: "Falls City, OR", staff: "Beth Kaye, Amy Gilroy", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Coordination with County Health Departments", notes: <<END_TEXT
 We discussed farm stand operated by Matthew McDaniel and family on small farm located in residential zone in Falls City. &nbsp;City is interested in accommodating use but code gives Council no discretion.<div><br></div><div>Generated list of issues: &nbsp;county and city land use laws; licensure requirements; soil contaminants; accessory use; food code</div><div><br></div><div>Leah agreed to create a work plan for review.&nbsp;</div>
 END_TEXT
 }
-    communications << { date: '41303', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, , Sherilyn Lombos at City of Tualatin, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41303', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, Sherilyn Lombos at City of Tualatin", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Discussed source of Clackamas County funding for its HEAL Small Grants program.&nbsp;
 END_TEXT
 }
-    communications << { date: '41302', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Andrew Riley at Center for Intercultural Organizing, ", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41302', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Regional Organization', contacts: "Andrew Riley at Center for Intercultural Organizing", cities: "", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 CIO received a KPCF grant to organize immigrant and refugee community in Washington County. &nbsp;Contacted Andrew to request meeting to explore potential coordination/leverage between CIO and HEAL CC efforts in Washington County cities
 END_TEXT
 }
-    communications << { date: '41302', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Pam Hutchinson at Marion COunty Health Department, ", cities: "Salem, OR", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41302', duration: '5', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Pam Hutchinson at Marion COunty Health Department", cities: "Salem, OR", staff: "Beth Kaye", topics: "Other, Coordination with County Health Departments, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 Discussed plan to present letter of introduction to Marion County Commission and how to respond if County wanted to join the Campaign.&nbsp;<br><div><br></div>
 END_TEXT
 }
-    communications << { date: '41270', duration: '125', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other, Coordination with County Health Departments, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41270', duration: '125', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other, Coordination with County Health Departments, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 This call followed an introductory meeting on 12/20/12 with Paul Herron, City Manager Sherilyn Lombos, and Mayor Lou Ogden.<div><br></div><div><b>Big picture:</b> lots of political will. &nbsp;At recent Fall Retreat, Council identified the development of Tualatin as a Healthy Active Community as one of its priorities. &nbsp;This will be included in the Retreat Report that will go before Council in 1st Q 2013 and feed into its agenda-setting. Opportunity to flesh out what this means, perhaps by reference to HEAL and LMCTC policy initiatives. &nbsp;<br><div><br></div><div><b>Specifics:</b></div><div>We reviewed the HEAL Cities Policy Menu. &nbsp;</div><div><br></div><div>Tualatin's new <u>Transportation System Plan update</u> (TSP), currently in final draft, promotes street connectivity, ped and bicycle paths and other measures to improve ped and bike access and safety. &nbsp;</div><div><br></div><div>Tualatin's <u>Comp Plan</u> does not currently include general health goals. &nbsp;PH will check when Comp Plan update is scheduled, and we can discuss whether amendment out of cycle is warranted.&nbsp;</div><div><br></div><div>Tualatin also plans to review its <u>Parks &amp; Rec Master Plan</u>. &nbsp;This is a dated but visionary document. &nbsp;May be able to add HEAL language, but primary barrier is construction $$. &nbsp;Another big challenge for city in this arena is protection of natural resources. &nbsp;</div><div><br></div><div>Currently, <u>mixed use residential/commercial development</u> is a feature of the 1994 Tualatin Commons development, but not replicated elsewhere. PH believes code allows such development; is not aware of requests for waivers or changes to code to allow such projects. &nbsp;Mixed use not typical for Tualatin. &nbsp;Tualatin's explosive growth resulted in distinct SF residentia, commercial, and industrial neighborhoods. &nbsp;Linking Tualatin initiative has objective of introducing some commercial uses into industrial areas (e.g. cafes and banks for industrial workers). &nbsp;No residential component to plan. &nbsp; PH is open to reviewing zoning map of city to see if mixed-use with residential would be appropriate for other locations. Mixed use also typically requires some incentive for the residential development. &nbsp;Tualatin has no current URAs that could fund such incentives. &nbsp;Large K-Mart redevelopment now in planning stages will not include residential because developer finds it more profitable to include only commercial.</div><div><br></div><div>City allows a credit against the Parks SDC charge for developers that include trails/pathways to recreational or commercial areas. &nbsp;This may be a <b>Best Practice</b>. &nbsp;City also allows density transfers to encourage developers to preserve natural areas next to developments. &nbsp;This may also be a <b>Best Practice</b>.&nbsp;</div><div><br></div><div>City residents generally enjoy good <u>access to recreational and natural areas</u>. &nbsp;City is currently working with other cities and Metro on a regional trail, the Ice Age-Tonquin Trail, that will link 3 counties and 4 cities and significant natural areas, including Fanno Creek and Forest Park. &nbsp;</div><div><br></div><div>City likes to assemble 15-20 acres for <u>park development</u>. Large enough to allow playgrounds, trails, tennis courts, ball fields and other features. &nbsp; Has been willing to bring bond requests to the voters. &nbsp;It currently interested in acquiring a parcel along the Tualatin River. &nbsp;Mantra: build it to Best Practice standard, maintain it right. &nbsp;</div><div><br></div><div>City has one <u>Farmers Market</u>. &nbsp;It operates on City property, in an area that had formerly been a commercial site but was acquired and redeveloped by City. &nbsp;The City provides restrooms and cleanups. &nbsp;The Farmers Market offered a match program last year for SNAP and WIC recipients and perhaps seniors; PH not sure how <u>match </u>was funded. &nbsp;Does not see demand for an additional Farmer's Market location.</div><div><br></div><div>City has two <u>Community Gardens</u>. &nbsp;One is operated on church property; PH will call to find out if it is fully used. &nbsp;The other CG located on the property of one of the City's three elementary schools. &nbsp;The City had planned an additional CG but the 2008 bond measure that included funding was rejected by voters. There are no zoning obstacles to CGs, but capital and operating costs are a barrier to adding more.&nbsp;</div><div><br></div><div>Other<u> possible CG locations</u>:</div><div><ol><li>on the property of other 2 elementary schools and perhaps at middle or high schools;</li><li>at Stone Ridge Park, in a grassy area. &nbsp;Stone Ridge Park funded by CDBG, built near several multi-family housing complexes. &nbsp;Park is frequently vandalized. &nbsp;City would want to work with community in a process to identify what it wants for the land. Could be a centerpiece of larger community development effort that would engage youth and elders. &nbsp;Estimated development cost @ $10K; no estimate for operating cost;</li><li>at the Senior Center, making use of raised beds (perhaps with support from Legacy/Meridian Park, and Kaiser?);</li><li>City willing to consider other CG locations following review of map showing ""hot spots"" for obesity and related disease and/or poverty</li></ol><div><u>Community Supported Agriculture</u></div><div>PH does not believe that there is much CSA activity in city today. City could offer parking lots at distribution points during hours when lots are not in heavy use. &nbsp;No requests to date.</div></div><div><br></div><div><b>Infrastructure investments:</b></div><div>TSP contains specific project priorities. &nbsp;</div><div>City Mnaager has had departments do a Capital Improvement Plans.</div><div>Departments have historically looked to specific funding sources (e.g. development fees to fund sidewalks &amp; parks, utility fees) etc. &nbsp;These funds are allocated to specific uses. &nbsp;Bond measures used for larger projects. &nbsp;</div><div>GF is very limited resource. &nbsp;City has ""wish list"" of $4.5 million of projects, but only about $500K available annually for renovation and renewal.</div><div>City is part of Washington County's federal Consolidated Plan Consortium. &nbsp;Will occasionally get project funding. &nbsp;Competes with other Wa Co cities (except Hillsboro and Beaverton, both Participating Jursidictions that file individual city Con Plans.</div><div><br></div><div><br></div><div><b>Shared Use:</b></div><div>City has history of shared use arrangements. &nbsp;When City has made capital investment (e.g. syntethic turf field and running track by school), used an IGA to document understanding re maintenance, operating expenses, and liability. &nbsp;For example, in Turf/track project, the schools schedule the field and carry the liability insurance, while the City performs maintenance. &nbsp;On another project, a bridge connecting three parks, an IGA among four entities covered capital contribution, liability, and other issues. &nbsp;(May be Best Practice)</div><div><br></div><div><b>LMCTC:</b></div><div>We reviewed five elements of LMCTC, and discussed relationship of LMCTC and HEAL. &nbsp;PH will confirm which Goals city has achieved. &nbsp;(Goal V - Active Kids at Play - is the only one we were sure of.) &nbsp;HEAL Cities is assisting LMCTC by providing on the ground guidance. Beth will help city locate resources to accomplish remaining goals. &nbsp;Goal I, Start Early, Start Smart, may be best addressed regionally, perhaps by linking in the Wash Co Health Dept. &nbsp;Beth will send contact info for Tracy Wiedt, LMCTC program manager at NLCICF.</div><div><br></div></div><div><b>Next steps:</b></div><div>Bring HEAL Cities resolution to Council in Feb. &nbsp;(PH to check with City Manager.) &nbsp;See if LMCTC can do a recognition event for City at the same time. (BK to send LH contact info for Tracy Wiedt, LMCTC.)</div><div><br></div><div>PL would like to have City codes reviewed to ascertain where there are opportunities to modify and add HEAL options. &nbsp;If HEAL could provide $$ for consultant, or in kind service, City would welcome that. &nbsp;BK to check on what is available at OPHI.</div><div><br></div><div>Useful to be able to overlay health/weight data on map of city to determine where there are ""hot spots"" that may require project interventions (e.g. community gardens, closer look at healthy food access strategies, closer look at ped/bike access challenges). &nbsp;BK to check on obtaining maps from State.</div><div><br></div><div>We discussed using a <b>population focus</b> to prioritize how Community Development invests its resources on HEAL:</div><div><br></div><div>&nbsp; &nbsp; &nbsp;&nbsp;<u>Children and teens:</u>&nbsp;</div><div><ul><li>in conjunction with school districts, <i>explore adding additional School Gardens</i>, and <i>explore feasibility of a Farm to School program</i> (BK to send contact info on Michelle Markesteyn Ratcliffe, PhD, with Oregon Dept of Agriculture, potential presenter on F2S)</li><li>Beth to work with Julie Ludemann and Youth Advisory Council &nbsp;to educate youth re obesity risk, role of environment. &nbsp;Ask YAC's help to prioritize among policy interventions, perhaps support HEAL Cities resolution at Council.</li><li>LMCTC Goal I (Start Early Start Smart) to establish an interagency collaboration on early care and eduation programs (Bronze level) or more</li><li>LMCTC Goal II (My Plate, Your Plate), work with school district and all publicly owned venues where food is served to prominently display My Placte (medal varies with % of venues that display MyPlate)</li><li>LMCTC Goal III (Smart Servings for Students) Work with school district officials to increase participation in the School Breakfast Program and the National School Lunch Program</li><li>LMCTC Goal IV (Model Food Service) implement healthy and sustainable food-service guidelines in all municipally- or county-owned venues that serve food (perhaps with Countil Health Dept support)</li></ul></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Seniors</u></div><div><ul><li>increase usage of Senior Center by older adults, by assessing barriers to participation (unfamiliarity? &nbsp;transportation? &nbsp;lack of appealing programming? &nbsp;cultural issues?) and developing strategies to address barriers</li><li>Consider multigenerational activities that would involve schoolchildren</li><li>Consider programs on healthy food shopping and preparation at Senior Center</li><li>Consider using Senior Center as a hub for CSAs to get produce to seniors on limited incomes and with limited access to transportation</li></ul><u>Low-income households&nbsp;</u><br><ul><li>&nbsp;Use data maps from State to see if there is correlation between income, obesity, and access to ped/bike/transit and access to healthy food &nbsp;(BK to request from State)</li><li>Explore Community Garden in Stone Ridge Park? &nbsp;(perhaps Chamber of Commerce can take on funding challenge?)</li><li>Are there community-based organizations that work with low-income households? &nbsp;</li></ul></div>
 END_TEXT
 }
-    communications << { date: '41270', duration: '125', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other, Coordination with County Health Departments, Let's Move Cities Towns & Counties", notes: <<END_TEXT
+    communications << { date: '41270', duration: '125', contact_type: 'Telephone Call',  organization_type: 'Participating City', contacts: "Paul Hennon Hennon at City of Tualatin Community Services", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other, Coordination with County Health Departments, Let's Move Cities Towns & Counties", notes: <<END_TEXT
 This call followed an introductory meeting on 12/20/12 with Paul Herron, City Manager Sherilyn Lombos, and Mayor Lou Ogden.<div><br></div><div>Big picture: lots of political will. &nbsp;At recent Fall Retreat, Council identified the development of Tualatin as a Healthy Active Community as one of its priorities. &nbsp;This will be included in the Retreat Report that will go before Council in 1st Q 2013 and feed into its agenda-setting. Opportunity to flesh out what this means, perhaps by reference to HEAL and LMCTC policy initiatives. &nbsp;<br><div><br></div><div>We reviewed the HEAL Cities Policy Menu. &nbsp;</div><div><br></div><div>Tualatin's new Transportation System Plan update (TSP), currently in final draft, promotes street connectivity, ped and bicycle paths and other measures to improve ped and bike access and safety. &nbsp;</div><div><br></div><div>Tualatin's Comp Plan does not currently include general health goals. &nbsp;PH will check when Comp Plan update is scheduled, and we can discuss whether amendment out of cycle is warranted.&nbsp;</div><div><br></div><div>Tualatin also plans to review its Parks &amp; Rec Master Plan. &nbsp;This is a dated but visionary document. &nbsp;May be able to add HEAL language, but primary barrier is construction $$. &nbsp;Another big challenge for city in this arena is protection of natural resources. &nbsp;</div><div><br></div><div>Currently, mixed use residential/cmmercial development is a feature of the 1994 Tualatin Commons development, but not replicated elsewhere. PH believes code allows such development; is not aware of requests for waivers or changes to code to allow such projects. &nbsp;Mixed use not typical for Tualatin. &nbsp;Tualatin's explosive growth resulted in distinct SF residentia, commercial, and industrial neighborhoods. &nbsp;Linking Tualatin initiative has objective of introducing some commercial uses into industrial areas (e.g. cafes and banks for industrial workers). &nbsp;No residential component to plan. &nbsp; PH is open to reviewing zoning map of city to see if mixed-use with residential would be appropriate for other locations. Mixed use also typically requires some incentive for the residential development. &nbsp;Tualatin has no current URAs that could fund such incentives. &nbsp;Large K-Mart redevelopment now in planning stages will not include residential because developer finds it more profitable to include only commercial.</div><div><br></div><div>City allows a credit against the Parks SDC charge for developers that include trails/pathways to recreational or commercial areas. &nbsp;This may be a Best Practice. &nbsp;City also allows density transfers to encourage developers to preserve natural areas next to developments. &nbsp;This may also be a Best Practice.&nbsp;</div><div><br></div><div>City residents generally enjoy good access to recreational and natural areas. &nbsp;City is currently working with other cities and Metro on a regional trail, the Ice Age-Tonquin Trail, that will link 3 counties and 4 cities and significant natural areas, including Fanno Creek and Forest Park. &nbsp;</div><div><br></div><div>City likes to assemble 15-20 acres for park development. Large enough to allow playgrounds, trails, tennis courts, ball fields and other features. &nbsp; Has been willing to bring bond requests to the voters. &nbsp;It currently interested in acquiring a parcel along the Tualatin River. &nbsp;Mantra: build it to Best Practice standard, maintain it right. &nbsp;</div><div><br></div><div>City has one Farmer's Market. &nbsp;It operates on City property, in an area that had formerly been a commercial site but was acquired and redeveloped by City. &nbsp;The City provides restrooms and cleanups. &nbsp;The Farmer's Market offered a match program last year for SNAP and WIC recipients and perhaps seniors; PH not sure how match was funded. &nbsp;Does not see demand for an additional Farmer's Market location.</div><div><br></div><div>City has two Community Gardens. &nbsp;One is operated on church property; PH will call to find out if it is fully used. &nbsp;The other CG located on the property of one of the City's three elementary schools. &nbsp;The City had planned an additional CG but the 2008 bond measure that included funding was rejected by voters. There are no zoning obstacles to CGs, but capital and operating costs are a barrier to adding more.&nbsp;</div><div><br></div><div>Other possible CG locations:</div><div><ol><li>on the property of other 2 elementary schools and perhaps at middle or high schools;</li><li>at Stone Ridge Park, in a grassy area. &nbsp;Stone Ridge Park funded by CDBG, built near several multi-family housing complexes. &nbsp;Park is frequently vandalized. &nbsp;City would want to work with community in a process to identify what it wants for the land. Could be a centerpiece of larger community development effort that would engage youth and elders. &nbsp;Estimated development cost @ $10K; no estimate for operating cost;</li><li>at the Senior Center, making use of raised beds (perhaps with support from Legacy/Meridian Park, and Kaiser?);</li><li>City willing to consider other CG locations following review of map showing ""hot spots"" for obesity and related disease and/or poverty</li></ol><div>PH does not believe that there is much CSA activity in city today. City could offer parking lots at distribution points during hours when lots are not in heavy use. &nbsp;No requests to date.</div></div><div><br></div><div><b>Infrastructure investments:</b></div><div>TSP contains specific project priorities. &nbsp;</div><div>City Mnaager has had departments do a Capital Improvement Plans.</div><div>Departments have historically looked to specific funding sources (e.g. development fees to fund sidewalks &amp; parks, utility fees) etc. &nbsp;These funds are allocated to specific uses. &nbsp;Bond measures used for larger projects. &nbsp;</div><div>GF is very limited resource. &nbsp;City has ""wish list"" of $4.5 million of projects, but only about $500K available annually for renovation and renewal.</div><div>City is part of Washington County's federal Consolidated Plan Consortium. &nbsp;Will occasionally get project funding. &nbsp;Competes with other Wa Co cities (except Hillsboro and Beaverton, both Participating Jursidictions that file individual city Con Plans.</div><div><br></div><div><br></div><div><b>Shared Use:</b></div><div>City has history of shared use arrangements. &nbsp;When City has made capital investment (e.g. syntethic turf field and running track by school), used an IGA to document understanding re maintenance, operating expenses, and liability. &nbsp;For example, in Turf/track project, the schools schedule the field and carry the liability insurance, while the City performs maintenance. &nbsp;On another project, a bridge connecting three parks, an IGA among four entities covered capital contribution, liability, and other issues. &nbsp;(May be Best Practice)</div><div><br></div><div><b>LMCTC:</b></div><div><br></div><div><br></div></div><div><b>Next steps:</b></div><div>Bring HEAL Cities resolution to Council in Feb. &nbsp;(PH to check with City Manager.) &nbsp;See if LMCTC can do a recognition event for City at the same time. (BK to send LH contact info for Tracy Wiedt, LMCTC.)</div><div><br></div><div>PL would like to have City codes reviewed to ascertain where there are opportunities to modify and add HEAL options. &nbsp;If HEAL could provide $$ for consultant, or in kind service, City would welcome that. &nbsp;BK to check on what is available at OPHI.</div><div><br></div><div>Useful to be able to overlay health/weight data on map of city to determine where there are ""hot spots"" that may require project interventions (e.g. community gardens, closer look at healthy food access strategies, closer look at ped/bike access challenges). &nbsp;BK to check on obtaining maps from State.</div><div><br></div><div>We discussed using a <b>population focus</b> to prioritize how Community Development invests its resources on HEAL:</div><div><br></div><div>&nbsp; &nbsp; &nbsp;&nbsp;<u>Schoolchildren:</u>&nbsp;</div><div><ul><li>in conjunction with school districts, <i>explore adding additional School Gardens</i>, and <i>explore feasibility of a Farm to School program</i> (BK to send contact info on Michelle Markesteyn Ratcliffe, PhD, with Oregon Dept of Agriculture, potential presenter on F2S)</li><li>work with Julie Ludemann and Student Advisory Commission to educate youth and prioritize among policy interventions</li></ul></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Seniors</u></div><div><ul><li>increase usage of Senior Center by older adults, by assessing barriers to participation (unfamiliarity? &nbsp;transportation? &nbsp;lack of appealing programming? &nbsp;cultural issues?) and developing strategies to address barriers</li><li>Consider multigenerational activities that would involve schoolchildren</li><li>Consider programs on healthy food shopping and preparation at Senior Center</li><li>Consider using Senior Center as a hub for CSAs to get produce to seniors on limited incomes and with limited access to transportation</li></ul><u>Low-income households&nbsp;</u><br><ul><li>&nbsp;Use data maps from State to see if there is correlation between income, obesity, and access to ped/bike/transit and access to healthy food &nbsp;(BK to request from State)</li><li>Explore Community Garden in Stone Ridge Park? &nbsp;(perhaps Chamber of Commerce can take on funding challenge?)</li><li>Are there community-based organizations that work with low-income households? &nbsp;</li></ul></div>
 END_TEXT
 }
-    communications << { date: '41261', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Pam Hutchinson at Marion COunty Health Department, ", cities: "Keizer, OR, Salem, OR, Silverton, OR, Stayton, OR, Woodburn, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41261', duration: '30', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Pam Hutchinson at Marion COunty Health Department", cities: "Keizer, OR, Salem, OR, Silverton, OR, Stayton, OR, Woodburn, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Access to Healthy Food Options, Shared Use, Workplace Wellness, Other, Coordination with County Health Departments", notes: <<END_TEXT
 
 END_TEXT
 }
-    communications << { date: '41247', duration: '25', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Megan  Newell-Ching at Oregon Food Bank, ", cities: "", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
+    communications << { date: '41247', duration: '25', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Megan  Newell-Ching at Oregon Food Bank", cities: "", staff: "Beth Kaye", topics: "Access to Healthy Food Options, Other", notes: <<END_TEXT
 scheduled a meeting for 1/9/13 with Sharon Thornberry<div><span style=""font-size: 11.0pt;"">""to chat about how
 our work overlaps and possibilities for collaboration going forward. I think
 there are lots of good potential synergies between HEAL and our FEAST program.
@@ -3573,38 +3573,39 @@ working in rural Benton County, the South Coast (Coos &amp; Curry), Tillamook
 and Douglas counties.""&nbsp;</span></div>
 END_TEXT
 }
-    communications << { date: '41239', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Morgan Cowling at Coalition of Local Health Organizations, ", cities: "", staff: "Beth Kaye", topics: "Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41239', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Statewide Organization', contacts: "Morgan Cowling at Coalition of Local Health Organizations", cities: "", staff: "Beth Kaye", topics: "Coordination with County Health Departments", notes: <<END_TEXT
 11/26/12- Mary Lou Hennrich had breakfast meeting with MC today. &nbsp;MC requested a list of County health departments I had contacted and the jurisdictions I was working with. &nbsp;I provided same.&nbsp;
 END_TEXT
 }
-    communications << { date: '41239', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Sheree Smith at Morrow County Health Department, ", cities: "Irrigon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
+    communications << { date: '41239', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'County Health Department', contacts: "Sheree Smith at Morrow County Health Department", cities: "Irrigon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other", notes: <<END_TEXT
 Wrote to Sheree following request from Mayor David Burns of Irrigon for more info about HEAL Cities
 END_TEXT
 }
-    communications << { date: '41239', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "David Burns at Irrigon, Oregon, ", cities: "Irrigon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41239', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "David Burns at Irrigon, Oregon", cities: "Irrigon, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 Responded to an e-mail from David Burns.<div>He is also on the LOC Board, and wants to make a presentation at the next LOC Region 7 meeting.</div>
 END_TEXT
 }
-    communications << { date: '41239', duration: '10', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Randi Philips, MS at Polk County Health Department, ", cities: "Falls City, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
+    communications << { date: '41239', duration: '10', contact_type: 'Telephone Call',  organization_type: 'County Health Department', contacts: "Randi Philips, MS at Polk County Health Department", cities: "Falls City, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities", notes: <<END_TEXT
 Left VM; provided follow up e-mail.&nbsp;
 END_TEXT
 }
-    communications << { date: '41221', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group, ", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41221', duration: '10', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "Lou Ogden at Resource Strategies Planning Group", cities: "Tualatin, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 Working on setting up a meeting.&nbsp;
 END_TEXT
 }
-    communications << { date: '41221', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Other', contacts: "Charlotte Dickson at California Center for Public Health Advocacy, ", cities: "Banks, OR, Cornelius, OR, Hillsboro, OR, Vernonia, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
+    communications << { date: '41221', duration: '10', contact_type: 'Telephone Call',  organization_type: 'Other', contacts: "Charlotte Dickson at California Center for Public Health Advocacy", cities: "Banks, OR, Cornelius, OR, Hillsboro, OR, Vernonia, OR", staff: "Beth Kaye", topics: "Other", notes: <<END_TEXT
 City Manager of Banks, Oregon, Kyle Awesome, resigned after questions were raised about his bona fides. &nbsp; Discussed with Charlotte how to do damage control with Banks and other cities. &nbsp;
 END_TEXT
 }
-    communications << { date: '41221', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Other', contacts: "Leah Rodgers at Friends of Family Farmers, ", cities: "Falls City, OR", staff: "Amy Gilroy", topics: "Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '41221', duration: '15', contact_type: 'E-mail Exchange',  organization_type: 'Other', contacts: "Leah Rodgers at Friends of Family Farmers", cities: "Falls City, OR", staff: "Amy Gilroy", topics: "Land Use & Transportation", notes: <<END_TEXT
 Arranging a meeting with Falls City Manager.
 END_TEXT
 }
-    communications << { date: '41193', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Leah Rodgers at Friends of Family Farmers, ", cities: "Falls City, OR", staff: "Beth Kaye, Amy Gilroy", topics: "Introduction To HEAL Cities, Land Use & Transportation", notes: <<END_TEXT
+    communications << { date: '41193', duration: '60', contact_type: 'In-person Meeting',  organization_type: 'Statewide Organization', contacts: "Leah Rodgers at Friends of Family Farmers", cities: "Falls City, OR", staff: "Beth Kaye, Amy Gilroy", topics: "Introduction To HEAL Cities, Land Use & Transportation", notes: <<END_TEXT
 Akha Farm is in residential &nbsp;neighborhood, so farm stand is &nbsp;not an allowed use. &nbsp;City has invited far owner to propose modification to zoning law that would allow farm stand. Amy Gilroy would liek to see what other concerns local farmers have and address them in omnibus change to zoning code. &nbsp;We discussed two step approach. &nbsp;Leah will develop work plan for us to review.
 END_TEXT
 }
+
 
     com_added = 0
     com_added_errors = 0
@@ -3681,7 +3682,7 @@ END_TEXT
       end
       
       if communication[:organization_type].present? && communication[:notes].present?
-        saved_communication.notes = "Organization type:\n#{ render_to_ascii(communication[:organization_type]) }\n\nNotes:\n#{ render_to_ascii(communication[:notes]) }"
+        saved_communication.notes = "Organization type:\n#{ render_to_ascii(communication[:organization_type]) }\n\nNotes:\n#{ render_to_ascii(communication[:notes]) }
       elsif communication[:organization_type].present?
         saved_communication.notes = render_to_ascii(communication[:organization_type])
       elsif communication[:notes].present?
@@ -3708,7 +3709,7 @@ END_TEXT
     end
 
     puts error_messages
-    status_string = "Communications added: #{com_added} / errors: #{com_added_errors}. Contacts added: #{com_contacts_added}/ errors: #{com_contacts_added_errors}. Cities added: #{com_cities_added}/ errors: #{com_cities_added_errors}"
+    status_string = communications added: #{com_added} / errors: #{com_added_errors}. Contacts added: #{com_contacts_added}/ errors: #{com_contacts_added_errors}. Cities added: #{com_cities_added}/ errors: #{com_cities_added_errors}
     puts status_string
 
     return status_string
