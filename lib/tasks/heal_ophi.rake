@@ -166,8 +166,8 @@ namespace :heal_ophi do
     staff << { first_name: 'Steve', last_name: 'White', email: 'Steve@ophi.org', role: 'Transportation planner' }
     staff << { first_name: 'Monica', last_name: 'Cuneo', email: 'Monica@ophi.org', role: 'Intern/MPH' }
     #staff << { first_name: 'Dawn', last_name: 'Powell', email: 'Dawn@orphi.org', role: 'Wellness@Work project manager' }
-    staff << { first_name: 'Amy', last_name: 'Gilroy', email: 'amy@orphi.org', role: 'ag policy expert' }
-    staff << { first_name: 'Noelle', last_name: 'Dobson', email: 'noelle@orphi.org', role: '' }
+    staff << { first_name: 'Amy', last_name: 'Gilroy', email: 'amy@ophi.org', role: 'ag policy expert' }
+    staff << { first_name: 'Noelle', last_name: 'Dobson', email: 'noelle@ophi.org', role: '' }
     staff << { first_name: 'Karli', last_name: 'Thorstenson', email: 'karli@ophi.org', role: '' }
     staff << { first_name: 'Beth', last_name: 'Kaye', email: 'bethkaye@ophi.org', role: 'Campaign Manager' }
 
