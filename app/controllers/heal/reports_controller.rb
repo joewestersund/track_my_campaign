@@ -69,22 +69,41 @@ class Heal::ReportsController < ApplicationController
       @cities_by_policy << { policy_id: p.id, policy_name: p.full_name, cities_resolving: cities_resolving.count, cities_resolving_population: cities_resolving.sum(:population), cities_adopting: cities_adopting.count, cities_adopting_population: cities_adopting.sum(:population)}
     end
 
-
+    #communications by type
     communications_by_type = []
     current_db.communication_types.order(:order_in_list).each do |ct|
       communications = current_db.communications.where(communication_type_id: ct.id)
       city_ids = current_db.cities.joins(:communications).where("communications.communication_type_id = (?)", ct.id).select(:city_id).uniq
       contact_ids = current_db.contacts.joins(:communications).where("communications.communication_type_id = (?)", ct.id).select(:contact_id).uniq
-      communications_by_type << { communication_type_id: ct.id, communication_type_name: ct.name, num_communications: communications.count, cities_involved: city_ids.count, contacts_involved: contact_ids.count, total_minutes: communications.sum(:duration_minutes), }
+      communications_by_type << { communication_type_id: ct.id, communication_type_name: ct.name, num_communications: communications.count, cities_involved: city_ids.count, contacts_involved: contact_ids.count, total_minutes: communications.sum(:duration_minutes) }
     end
 
     #add a line for all communications
     communications = current_db.communications
     city_ids = current_db.cities.joins(:communications).select(:city_id).uniq
     contact_ids = current_db.contacts.joins(:communications).select(:contact_id).uniq
-    communications_by_type << { communication_type_id: nil, communication_type_name: "All Communications", num_communications: communications.count, cities_involved: city_ids.count, contacts_involved: contact_ids.count, total_minutes: communications.sum(:duration_minutes), }
-
+    communications_by_type << { communication_type_id: nil, communication_type_name: "All Communication Types", num_communications: communications.count, cities_involved: city_ids.count, contacts_involved: contact_ids.count, total_minutes: communications.sum(:duration_minutes) }
     @communications_by_type = communications_by_type
+
+    #communications by topic
+    communications_by_topic = []
+    current_db.topics.order(:order_in_list).each do |topic|
+      communications = current_db.communications.joins(:topics).where("communications_topics.topic_id = ?", topic.id)
+      communication_ids = communications.map {|com| com.id }
+      city_ids = current_db.cities.joins(:communications).where("cities_communications.communication_id IN (?)", communication_ids).select(:city_id).uniq
+      contact_ids = current_db.contacts.joins(:communications).where("communications_contacts.communication_id IN (?)", communication_ids).select(:contact_id).uniq
+      communications_by_topic << { topic_id: topic.id, topic_name: topic.name, num_communications: communications.count, cities_involved: city_ids.count, contacts_involved: contact_ids.count, total_minutes: communications.sum(:duration_minutes) }
+    end
+
+    #add a line for all communications
+    communications = current_db.communications
+    city_ids = current_db.cities.joins(:communications).select(:city_id).uniq
+    contact_ids = current_db.contacts.joins(:communications).select(:contact_id).uniq
+    communications_by_topic << { topic_id: nil, topic_name: "All Topics", num_communications: communications.count, cities_involved: city_ids.count, contacts_involved: contact_ids.count, total_minutes: communications.sum(:duration_minutes) }
+    @communications_by_topic = communications_by_topic
+
+    #Heal champions
+    @heal_champions = current_db.contacts.where(heal_champion: true).order(:first_name, :last_name, :organization_name).page(params[:heal_champions_page]).per_page(page_size)
 
   end
 

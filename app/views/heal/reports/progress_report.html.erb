@@ -105,7 +105,7 @@
   <% end %>
   </tbody>
 </table>
-<br>
+<br />
 
 <h3>Communications by Type</h3>
 <table>
@@ -131,3 +131,61 @@
   <% end %>
   </tbody>
 </table>
+<br />
+
+<h3>Communications by Topic</h3>
+<table>
+  <thead>
+  <tr>
+    <th>Topic</th>
+    <th># of Communications</th>
+    <th>Cities Involved</th>
+    <th>Contacts Involved</th>
+    <th>Total Duration (minutes)</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @communications_by_topic.each do |ct| %>
+    <tr>
+      <td><%= ct[:topic_name] %></td>
+      <td><%= ct[:num_communications] == 0 ? 0 : (link_to number_with_delimiter(ct[:num_communications]), heal_communications_path + "?topic_id=#{ct[:topic_id]}") %></td>
+      <td><%= number_with_delimiter(ct[:cities_involved]) %></td>
+      <td><%= number_with_delimiter(ct[:contacts_involved]) %></td>
+      <td><%= number_with_delimiter(ct[:total_minutes]) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br />
+
+<% if @heal_champions.present? %>
+  <h3>Heal Champions</h3>
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Organization</th>
+      <th>Cities</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @heal_champions.each do |hc| %>
+      <tr>
+        <td><%= link_to "#{hc.first_name} #{hc.last_name}", hc %></td>
+        <td><%= hc.title %></td>
+        <td><%= hc.organization_name %></td>
+        <td>
+          <% hc.cities.each do |city| %>
+            <div><%= link_to "#{city.name}, #{city.state} #{ "(#{city.current_designation.city_designation.name})" if city.current_designation.present?}", "#{heal_reports_cities_summary_path}?name=#{city.name}&state=#{city.state}" %></div>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @heal_champions, param_name: 'heal_champions_page' %>
+  <br />
+<% end %>
