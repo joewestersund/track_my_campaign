@@ -57,7 +57,7 @@
         <td><%= show_boolean(contact.heal_champion) %></td>
         <td>
           <% contact.cities.each do |city| %>
-            <div><%= link_to "#{city.name} #{ "(#{city.city_designation.name})" if city.city_designation.present?}", "#{heal_reports_cities_summary_path}?name=#{city.name}&state=#{city.state}" %></div>
+            <div><%= link_to "#{city.name}, #{city.state} #{ "(#{city.current_designation.city_designation.name})" if city.current_designation.present?}", "#{heal_reports_cities_summary_path}?name=#{city.name}&state=#{city.state}" %></div>
           <% end %>
         </td>
         <td>
