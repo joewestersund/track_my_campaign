@@ -43,6 +43,7 @@ namespace :heal_ophi do
     dbi_ophi = Heal::DatabaseInstance.find_by(instance_name: OPHI_DATABASE_INSTANCE_NAME)
 
     dbi_ophi.city_designation_achievements.delete_all
+    dbi_ophi.communications.delete_all
     dbi_ophi.contacts.delete_all
     dbi_ophi.cities.delete_all
 
