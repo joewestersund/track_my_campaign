@@ -50,7 +50,7 @@ class Heal::City < ActiveRecord::Base
   #league division not required.      validates :league_division, presence: true
 
   def name_and_state
-    "#{self.name} #{self.state}"
+    "#{self.name}, #{self.state}"
   end
 
   def name_type_state
