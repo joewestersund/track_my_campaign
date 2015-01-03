@@ -47,7 +47,6 @@ class Heal::City < ActiveRecord::Base
   validates :name, presence: true
   validates :state, presence: true
   validates :jurisdiction_type, presence: true
-  #league division not required.      validates :league_division, presence: true
 
   def name_and_state
     "#{self.name}, #{self.state}"
