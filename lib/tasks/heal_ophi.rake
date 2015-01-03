@@ -229,6 +229,25 @@ namespace :heal_ophi do
       t.save
     end
 
+    dbi_ophi.city_designations.delete_all
+    city_designations = []
+
+    city_designations << "Interested"
+    city_designations << "Eager"
+    city_designations << "Active"
+    city_designations << "Fit"
+    city_designations << "Fabulous"
+
+    order_in_list = 1
+    city_designations.each do |designation_name|
+      cd = Heal::CityDesignation.new
+      cd.name = designation_name
+      cd.order_in_list = order_in_list
+      cd.database_instance = dbi_ophi
+      order_in_list += 1
+      cd.save
+    end
+
     status_string = "database set up successfully."
     puts status_string
     return status_string
@@ -1023,7 +1042,6 @@ namespace :heal_ophi do
   def get_cda(database_instance, cd_name, date_number, city, error_messages)
     cd = database_instance.city_designations.where("lower(name) = ?", cd_name.downcase).first
     if cd.nil?
-      city_designation_error_count += 1
       error_messages << "can't find city_designation #{city[:city_designation]}"
       return error_messages, nil
     else
