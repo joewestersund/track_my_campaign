@@ -58,12 +58,20 @@ class UserPermissionsController < ApplicationController
   # DELETE /user_permissions/1
   # DELETE /user_permissions/1.json
   def destroy
-    notice = 'User permission was successfully destroyed'
-    begin
-      @user_permission.destroy
-    rescue ActiveRecord::DeleteRestrictionError => e
-      @user_permission.errors.add(:base, e)
-      notice = "User permission could not be destroyed. #{e.message}"
+    user_id = @user_permission.user_id
+    dbi = @user_permission.database_instance
+    if (dbi.communications.joins(:staff_involved).where("user_id = ?", user_id).count > 0 ||
+        dbi.milestones.where(assigned_to_id: user_id).count > 0 ||
+        dbi.followup_tasks.where("assigned_to_id = ? OR assigned_by_id = ? OR completed_by_id = ?",user_id,user_id,user_id).count > 0)
+      notice = "User permission could not be destroyed, because this user has has dependent communications, milestones or followup tasks in this database."
+    else
+      begin
+        @user_permission.destroy
+        notice = 'User permission was successfully destroyed'
+      rescue ActiveRecord::DeleteRestrictionError => e
+        @user_permission.errors.add(:base, e)
+        notice = "User permission could not be destroyed. #{e.message}"
+      end
     end
     respond_to do |format|
       format.html { redirect_to user_permissions_url, notice: notice }

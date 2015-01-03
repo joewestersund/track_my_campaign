@@ -94,7 +94,7 @@
     <tbody>
       <% @communications.each do |communication| %>
         <tr>
-          <td><%= communication.date %></td>
+          <td><%= link_to communication.date, communication %></td>
           <td><%= communication.duration_minutes %></td>
           <td><%= communication.communication_type.name %></td>
           <td><%= communication.event_name %></td>

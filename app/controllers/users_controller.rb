@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :edit_password, :update, :update_password, :destroy]
 
   def index
-    @users = User.where(get_conditions).page(params[:page]).per_page(page_size)
+    @users = User.where(get_conditions).order(:first_name, :last_name).page(params[:page]).per_page(page_size)
   end
 
   def new
@@ -60,16 +60,21 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    sign_out
-    notice = 'User was successfully destroyed'
-    begin
-      @user.destroy
-    rescue ActiveRecord::DeleteRestrictionError => e
-      @user.errors.add(:base, e)
-      notice = "User could not be destroyed. #{e.message}"
+    if (Heal::Communication.joins(:staff_involved).where("user_id = ?", @user).count > 0 ||
+      Heal::Milestone.where(assigned_to_id: @user.id).count > 0 ||
+      Heal::FollowupTask.where("assigned_to_id = ? OR assigned_by_id = ? OR completed_by_id = ?",@user.id,@user.id,@user.id).count > 0)
+      notice = "User could not be destroyed, because it has dependent communications, milestones or followup tasks."
+    else
+      begin
+        @user.destroy
+        notice = 'User was successfully destroyed'
+      rescue ActiveRecord::DeleteRestrictionError => e
+        @user.errors.add(:base, e)
+        notice = "User could not be destroyed. #{e.message}"
+      end
     end
     respond_to do |format|
-      format.html { redirect_to signin_path, notice: notice }
+      format.html { redirect_to users_path, notice: notice }
       format.json { head :no_content }
     end
   end

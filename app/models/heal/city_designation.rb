@@ -12,7 +12,7 @@
 
 class Heal::CityDesignation < ActiveRecord::Base
   belongs_to :database_instance
-  has_many :cities, dependent: :restrict_with_exception #delete once cities don't have their own
+  #has_many :cities, dependent: :restrict_with_exception #delete once cities don't have their own
 
   has_many :city_designation_achievements, dependent: :restrict_with_exception
 

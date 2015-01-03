@@ -848,7 +848,7 @@ May issues:<div>Consolidating schools</div>
   <br /></div>
 END_TEXT
 }
-    communications << { date: '74317', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "[[[Tamera~~Tlustos-Arnold~~KP]]]KP", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments, Hunger and Obesity", notes: <<END_TEXT
+    communications << { date: '41446', duration: '90', contact_type: 'In-person Meeting',  organization_type: 'Participating City', contacts: "[[[Tamera~~Tlustos-Arnold~~KP]]]KP", cities: "Fairview, OR", staff: "Beth Kaye", topics: "Land Use & Transportation, Access to Healthy Food Options, Other, Coordination with County Health Departments, Hunger and Obesity", notes: <<END_TEXT
 Tamie: &quot;We don't have a commitment to children exercising on a
 regular basis.&quot;<div>
   <br /></div>
@@ -1142,7 +1142,7 @@ Julie asked for update; alerted Campaign that&nbsp;<span
     <br /></span></div>
 END_TEXT
 }
-    communications << { date: '369948', duration: '120', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "[[[Lou~~Ogden~~Resource Strategies Planning Group]]]Resource Strategies Planning Group, [[[Kyle~~Awesome~~City of Banks]]]City of Banks, [[[Wes~~Hare~~City of Albany]]]City of Albany, [[[Julie~~Manning~~City of Corvallis]]]City of Corvallis, [[[Kitty~~Piercy~~]]], [[[Ralph~~Grutzmacher~~]]], [[[Larry~~Davis~~]]], [[[Jim~~Fairchild~~]]], [[[Shanti~~Platt~~]]], [[[Virginia~~Carnes~~]]], [[[Jacque~~Betz~~]]], [[[John~~Oberst~~City of Monmouth]]]City of Monmouth, [[[Crystal~~Shoji~~City of Coos Bay]]]City of Coos Bay", cities: "Banks, OR, Beaverton, OR, Corvallis, OR, Dallas, OR, Gervais, OR, Monmouth, OR, Pilot Rock, OR, Toledo, OR, Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
+    communications << { date: '41230', duration: '120', contact_type: 'E-mail Exchange',  organization_type: 'Participating City', contacts: "[[[Lou~~Ogden~~Resource Strategies Planning Group]]]Resource Strategies Planning Group, [[[Kyle~~Awesome~~City of Banks]]]City of Banks, [[[Wes~~Hare~~City of Albany]]]City of Albany, [[[Julie~~Manning~~City of Corvallis]]]City of Corvallis, [[[Kitty~~Piercy~~]]], [[[Ralph~~Grutzmacher~~]]], [[[Larry~~Davis~~]]], [[[Jim~~Fairchild~~]]], [[[Shanti~~Platt~~]]], [[[Virginia~~Carnes~~]]], [[[Jacque~~Betz~~]]], [[[John~~Oberst~~City of Monmouth]]]City of Monmouth, [[[Crystal~~Shoji~~City of Coos Bay]]]City of Coos Bay", cities: "Banks, OR, Beaverton, OR, Corvallis, OR, Dallas, OR, Gervais, OR, Monmouth, OR, Pilot Rock, OR, Toledo, OR, Tualatin, OR", staff: "Beth Kaye", topics: "Introduction To HEAL Cities, Other, Coordination with County Health Departments", notes: <<END_TEXT
 Colloquy among Advisory Committee &nbsp;members and HEAL Staff about
 &nbsp;how to recruit cities for the Campaign. &nbsp;Kitty Piercy backs
 written invitation from LOC on LOC lettterhead. &nbsp; Lou &nbsp;Ogden
@@ -3619,6 +3619,10 @@ END_TEXT
     com_cities_added_errors = 0
     com_contacts_added = 0
     com_contacts_added_errors = 0
+    staff_added = 0
+    staff_added_errors = 0
+    topics_added = 0
+    topics_added_errors = 0
     
     error_messages = []
 
@@ -3705,6 +3709,36 @@ END_TEXT
         saved_communication.interest_level = il
       end
 
+      if communication[:staff].present?
+        staff_array = communication[:staff].split(",")
+        staff_array.each do |st|
+          staff_obj = User.find_by("first_name || ' ' || last_name = ?", st.strip)
+          if staff_obj.present? && UserPermission.find_by(user_id: staff_obj.id, database_instance: dbi_ophi).present?
+            staff_added += 1
+            saved_communication.staff_involved << staff_obj
+          else
+            staff_added_errors += 1
+            error_messages << "User #{st} was not found or does not have permissions for this database."
+            break
+          end
+        end
+      end
+
+      if communication[:topics].present?
+        topics_array = communication[:topics].split(",")
+        topics_array.each do |topic_name|
+          topic = dbi_ophi.topics.find_by(name: topic_name.strip)
+          if topic.present?
+            topics_added += 1
+            saved_communication.topics << topic
+          else
+            topics_added_errors += 1
+            error_messages << "Topic #{topic_name} was not found in the database."
+            break
+          end
+        end
+      end
+
       if saved_communication.save
         com_added += 1
       else
@@ -3716,7 +3750,7 @@ END_TEXT
     end
 
     puts error_messages
-    status_string = "communications added: #{com_added} / errors: #{com_added_errors}. Contacts added: #{com_contacts_added}/ errors: #{com_contacts_added_errors}. Cities added: #{com_cities_added}/ errors: #{com_cities_added_errors}"
+    status_string = "communications added: #{com_added} / errors: #{com_added_errors}. Contacts added: #{com_contacts_added} / errors: #{com_contacts_added_errors}. Cities added: #{com_cities_added} / errors: #{com_cities_added_errors}. Staff added: #{staff_added} / errors: #{staff_added_errors}. Topics added: #{topics_added} / errors: #{topics_added_errors}"
     puts status_string
 
     return status_string

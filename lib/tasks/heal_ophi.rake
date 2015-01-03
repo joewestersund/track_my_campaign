@@ -157,6 +157,78 @@ namespace :heal_ophi do
       it.save
     end
 
+    UserPermission.where(database_instance: dbi_ophi).delete_all
+
+    staff = []
+
+    staff << { first_name: 'Liz', last_name: 'Baxter', email: 'Liz@ophi.org', role: 'Executive Director' }
+    staff << { first_name: 'Dawn', last_name: 'Robbins', email: 'dawn@ophi.org', role: 'Worksite Wellness program mgr' }
+    staff << { first_name: 'Steve', last_name: 'White', email: 'Steve@ophi.org', role: 'Transportation planner' }
+    staff << { first_name: 'Monica', last_name: 'Cuneo', email: 'Monica@ophi.org', role: 'Intern/MPH' }
+    staff << { first_name: 'Dawn', last_name: 'Powell', email: 'Dawn@orphi.org', role: 'Wellness@Work project manager' }
+    staff << { first_name: 'Amy', last_name: 'Gilroy', email: 'amy@orphi.org', role: 'ag policy expert' }
+    staff << { first_name: 'Noelle', last_name: 'Dobson', email: 'noelle@orphi.org', role: '' }
+    staff << { first_name: 'Karli', last_name: 'Thorstenson', email: 'karli@ophi.org', role: '' }
+    staff << { first_name: 'Beth', last_name: 'Kaye', email: 'bethkaye@ophi.org', role: 'Campaign Manager' }
+
+    staff.each do |st|
+      email = st[:email].downcase
+      u = User.find_by(email: email)
+      if u.nil?
+        u = User.new
+        u.first_name = st[:first_name].strip
+        u.last_name = st[:last_name].strip
+        u.email = email
+        pw = "newuser"
+        u.password = pw
+        u.password_confirmation = pw
+        u.admin = false
+        if not u.save
+          puts "error saving user #{st[:first_name]} #{st[:last_name]}"
+          puts u.errors.inspect
+          break
+        end
+      end
+      up = UserPermission.new
+      up.user = u
+      up.database_instance = dbi_ophi
+      up.read_only = false
+      if not up.save
+        puts "error saving user permission for user #{st[:first_name]} #{st[:last_name]}"
+        puts up.errors.inspect
+      end
+    end
+
+    dbi_ophi.topics.delete_all
+
+    topics = []
+
+    topics << "Introduction To HEAL Cities"
+    topics << "Welcome to HEAL Cities"
+    topics << "Small Grants for HEAL Cities"
+    topics << "Site visit"
+    topics << "Hunger and Obesity"
+    topics << "General Information About Obesity"
+    topics << "Let's Move Cities Towns & Counties"
+    topics << "Coordination with County Health Departments"
+    topics << "Workplace Wellness"
+    topics << "Parks & Rec"
+    topics << "Shared Use"
+    topics << "Access to Healthy Food Options"
+    topics << "Land Use & Transportation"
+    topics << "Evaluation"
+    topics << "Other"
+
+    order_in_list = 1
+    topics.each do |topic|
+      t = Heal::Topic.new
+      t.name = topic
+      t.order_in_list = order_in_list
+      t.database_instance = dbi_ophi
+      order_in_list += 1
+      t.save
+    end
+
     status_string = "database set up successfully."
     puts status_string
     return status_string
