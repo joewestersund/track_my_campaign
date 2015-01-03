@@ -23,6 +23,30 @@
 </table>
 <br>
 
+<% if @cities_by_achievement_minorities_15_percent.present? %>
+<h3>Cities with Minority Population > 15%, by Achievement Level</h3>
+<table>
+  <thead>
+  <tr>
+    <th>Achievement Level</th>
+    <th># of Cities</th>
+    <th>Total Population</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @cities_by_achievement_minorities_15_percent.each do |c| %>
+    <tr>
+      <td class="black <%= get_city_designation_class_by_number(c[:achievement_order_in_list]) if c[:achievement_order_in_list].present? %>"><%= c[:city_designation_name] %></td>
+      <td><%= c[:number_of_cities] == 0 ? 0 : (link_to c[:number_of_cities], heal_reports_cities_summary_path + "?city_designation_id=#{c[:city_designation_id]}&minorities_more_than_fifteen_percent=1") %></td>
+      <td><%= number_with_delimiter(c[:total_population]) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<% end %>
+
 <h3>Cities that have Taken Action</h3>
 <table>
   <thead>

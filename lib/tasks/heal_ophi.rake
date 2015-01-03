@@ -557,7 +557,7 @@ namespace :heal_ophi do
     cities << { name: 'West Slope', state: 'OR', current_designation: '-', date_interested: '',date_eager: '', date_active: '', date_fit: '', date_fabulous: '', primary_contacts: '', county: 'UNKNOWN', minorities_more_than_fifteen_percent: 'No', kp_service_area: 'UNKNOWN', dhs_district: 'UNKNOWN', population: 6554, percent_white_alone: 85.57, percent_not_white_alone: 14.43, percent_african_american: 1.94, percent_native_american: 0.44, percent_asian: 4.27, percent_pacific_islander: 0.56, percent_other_race: 2.81, percent_two_or_more_races: 4.41, entity_type: 'CDP' }
     cities << { name: 'West Scio', state: 'OR', current_designation: '-', date_interested: '',date_eager: '', date_active: '', date_fit: '', date_fabulous: '', primary_contacts: '', county: 'UNKNOWN', minorities_more_than_fifteen_percent: 'Yes', kp_service_area: 'UNKNOWN', dhs_district: 'UNKNOWN', population: 120, percent_white_alone: 85, percent_not_white_alone: 15, percent_african_american: 0, percent_native_american: 1.67, percent_asian: 0, percent_pacific_islander: 0.83, percent_other_race: 0, percent_two_or_more_races: 12.5, entity_type: 'CDP' }
     cities << { name: 'Westport', state: 'OR', current_designation: '-', date_interested: '',date_eager: '', date_active: '', date_fit: '', date_fabulous: '', primary_contacts: '', county: 'UNKNOWN', minorities_more_than_fifteen_percent: 'No', kp_service_area: 'UNKNOWN', dhs_district: 'UNKNOWN', population: 321, percent_white_alone: 92.83, percent_not_white_alone: 7.17, percent_african_american: 0, percent_native_american: 0.62, percent_asian: 0, percent_pacific_islander: 0, percent_other_race: 2.18, percent_two_or_more_races: 4.36, entity_type: 'CDP' }
-    cities << { name: 'Weston', state: 'OR', current_designation: 'Eager', date_interested: '41540',date_eager: '', date_active: '', date_fit: '', date_fabulous: '', primary_contacts: 'Jennifer Spurgeon at Weston City COuncil', county: 'Umatilla', minorities_more_than_fifteen_percent: 'Yes', kp_service_area: 'No', dhs_district: 'District 12', population: 667, percent_white_alone: 83.51, percent_not_white_alone: 16.49, percent_african_american: 0.3, percent_native_american: 3.45, percent_asian: 3.15, percent_pacific_islander: 0, percent_other_race: 5.85, percent_two_or_more_races: 3.75, entity_type: 'city' }
+    cities << { name: 'Weston', state: 'OR', current_designation: 'Eager', date_interested: '41540',date_eager: '', date_active: '', date_fit: '', date_fabulous: '', primary_contacts: 'Jennifer Spurgeon at Weston City Council', county: 'Umatilla', minorities_more_than_fifteen_percent: 'Yes', kp_service_area: 'No', dhs_district: 'District 12', population: 667, percent_white_alone: 83.51, percent_not_white_alone: 16.49, percent_african_american: 0.3, percent_native_american: 3.45, percent_asian: 3.15, percent_pacific_islander: 0, percent_other_race: 5.85, percent_two_or_more_races: 3.75, entity_type: 'city' }
     cities << { name: 'West Linn', state: 'OR', current_designation: 'Interested', date_interested: '41180',date_eager: '', date_active: '', date_fit: '', date_fabulous: '', primary_contacts: 'Teri Cummings at West Linn City COuncil, John Kovash at City of West Linn, Jody Carson at City of West Linn', county: 'Clackamas', minorities_more_than_fifteen_percent: 'No', kp_service_area: 'Yes', dhs_district: 'District 15', population: 25109, percent_white_alone: 90.72, percent_not_white_alone: 9.28, percent_african_american: 0.67, percent_native_american: 0.35, percent_asian: 4.03, percent_pacific_islander: 0.15, percent_other_race: 1, percent_two_or_more_races: 3.09, entity_type: 'city' }
     cities << { name: 'West Haven-Sylvan', state: 'OR', current_designation: '-', date_interested: '',date_eager: '', date_active: '', date_fit: '', date_fabulous: '', primary_contacts: '', county: 'UNKNOWN', minorities_more_than_fifteen_percent: 'No', kp_service_area: 'UNKNOWN', dhs_district: 'UNKNOWN', population: 8001, percent_white_alone: 87.36, percent_not_white_alone: 12.64, percent_african_american: 1.02, percent_native_american: 0.35, percent_asian: 6.32, percent_pacific_islander: 0.19, percent_other_race: 1.46, percent_two_or_more_races: 3.29, entity_type: 'CDP' }
     cities << { name: 'Westfir', state: 'OR', current_designation: '-', date_interested: '',date_eager: '', date_active: '', date_fit: '', date_fabulous: '', primary_contacts: '', county: 'Lane', minorities_more_than_fifteen_percent: 'No', kp_service_area: 'No', dhs_district: 'District 5', population: 253, percent_white_alone: 92.09, percent_not_white_alone: 7.91, percent_african_american: 0.4, percent_native_american: 1.58, percent_asian: 0.4, percent_pacific_islander: 0, percent_other_race: 0.79, percent_two_or_more_races: 4.74, entity_type: 'city' }
@@ -959,19 +959,21 @@ namespace :heal_ophi do
       end
 
       date_fields = []
-      date_fields << { date: city[:date_interested], date_name: "Interested"}
-      date_fields << { date: city[:date_eager], date_name: "Eager"}
-      date_fields << { date: city[:date_active], date_name: "Active"}
-      date_fields << { date: city[:date_fit], date_name: "Fit"}
-      date_fields << { date: city[:date_fabulous], date_name: "Fabulous"}
+      date_fields << { date: city[:date_interested], designation_name: "Interested"}
+      date_fields << { date: city[:date_eager], designation_name: "Eager"}
+      date_fields << { date: city[:date_active], designation_name: "Active"}
+      date_fields << { date: city[:date_fit], designation_name: "Fit"}
+      date_fields << { date: city[:date_fabulous], designation_name: "Fabulous"}
 
+      designations_added = []
 
       cda_added = false
       if saved_city.city_designation_achievements.nil? || saved_city.city_designation_achievements.count == 0
         date_fields.each do |field|
           if field[:date].length > 0
-            error_messages, cda = get_cda(dbi_ophi, field[:date_name], field[:date], saved_city, error_messages)
+            error_messages, cda = get_cda(dbi_ophi, field[:designation_name], field[:date], saved_city, error_messages)
             if cda.present? && cda.save
+              designations_added << field[:designation_name]
               city_designations_added += 1
               cda_added = true
             else
@@ -981,7 +983,7 @@ namespace :heal_ophi do
           end
         end
 
-        if !cda_added && city[:current_designation] != '-'
+        if city[:current_designation] != '-' && !designations_added.include?(city[:current_designation])
           error_messages, cda = get_cda(dbi_ophi, city[:current_designation], nil, saved_city, error_messages)  #we don't have a date, but we have the name of the city_designation.
           if cda.save
             city_designations_added += 1

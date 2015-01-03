@@ -38,33 +38,14 @@ class Heal::ReportsController < ApplicationController
   end
 
   def progress_report
-    cities_by_achievement = []
-    city_ids = []
 
-    #add all cities
-    cities = current_db.cities
-    cities_by_achievement << { city_designation_name: "All cities in the database", number_of_cities: cities.count, total_population: cities.sum(:population), achievement_order_in_list: nil, city_designation_id: nil }
+    #get list of cities by designation, including all cities
+    @cities_by_achievement = get_cities_by_achievement(current_db.cities, current_db.city_designations)
 
-    #cities can have more than one designation over time, but we'll assume they can only go up.
-    #so, we start from the highest designation and count down
-    #and ignore each city_id if we see it again after that
-    current_db.city_designations.order(order_in_list: :desc).each do |cd|
-      cities = current_db.cities.joins(:city_designation_achievements).where("city_designation_id = #{cd.id}")
-      if city_ids.count > 0
-        cities = cities.where("city_id NOT IN (?)",city_ids)
-      end
-
-      #add the current list of city ids to the array, so we don't count them again for the next designation.
-      city_ids = cities.map{ |c| c.id}
-      cities_by_achievement << { city_designation_name: cd.name, number_of_cities: cities.count, total_population: cities.sum(:population), achievement_order_in_list: cd.order_in_list, city_designation_id: cd.id }
+    #get list of cities by designation, including all cities
+    if current_db.cities.where.not(minorities_more_than_fifteen_percent: nil).count > 0
+      @cities_by_achievement_minorities_15_percent = get_cities_by_achievement(current_db.cities.where(minorities_more_than_fifteen_percent: true), current_db.city_designations)
     end
-    #add the cities with no achievements yet
-    cities = current_db.cities.joins("LEFT JOIN city_designation_achievements cda ON cities.ID = cda.city_id").where("cda.id IS NULL")
-    cities_by_achievement << { city_designation_name: "None", number_of_cities: cities.count, total_population: cities.sum(:population), achievement_order_in_list: nil, city_designation_id: HealHelper::NONE_OF_THE_ABOVE_VALUE_IN_DROPDOWN }
-
-    #reverse the order, so "none" comes first.
-    @cities_by_achievement = cities_by_achievement.reverse
-
 
     #only count resolutions and policies that happened after the campaign started
     @cities_with_achievement = current_db.cities.joins("INNER JOIN (SELECT DISTINCT city_id FROM city_designation_achievements) AS cda ON cities.id = cda.city_id")
@@ -229,6 +210,7 @@ class Heal::ReportsController < ApplicationController
       sf.add_condition(:population,"<=",:max_population,params)
       sf.add_condition(:kp_service_area,"=",:kp_service_area,params)
       sf.add_condition(:under_resourced_or_disease_burden,"=",:under_resourced_or_disease_burden,params)
+      sf.add_condition(:minorities_more_than_fifteen_percent,"=",:minorities_more_than_fifteen_percent,params)
       sf.add_condition(:percent_obesity,">=",:min_percent_obesity,params)
       sf.add_condition(:percent_obesity,"<=",:max_percent_obesity,params)
       sf.add_condition(:state_median_income,">=",:min_state_median_income,params)
@@ -270,6 +252,34 @@ class Heal::ReportsController < ApplicationController
 
     def get_recent_activity(query_result)
       query_result.map { |item| item.create_update_description}
+    end
+
+    def get_cities_by_achievement(cities_list, city_designations_list)
+      cities_by_achievement = []
+      city_ids = []
+
+      cities_by_achievement << { city_designation_name: "All cities in the database", number_of_cities: cities_list.count, total_population: cities_list.sum(:population), achievement_order_in_list: nil, city_designation_id: nil }
+
+      #cities can have more than one designation over time, but we'll assume they can only go up.
+      #so, we start from the highest designation and count down
+      #and ignore each city_id if we see it again after that
+      city_designations_list.order(order_in_list: :desc).each do |cd|
+        cities = cities_list.joins(:city_designation_achievements).where("city_designation_id = #{cd.id}")
+        if city_ids.count > 0
+          cities = cities.where("city_id NOT IN (?)",city_ids)
+        end
+
+        #add the current list of city ids to the array, so we don't count them again for the next designation.
+        city_ids += cities.map{ |c| c.id}
+        cities_by_achievement << { city_designation_name: cd.name, number_of_cities: cities.count, total_population: cities.sum(:population), achievement_order_in_list: cd.order_in_list, city_designation_id: cd.id }
+      end
+      #add the cities with no achievements yet
+      cities = cities_list.joins("LEFT JOIN city_designation_achievements cda ON cities.ID = cda.city_id").where("cda.id IS NULL")
+      cities_by_achievement << { city_designation_name: "None", number_of_cities: cities.count, total_population: cities.sum(:population), achievement_order_in_list: nil, city_designation_id: HealHelper::NONE_OF_THE_ABOVE_VALUE_IN_DROPDOWN }
+
+      #reverse the order, so "none" comes first.
+      return cities_by_achievement.reverse
+
     end
 
 end
