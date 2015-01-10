@@ -50,7 +50,7 @@ module HealHelper
       first_item = true
       cda_array.each do |cda|
         if options[:no_html] == true
-          cda_string += "#{show_city_designation_achievement(cda, options)}"
+          cda_string += "#{show_city_designation_achievement(cda, options)}\n"
         else
           cda_string += "<div#{" class=bold" if first_item}>#{show_city_designation_achievement(cda, options)}</div>"
         end
