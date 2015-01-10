@@ -81,7 +81,22 @@
       <li><%= link_to "Sign Out", signout_path, method: :delete %></li>
     </ul>
   </li>
-  <li><%= link_to "About", about_path %></li>
+  <% if current_db.present? && current_db.class == Heal::DatabaseInstance %>
+    <li id="fat-menu" class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        Help <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Getting Started", heal_help_getting_started_path %></li>
+        <li><%= link_to "Cities", heal_help_cities_path %></li>
+        <li><%= link_to "Contacts", heal_help_contacts_path %></li>
+        <li><%= link_to "Communications", heal_help_communications_path %></li>
+        <li><%= link_to "Task Assignments", heal_help_task_assignments_path %></li>
+        <li><%= link_to "Successes", heal_help_successes_path %></li>
+        <li><%= link_to "Reports", heal_help_reports_path %></li>
+        <li><%= link_to "Users", heal_help_users_path %></li>
+      </ul>
+  <% end %>
 <% else %>
 
   <li><%= link_to "Sign In", signin_path %></li>

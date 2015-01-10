@@ -31,6 +31,14 @@ TrackMyCampaign::Application.routes.draw do
     get '/reports/policy_grid'
     get '/reports/progress_report'
     get '/reports/recent_activity'
+    get "help/getting_started"
+    get "help/cities"
+    get "help/contacts"
+    get "help/communications"
+    get "help/task_assignments"
+    get "help/successes"
+    get "help/reports"
+    get "help/users"
   end
 
   resources :database_instances

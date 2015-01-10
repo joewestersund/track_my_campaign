@@ -1,0 +1,36 @@
+<div class="help">
+  <h1>Getting Started</h1>
+
+  <%= render 'contact_for_questions' %>
+
+  <h2>Welcome to the <%= current_db.instance_name %> HEAL Cities database!</h2>
+
+  <p>This is designed to help you organize and track your HEAL Cities work,
+    to make it (hopefully) easy to show your accomplishments to your funder.</p>
+
+  <h2>Logins</h2>
+  <p>The database works best if each user has their own login.
+    <ul>
+      <li><%= link_to "Users for your database", heal_help_users_path %></li>
+      <li><%= mail_to "joe.westersund@gmail.com", "Contact me to have a new user set up"%></li>
+    </ul>
+  </p>
+
+  <h2>How it's organized</h2>
+  <p>
+    The database thinks about your HEAL Cities work in this way:
+    <ul>
+      <li><%= link_to "Cities", heal_help_cities_path %>, the cities and other jurisdictions that you want to influence</li>
+      <li><%= link_to "Contacts", heal_help_contacts_path %>, the people that you'll talk to, at cities or other organizations</li>
+      <li><%= link_to "Communications", heal_help_communications_path %>, the meetings, phone calls, and other communications you'll have with those people</li>
+      <li><%= link_to "Successes", heal_help_successes_path %>, the actions that those cities will (hopefully) take to help people live healthier.</li>
+      <li><%= link_to "Task Assignments", heal_help_task_assignments_path %>, reminders or goals that you set for yourself or your teammates</li>
+    </ul>
+    These are all linked together, so you'll be able to know, "who do we know at that city?" and,
+  "When was the last time we talked to someone at that city?"
+  </p>
+  <p>
+    The data is shared with everyone at your organization, so you can know if someone else has already talked to the city or contact you want to reach.
+  </p>
+</div>
+

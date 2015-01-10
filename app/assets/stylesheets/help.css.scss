@@ -1,0 +1,13 @@
+div.help {
+  h2 {
+    font-size: 125%;
+    font-weight: 300;
+  }
+
+  a, a:visited {
+    color: #357ebd; //mediumblue;
+    &:hover {
+      color: white;
+    }
+  }
+}

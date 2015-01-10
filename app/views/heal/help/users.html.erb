@@ -1,0 +1,39 @@
+<div class="help">
+  <h1>Users</h1>
+
+  <p>The HEAL Cities database works best if each user has their own login.
+    These users are currently set up in the <%= current_db.instance_name %> database:
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email Address</th>
+        <th>Read-Only?</th>
+      </tr>
+      <% current_db.user_permissions.each do |up|%>
+        <tr>
+          <td><%= up.user.first_and_last_name %></td>
+          <td><%= up.user.email %></td>
+          <td><%= show_boolean(up.read_only) %></td>
+        </tr>
+      <% end %>
+    </table>
+  </p>
+  <p>To have a new user set up, or if someone needs their password reset, please <%= mail_to "joe.westersund@gmail.com", "contact Joe Westersund"%>.</p>
+
+  <h2>Read-only permissions</h2>
+  <p>User logins can be set up with read-only permissions.
+    This might be useful if you want to let a funder or another party view your progress,
+    without giving them the ability to make changes.
+  </p>
+
+  <h2>If someone leaves your organization</h2>
+  <p>If someone leaves your organization or no longer needs to have access,
+    we need to leave them in the database (so we can track the work they contributed)
+    but we can set them as read-only.
+  </p>
+
+  <h2>Permissions for multiple databases</h2>
+  <p>One user can have permissions for multiple HEAL Cities databases, and switch between them.
+    This might be helpful if you have a project with other HEAL Cities nonprofits.
+  </p>
+</div>
