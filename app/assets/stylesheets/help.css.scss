@@ -4,6 +4,12 @@ div.help {
     font-weight: 300;
   }
 
+  div.contact {
+    font-size: 90%;
+    padding-bottom: 10px;
+    font-style: italic;
+  }
+
   a, a:visited {
     color: #357ebd; //mediumblue;
     &:hover {
