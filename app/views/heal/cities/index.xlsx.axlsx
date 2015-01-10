@@ -34,7 +34,7 @@ wb.add_worksheet(name: 'Cities') do |sheet|
                    number_to_percentage(city.percent_pacific_islander_alone, precision:2),
                    number_to_percentage(city.percent_other_race_alone, precision:2),
                    number_to_percentage(city.percent_two_or_more_races, precision:2),
-                   show_city_designation_achievements_list(city),
+                   show_city_designation_achievements_list(city, {no_html: true}),
                    show_boolean(city.policy_change_in_progress)], style: data_style
   end
 end

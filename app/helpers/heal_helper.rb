@@ -23,12 +23,20 @@ module HealHelper
     show_people_list(contacts_array, "contacts", options)
   end
 
-  def show_city_designation_achievement(cda)
+  def show_city_designation_achievement(cda, options = {})
     if cda.present?
       if cda.date.present?
-        return link_to "#{cda.city_designation.name} #{cda.date.year}", edit_heal_city_designation_achievement_path(cda), title: "#{cda.date}\n#{cda.notes}"
+        if options[:no_html] == true
+          return "#{cda.city_designation.name} #{cda.date.year}"
+        else
+          return link_to "#{cda.city_designation.name} #{cda.date.year}", edit_heal_city_designation_achievement_path(cda), title: "#{cda.date}\n#{cda.notes}"
+        end
       else
-        return link_to "#{cda.city_designation.name}", edit_heal_city_designation_achievement_path(cda), title: cda.notes
+        if options[:no_html] == true
+          return "#{cda.city_designation.name}"
+        else
+          return link_to "#{cda.city_designation.name}", edit_heal_city_designation_achievement_path(cda), title: cda.notes
+        end
       end
     end
   end
@@ -41,11 +49,14 @@ module HealHelper
       cda_string = ""
       first_item = true
       cda_array.each do |cda|
-        cda_string += "<div#{" class=bold" if first_item}>#{show_city_designation_achievement(cda)}</div>"
+        if options[:no_html] == true
+          cda_string += "#{show_city_designation_achievement(cda, options)}"
+        else
+          cda_string += "<div#{" class=bold" if first_item}>#{show_city_designation_achievement(cda, options)}</div>"
+        end
         first_item = false
       end
       return raw(cda_string)
-      #return raw(cda_array.map{ |cda| "<div>#{show_city_designation_achievement(cda)}</div>" }.join)
     end
   end
 
