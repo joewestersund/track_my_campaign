@@ -1,7 +1,56 @@
 <div class="help">
-  <h1>Help#contacts</h1>
+  <h1>Contacts</h1>
 
   <%= render 'contact_for_questions' %>
 
-  <p>Find me in app/views/help/contacts.html.erb</p>
+
+  <h2>Data Fields</h2>
+  <p>
+  <ul>
+    <li>Honorific (Mr. Ms. Dr. etc)</li>
+    <li>First Name </li>
+    <li>Last Name</li>
+    <li>Title</li>
+    <li>Organization Name</li>
+    <li>Organization Type</li>
+    <li>Position Type</li>
+    <li>Office Phone #</li>
+    <li>Cell Phone #</li>
+    <li>Fax</li>
+    <li>Website</li>
+    <li>Address Line 1</li>
+    <li>Address Line 2</li>
+    <li>Address City</li>
+    <li>Address ZIP</li>
+    <li>Level of Interest in the HEAL Cities program</li>
+    <li>Is this person a HEAL Champion (are they a champion for HEAL Cities policies?</li>
+    <li>HEAL Champion notes (why are they a HEAL champion?)</li>
+    <li>Notes</li>
+  </ul>
+  </p>
+  <p>
+    The main <%= link_to "Contacts page", heal_contacts_path %> only shows some of these fields,
+    but you can see all the fields if you click on the contact's first name or click edit.
+  </p>
+
+  <h2>Who to Enter as a Contact</h2>
+  <p>
+    It takes a little bit of time to enter someone's data in as a contact.
+    If it's someone you won't need to talk to again, you might not need to enter their data.
+    But, if you want to remember the conversation, set up a follow-up reminder for yourself,
+    or let other people in your organization know this person is involved with this city,
+    it might be useful to enter them in.
+  </p>
+
+  <h2>Bulk Upload of Contacts</h2>
+  <p>
+    If you go to a conference, hold a large webinar, or have a large meeting,
+    you may have a lot of new contacts to enter at once.
+    You can do each one individually by going to <%= link_to "Add Contact", new_heal_contact_path %>,
+    or you can type them into an Excel spreadsheet and upload them all at once.
+    If you want to upload, make sure you first download the template from the website.
+    More info <%= link_to "here", new_heal_contact_import_path %>.
+  </p>
+  <%= image_tag "contacts.png", alt: "contacts page screenshot"%>
+</div>
 </div>
