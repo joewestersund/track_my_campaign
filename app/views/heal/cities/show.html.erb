@@ -32,12 +32,17 @@
   </p>
 
   <p>
+    <span class="field_name">% Obesity:</span>
+    <%= show_percentage(@city.percent_obesity) %>
+  </p>
+
+  <p>
     <span class="field_name">KP service area:</span>
     <%= show_boolean(@city.kp_service_area) %>
   </p>
 
   <p>
-    <span class="field_name">Under resourced or disease burdened:</span>
+    <span class="field_name">Under-resourced or disease-burdened:</span>
     <%= show_boolean(@city.under_resourced_or_disease_burden) %>
   </p>
 

@@ -9,15 +9,14 @@
       <li>Name</li>
       <li>County</li>
       <li>State</li>
-      <li>Jurisdiction Type</li>
-      <li>League Division</li>
+      <li>Jurisdiction Type (customizeable list defined for your database)</li>
+      <li>League Division (customizeable list defined for your database)</li>
       <li>Population</li>
+      <li>% Obesity</li>
       <li>KP Service Area (Yes/No)</li>
       <li>Under-Resourced or Disease Burdened (Yes/No)</li>
       <li>State Median Income</li>
       <li>City Median Income</li>
-      <li>Policy Change in Progress (Yes/No)</li>
-      <li>% Obesity</li>
       <li>Minorities > 15% of Population?</li>
       <li>% White alone</li>
       <li>% not "White alone"</li>
@@ -35,8 +34,9 @@
     so you may not use all these fields.
   </p>
   <p>
-    The main <%= link_to "Cities page", heal_cities_path %> only shows some of these fields,
-    but you can see all the fields if you click on the city name or click edit.
+    As cities adopt resolutions or policies, or reach city designation (like Eager/Active/Fit,
+    or Silver/Gold/Platinum depending on your nonprofit), you'll want to add records marking those
+    <%= link_to "Successes", heal_help_successes_path %>.
   </p>
   <%= image_tag "cities.png", alt: "cities page screenshot"%>
 </div>
