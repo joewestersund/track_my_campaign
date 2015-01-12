@@ -1,7 +1,41 @@
 <div class="help">
-  <h1>Help#successes</h1>
+  <h1>Successes Help</h1>
 
   <%= render 'contact_for_questions' %>
 
-  <p>Find me in app/views/help/successes.html.erb</p>
+  <p>When one of your cities adopts a HEAL resolution or a HEAL policy, or reaches one of the
+  city designations that your nonprofit has defined (Eager/Active/Fit or Silver/Gold/Platinum),
+  you'll want to record that success here.</p>
+
+  <h2>Policies</h2>
+  <p>
+    Each nonprofit can define a list of HEAL Policies that they want to track.
+    Your database contains these policies:
+    <ul>
+      <% current_db.policies.order(:order_in_list).each do |p| %>
+        <li><%= p.full_name %></li>
+      <% end %>
+    </ul>
+  </p>
+
+  <h2>Resolutions and Policy Adoptions</h2>
+  <p>
+    When a city resolves to pursue one of these policies, create a <%= link_to "resolution", heal_resolutions_path %>.
+  </p>
+  <p>
+    When a city formally adopts one of these policies, create a <%= link_to "policy adoption", heal_policy_adoptions_path %> record.
+  </p>
+
+  <h2>City Designation Achievements</h2>
+  <p>
+    The <%= current_db.instance_name %> database has these city designations defined:
+    <ul>
+      <% current_db.city_designations.order(:order_in_list).each do |cd| %>
+        <li><%= cd.name %></li>
+      <% end %>
+    </ul>
+  </p>
+  <p>
+    When a city reaches one of these designations, create a <%= link_to "city designation achievement", heal_city_designation_achievements_path %> record.
+  </p>
 </div>

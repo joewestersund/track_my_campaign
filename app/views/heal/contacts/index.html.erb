@@ -2,8 +2,9 @@
 
 <% if has_write_permissions? %>
   <%= link_to 'New Contact', new_heal_contact_path, class: "link-to-new" %> |
+  <%= link_to 'Import Contacts from Excel', new_heal_contact_import_path, class: "link-to-new" %> |
 <% end %>
-<%= link_to 'Import Contacts from Excel', new_heal_contact_import_path, class: "link-to-new" %>
+<%= link_to 'Help', heal_help_contacts_path, class: "link-to-new" %>
 <br><br>
 
 <div class="filter">

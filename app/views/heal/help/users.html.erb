@@ -1,5 +1,5 @@
 <div class="help">
-  <h1>Users</h1>
+  <h1>Users Help</h1>
 
   <%= render 'contact_for_questions' %>
 
@@ -21,6 +21,11 @@
     </table>
   </p>
   <p>To have a new user set up, or if someone needs their password reset, please <%= mail_to "joe.westersund@gmail.com", "contact Joe Westersund"%>.</p>
+
+  <h2>Changing your Password</h2>
+  <p>
+    To change your password, go to Profile | <%= link_to "Edit Profile", profile_edit_path %>.
+  </p>
 
   <h2>Read-only permissions</h2>
   <p>User logins can be set up with read-only permissions.

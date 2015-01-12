@@ -17,9 +17,6 @@ class Heal::HelpController < ApplicationController
   def successes
   end
 
-  def reports
-  end
-
   def users
   end
 end

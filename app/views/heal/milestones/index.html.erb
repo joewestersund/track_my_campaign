@@ -1,6 +1,8 @@
 <h1>City Milestones</h1>
-
-<%= link_to 'New Milestone', new_heal_milestone_path, class: "link-to-new" if has_write_permissions? %>
+<% if has_write_permissions? %>
+   <%= link_to 'New Milestone', new_heal_milestone_path, class: "link-to-new" %> |
+<% end %>
+<%= link_to "Help", heal_help_task_assignments_path, class: "link-to-new" %>
 <br><br>
 
 <div class="filter">

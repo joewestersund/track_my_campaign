@@ -37,7 +37,6 @@ TrackMyCampaign::Application.routes.draw do
     get "help/communications"
     get "help/task_assignments"
     get "help/successes"
-    get "help/reports"
     get "help/users"
   end
 

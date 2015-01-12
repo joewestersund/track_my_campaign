@@ -3,8 +3,9 @@
 <br>
 
 <% if has_write_permissions? %>
-  <%= link_to 'New Followup task', new_heal_followup_task_path, class: "link-to-new" %> | <%= link_to 'New Milestone', new_heal_milestone_path, class: "link-to-new" %>
+  <%= link_to 'New Followup task', new_heal_followup_task_path, class: "link-to-new" %> | <%= link_to 'New Milestone', new_heal_milestone_path, class: "link-to-new" %> |
 <% end %>
+<%= link_to "Help", heal_help_task_assignments_path, class: "link-to-new" %>
 
 <h4>Followup Tasks Assigned to You</h4>
 <%= render 'followup_tasks_form', followup_tasks: @tasks_assigned_to_me %>
