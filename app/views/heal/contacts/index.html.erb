@@ -102,7 +102,7 @@
 
     <tbody>
       <% @contacts.each do |contact| %>
-        <tr>
+        <tr<%= ' class=inactive' if !contact.active %>>
           <td><%= link_to contact.first_name, contact %></td>
           <td><%= contact.last_name %></td>
           <td><%= contact.title %></td>

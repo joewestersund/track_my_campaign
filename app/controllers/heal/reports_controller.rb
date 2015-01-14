@@ -264,6 +264,7 @@ class Heal::ReportsController < ApplicationController
       #sf.add_condition(:interest_level_id,"=",:interest_level_id,params,)
       sf.add_condition('contacts.interest_level_id',"=",:interest_level_id,params,)
       sf.add_condition(:heal_champion,"=",:heal_champion,params)
+      sf.add_condition(:active,"=",:active,params)
       sf.add_condition(:city_id,"=",:city_id, params,{join_table: :cities, join_object_name: :cities_contacts})
 
       sf.get_search_filter

@@ -1,5 +1,5 @@
 <h1>Contacts Summary Report</h1>
-<div>Contacts for which a Communication has been entered</div><br>
+<div>Contacts for which a communication has been entered</div><br>
 
 <div class="filter">
   <%= form_tag request.path, method: 'get' do %>
@@ -27,6 +27,10 @@
       <%= label_tag :city %>
       <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:name_type_state, params[:city_id]), { include_blank: true, class: 'multiselect', multiple: false} %>
     </div>
+    <div class="field">
+      <%= label_tag :active %>
+      <%= select_tag :active, options_for_select(get_yes_no_options_list,params[:active]), { :include_blank => true, class: 'multiselect', multiple: false  } %>
+    </div>
     <div class="actions">
       <%= submit_tag "Filter", class: "btn btn-large btn-primary" %>
     </div>
@@ -43,6 +47,7 @@
       <th>Organization</th>
       <th>Interest Level</th>
       <th>Heal Champion</th>
+      <th>Active</th>
       <th>Cities</th>
       <th>Communications <div><%= link_to 'Add', new_heal_communication_path %></div></th>
     </tr>
@@ -50,11 +55,12 @@
 
     <tbody>
     <% @contacts.each do |contact| %>
-      <tr>
+      <tr<%= ' class=inactive' if !contact.active %>>
         <td><%= link_to "#{contact.first_name} #{contact.last_name}", edit_heal_contact_path(contact) %></td>
         <td><%= contact.organization_name %></td>
         <td><%= contact.interest_level.name if contact.interest_level.present? %></td>
         <td><%= show_boolean(contact.heal_champion) %></td>
+        <td><%= show_boolean(contact.active) %></td>
         <td>
           <% contact.cities.each do |city| %>
             <div><%= link_to "#{city.name}, #{city.state} #{ "(#{city.current_designation.city_designation.name})" if city.current_designation.present?}", "#{heal_reports_cities_summary_path}?name=#{city.name}&state=#{city.state}" %></div>
