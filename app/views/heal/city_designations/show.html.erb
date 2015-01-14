@@ -8,5 +8,8 @@
   <%= @city_designation.order_in_list %>
 </p>
 
-<%= link_to 'Edit', edit_heal_city_designation_path(@city_designation) %> |
+<% if has_write_permissions? %>
+  <%= link_to 'Edit', edit_heal_city_designation_path(@city_designation) %> |
+<% end %>
+<%= link_to "Index", heal_city_designations_path %> |
 <%= link_to "Back", :back %>
