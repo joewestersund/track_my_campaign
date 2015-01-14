@@ -8,7 +8,7 @@ class Heal::ContactImport
   FIELDS_TO_DIRECTLY_IMPORT = [:first_name, :last_name, :title, :organization_name,
                                :office_phone_number, :email, :cell_phone_number, :fax, :website,
                                :address_line_1, :address_line_2, :address_city, :address_state, :address_zip,
-                               :heal_champion, :heal_champion_notes, :notes]
+                               :heal_champion, :heal_champion_notes, :active, :notes]
 
   STATE_ABBREVIATIONS = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
 

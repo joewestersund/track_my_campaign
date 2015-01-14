@@ -58,6 +58,10 @@
       <%= select_tag :heal_champion, options_for_select(get_yes_no_options_list,params[:heal_champion]), { :include_blank => true, class: 'multiselect', multiple: false } %>
     </div>
     <div class="field">
+      <%= label_tag :active %>
+      <%= select_tag :active, options_for_select(get_yes_no_options_list,params[:active]), { :include_blank => true, class: 'multiselect', multiple: false } %>
+    </div>
+    <div class="field">
       <%= label_tag :notes %>
       <%= text_field_tag :notes, params[:notes] %>
     </div>
@@ -88,6 +92,7 @@
         <th>Email</th>
         <th>Interest Level</th>
         <th>Heal Champion</th>
+        <th>Active</th>
         <% if has_write_permissions? %>
           <th></th>
           <th></th>
@@ -109,6 +114,7 @@
           <td><%= mail_to contact.email_address_with_name, contact.email if contact.email.present? %></td>
           <td><%= contact.interest_level.name if contact.interest_level.present? %></td>
           <td><%= show_boolean(contact.heal_champion) %></td>
+          <td><%= show_boolean(contact.active) %></td>
           <% if has_write_permissions? %>
             <td><%= link_to 'Edit', edit_heal_contact_path(contact) %></td>
             <td><%= link_to 'Delete', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>

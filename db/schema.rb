@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141230051243) do
+ActiveRecord::Schema.define(version: 20150114051158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(version: 20141230051243) do
     t.string   "fax"
     t.integer  "organization_type_id"
     t.string   "website"
+    t.boolean  "active",               default: true
   end
 
   create_table "contacts_followup_tasks", id: false, force: true do |t|

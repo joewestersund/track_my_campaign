@@ -31,6 +31,7 @@
 #  fax                  :string(255)
 #  organization_type_id :integer
 #  website              :string(255)
+#  active               :boolean          default(TRUE)
 #
 
 class Heal::Contact < ActiveRecord::Base

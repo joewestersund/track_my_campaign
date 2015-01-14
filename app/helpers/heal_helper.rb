@@ -149,6 +149,7 @@ module HealHelper
     field_names << {name: "address_zip", data_type: "text" }
     field_names << {name: "heal_champion", data_type: "TRUE or FALSE" }
     field_names << {name: "heal_champion_notes", data_type: "text" }
+    field_names << {name: "active", data_type: "TRUE or FALSE" }
     field_names << {name: "notes", data_type: "text" }
   end
 

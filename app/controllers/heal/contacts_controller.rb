@@ -46,6 +46,7 @@ class Heal::ContactsController < ApplicationController
   def create
     @contact = Heal::Contact.new(contact_params)
     @contact.database_instance = current_db
+    @contact.active = true #default to true
 
     respond_to do |format|
       if @contact.save
@@ -105,7 +106,7 @@ class Heal::ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:heal_contact).permit(:honorific_id, :first_name, :last_name, :title, :organization_name, :organization_type_id, {city_ids: []}, :office_phone_number, :cell_phone_number, :fax, :email, :address_line_1, :address_line_2, :address_city, :address_state, :address_zip, :interest_level_id, :heal_champion, :heal_champion_notes, :position_type_id, :website, :notes, :photo)
+      params.require(:heal_contact).permit(:honorific_id, :first_name, :last_name, :title, :organization_name, :organization_type_id, {city_ids: []}, :office_phone_number, :cell_phone_number, :fax, :email, :address_line_1, :address_line_2, :address_city, :address_state, :address_zip, :interest_level_id, :heal_champion, :heal_champion_notes, :position_type_id, :website, :active, :notes, :photo)
     end
 
     def set_select_options
@@ -130,6 +131,7 @@ class Heal::ContactsController < ApplicationController
       sf.add_condition(:address_zip,"ILIKE",:address_zip,params)
       sf.add_condition(:interest_level_id,"=",:interest_level_id,params)
       sf.add_condition(:heal_champion,"=",:heal_champion,params)
+      sf.add_condition(:active,"=",:active,params)
       sf.add_condition(:notes,"ILIKE",:notes,params)
 
       sf.add_condition(:city_id,"=",:city_id, params,{join_table: :cities, join_object_name: :cities_contacts})
