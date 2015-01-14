@@ -1,9 +1,9 @@
 <h1>Policy Grid Report</h1>
 
 <% if has_write_permissions? %>
-  <%= link_to 'New Heal City Designation Achievement', new_heal_city_designation_achievement_path, class: "link-to-new" %> |
-  <%= link_to 'New Policy Adoption', new_heal_policy_adoption_path, class: "link-to-new" %> |
-  <%= link_to 'New Resolution', new_heal_resolution_path, class: "link-to-new" %>
+  <%= link_to 'New Heal City Designation Achievement', new_heal_city_designation_achievement_path, class: "link-to-new" if has_write_permissions?%> |
+  <%= link_to 'New Policy Adoption', new_heal_policy_adoption_path, class: "link-to-new" if has_write_permissions?%> |
+  <%= link_to 'New Resolution', new_heal_resolution_path, class: "link-to-new" if has_write_permissions?%>
 <% end %>
 <br><br>
 
@@ -86,7 +86,7 @@
       <tr>
         <td><%= city.state %></td>
         <td><%= city.county %></td>
-        <td><%= link_to city.name, edit_heal_city_path(city)%></td>
+        <td><%= link_to city.name, heal_city_path(city)%></td>
         <td><%= city.population %></td>
         <td><%= show_percentage(city.percent_obesity) %></td>
         <td><%= number_to_currency(city.city_median_income, precision: 0) %></td>
@@ -112,14 +112,14 @@
           <% first = true
           pa_all.each do |pa|
             if pa.prior_to_joining_campaign
-              %><div<%= ' class=bold' if first%>><%= link_to "P", edit_heal_policy_adoption_path(pa), title: "#{(pa.date.year.to_s+" ") if pa.date.present?}#{pa.notes}" %></div><%
+              %><div<%= ' class=bold' if first%>><%= link_to "P", heal_policy_adoption_path(pa), title: "#{(pa.date.year.to_s+" ") if pa.date.present?}#{pa.notes}" %></div><%
             else
-              %><div<%= ' class=bold' if first%>><%= link_to pa.date.present? ? pa.date.year : "A", edit_heal_policy_adoption_path(pa), title: pa.notes %></div><%
+              %><div<%= ' class=bold' if first%>><%= link_to pa.date.present? ? pa.date.year : "A", heal_policy_adoption_path(pa), title: pa.notes %></div><%
             end
             first = false
           end
           res_all.each do |res|
-            %> <div<%= ' class=bold' if first%>><%= link_to "R", edit_heal_resolution_path(res), title: "#{(res.date.year.to_s+" ") if res.date.present?}#{res.notes}" %></div><%
+            %> <div<%= ' class=bold' if first%>><%= link_to "R", heal_resolution_path(res), title: "#{(res.date.year.to_s+" ") if res.date.present?}#{res.notes}" %></div><%
             first = false
           end
           %></td><%

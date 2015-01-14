@@ -49,14 +49,14 @@
       <th>Heal Champion</th>
       <th>Active</th>
       <th>Cities</th>
-      <th>Communications <div><%= link_to 'Add', new_heal_communication_path %></div></th>
+      <th>Communications <div><%= link_to 'Add', new_heal_communication_path if has_write_permissions?%></div></th>
     </tr>
     </thead>
 
     <tbody>
     <% @contacts.each do |contact| %>
       <tr<%= ' class=inactive' if !contact.active %>>
-        <td><%= link_to "#{contact.first_name} #{contact.last_name}", edit_heal_contact_path(contact) %></td>
+        <td><%= link_to "#{contact.first_name} #{contact.last_name}", heal_contact_path(contact) %></td>
         <td><%= contact.organization_name %></td>
         <td><%= contact.interest_level.name if contact.interest_level.present? %></td>
         <td><%= show_boolean(contact.heal_champion) %></td>
@@ -77,7 +77,7 @@
               communication_count += 1
               break if communication_count > max_communications_to_show%>
               <div>
-                <%= link_to com.summary_for_contact(contact), edit_heal_communication_path(com) %>
+                <%= link_to com.summary_for_contact(contact), heal_communication_path(com) %>
               </div>
             <% end %>
           </div>

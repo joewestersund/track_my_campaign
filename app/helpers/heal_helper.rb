@@ -29,13 +29,13 @@ module HealHelper
         if options[:no_html] == true
           return "#{cda.city_designation.name} #{cda.date.year}"
         else
-          return link_to "#{cda.city_designation.name} #{cda.date.year}", edit_heal_city_designation_achievement_path(cda), title: "#{cda.date}\n#{cda.notes}"
+          return link_to "#{cda.city_designation.name} #{cda.date.year}", heal_city_designation_achievement_path(cda), title: "#{cda.date}\n#{cda.notes}"
         end
       else
         if options[:no_html] == true
           return "#{cda.city_designation.name}"
         else
-          return link_to "#{cda.city_designation.name}", edit_heal_city_designation_achievement_path(cda), title: cda.notes
+          return link_to "#{cda.city_designation.name}", heal_city_designation_achievement_path(cda), title: cda.notes
         end
       end
     end

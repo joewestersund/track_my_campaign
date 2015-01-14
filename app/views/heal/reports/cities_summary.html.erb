@@ -84,17 +84,17 @@
       <th>% Minority > 15%</th>
       <th>HEAL City Designation</th>
       <th>General Plan / Policy Change in Progress</th>
-      <th>Resolutions <div><%= link_to 'Add', new_heal_resolution_path %></div></th>
-      <th>Policies Adopted <div><%= link_to 'Add', new_heal_policy_adoption_path %></div></th>
-      <th>Communications <div><%= link_to 'Add', new_heal_communication_path %></div></th>
-      <th>Contacts <div><%= link_to 'Add', new_heal_contact_path %></div></th>
+      <th>Resolutions <div><%= link_to 'Add', new_heal_resolution_path if has_write_permissions?%></div></th>
+      <th>Policies Adopted <div><%= link_to 'Add', new_heal_policy_adoption_path if has_write_permissions?%></div></th>
+      <th>Communications <div><%= link_to 'Add', new_heal_communication_path if has_write_permissions?%></div></th>
+      <th>Contacts <div><%= link_to 'Add', new_heal_contact_path if has_write_permissions?%></div></th>
     </tr>
     </thead>
 
     <tbody>
     <% @cities.each do |city| %>
       <tr>
-        <td><%= link_to city.name, edit_heal_city_path(city)%></td>
+        <td><%= link_to city.name, heal_city_path(city)%></td>
         <td><%= city.state %></td>
         <td><%= city.county %></td>
         <td><%= number_with_delimiter(city.population) %></td>
@@ -106,12 +106,12 @@
         <td><%= show_boolean(city.policy_change_in_progress) %></td>
         <td>
           <% city.resolutions.order(date: :desc).each do |r| %>
-            <div><%= link_to r.policy_summary, edit_heal_resolution_path(r) %></div>
+            <div><%= link_to r.policy_summary, heal_resolution_path(r) %></div>
           <% end %>
         </td>
         <td>
           <% city.policy_adoptions.order(date: :desc).each do |pa| %>
-            <div><%= link_to pa.policy_summary, edit_heal_policy_adoption_path(pa) %></div>
+            <div><%= link_to pa.policy_summary, heal_policy_adoption_path(pa) %></div>
           <% end %>
         </td>
         <td>
