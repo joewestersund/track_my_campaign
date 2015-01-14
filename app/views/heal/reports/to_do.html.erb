@@ -3,7 +3,8 @@
 <br>
 
 <% if has_write_permissions? %>
-  <%= link_to 'New Followup task', new_heal_followup_task_path, class: "link-to-new" %> | <%= link_to 'New Milestone', new_heal_milestone_path, class: "link-to-new" %> |
+  <%= link_to 'New Followup task', new_heal_followup_task_path, class: "link-to-new" %> |
+  <%= link_to 'New Milestone', new_heal_milestone_path, class: "link-to-new" %> |
 <% end %>
 <%= link_to "Help", heal_help_task_assignments_path, class: "link-to-new" %>
 
