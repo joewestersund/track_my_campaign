@@ -1,8 +1,21 @@
 namespace :heal_ccpha_contacts do
 
-  def set_contacts_to_inactive
-    dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
+  def upload_new_contacts_test
+    contacts = []
 
+    contacts << { first_name: "Lance", last_name: "Walker", title: "Council Member", heal_city: "Greenfield, CA", organization: "Greenfield", email: "6strngwlkr@sbcglobal.net" }
+
+    upload_new(contacts)
+  end
+
+  def set_contacts_to_inactive_test
+    contacts = []
+    contacts << { first_name: "Margaret", last_name: "Abe-Koga", title: "Council Member", heal_city: "Mountain View, CA", organization: "Mountain View", email: "margaretabekoga@gmail.com" }
+
+    set_to_inactive(contacts)
+  end
+
+  def set_contacts_to_inactive
     contacts = []
 
     contacts << { first_name: "Margaret", last_name: "Abe-Koga", title: "Council Member", heal_city: "Mountain View, CA", organization: "Mountain View", email: "margaretabekoga@gmail.com" }
@@ -1271,47 +1284,10 @@ namespace :heal_ccpha_contacts do
     contacts << { first_name: "Dennis", last_name: "Zine", title: "Council Member - District 3", heal_city: "Los Angeles, CA", organization: "Los Angeles", email: "councilmember.zine@lacity.org" }
     contacts << { first_name: "Steve", last_name: "Zuckerman", title: "Council Member", heal_city: "Rolling Hills Estates, CA", organization: "Rolling Hills Estates", email: "stevez@ci.rolling-hills-estates.ca.us" }
 
-    contacts_updated = 0
-    contacts_updated_errors = 0
-    contact_errors = 0
-    error_messages = []
-
-    contacts.each do |contact|
-      matches = dbi_ccpha.contacts.where(first_name: contact[:first_name], last_name: contact[:last_name], organization_name: contact[:organization])
-      if matches.count == 0
-        contact_errors += 1
-        error_messages << "Error: no contact matches #{contact[:first_name]}, #{contact[:last_name]} at #{contact[:organization]}."
-        break
-      elsif matches.count > 1
-        contact_errors += 1
-        error_messages << "Error: more than one contact matches #{contact[:first_name]}, #{contact[:last_name]} at #{contact[:organization]}."
-        break
-      else
-        saved_contacts << matches[0]
-      end
-    end
-
-    if contact_errors == 0
-      saved_contacts.each do |contact|
-        contact.active = false  #set to inactive
-        if contact.save
-          contacts_updated += 1
-        else
-          contacts_updated_errors += 1
-          error_messages << contact.errors.inspect
-          break
-        end
-      end
-
-    end
-
-    puts error_messages
-    status_string = "Errors: #{contact_errors}, Save Errors: #{contacts_updated_errors}, Updated: #{contacts_updated}."
-    puts status_string
-
-    return status_string
+    set_to_inactive(contacts)
 
   end
+
 
   def upload_new_contacts
     dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
@@ -3131,6 +3107,58 @@ namespace :heal_ccpha_contacts do
     contacts << { first_name: "Robert", last_name: "Lombardo", title: "Council Member", heal_city: "Yucca Valley, CA", organization: "Yucca Valley", email: "" }
     contacts << { first_name: "Shane", last_name: "Stueckle", title: "Deputy Town Manager/Community Development Director", heal_city: "Yucca Valley, CA", organization: "Yucca Valley", email: "" }
     contacts << { first_name: "Curtis", last_name: "Yakimow", title: "Town Manager", heal_city: "Yucca Valley, CA", organization: "Yucca Valley", email: "" }
+
+    upload_new(contacts)
+  end
+
+  private
+
+  def set_to_inactive(contacts)
+    dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
+
+    contacts_updated = 0
+    contacts_updated_errors = 0
+    contact_errors = 0
+    error_messages = []
+
+    contacts.each do |contact|
+      matches = dbi_ccpha.contacts.where(first_name: contact[:first_name], last_name: contact[:last_name], organization_name: contact[:organization])
+      if matches.count == 0
+        contact_errors += 1
+        error_messages << "Error: no contact matches #{contact[:first_name]}, #{contact[:last_name]} at #{contact[:organization]}."
+        break
+      elsif matches.count > 1
+        contact_errors += 1
+        error_messages << "Error: more than one contact matches #{contact[:first_name]}, #{contact[:last_name]} at #{contact[:organization]}."
+        break
+      else
+        saved_contacts << matches[0]
+      end
+    end
+
+    if contact_errors == 0
+      saved_contacts.each do |contact|
+        contact.active = false  #set to inactive
+        if contact.save
+          contacts_updated += 1
+        else
+          contacts_updated_errors += 1
+          error_messages << contact.errors.inspect
+          break
+        end
+      end
+
+    end
+
+    puts error_messages
+    status_string = "Errors: #{contact_errors}, Save Errors: #{contacts_updated_errors}, Updated: #{contacts_updated}."
+    puts status_string
+
+    return status_string
+
+  end
+
+  def upload_new(contacts)
 
     contacts_added = 0
     contacts_added_errors = 0
