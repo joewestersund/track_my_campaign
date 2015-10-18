@@ -1289,7 +1289,6 @@ namespace :heal_ccpha_contacts do
       else
         saved_contacts << matches[0]
       end
-
     end
 
     if contact_errors == 0
@@ -1307,7 +1306,7 @@ namespace :heal_ccpha_contacts do
     end
 
     puts error_messages
-    status_string = "Errors: #{contact_errors}, Update Errors: #{contacts_updated_errors}, Updated: #{contacts_updated} ."
+    status_string = "Errors: #{contact_errors}, Save Errors: #{contacts_updated_errors}, Updated: #{contacts_updated}."
     puts status_string
 
     return status_string
@@ -3157,14 +3156,13 @@ namespace :heal_ccpha_contacts do
           error_messages << saved_contact.errors.inspect
           break
         end
+      else
+        error_message << "Error: the contact #{contact[:first_name]} #{contact[:last_name]} already exists."
+        break
       end
 
       saved_contact.title = contact[:title] if contact[:title].present?
-      saved_contact.organization_name = contact[:organization]
-
       saved_contact.email = contact[:email] if contact[:email].present?
-
-      saved_contact.cities.delete_all #clear out any existing cities associated with this contact.
 
       if contact[:heal_city].present?
         cities_array = contact[:heal_city].split(",")
@@ -3205,4 +3203,4 @@ namespace :heal_ccpha_contacts do
     return status_string
 
   end
-
+end
