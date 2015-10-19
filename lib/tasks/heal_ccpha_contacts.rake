@@ -21,8 +21,8 @@ namespace :heal_ccpha_contacts do
     set_to_inactive(contacts)
   end
 
-  desc "set selected contacts to inactive"
-  task set_contacts_to_inactive: :environment do
+  desc "set selected contacts to inactive 1"
+  task set_contacts_to_inactive_1: :environment do
     contacts = []
 
     contacts << { first_name: "Margaret", last_name: "Abe-Koga", title: "Council Member", heal_city: "Mountain View, CA", organization: "Mountain View", email: "margaretabekoga@gmail.com" }
@@ -1198,6 +1198,15 @@ namespace :heal_ccpha_contacts do
     contacts << { first_name: "Lynette", last_name: "Van Laar", title: "City Clerk/Finance Director", heal_city: "Ripon, CA", organization: "Ripon", email: "lvanlaar@cityofripon.org" }
     contacts << { first_name: "Jerry", last_name: "Van Leeuwen", title: "Community Services Director", heal_city: "Escondido, CA", organization: "Escondido", email: "jvanleeuwen@escondido.org" }
     contacts << { first_name: "Michael", last_name: "Vanwinkle", title: "Council Member", heal_city: "Waterford, CA", organization: "Waterford", email: "mlvanwinkle@sbcglobal.net" }
+
+    set_to_inactive(contacts)
+
+  end
+
+  desc "set selected contacts to inactive 2"
+  task set_contacts_to_inactive_2: :environment do
+    contacts = []
+
     contacts << { first_name: "Kris", last_name: "Vardas", title: "Council Member", heal_city: "Pismo Beach, CA", organization: "Pismo Beach", email: "krisvardas@yahoo.com" }
     contacts << { first_name: "Edward", last_name: "Varela", title: "Mayor Pro Tem", heal_city: "Maywood, CA", organization: "Maywood", email: "ed.varela@cityofmaywoodca.org" }
     contacts << { first_name: "Charles", last_name: "Vasquez", title: "Mayor Pro Tem", heal_city: "Cathedral City, CA", organization: "Cathedral City", email: "cvasquez@cathedralcity.gov" }
