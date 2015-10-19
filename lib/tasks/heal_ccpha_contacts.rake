@@ -8,7 +8,7 @@ namespace :heal_ccpha_contacts do
   task :upload_new_contacts_test, [:ignore_existing] => :environment do |t, args|
     contacts = []
 
-    contacts << { first_name: "Lance", last_name: "Walker", title: "Council Member", heal_city: "Greenfield, CA", organization: "Greenfield", email: "6strngwlkr@sbcglobal.net" }
+    contacts << { first_name: "Lance2", last_name: "Walker2", title: "Council Member", heal_city: "Greenfield2, CA", organization: "Greenfield2", email: "6strngwlkr@sbcglobal.net" }
 
     upload_new(contacts, args[:ignore_existing] == 'true')   #argument gets passed in as string
   end
@@ -3261,7 +3261,7 @@ namespace :heal_ccpha_contacts do
             end
           end
 
-          if not this_city_not_found
+          #if not this_city_not_found
             if saved_contact.save
               contacts_added += 1
             else
@@ -3269,7 +3269,7 @@ namespace :heal_ccpha_contacts do
               error_messages << saved_contact.errors.inspect
               break
             end
-          end
+          #end
 
         end
       end
