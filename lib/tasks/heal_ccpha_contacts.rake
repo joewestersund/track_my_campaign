@@ -3212,6 +3212,8 @@ namespace :heal_ccpha_contacts do
     error_messages = []
     existing_contacts = 0
 
+    this_city_not_found = false
+
     contacts.each do |contact|
       existing_contact = dbi_ccpha.contacts.find_by(first_name: contact[:first_name], last_name: contact[:last_name], organization_name: contact[:organization])
       if existing_contact.present?
@@ -3234,6 +3236,8 @@ namespace :heal_ccpha_contacts do
           saved_contact.email = contact[:email] if contact[:email].present?
 
           if contact[:heal_city].present?
+            this_city_not_found = false
+
             cities_array = contact[:heal_city].split(",")
             Range.new(0, cities_array.length - 1).step(2) do |index|
               city_name = cities_array[index].strip
@@ -3241,10 +3245,12 @@ namespace :heal_ccpha_contacts do
               matches = dbi_ccpha.cities.where(name: city_name, state: state_name)
               if matches.count > 1
                 contact_cities_errors += 1
+                this_city_not_found = true
                 error_messages << "Error: more than one city matches #{city_name}, #{state_name}."
                 break
               elsif matches.count == 0
                 contact_cities_errors += 1
+                this_city_not_found = true
                 error_messages << "Error: no city matches #{city_name}, #{state_name}."
                 break
               else
@@ -3255,16 +3261,17 @@ namespace :heal_ccpha_contacts do
             end
           end
 
-          if saved_contact.save
-            contacts_added += 1
-          else
-            save_errors += 1
-            error_messages << saved_contact.errors.inspect
-            break
+          if not this_city_not_found
+            if saved_contact.save
+              contacts_added += 1
+            else
+              save_errors += 1
+              error_messages << saved_contact.errors.inspect
+              break
+            end
           end
 
         end
-
       end
     end
 
