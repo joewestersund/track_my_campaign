@@ -1304,8 +1304,8 @@ namespace :heal_ccpha_contacts do
 
   end
 
-  desc "upload new contacts"
-  task :upload_new_contacts, [:ignore_existing] => :environment do |t, args|
+  desc "upload new contacts 1"
+  task :upload_new_contacts_1, [:ignore_existing] => :environment do |t, args|
     dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
 
     contacts = []
@@ -1797,6 +1797,17 @@ namespace :heal_ccpha_contacts do
     contacts << { first_name: "Laurie", last_name: "Davies", title: "Council Member", heal_city: "Laguna Niguel, CA", organization: "Laguna Niguel", email: "ldavies@cityoflagunaniguel.org" }
     contacts << { first_name: "Leslie", last_name: "Deese", title: "City Manager", heal_city: "National City, CA", organization: "National City", email: "ldeese@ci.nationalcityca.gov" }
     contacts << { first_name: "Lara", last_name: "DeLaney", title: "Council Member", heal_city: "Martinez, CA", organization: "Martinez", email: "ldelaney@cityofmartinez.org" }
+
+    upload_new(contacts, args[:ignore_existing] == 'true')   #argument gets passed in as string
+
+  end
+
+  desc "upload new contacts 2"
+  task :upload_new_contacts_2, [:ignore_existing] => :environment do |t, args|
+    dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
+
+    contacts = []
+
     contacts << { first_name: "Lee", last_name: "Brand", title: "Council Member", heal_city: "Fresno, CA", organization: "Fresno", email: "lee.brand@fresno.gov" }
     contacts << { first_name: "LeeAnn", last_name: "McPhillips", title: "Human Resources Director", heal_city: "Gilroy, CA", organization: "Gilroy", email: "leeann.mcphillips@cityofgilroy.org" }
     contacts << { first_name: "Laureen", last_name: "Turner", title: "Council Member", heal_city: "Livermore, CA", organization: "Livermore", email: "leturner@cityoflivermore.net" }
@@ -2297,6 +2308,17 @@ namespace :heal_ccpha_contacts do
     contacts << { first_name: "Amy", last_name: "Harbin", title: "Prinicipal Planner", heal_city: "Baldwin Park, CA", organization: "Baldwin Park", email: "" }
     contacts << { first_name: "Shannon", last_name: "Yauchzee", title: "Chief Executive Officer", heal_city: "Baldwin Park, CA", organization: "Baldwin Park", email: "" }
     contacts << { first_name: "Zaiton", last_name: "Abu-Bakar", title: "Community Development Director", heal_city: "Banning, CA", organization: "Banning", email: "" }
+
+    upload_new(contacts, args[:ignore_existing] == 'true')   #argument gets passed in as string
+
+  end
+
+  desc "upload new contacts 3"
+  task :upload_new_contacts_3, [:ignore_existing] => :environment do |t, args|
+    dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
+
+    contacts = []
+
     contacts << { first_name: "Marie", last_name: "Calderon", title: "City Clerk", heal_city: "Banning, CA", organization: "Banning", email: "" }
     contacts << { first_name: "Brian", last_name: "Guillot", title: "Acting Community Development Director", heal_city: "Banning, CA", organization: "Banning", email: "" }
     contacts << { first_name: "Dean", last_name: "Martin", title: "Interim City Manager", heal_city: "Banning, CA", organization: "Banning", email: "" }
@@ -2779,6 +2801,17 @@ namespace :heal_ccpha_contacts do
     contacts << { first_name: "Tony", last_name: "Madrigal", title: "Council Member", heal_city: "Modesto, CA", organization: "Modesto", email: "" }
     contacts << { first_name: "Brent", last_name: "Sinclair", title: "Community & Economic Dev. Director", heal_city: "Modesto, CA", organization: "Modesto", email: "" }
     contacts << { first_name: "Bill", last_name: "Zoslocki", title: "Council Member", heal_city: "Modesto, CA", organization: "Modesto", email: "" }
+
+    upload_new(contacts, args[:ignore_existing] == 'true')   #argument gets passed in as string
+
+  end
+
+  desc "upload new contacts 4"
+  task :upload_new_contacts_4, [:ignore_existing] => :environment do |t, args|
+    dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
+
+    contacts = []
+
     contacts << { first_name: "Maureen", last_name: "Benson", title: "City Clerk", heal_city: "Moorpark, CA", organization: "Moorpark", email: "" }
     contacts << { first_name: "David", last_name: "Bobardt", title: "Community Dev. Director", heal_city: "Moorpark, CA", organization: "Moorpark", email: "" }
     contacts << { first_name: "Jeremy", last_name: "Laurentowski", title: "Parks & Recreation Director", heal_city: "Moorpark, CA", organization: "Moorpark", email: "" }
