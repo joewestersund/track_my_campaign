@@ -8,9 +8,12 @@ namespace :heal_ccpha_contacts do
   task :upload_new_contacts_test, [:ignore_existing] => :environment do |t, args|
     contacts = []
 
-    contacts << { first_name: "Lance2", last_name: "Walker2", title: "Council Member", heal_city: "Greenfield2, CA", organization: "Greenfield2", email: "6strngwlkr@sbcglobal.net" }
+    contacts << { first_name: "Lesa", last_name: "Heebner", title: "Council Member", heal_city: "Solana Beach, CA", organization: "Solana Beach", email: "lheebner@cosb.org" }
+    contacts << { first_name: "Tim", last_name: "Herman", title: "Council Member", heal_city: "Roseville, CA", organization: "Roseville", email: "lheple@roseville.ca.us" }
+    contacts << { first_name: "Elizabeth", last_name: "Lewis", title: "Mayor", heal_city: "Atherton, CA", organization: "Atherton", email: "cemarsala@yahoo.com" }
+    contacts << { first_name: "Chris", last_name: "Canning", title: "Mayor", heal_city: "Calistoga, CA", organization: "Calistoga", email: "ccanning@ci.calistoga.ca.us" }
 
-    upload_new(contacts, args[:ignore_existing] == 'true')   #argument gets passed in as string
+    upload_new(contacts)   #argument gets passed in as string
   end
 
   desc "set to inactive test"
@@ -1798,7 +1801,7 @@ namespace :heal_ccpha_contacts do
     contacts << { first_name: "Leslie", last_name: "Deese", title: "City Manager", heal_city: "National City, CA", organization: "National City", email: "ldeese@ci.nationalcityca.gov" }
     contacts << { first_name: "Lara", last_name: "DeLaney", title: "Council Member", heal_city: "Martinez, CA", organization: "Martinez", email: "ldelaney@cityofmartinez.org" }
 
-    upload_new(contacts, args[:ignore_existing] == 'true')   #argument gets passed in as string
+    upload_new(contacts)   #argument gets passed in as string
 
   end
 
@@ -2309,7 +2312,7 @@ namespace :heal_ccpha_contacts do
     contacts << { first_name: "Shannon", last_name: "Yauchzee", title: "Chief Executive Officer", heal_city: "Baldwin Park, CA", organization: "Baldwin Park", email: "" }
     contacts << { first_name: "Zaiton", last_name: "Abu-Bakar", title: "Community Development Director", heal_city: "Banning, CA", organization: "Banning", email: "" }
 
-    upload_new(contacts, args[:ignore_existing] == 'true')   #argument gets passed in as string
+    upload_new(contacts)   #argument gets passed in as string
 
   end
 
@@ -2802,7 +2805,7 @@ namespace :heal_ccpha_contacts do
     contacts << { first_name: "Brent", last_name: "Sinclair", title: "Community & Economic Dev. Director", heal_city: "Modesto, CA", organization: "Modesto", email: "" }
     contacts << { first_name: "Bill", last_name: "Zoslocki", title: "Council Member", heal_city: "Modesto, CA", organization: "Modesto", email: "" }
 
-    upload_new(contacts, args[:ignore_existing] == 'true')   #argument gets passed in as string
+    upload_new(contacts)   #argument gets passed in as string
 
   end
 
@@ -3157,7 +3160,7 @@ namespace :heal_ccpha_contacts do
     contacts << { first_name: "Shane", last_name: "Stueckle", title: "Deputy Town Manager/Community Development Director", heal_city: "Yucca Valley, CA", organization: "Yucca Valley", email: "" }
     contacts << { first_name: "Curtis", last_name: "Yakimow", title: "Town Manager", heal_city: "Yucca Valley, CA", organization: "Yucca Valley", email: "" }
 
-    upload_new(contacts, args[:ignore_existing] == 'true')   #argument gets passed in as string
+    upload_new(contacts)   #argument gets passed in as string
   end
 
   private
@@ -3202,82 +3205,86 @@ namespace :heal_ccpha_contacts do
 
   end
 
-  def upload_new(contacts, ignore_existing)
+  def upload_new(contacts)
     dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
 
     contacts_added = 0
+    contacts_saved = 0
     contact_cities_added = 0
     contact_cities_errors = 0
     save_errors = 0
     error_messages = []
     existing_contacts = 0
-
-    this_city_not_found = false
+    cities_added = 0
+    changes_made = false
 
     contacts.each do |contact|
-      existing_contact = dbi_ccpha.contacts.find_by(first_name: contact[:first_name], last_name: contact[:last_name], organization_name: contact[:organization])
-      if existing_contact.present?
-        existing_contacts += 1
-        error_messages << "Error: the contact #{contact[:first_name]} #{contact[:last_name]} (#{contact[:title]} at #{contact[:organization]}) already exists."
+      saved_contact = dbi_ccpha.contacts.find_by(first_name: contact[:first_name], last_name: contact[:last_name], organization_name: contact[:organization])
+      changes_made = false
+
+      if saved_contact.nil?
+        changes_made = true
+        saved_contact = Heal::Contact.new
+        saved_contact.database_instance = dbi_ccpha
+        saved_contact.first_name = contact[:first_name]
+        saved_contact.last_name = contact[:last_name]
+        saved_contact.organization_name = contact[:organization]
+
+        saved_contact.title = contact[:title] if contact[:title].present?
+        saved_contact.email = contact[:email] if contact[:email].present?
+        contacts_added += 1
       end
-    end
 
-    if existing_contacts == 0 or ignore_existing
-      contacts.each do |contact|
-        saved_contact = dbi_ccpha.contacts.find_by(first_name: contact[:first_name], last_name: contact[:last_name], organization_name: contact[:organization])
-        if saved_contact.nil?
-          saved_contact = Heal::Contact.new
-          saved_contact.database_instance = dbi_ccpha
-          saved_contact.first_name = contact[:first_name]
-          saved_contact.last_name = contact[:last_name]
-          saved_contact.organization_name = contact[:organization]
+      if saved_contact.cities.count == 0 and contact[:heal_city].present?
+        cities_array = contact[:heal_city].split(",")
+        Range.new(0, cities_array.length - 1).step(2) do |index|
+          city_name = cities_array[index].strip
+          state_name = cities_array[index+1].strip
+          matches = dbi_ccpha.cities.where(name: city_name, state: state_name)
+          if matches.count > 1
+            contact_cities_errors += 1
+            error_messages << "Error: more than one city matches #{city_name}, #{state_name}."
+            break
+          elsif matches.count == 0
+            error_messages << "No city matches #{city_name}, #{state_name}. Adding in db."
 
-          saved_contact.title = contact[:title] if contact[:title].present?
-          saved_contact.email = contact[:email] if contact[:email].present?
-
-          if contact[:heal_city].present?
-            this_city_not_found = false
-
-            cities_array = contact[:heal_city].split(",")
-            Range.new(0, cities_array.length - 1).step(2) do |index|
-              city_name = cities_array[index].strip
-              state_name = cities_array[index+1].strip
-              matches = dbi_ccpha.cities.where(name: city_name, state: state_name)
-              if matches.count > 1
-                contact_cities_errors += 1
-                this_city_not_found = true
-                error_messages << "Error: more than one city matches #{city_name}, #{state_name}."
-                break
-              elsif matches.count == 0
-                contact_cities_errors += 1
-                this_city_not_found = true
-                error_messages << "Error: no city matches #{city_name}, #{state_name}."
-                break
-              else
-                saved_city = matches.first
-                saved_contact.cities << saved_city #associate this city with this contact.
-                contact_cities_added += 1
-              end
-            end
-          end
-
-          #if not this_city_not_found
-            if saved_contact.save
-              contacts_added += 1
+            #add a new city
+            saved_city = Heal::City.new
+            saved_city.database_instance = dbi_ccpha
+            saved_city.name = city_name
+            saved_city.state = "CA"
+            saved_city.jurisdiction_type = dbi_ccpha.jurisdiction_types.find_by(name: "City")
+            saved_city.kp_service_area = true
+            if saved_city.save
+              cities_added += 1
             else
-              save_errors += 1
-              error_messages << saved_contact.errors.inspect
+              add_error_count += 1
+              error_messages << saved_city.errors.inspect
               break
             end
-          #end
-
+          else
+            saved_city = matches.first
+          end
+          saved_contact.cities << saved_city #associate this city with this contact.
+          changes_made = true
+          contact_cities_added += 1
         end
       end
+
+      if changes_made
+        if saved_contact.save
+          contacts_saved += 1
+        else
+          save_errors += 1
+          error_messages << saved_contact.errors.inspect
+          break
+        end
+      end
+
     end
 
     puts error_messages
-    puts "ignore_existing = #{ignore_existing}"
-    status_string = "Contacts added: #{contacts_added} / save errors: #{save_errors} / existing contacts: #{existing_contacts}."
+    status_string = "Contacts added: #{contacts_added} / Contacts saved: #{contacts_saved} / save errors: #{save_errors} / cities added: #{cities_added} / contact cities added: #{contact_cities_added}."
     puts status_string
 
     return status_string
