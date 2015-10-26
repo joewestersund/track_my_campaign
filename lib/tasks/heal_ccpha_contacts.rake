@@ -4,6 +4,15 @@ namespace :heal_ccpha_contacts do
     puts "nothing done"
   end
 
+
+  desc "output the number of contacts in this db"
+  task number_of_contacts: :environment do
+    dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
+    num_contacts = dbi_ccpha.contacts.count
+
+    puts "number of contacts: #{num_contacts}"
+  end
+
   desc "upload test"
   task :upload_new_contacts_test, [:ignore_existing] => :environment do |t, args|
     contacts = []
