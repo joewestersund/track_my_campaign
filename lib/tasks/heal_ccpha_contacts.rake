@@ -9,8 +9,10 @@ namespace :heal_ccpha_contacts do
   task number_of_contacts: :environment do
     dbi_ccpha = Heal::DatabaseInstance.find_by(instance_name: CCPHA_DATABASE_INSTANCE_NAME)
     num_contacts = dbi_ccpha.contacts.count
+    inactive_contacts = dbi_ccpha.contacts.where(active: false).count
+    active_contacts = dbi_ccpha.contacts.where(active: true).count
 
-    puts "number of contacts: #{num_contacts}"
+    puts "number of contacts: #{num_contacts} / inactive #{inactive_contacts} / active: #{active_contacts}"
   end
 
   desc "upload test"
