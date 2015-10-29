@@ -85,9 +85,7 @@ group :development, :text do
 end
 
 # Use unicorn as the app server
-group :production do
-  gem 'unicorn'
-end
+gem 'unicorn'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
