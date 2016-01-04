@@ -58,7 +58,6 @@ gem 'bootstrap-datepicker-rails'
 
 #for uploading Excel files
 gem 'roo'
-#gem 'google-drive-ruby'  #for Google spreadsheets support
 
 group :development do
   gem 'rails_layout'  #gem to set up for bootstrap css and js http://railsapps.github.io/twitter-bootstrap-rails.html
@@ -79,7 +78,7 @@ group :test do
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
 
-group :development, :text do
+group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec'
 end
