@@ -1,5 +1,5 @@
 worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
-timeout 120
+timeout 60
 
 # Enable streaming (for XLSX downloads)
 port = (ENV["PORT"] || 3000).to_i
