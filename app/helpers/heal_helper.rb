@@ -56,7 +56,9 @@ module HealHelper
         end
         first_item = false
       end
-      return raw(cda_string)
+      #return raw(cda_string)
+      return cda_string if options[:no_html] == true
+      cda_string.html_safe
     end
   end
 

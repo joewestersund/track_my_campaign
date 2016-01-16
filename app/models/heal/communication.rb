@@ -88,4 +88,27 @@ class Heal::Communication < ActiveRecord::Base
     end
   end
 
+  def self.header_row
+    ["ID", "Date", "Duration (minutes)",
+     "Communication Type", "Event Name",
+     "Topics", "Interest Level",
+     "Cities Involved", "Contacts Involved",
+     "Others Involved", "Staff Involved", "Notes"]
+  end
+
+  def to_row
+    [self.id,
+     self.date.strftime("%m/%d/%Y"),
+     self.duration_minutes,
+     get_name(self.communication_type),
+     self.event_name,
+     show_comma_separated_list(self.topics.all, "topics"),
+     get_name(self.interest_level),
+     show_cities_list(self.cities,{show_state: true, show_all: true}),
+     show_contacts_list(self.contacts,{show_all: true}),
+     self.others_involved,
+     show_users_list(self.staff_involved.all),
+     self.notes]
+  end
+
 end

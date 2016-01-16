@@ -34,7 +34,7 @@ class Heal::CitiesController < ApplicationController
     @cities = cities.where(get_conditions).order(:name)
 
     if request.format == :html
-      #only do paging if in html format, not if in xlsx
+      #only do paging if in html format, not if in xlsx or csv
       @cities = @cities.page(params[:page]).per_page(page_size)
     end
 

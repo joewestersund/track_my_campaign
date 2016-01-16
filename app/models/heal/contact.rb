@@ -35,6 +35,9 @@
 #
 
 class Heal::Contact < ActiveRecord::Base
+  include ApplicationHelper
+  include HealHelper
+
   belongs_to :database_instance
   belongs_to :honorific
   belongs_to :interest_level
@@ -96,5 +99,40 @@ class Heal::Contact < ActiveRecord::Base
       {type: :contact, description: "Contact #{first_and_last_name} was updated", date: updated_at, obj:self}
     end
   end
+
+  def self.header_row
+    ["ID","Honorific","First Name","Last Name","Title",
+     "Position Type","Organization Name","Organization Type","Cities",
+     "Office Phone","Cell Phone","Fax","Email",
+     "Address Line 1","Address Line 2","City","State","ZIP",
+     "Interest Level","Heal Champion","Heal Champion Notes","Active","Notes"]
+  end
+
+  def to_row
+    [self.id,
+     get_name(self.honorific),
+     self.first_name,
+     self.last_name,
+     self.title,
+     get_name(self.position_type),
+     self.organization_name,
+     get_name(self.organization_type),
+     show_cities_list(self.cities,{show_state: true, show_all: true}),
+     self.office_phone_number,
+     self.cell_phone_number,
+     self.fax,
+     self.email,
+     self.address_line_1,
+     self.address_line_2,
+     self.address_city,
+     self.address_state,
+     self.address_zip,
+     get_name(self.interest_level),
+     show_boolean(self.heal_champion),
+     self.heal_champion_notes,
+     self.active,
+     self.notes]
+  end
+
 
 end

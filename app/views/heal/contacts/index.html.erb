@@ -75,7 +75,9 @@
   <div class="no_data">No data has been entered, or no data matches the filter above.</div>
 <% else %>
   <p>
-    <%= link_to "Download to Excel", heal_contacts_path(format: "xlsx") + "?" + request.query_string, class:"link-to-download" %>
+    Download to Excel as
+    <%= link_to "CSV", heal_contacts_path(format: "csv") + "?" + request.query_string, class:"link-to-download" %>
+    | <%= link_to "XLSX", heal_contacts_path(format: "xlsx") + "?" + request.query_string, class:"link-to-download" %>
   </p>
 
   <table>

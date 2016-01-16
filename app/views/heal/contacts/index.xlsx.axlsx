@@ -5,17 +5,9 @@ data_style = wb.styles.add_style alignment: {horizontal: :center, vertical: :cen
 
 wb.add_worksheet(name: 'Contacts') do |sheet|
 
-  sheet.add_row ["ID","Honorific","First Name","Last Name","Title",
-                 "Position Type","Organization Name","Organization Type","Cities",
-                 "Office Phone","Cell Phone","Fax","Email",
-                 "Address Line 1","Address Line 2","City","State","ZIP",
-                 "Interest Level","Heal Champion","Heal Champion Notes","Active","Notes"], style: header_style
+  sheet.add_row Heal::Contact.header_row, style: header_style
 
   @contacts.each do |c|
-    sheet.add_row [c.id, get_name(c.honorific) , c.first_name, c.last_name, c.title,
-                   get_name(c.position_type), c.organization_name, get_name(c.organization_type), show_cities_list(c.cities,{show_state: true, show_all: true}),
-                   c.office_phone_number, c.cell_phone_number, c.fax, c.email,
-                   c.address_line_1, c.address_line_2, c.address_city, c.address_state, c.address_zip,
-                   get_name(c.interest_level), show_boolean(c.heal_champion),c.heal_champion_notes, c.active, c.notes], style: data_style
+    sheet.add_row c.to_row, style: data_style
   end
 end

@@ -6,17 +6,9 @@ data_style = wb.styles.add_style alignment: {horizontal: :center, vertical: :cen
 
 wb.add_worksheet(name: 'Communications') do |sheet|
 
-  sheet.add_row ["ID", "Date", "Duration (minutes)",
-                "Communication Type", "Event Name",
-                "Topics", "Interest Level",
-                "Cities Involved", "Contacts Involved",
-                "Others Involved", "Staff Involved", "Notes"], style: header_style
+  sheet.add_row Heal::Communication.header_row, style: header_style
 
   @communications.each do |c|
-    sheet.add_row [c.id, c.date.strftime("%m/%d/%Y"), c.duration_minutes,
-                   get_name(c.communication_type), c.event_name,
-                   show_comma_separated_list(c.topics.all, "topics"), get_name(c.interest_level),
-                   show_cities_list(c.cities,{show_state: true, show_all: true}), show_contacts_list(c.contacts,{show_all: true}),
-                   c.others_involved, show_users_list(c.staff_involved.all), c.notes], style: data_style
+    sheet.add_row c.to_row, style: data_style
   end
 end

@@ -17,12 +17,15 @@ class Heal::ContactsController < ApplicationController
     end
 
     if request.format == :html
-      #only do paging if in html format, not if in xlsx
+      #only do paging if in html format, not if in xlsx or csv
       @contacts = @contacts.page(params[:page]).per_page(page_size)
     end
     respond_to do |format|
       format.html
       format.xlsx
+      format .csv {
+        stream_csv("contacts",@contacts)
+      }
     end
   end
 

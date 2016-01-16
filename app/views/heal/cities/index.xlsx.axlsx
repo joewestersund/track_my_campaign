@@ -6,35 +6,9 @@ data_style = wb.styles.add_style alignment: {horizontal: :center, vertical: :cen
 
 wb.add_worksheet(name: 'Cities') do |sheet|
 
-  sheet.add_row ["ID", "Name", "State",
-                 "County", "Jurisdiction Type", "League Division",
-                 "Population", "In KP Service Area", "Under-Resourced or Disease Burdened Area",
-                 "State Median Income", "City Median Income",
-                 "Minorities > 15%", "% White alone", '% Not "White Alone"',
-                 "% African American alone", "% American Indian and Alaska Native alone",
-                 "% Asian alone", "% Native Hawaiian and Other Pacific Islander alone",
-                 "% Some Other Race alone", "% Two or More Races",
-                 "HEAL City Designation", "Policy Change in Progress"], style: header_style
+  sheet.add_row Heal::City.header_row, style: header_style
 
   @cities.each do |city|
-    sheet.add_row [city.id, city.name, city.state, city.county,
-                   (city.jurisdiction_type.name if city.jurisdiction_type.present?),
-                   (city.league_division.name if city.league_division.present?),
-                   number_with_delimiter(city.population),
-                   show_boolean(city.kp_service_area),
-                   show_boolean(city.under_resourced_or_disease_burden),
-                   number_to_currency(city.state_median_income, precision: 0),
-                   number_to_currency(city.city_median_income, precision: 0),
-                   show_boolean(city.minorities_more_than_fifteen_percent),
-                   number_to_percentage(city.percent_white_alone, precision:2),
-                   number_to_percentage(city.percent_not_white_alone, precision:2),
-                   number_to_percentage(city.percent_african_american_alone, precision:2),
-                   number_to_percentage(city.percent_native_american_alone, precision:2),
-                   number_to_percentage(city.percent_asian_alone, precision:2),
-                   number_to_percentage(city.percent_pacific_islander_alone, precision:2),
-                   number_to_percentage(city.percent_other_race_alone, precision:2),
-                   number_to_percentage(city.percent_two_or_more_races, precision:2),
-                   show_city_designation_achievements_list(city, {no_html: true}),
-                   show_boolean(city.policy_change_in_progress)], style: data_style
+    sheet.add_row(city.to_row, style: data_style)
   end
 end
