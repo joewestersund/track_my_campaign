@@ -16,7 +16,10 @@ module CsvStreamingHelper
     response.stream.write CSV.generate_line(object_list.first.class.header_row)  if object_list.count > 0
 
     #write out each row of data
-    object_list.each do |obj|
+    #object_list.each do |obj|
+
+    #note: results may not be in order because it's retrieved in batches.
+    object_list.find_each(batch_size:50) do |obj|
       response.stream.write CSV.generate_line(obj.to_row)
     end
 
