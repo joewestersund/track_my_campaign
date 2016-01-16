@@ -22,7 +22,6 @@ class Heal::ContactsController < ApplicationController
     end
     respond_to do |format|
       format.html
-      #format.xls
       format.xlsx
     end
   end

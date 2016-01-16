@@ -7,5 +7,6 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include DatabaseInstancesHelper
   include HealHelper
+  include CsvStreamingHelper
 
 end

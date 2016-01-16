@@ -76,4 +76,42 @@ class Heal::City < ActiveRecord::Base
     end
   end
 
+
+  def self.csv_header
+    ["ID", "Name", "State",
+     "County", "Jurisdiction Type", "League Division",
+     "Population", "In KP Service Area", "Under-Resourced or Disease Burdened Area",
+     "State Median Income", "City Median Income",
+     "Minorities > 15%", "% White alone", '% Not "White Alone"',
+     "% African American alone", "% American Indian and Alaska Native alone",
+     "% Asian alone", "% Native Hawaiian and Other Pacific Islander alone",
+     "% Some Other Race alone", "% Two or More Races",
+     "HEAL City Designation", "Policy Change in Progress"]
+  end
+
+  def to_csv_row
+    av_helpers = ActionController::Base.helpers
+    app_helpers = ApplicationController.helpers
+
+    [self.id, self.name, self.state, self.county,
+     (self.jurisdiction_type.name if self.jurisdiction_type.present?),
+     (self.league_division.name if self.league_division.present?),
+     av_helpers.number_with_delimiter(self.population),
+     app_helpers.show_boolean(self.kp_service_area),
+     app_helpers.show_boolean(self.under_resourced_or_disease_burden),
+     av_helpers.number_to_currency(self.state_median_income, precision: 0),
+     av_helpers.number_to_currency(self.city_median_income, precision: 0),
+     app_helpers.show_boolean(self.minorities_more_than_fifteen_percent),
+     av_helpers.number_to_percentage(self.percent_white_alone, precision:2),
+     av_helpers.number_to_percentage(self.percent_not_white_alone, precision:2),
+     av_helpers.number_to_percentage(self.percent_african_american_alone, precision:2),
+     av_helpers.number_to_percentage(self.percent_native_american_alone, precision:2),
+     av_helpers.number_to_percentage(self.percent_asian_alone, precision:2),
+     av_helpers.number_to_percentage(self.percent_pacific_islander_alone, precision:2),
+     av_helpers.number_to_percentage(self.percent_other_race_alone, precision:2),
+     av_helpers.number_to_percentage(self.percent_two_or_more_races, precision:2),
+     app_helpers.show_city_designation_achievements_list(self, {no_html: true}),
+     app_helpers.show_boolean(self.policy_change_in_progress)]
+  end
+
 end

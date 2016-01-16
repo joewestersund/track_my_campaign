@@ -9,7 +9,7 @@ class Heal::CitiesController < ApplicationController
   def index
     if params[:city_designation_id] == HealHelper::NONE_OF_THE_ABOVE_VALUE_IN_DROPDOWN
       #the user wants a list of all cities that don't have any city designation achievements.
-      @cities = current_db.cities.joins("LEFT JOIN city_designation_achievements cda ON cities.id = cda.city_id").where("cda.id IS NULL")
+      cities = current_db.cities.joins("LEFT JOIN city_designation_achievements cda ON cities.id = cda.city_id").where("cda.id IS NULL")
     elsif params[:city_designation_id].present?
       #only do this join if we're filtering down to only one city_designation.
       #otherwise we might have multiple rows for one city.
@@ -26,12 +26,12 @@ class Heal::CitiesController < ApplicationController
       #  GROUP BY city_id) AS MAX_QUERY ON city_designation_achievements.city_id = MAX_Query.city_id
       #  AND coalesce(city_designation_achievements.date,'1/1/1900') = MAX_QUERY.maxdate").where.not(id: nil).select(:id)
 
-      @cities = current_db.cities.joins(:city_designation_achievements).where("city_designation_achievements.id IN (?)", cda_ids)
+      cities = current_db.cities.joins(:city_designation_achievements).where("city_designation_achievements.id IN (?)", cda_ids)
     else
-      @cities = current_db.cities
+      cities = current_db.cities
     end
 
-    @cities = @cities.where(get_conditions).order(:name)
+    @cities = cities.where(get_conditions).order(:name)
 
     if request.format == :html
       #only do paging if in html format, not if in xlsx
@@ -41,6 +41,9 @@ class Heal::CitiesController < ApplicationController
     respond_to do |format|
       format.html
       format.xlsx
+      format.csv {
+        stream_csv("cities",@cities)
+      }
     end
 
   end
