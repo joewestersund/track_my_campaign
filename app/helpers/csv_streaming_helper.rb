@@ -12,18 +12,17 @@ module CsvStreamingHelper
   end
 
   def write_csv_rows(object_list)
-    #write out the header row
-    response.stream.write CSV.generate_line(object_list.first.class.header_row)  if object_list.count > 0
+    begin
+      #write out the header row
+      response.stream.write CSV.generate_line(object_list.first.class.header_row)  if object_list.count > 0
 
-    #write out each row of data
-    #object_list.each do |obj|
-
-    #note: results may not be in order because it's retrieved in batches.
-    object_list.find_each(batch_size:50) do |obj|
-      response.stream.write CSV.generate_line(obj.to_row)
+      #write out each row of data
+      object_list.each do |obj|
+        response.stream.write CSV.generate_line(obj.to_row)
+      end
+    ensure
+      response.stream.close
     end
-
-    response.stream.close
   end
 
   def set_csv_file_headers(filename)

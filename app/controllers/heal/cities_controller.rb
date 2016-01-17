@@ -1,4 +1,6 @@
 class Heal::CitiesController < ApplicationController
+  include ActionController::Live
+
   before_action :check_current_db_exists
   before_action :check_has_write_permissions, except: [:index, :show]
   before_action :set_city, only: [:show, :edit, :update, :destroy]
