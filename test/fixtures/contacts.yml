@@ -1,0 +1,17 @@
+contact1:
+  id: 1
+  database_instance_id: 1
+  first_name: Joe
+  last_name: Westersund
+  email: test@example.com
+  heal_champion: false
+  active: true
+
+contact2:
+  id: 2
+  database_instance_id: 1
+  first_name: Bob
+  last_name: Jones
+  email: bob_jones@example.com
+  heal_champion: false
+  active: true

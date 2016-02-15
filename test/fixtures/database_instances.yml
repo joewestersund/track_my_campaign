@@ -1,0 +1,9 @@
+db_instance1:
+  id: 1
+  type: Heal::DatabaseInstance
+  instance_name: Test1
+
+db_instance2:
+  id: 2
+  type: Heal::DatabaseInstance
+  instance_name: Test2

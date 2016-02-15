@@ -1,0 +1,29 @@
+up1-1:
+  database_instance_id: 1
+  user_id: 1
+  read_only: false
+
+up2-1:
+  database_instance_id: 1
+  user_id: 2
+  read_only: false
+
+#up1-2:
+#  database_instance_id: 2
+#  user_id: 1
+#  read_only: true
+
+up2-2:
+  database_instance_id: 2
+  user_id: 2
+  read_only: true
+
+up_admin1:
+  database_instance_id: 1
+  user_id: 3
+  read_only: false
+
+up_admin2:
+  database_instance_id: 2
+  user_id: 3
+  read_only: false

@@ -1,0 +1,9 @@
+comm_type_phone:
+  database_instance_id: 1
+  name: phone call
+  order_in_list: 1
+
+comm_type_meeting:
+  database_instance_id: 1
+  name: meeting
+  order_in_list: 1

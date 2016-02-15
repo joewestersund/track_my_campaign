@@ -1,0 +1,18 @@
+comm1:
+  id: 1
+  database_instance_id: 1
+  date: 1/1/2016
+  duration_minutes: 5
+  communication_type_id: 1
+  notes: test communication
+  others_involved: some people
+  interest_level_id: 1
+
+comm2:
+  id: 2
+  database_instance_id: 1
+  date: 1/2/2016
+  duration_minutes: 30
+  communication_type_id: 2
+  notes: test meeting
+  interest_level_id: 2

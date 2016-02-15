@@ -1,0 +1,5 @@
+jurisdiction_type1:
+  id: 1
+  database_instance_id: 1
+  name: city
+  order_in_list: 1

@@ -1,0 +1,23 @@
+city1:
+   id: 1
+   database_instance_id: 1
+   name: Portland
+   county: Multnomah
+   state: Oregon
+   jurisdiction_type_id: 1
+
+city2:
+  id: 2
+  database_instance_id: 1
+  name: Gresham
+  county: Multnomah
+  state: Oregon
+  jurisdiction_type_id: 1
+
+city3:
+  id: 3
+  database_instance_id: 1
+  name: Vancouver
+  county: Clark
+  state: Washington
+  jurisdiction_type_id: 1

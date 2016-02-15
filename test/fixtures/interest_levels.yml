@@ -1,0 +1,11 @@
+interest_level1:
+  id: 1
+  database_instance_id: 1
+  name: very interested
+  order_in_list: 1
+
+interest_level2:
+  id: 2
+  database_instance_id: 1
+  name: not interested
+  order_in_list: 2

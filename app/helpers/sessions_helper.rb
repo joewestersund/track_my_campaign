@@ -102,8 +102,7 @@ module SessionsHelper
         #admins have access to all database instances
         return DatabaseInstance.all
       else
-        #if user isn't an admin, then they will have an organization_id.
-        return current_user.database_instances.all
+        return current_user.database_instances #.all is deprecated
       end
     else
       return []

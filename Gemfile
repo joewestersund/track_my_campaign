@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-gem 'pg', '0.17.1' #PostgreSQL
+gem 'pg', '0.18.4' # upgraded from '0.17.1' #PostgreSQL
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -67,20 +67,19 @@ group :development do
 end
 
 group :test do
+  gem "connection_pool"
+
+  gem "poltergeist"
   gem 'capybara'
   gem 'rb-fsevent'
-  #gem 'growl'  #not needed if we don't want notifications from guard.
-  gem 'guard-spork'
-  gem 'spork-rails'
-  gem 'factory_girl_rails'
 
-  gem 'cucumber-rails', '1.4.0', :require => false
-  gem 'database_cleaner', github: 'bmabey/database_cleaner'
-end
+  #for model tests
+  gem "shoulda"
+  #gem "shoulda-context"
+  #gem "shoulda-matchers", require: false
 
-group :development, :test do
-  gem 'rspec-rails'
-  gem 'guard-rspec'
+  #for color coding of test results
+  gem 'minitest-reporters'
 end
 
 # Use unicorn as the app server
@@ -89,4 +88,4 @@ gem 'unicorn'
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-ruby '2.0.0'
+ruby '2.2.4'
