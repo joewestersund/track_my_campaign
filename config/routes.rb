@@ -54,6 +54,7 @@ TrackMyCampaign::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   get '/signin', to: "sessions#new"
+
   delete '/signout', to: "sessions#destroy"
 
   root 'static_pages#about'
