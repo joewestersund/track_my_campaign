@@ -42,10 +42,6 @@ gem 'rails_12factor' #for deployment to Heroku
 
 gem 'bootstrap-sass' #include bootstrap css and js files
 
-#for uploading pictures of contacts
-gem 'paperclip'
-gem 'aws-sdk'
-
 # for multi-select listboxes
 # https://github.com/benjamincanac/bootstrap-multiselect-rails
 # http://rubygems.org/gems/bootstrap-multiselect-rails4
